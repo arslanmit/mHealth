@@ -16,7 +16,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var requestButton: UIButton!
     @IBOutlet weak var displayField: UITextView!
-    
+    //
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    
+    //
     @IBAction func requestButtonDidTouch(_ sender: Any) {
         
         var shareTypes = Set<HKSampleType>()
@@ -50,6 +50,10 @@ class ViewController: UIViewController {
         
         
         
+    }
+    
+    func commitTest(){
+        print()
     }
     
     func hasKit(){
