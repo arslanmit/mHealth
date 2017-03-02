@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         FIRAuth.auth()!.signIn(withEmail: emailField.text!,
                                password: passwordField.text!, completion: { user, error in
                                 
-                                if error == nil {
+                                if error != nil { //unsucessful
                                     let alert = UIAlertController(title: "Login Error...",
                                                                   message: "Please register for an account!",
                                                                   preferredStyle: .alert)
@@ -50,10 +50,10 @@ class ViewController: UIViewController {
     
     @IBAction func createAccountDidTouch(_ sender: Any) {
         FIRAuth.auth()!.createUser(withEmail: emailField.text!,
-           password: passwordField.text!) { user, error in
-            if error == nil {
-                let alert = UIAlertController(title: "Sign Up Error...",
-                                              message: "Please login!",
+                                   password: passwordField.text!) { user, error in
+            if error != nil { //unsucessful
+                let alert = UIAlertController(title: "Create account error",
+                                              message: "Please enter a valid email address. \n Please enter a password more than 6 characters in length. \n Now, please login!",
                                               preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "Okay",
                                              style: .default)
