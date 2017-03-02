@@ -24,8 +24,56 @@ class ViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var createAccountButton: UIButton!
     
-    //MARK: Firebase
-    let ref = FIRDatabase.database().reference(withPath: "Work-Days")
+    
+
+    //Firebase Buttons
+    
+    @IBAction func loginDidTouch(_ sender: Any) {
+        FIRAuth.auth()!.signIn(withEmail: emailField.text!,
+                               password: passwordField.text!, completion: { user, error in
+                                
+                                if error == nil {
+                                    let alert = UIAlertController(title: "Login Error...",
+                                                                  message: "Please register for an account!",
+                                                                  preferredStyle: .alert)
+                                    let okAction = UIAlertAction(title: "Okay",
+                                                                 style: .default)
+                                    alert.addAction(okAction)
+                                    self.present(alert, animated: true, completion: nil)
+                                }
+                                else{
+                                    print("logged in")
+                                }
+        })
+    }
+   
+    
+    @IBAction func createAccountDidTouch(_ sender: Any) {
+        FIRAuth.auth()!.createUser(withEmail: emailField.text!,
+           password: passwordField.text!) { user, error in
+            if error == nil {
+                let alert = UIAlertController(title: "Sign Up Error...",
+                                              message: "Please login!",
+                                              preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Okay",
+                                             style: .default)
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
+            }
+            else{
+                let alert = UIAlertController(title: "User created!",
+                                              message: "Please log in now!",
+                                              preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Okay",
+                                             style: .default)
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+
+    }
+    
+    
     
     
     
