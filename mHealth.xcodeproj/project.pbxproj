@@ -16,6 +16,8 @@
 		2E69EF3C1E65D36A00F1BC9A /* mHealthUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E69EF3B1E65D36A00F1BC9A /* mHealthUITests.swift */; };
 		2E69EF731E6600BD00F1BC9A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E69EF721E6600BD00F1BC9A /* HealthKit.framework */; };
 		2E764EFC1E65D64F0082CC42 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E764EFB1E65D64F0082CC42 /* GoogleService-Info.plist */; };
+		2EE80AFC1E68ACCC000956DE /* healthIcon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2EE80AFB1E68ACCC000956DE /* healthIcon.jpeg */; };
+		2EE80AFF1E68AEF2000956DE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE80AFE1E68AEF2000956DE /* User.swift */; };
 		D3E99D63B6D79540EB6F6DA6 /* Pods_mHealth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24E72EE1D1F73AA5F76F95B /* Pods_mHealth.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,8 @@
 		2E69EF711E6600BD00F1BC9A /* mHealth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mHealth.entitlements; sourceTree = "<group>"; };
 		2E69EF721E6600BD00F1BC9A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		2E764EFB1E65D64F0082CC42 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2EE80AFB1E68ACCC000956DE /* healthIcon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = healthIcon.jpeg; path = mHealth/healthIcon.jpeg; sourceTree = "<group>"; };
+		2EE80AFE1E68AEF2000956DE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AC661691064ACA7ABEC578C4 /* Pods-mHealth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mHealth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mHealth/Pods-mHealth.debug.xcconfig"; sourceTree = "<group>"; };
 		F24E72EE1D1F73AA5F76F95B /* Pods_mHealth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mHealth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -97,6 +101,8 @@
 		2E69EF0F1E65D36A00F1BC9A = {
 			isa = PBXGroup;
 			children = (
+				2EE80AFD1E68AED8000956DE /* Models */,
+				2EE80AF81E68ABF7000956DE /* Resources */,
 				2E69EF1A1E65D36A00F1BC9A /* mHealth */,
 				2E69EF2F1E65D36A00F1BC9A /* mHealthTests */,
 				2E69EF3A1E65D36A00F1BC9A /* mHealthUITests */,
@@ -147,6 +153,22 @@
 				2E69EF3D1E65D36A00F1BC9A /* Info.plist */,
 			);
 			path = mHealthUITests;
+			sourceTree = "<group>";
+		};
+		2EE80AF81E68ABF7000956DE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2EE80AFB1E68ACCC000956DE /* healthIcon.jpeg */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2EE80AFD1E68AED8000956DE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2EE80AFE1E68AEF2000956DE /* User.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		CE767B442FDD135AE8D57B61 /* Frameworks */ = {
@@ -280,6 +302,7 @@
 				2E764EFC1E65D64F0082CC42 /* GoogleService-Info.plist in Resources */,
 				2E69EF231E65D36A00F1BC9A /* Assets.xcassets in Resources */,
 				2E69EF211E65D36A00F1BC9A /* Main.storyboard in Resources */,
+				2EE80AFC1E68ACCC000956DE /* healthIcon.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +377,7 @@
 			files = (
 				2E69EF1E1E65D36A00F1BC9A /* ViewController.swift in Sources */,
 				2E69EF1C1E65D36A00F1BC9A /* AppDelegate.swift in Sources */,
+				2EE80AFF1E68AEF2000956DE /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

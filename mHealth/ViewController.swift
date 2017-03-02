@@ -8,15 +8,28 @@
 
 import UIKit
 import HealthKit
+import Firebase
 
 class ViewController: UIViewController {
     
     //MARK: Store
     let healthStore = HKHealthStore()
-
+    //MARK: Auth Outlets
     @IBOutlet weak var requestButton: UIButton!
     @IBOutlet weak var displayField: UITextView!
-    //
+    
+    //MARK: Login Outlets
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var createAccountButton: UIButton!
+    
+    //MARK: Firebase
+    let ref = FIRDatabase.database().reference(withPath: "Work-Days")
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +41,27 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     //
     @IBAction func requestButtonDidTouch(_ sender: Any) {
@@ -47,13 +81,6 @@ class ViewController: UIViewController {
             
             if let error = error { self.displayField.text = "\(error)" }
         }
-        
-        
-        
-    }
-    
-    func commitTest(){
-        print()
     }
     
     func hasKit(){
