@@ -18,7 +18,7 @@ class WelcomeViewController: UIViewController {
     
     //MARK:Firebase
     let user = FIRAuth.auth()?.currentUser
-    let ref = FIRDatabase.database().reference(withPath: "users")
+    let ref = FIRDatabase.database().reference(withPath: "favorites")
     
 
     override func viewDidLoad() {
@@ -56,10 +56,25 @@ class WelcomeViewController: UIViewController {
         let f = s2.text
         
         let newFavorite: favorite = favorite(color: c!, friend: f!)
+            /*
+      //  let userRef = self.ref.child("\(user?.uid)")
+        print("exe")
+        ref.setValue(newFavorite.toAnyObject())
         
-        let userRef = self.ref.child("\(user?.uid)")
-        print("\(user?.uid)")
-        userRef.setValue(newFavorite.toAnyObject())
+        
+        */
+        //Get the firebase reference
+    
+        // 1
+        let currentUserRef = self.ref.child((self.user?.uid)!)
+        // 2
+        currentUserRef.setValue(self.user?.email)
+        
+        let favoriteRef = currentUserRef.child("favorites")
+        favoriteRef.setValue(newFavorite.toAnyObject())
+        
+ 
+        
     }
     
     @IBAction func logoutDidTouch(_ sender: Any) {
