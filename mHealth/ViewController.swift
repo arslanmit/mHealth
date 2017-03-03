@@ -42,7 +42,7 @@ class ViewController: UIViewController {
                                     self.present(alert, animated: true, completion: nil)
                                 }
                                 else{
-                                    print("logged in")
+                                     self.performSegue(withIdentifier: "loginToNavigation", sender: nil)
                                 }
         })
     }
@@ -66,6 +66,7 @@ class ViewController: UIViewController {
                                               preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "Okay",
                                              style: .default)
+                
                 alert.addAction(okAction)
                 self.present(alert, animated: true, completion: nil)
             }
