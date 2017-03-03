@@ -14,6 +14,7 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var s1: UITextField!
     @IBOutlet weak var s2: UITextField!
     @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var logoutButton: UIButton!
     
     //MARK:Firebase
     let user = FIRAuth.auth()?.currentUser
@@ -61,7 +62,20 @@ class WelcomeViewController: UIViewController {
         userRef.setValue(newFavorite.toAnyObject())
     }
     
+    @IBAction func logoutDidTouch(_ sender: Any) {
+        logoutFunction()
+    }
     
+    func logoutFunction(){
+        do{
+            try FIRAuth.auth()!.signOut()
+            
+        }catch let logoutError{
+            print(logoutError)
+        }
+       //let loginVC = ViewController()
+        /// must find a way to set view back to login without back button from navigation controller!
+    }
     
 
     /*

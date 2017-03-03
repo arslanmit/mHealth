@@ -29,22 +29,7 @@ class ViewController: UIViewController {
     //Firebase Buttons
     
     @IBAction func loginDidTouch(_ sender: Any) {
-        FIRAuth.auth()!.signIn(withEmail: emailField.text!,
-                               password: passwordField.text!, completion: { user, error in
-                                
-                                if error != nil { //unsucessful
-                                    let alert = UIAlertController(title: "Login Error...",
-                                                                  message: "Please register for an account!",
-                                                                  preferredStyle: .alert)
-                                    let okAction = UIAlertAction(title: "Okay",
-                                                                 style: .default)
-                                    alert.addAction(okAction)
-                                    self.present(alert, animated: true, completion: nil)
-                                }
-                                else{
-                                     self.performSegue(withIdentifier: "loginToNavigation", sender: nil)
-                                }
-        })
+       loginFunction()
     }
    
     
@@ -61,17 +46,9 @@ class ViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
             }
             else{
-                let alert = UIAlertController(title: "User created!",
-                                              message: "Please log in now!",
-                                              preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "Okay",
-                                             style: .default)
-                
-                alert.addAction(okAction)
-                self.present(alert, animated: true, completion: nil)
+                self.loginFunction()
             }
         }
-
     }
     
     
@@ -93,14 +70,26 @@ class ViewController: UIViewController {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
+    func loginFunction(){
+        FIRAuth.auth()!.signIn(withEmail: emailField.text!,
+                               password: passwordField.text!, completion: { user, error in
+                                
+            if error != nil { //unsucessful
+                let alert = UIAlertController(title: "Login Error...",
+                                              message: "Please register for an account!",
+                                              preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Okay",
+                                             style: .default)
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
+            }
+            else{
+                self.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "loginToNavigation", sender: nil)
+            }
+        })
+
+    }
     
     
     
