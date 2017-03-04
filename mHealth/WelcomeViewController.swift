@@ -56,17 +56,15 @@ class WelcomeViewController: UIViewController {
         let f = s2.text
         
         let newFavorite: favorite = favorite(color: c!, friend: f!)
-            /*
-      //  let userRef = self.ref.child("\(user?.uid)")
-        print("exe")
-        ref.setValue(newFavorite.toAnyObject())
         
-        
-        */
+ 
         //Get the firebase reference
     
         // 1
         let currentUserRef = self.ref.child((self.user?.uid)!)
+        //temp
+        
+        
         // 2 --- supposed to set uid as email? no?
         currentUserRef.setValue((self.user!.email)!) // THIS LINE DOES NOT SET THE VALUE AS EMAIL: PLEASE FIX
         
@@ -82,14 +80,16 @@ class WelcomeViewController: UIViewController {
     }
     
     func logoutFunction(){
-        do{
-            try FIRAuth.auth()!.signOut()
-            
-        }catch let logoutError{
-            print(logoutError)
+        if (FIRAuth.auth()?.currentUser != nil) {
+            do {
+                try FIRAuth.auth()?.signOut()
+                self.dismiss(animated: true, completion: nil)
+             //   self.performSegue(withIdentifier: "welcomeToLogin", sender: nil) --- unneeded because dismissal sends back to login! :)
+                
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
         }
-       //let loginVC = ViewController()
-        /// must find a way to set view back to login without back button from navigation controller!
     }
     
 

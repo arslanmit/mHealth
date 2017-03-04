@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="mHealth" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="mHealth" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -233,6 +233,7 @@
                                 <state key="normal" title="Log out"/>
                                 <connections>
                                     <action selector="logoutDidTouch:" destination="XGf-6a-wZc" eventType="touchUpInside" id="hFq-ZQ-85t"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="welcomeToLogin" id="uH3-FJ-KoL"/>
                                 </connections>
                             </button>
                         </subviews>
