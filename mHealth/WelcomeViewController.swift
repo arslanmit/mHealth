@@ -68,7 +68,7 @@ class WelcomeViewController: UIViewController {
         // 1
         let currentUserRef = self.ref.child((self.user?.uid)!)
         // 2 --- supposed to set uid as email? no?
-        currentUserRef.setValue(self.user?.email)
+        currentUserRef.setValue((self.user!.email)!) // THIS LINE DOES NOT SET THE VALUE AS EMAIL: PLEASE FIX
         
         let favoriteRef = currentUserRef.child("favorites")
         favoriteRef.setValue(newFavorite.toAnyObject())
