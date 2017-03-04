@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "B5C8F2283502F81519B01BAEDAD801A618A8EFC2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "B5C8F2283502F81519B01BAEDAD801A618A8EFC2" : 9223372036854775807,
+    "254F35BE35092A73C5E459D3982FB118CDEC8C4B" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D5026B52-144E-4078-8634-D6E2D04BE53C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "B5C8F2283502F81519B01BAEDAD801A618A8EFC2" : "mHealth\/",
+    "254F35BE35092A73C5E459D3982FB118CDEC8C4B" : "myHours_v2\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "mHealth",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "mHealth.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/baksha97\/myHoursv2.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "254F35BE35092A73C5E459D3982FB118CDEC8C4B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/baksha97\/mHealth.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B5C8F2283502F81519B01BAEDAD801A618A8EFC2"
+    }
+  ]
+}
