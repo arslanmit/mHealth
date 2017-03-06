@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E2AE2651E6A63CE00C3A9D5 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */; };
 		2E69EF1C1E65D36A00F1BC9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E69EF1B1E65D36A00F1BC9A /* AppDelegate.swift */; };
 		2E69EF1E1E65D36A00F1BC9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E69EF1D1E65D36A00F1BC9A /* ViewController.swift */; };
 		2E69EF211E65D36A00F1BC9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E69EF1F1E65D36A00F1BC9A /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		04B205F87A2A279AAC0909A9 /* Pods-mHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mHealth.release.xcconfig"; path = "Pods/Target Support Files/Pods-mHealth/Pods-mHealth.release.xcconfig"; sourceTree = "<group>"; };
+		2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		2E69EF181E65D36A00F1BC9A /* mHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E69EF1B1E65D36A00F1BC9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E69EF1D1E65D36A00F1BC9A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			children = (
 				2E69EF1D1E65D36A00F1BC9A /* ViewController.swift */,
 				2EE80B011E6900A3000956DE /* WelcomeViewController.swift */,
+				2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E2AE2651E6A63CE00C3A9D5 /* CreateAccountViewController.swift in Sources */,
 				2E69EF1E1E65D36A00F1BC9A /* ViewController.swift in Sources */,
 				2EE80B021E6900A3000956DE /* WelcomeViewController.swift in Sources */,
 				2E69EF1C1E65D36A00F1BC9A /* AppDelegate.swift in Sources */,

@@ -177,6 +177,134 @@
             </objects>
             <point key="canvasLocation" x="141.59999999999999" y="137.18140929535232"/>
         </scene>
+        <!--Create Account View Controller-->
+        <scene sceneID="Vey-K6-PPk">
+            <objects>
+                <viewController id="NW1-D1-ZkM" customClass="CreateAccountViewController" customModule="mHealth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BgW-D8-DTm"/>
+                        <viewControllerLayoutGuide type="bottom" id="216-Bp-Ygz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HQZ-ED-NVb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qfu-rf-LhA">
+                                <rect key="frame" x="16" y="144" width="343" height="30"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create your account:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eg5-EN-2DK">
+                                <rect key="frame" x="107" y="20" width="160" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.85957932469999998" green="0.0" blue="0.042713373701525691" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GQP-aT-TM7">
+                                <rect key="frame" x="16" y="106" width="343" height="30"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LgV-KQ-ytP">
+                                <rect key="frame" x="16" y="609" width="343" height="38"/>
+                                <color key="backgroundColor" red="0.37630792489999998" green="0.73089378240000002" blue="0.3732266347" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="Fxs-cC-QG5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Create account">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColorFromUIColor">
+                                        <color key="value" red="0.85957932469999998" green="0.40118402240000001" blue="0.29446059470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="createAccountDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Qf-XS-kHM"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MPt-3K-QAg">
+                                <rect key="frame" x="16" y="182" width="343" height="30"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qy3-ud-Zyq">
+                                <rect key="frame" x="16" y="220" width="343" height="30"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your current lifestyle:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kcx-an-FDQ">
+                                <rect key="frame" x="80" y="270" width="214" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wFj-Re-Boy">
+                                <rect key="frame" x="16" y="387" width="343" height="29"/>
+                                <segments>
+                                    <segment title="Fit"/>
+                                    <segment title="Very Fit"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your desired lifestyle:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8D5-rX-tWn">
+                                <rect key="frame" x="80" y="349" width="216" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wlA-Bl-jJj">
+                                <rect key="frame" x="17" y="299" width="343" height="29"/>
+                                <segments>
+                                    <segment title="Moderately Fit"/>
+                                    <segment title="Fit"/>
+                                    <segment title="Very Fit"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wlA-Bl-jJj" firstAttribute="top" secondItem="Kcx-an-FDQ" secondAttribute="bottom" constant="8" symbolic="YES" id="0JH-gP-2py"/>
+                            <constraint firstItem="GQP-aT-TM7" firstAttribute="trailing" secondItem="qfu-rf-LhA" secondAttribute="trailing" id="5m6-cl-0Lb"/>
+                            <constraint firstItem="qy3-ud-Zyq" firstAttribute="leading" secondItem="wFj-Re-Boy" secondAttribute="leading" id="6ut-7c-Wlh"/>
+                            <constraint firstItem="GQP-aT-TM7" firstAttribute="leading" secondItem="HQZ-ED-NVb" secondAttribute="leadingMargin" id="G0F-ad-ktX"/>
+                            <constraint firstItem="wFj-Re-Boy" firstAttribute="top" secondItem="8D5-rX-tWn" secondAttribute="bottom" constant="17" id="GYq-kn-m2s"/>
+                            <constraint firstItem="eg5-EN-2DK" firstAttribute="top" secondItem="BgW-D8-DTm" secondAttribute="bottom" id="HZU-Js-Pr3"/>
+                            <constraint firstItem="wFj-Re-Boy" firstAttribute="leading" secondItem="LgV-KQ-ytP" secondAttribute="leading" id="Hay-Wj-cCd"/>
+                            <constraint firstItem="wFj-Re-Boy" firstAttribute="trailing" secondItem="LgV-KQ-ytP" secondAttribute="trailing" id="IZX-Y1-mML"/>
+                            <constraint firstItem="qfu-rf-LhA" firstAttribute="trailing" secondItem="MPt-3K-QAg" secondAttribute="trailing" id="NXW-Ns-tgT"/>
+                            <constraint firstItem="wlA-Bl-jJj" firstAttribute="centerX" secondItem="8D5-rX-tWn" secondAttribute="centerX" id="P5W-AD-iyd"/>
+                            <constraint firstItem="8D5-rX-tWn" firstAttribute="centerX" secondItem="wFj-Re-Boy" secondAttribute="centerX" id="Sza-bl-Xcz"/>
+                            <constraint firstItem="MPt-3K-QAg" firstAttribute="trailing" secondItem="qy3-ud-Zyq" secondAttribute="trailing" id="T9j-Ay-msV"/>
+                            <constraint firstItem="qy3-ud-Zyq" firstAttribute="top" secondItem="MPt-3K-QAg" secondAttribute="bottom" constant="8" symbolic="YES" id="Uxx-n3-lW9"/>
+                            <constraint firstItem="GQP-aT-TM7" firstAttribute="leading" secondItem="qfu-rf-LhA" secondAttribute="leading" id="WdS-8i-jvt"/>
+                            <constraint firstAttribute="bottom" secondItem="LgV-KQ-ytP" secondAttribute="bottom" constant="20" symbolic="YES" id="X94-8C-ac0"/>
+                            <constraint firstItem="8D5-rX-tWn" firstAttribute="top" secondItem="wlA-Bl-jJj" secondAttribute="bottom" constant="22" id="XaY-GV-Brq"/>
+                            <constraint firstItem="Kcx-an-FDQ" firstAttribute="top" secondItem="qy3-ud-Zyq" secondAttribute="bottom" constant="20" id="ei5-yr-MpX"/>
+                            <constraint firstItem="MPt-3K-QAg" firstAttribute="top" secondItem="qfu-rf-LhA" secondAttribute="bottom" constant="8" symbolic="YES" id="hRp-Uw-WhK"/>
+                            <constraint firstItem="qy3-ud-Zyq" firstAttribute="trailing" secondItem="wFj-Re-Boy" secondAttribute="trailing" id="ij7-NE-VdW"/>
+                            <constraint firstItem="MPt-3K-QAg" firstAttribute="leading" secondItem="qy3-ud-Zyq" secondAttribute="leading" id="kXH-G4-AwY"/>
+                            <constraint firstItem="GQP-aT-TM7" firstAttribute="trailing" secondItem="HQZ-ED-NVb" secondAttribute="trailingMargin" id="kqY-DB-sYy"/>
+                            <constraint firstItem="Kcx-an-FDQ" firstAttribute="leading" secondItem="8D5-rX-tWn" secondAttribute="leading" id="lHO-Xk-V0d"/>
+                            <constraint firstItem="eg5-EN-2DK" firstAttribute="centerX" secondItem="GQP-aT-TM7" secondAttribute="centerX" id="vRu-N1-Eqg"/>
+                            <constraint firstItem="qfu-rf-LhA" firstAttribute="top" secondItem="GQP-aT-TM7" secondAttribute="bottom" constant="8" symbolic="YES" id="w2P-vp-t71"/>
+                            <constraint firstItem="GQP-aT-TM7" firstAttribute="top" secondItem="eg5-EN-2DK" secondAttribute="bottom" constant="65" id="wPA-1B-rdF"/>
+                            <constraint firstItem="qfu-rf-LhA" firstAttribute="leading" secondItem="MPt-3K-QAg" secondAttribute="leading" id="wiE-Vd-eVJ"/>
+                            <constraint firstItem="wlA-Bl-jJj" firstAttribute="leading" secondItem="HQZ-ED-NVb" secondAttribute="leadingMargin" constant="1" id="yBU-IV-Hey"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ft6-ko-Iuk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.40000000000001" y="961.16941529235385"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="v2U-Ve-qfT">
             <objects>
