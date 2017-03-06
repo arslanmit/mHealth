@@ -90,16 +90,6 @@ class ViewController: UIViewController {
         })
 
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
     //
     @IBAction func requestButtonDidTouch(_ sender: Any) {
