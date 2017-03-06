@@ -41,6 +41,7 @@ class WelcomeViewController: UIViewController {
         } */
         /* this doesn't work and I'm not sure how to add a display name convientenly to sort data in the firebase table inside of console.... currently it's being stored as 
          "Opinional("\(uid)") */
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var createAccountButton: UIButton!
     
     
+    @IBOutlet weak var viewSpace: UIView!
 
     //Firebase Buttons
     
@@ -60,6 +61,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.viewSpace.layer.cornerRadius = 5.0
         hasKit()
     }
 
