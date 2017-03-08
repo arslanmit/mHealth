@@ -20,6 +20,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSHealthShareUsageDescription</key>
+	<string>sharing healthkit data</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>updating healthkit date</string>
+	<key>CFBundleDisplayName</key>
+	<string></string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -28,6 +34,7 @@
 	<array>
 		<string>armv7</string>
 		<string>healthkit</string>
+		<string></string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
