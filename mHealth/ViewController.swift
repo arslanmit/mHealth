@@ -35,21 +35,7 @@ class ViewController: UIViewController {
    
     
     @IBAction func createAccountDidTouch(_ sender: Any) {
-        FIRAuth.auth()!.createUser(withEmail: emailField.text!,
-                                   password: passwordField.text!) { user, error in
-            if error != nil { //unsucessful
-                let alert = UIAlertController(title: "Create account error",
-                                              message: "Please enter a valid email address. \n Please enter a password more than 6 characters in length. \n Now, please login!",
-                                              preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "Okay",
-                                             style: .default)
-                alert.addAction(okAction)
-                self.present(alert, animated: true, completion: nil)
-            }
-            else{
-                self.loginFunction()
-            }
-        }
+        self.performSegue(withIdentifier: "createAccountSegue", sender: nil)
     }
     
     
@@ -70,6 +56,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        
+    }
     
     
     func loginFunction(){

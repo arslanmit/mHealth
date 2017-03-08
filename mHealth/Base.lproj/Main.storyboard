@@ -171,6 +171,7 @@
                         <outlet property="requestButton" destination="pcc-Ca-sf7" id="gVu-GJ-qLk"/>
                         <outlet property="viewSpace" destination="TzD-7s-1st" id="dUj-fC-e2i"/>
                         <segue destination="9AX-tH-RW6" kind="presentation" identifier="loginToNavigation" id="szh-CH-ozO"/>
+                        <segue destination="NW1-D1-ZkM" kind="show" identifier="createAccountSegue" id="s3h-97-5Ky"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -229,6 +230,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="createAccountDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Qf-XS-kHM"/>
+                                    <action selector="createAccountDidTouch:" destination="NW1-D1-ZkM" eventType="touchUpInside" id="CgO-17-yYR"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MPt-3K-QAg">
@@ -300,6 +302,13 @@
                             <constraint firstItem="wlA-Bl-jJj" firstAttribute="leading" secondItem="HQZ-ED-NVb" secondAttribute="leadingMargin" constant="1" id="yBU-IV-Hey"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="confirmPasswordField" destination="qy3-ud-Zyq" id="AsE-0Q-09H"/>
+                        <outlet property="emailField" destination="qfu-rf-LhA" id="XtQ-I8-wsc"/>
+                        <outlet property="nameField" destination="GQP-aT-TM7" id="8aw-dT-OCp"/>
+                        <outlet property="passwordField" destination="MPt-3K-QAg" id="UCJ-Yc-62S"/>
+                        <segue destination="9AX-tH-RW6" kind="show" identifier="createAccountToNavigation" id="7zM-r4-6Xt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ft6-ko-Iuk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -309,7 +318,7 @@
         <scene sceneID="v2U-Ve-qfT">
             <objects>
                 <navigationController id="9AX-tH-RW6" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="G3h-v5-v6F">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="G3h-v5-v6F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -405,4 +414,7 @@
         <image name="background" width="2120" height="2816"/>
         <image name="healthIcon.jpeg" width="1042" height="313"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="7zM-r4-6Xt"/>
+    </inferredMetricsTieBreakers>
 </document>

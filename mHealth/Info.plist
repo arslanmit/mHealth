@@ -34,7 +34,6 @@
 	<array>
 		<string>armv7</string>
 		<string>healthkit</string>
-		<string></string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>

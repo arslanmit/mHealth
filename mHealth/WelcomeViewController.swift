@@ -19,7 +19,6 @@ class WelcomeViewController: UIViewController {
     //MARK:Firebase
     let user = FIRAuth.auth()?.currentUser
     let ref = FIRDatabase.database().reference(withPath: "users")
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +40,8 @@ class WelcomeViewController: UIViewController {
         } */
         /* this doesn't work and I'm not sure how to add a display name convientenly to sort data in the firebase table inside of console.... currently it's being stored as 
          "Opinional("\(uid)") */
+        
+        
         
     }
 
@@ -67,7 +68,7 @@ class WelcomeViewController: UIViewController {
         
         
         // 2 --- supposed to set uid as email? no?
-        currentUserRef.setValue((self.user!.email)!) // THIS LINE DOES NOT SET THE VALUE AS EMAIL: PLEASE FIX
+        currentUserRef.setValue((self.user?.uid)) // THIS LINE DOES NOT SET THE VALUE AS EMAIL: PLEASE FIX
         
         let favoriteRef = currentUserRef.child("favorites")
         favoriteRef.setValue(newFavorite.toAnyObject())
