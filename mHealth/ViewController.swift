@@ -77,7 +77,7 @@ class ViewController: UIViewController {
             }
             else{
                 self.dismiss(animated: true, completion: nil)
-                self.performSegue(withIdentifier: "loginToNavigation", sender: nil)
+                self.performSegue(withIdentifier: "loginToTab", sender: nil)
             }
         })
 

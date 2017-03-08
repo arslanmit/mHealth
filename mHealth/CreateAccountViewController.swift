@@ -71,7 +71,7 @@ class CreateAccountViewController: UIViewController {
                                 }
                                 else{
                                     self.dismiss(animated: true, completion: nil)
-                                    self.performSegue(withIdentifier: "createAccountToNavigation", sender: nil)
+                                    self.performSegue(withIdentifier: "createAccountToTab", sender: nil)
                                 }
         })
         
