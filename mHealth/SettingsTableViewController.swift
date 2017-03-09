@@ -11,10 +11,20 @@ import HealthKit
 import HealthKitUI
 
 class SettingsTableViewController: UITableViewController {
+    
+    private let kProfileUnit = 0
+    private let kProfileDetail = 1
+    
+    var healthManager:HealthManager?
+    var healthStore: HKHealthStore?
+    
+    private var userProfiles: [ProfileKeys: [String]]?
+
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateAge()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -153,6 +163,53 @@ class SettingsTableViewController: UITableViewController {
         print("TODO: save BMI sample")
         
     }
+    
+    
+    func updateAge() -> Void{
+        ///
+        var dateOfBirth: Date!
+        let c = Calendar.current
+        let comps: DateComponents?
+        do {
+            
+            comps = try self.healthStore?.dateOfBirthComponents()
+            
+        } catch {
+            print("Either an error occured fetching the user's age information or none has been stored yet. In your app, try to handle this gracefully.......")
+            
+            return
+        }
+        if(dateOfBirth != nil){
+        dateOfBirth = c.date(from: (comps)!)
+        }
+        else{
+            print("date of birth = nil")
+            return
+        }
+        let now = Date()
+        
+        let ageComponents: DateComponents = Calendar.current.dateComponents([.year], from: dateOfBirth, to: now)
+        
+        let userAge: Int = ageComponents.year!
+        print(userAge)
+        
+        let ageValue: String = NumberFormatter.localizedString(from: userAge as NSNumber, number: NumberFormatter.Style.none)
+        print(ageValue)
+        if var userProfiles = self.userProfiles {
+            
+            var age: [String] = userProfiles[ProfileKeys.Age] as [String]!
+            age[kProfileDetail] = ageValue
+            
+            userProfiles[ProfileKeys.Age] = age
+            self.userProfiles = userProfiles
+        }
+        
+        // Reload table view (only age row)
+        let indexPath = IndexPath(row: ProfileViewControllerTableViewIndex.Age.rawValue, section: 0)
+        self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+    }
+    
+    
     // MARK: - utility methods
     func calculateBMIWithWeightInKilograms(_ weightInKilograms:Double, heightInMeters:Double) -> Double?
     {
@@ -230,5 +287,33 @@ class SettingsTableViewController: UITableViewController {
         
         
     }
+    
+    
+    private func dataTypesToWrite() -> Set<HKSampleType> {
+        
+        let dietaryCalorieEnergyType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryEnergyConsumed)!
+        let activeEnergyBurnType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned)!
+        let heightType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!
+        let weightType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!
+        
+        let writeDataTypes: Set<HKSampleType> = [dietaryCalorieEnergyType, activeEnergyBurnType, heightType, weightType]
+        
+        return writeDataTypes
+    }
+    
+    private func dataTypesToRead() -> Set<HKObjectType> {
+        
+        let dietaryCalorieEnergyType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryEnergyConsumed)!
+        let activeEnergyBurnType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned)!
+        let heightType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!
+        let weightType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!
+        let birthdayType = HKQuantityType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.dateOfBirth)!
+        let biologicalSexType = HKQuantityType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.biologicalSex)!
+        
+        let readDataTypes: Set<HKObjectType> = [dietaryCalorieEnergyType, activeEnergyBurnType, heightType, weightType, birthdayType, biologicalSexType]
+        
+        return readDataTypes
+    }
+    
 
 }

@@ -86,13 +86,10 @@ class ViewController: UIViewController {
     //
     @IBAction func requestButtonDidTouch(_ sender: Any) {
         
-        var shareTypes = Set<HKSampleType>()
-        shareTypes.insert(HKSampleType.workoutType())
+        let writeDataTypes: Set<HKSampleType> = self.dataTypesToWrite()
+        let readDataTypes: Set<HKObjectType> = self.dataTypesToRead()
         
-        var readTypes = Set<HKObjectType>()
-        readTypes.insert(HKObjectType.workoutType())
-        
-        healthStore.requestAuthorization(toShare: shareTypes, read: readTypes) { (success, error) -> Void in
+        healthStore.requestAuthorization(toShare: writeDataTypes, read: readDataTypes) { (success, error) -> Void in
             if success {
                 self.displayField.text = "\(self.displayField.text) + \n Sucess!"
             } else {
@@ -113,6 +110,30 @@ class ViewController: UIViewController {
         }
     }
     
-
+    private func dataTypesToWrite() -> Set<HKSampleType> {
+        
+        let dietaryCalorieEnergyType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryEnergyConsumed)!
+        let activeEnergyBurnType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned)!
+        let heightType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!
+        let weightType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!
+        
+        let writeDataTypes: Set<HKSampleType> = [dietaryCalorieEnergyType, activeEnergyBurnType, heightType, weightType]
+        
+        return writeDataTypes
+    }
+    
+    private func dataTypesToRead() -> Set<HKObjectType> {
+        
+        let dietaryCalorieEnergyType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryEnergyConsumed)!
+        let activeEnergyBurnType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned)!
+        let heightType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!
+        let weightType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!
+        let birthdayType = HKQuantityType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.dateOfBirth)!
+        let biologicalSexType = HKQuantityType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.biologicalSex)!
+        
+        let readDataTypes: Set<HKObjectType> = [dietaryCalorieEnergyType, activeEnergyBurnType, heightType, weightType, birthdayType, biologicalSexType]
+        
+        return readDataTypes
+    }
 }
 
