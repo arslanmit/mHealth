@@ -12,6 +12,7 @@ import HealthKitUI
 
 class SettingsTableViewController: UITableViewController {
     
+    @IBOutlet weak var button: UIButton!
     private let kProfileUnit = 0
     private let kProfileDetail = 1
     
@@ -20,6 +21,11 @@ class SettingsTableViewController: UITableViewController {
     
     private var userProfiles: [ProfileKeys: [String]]?
 
+    
+    @IBAction func buttonTouch(_ sender: Any) {
+        updateAge()
+        updateBMI()
+    }
     
 
     override func viewDidLoad() {
@@ -179,7 +185,7 @@ class SettingsTableViewController: UITableViewController {
             
             return
         }
-        if(dateOfBirth != nil){
+        if(comps != nil){
         dateOfBirth = c.date(from: (comps)!)
         }
         else{
