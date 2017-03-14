@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import HealthKit
+import HealthKitUI
 
 enum ProfileViewControllerTableViewIndex: Int {
     case Age = 0
@@ -49,7 +51,13 @@ class ProfileTableTableViewController: UITableViewController {
     
     private var userProfiles: [ProfileKeys: [String]]?
     private var userBodies: [ProfileBodyKeys: [String]]?
-  //  private var
+    private var HealthKitStore = HKHealthStore()
+    private var myManager: HealthManager = HealthManager()
+    
+    private let unit = 0
+    private let detail = 1
+    
+     let kUnknownString   = "Unknown"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,7 +119,7 @@ class ProfileTableTableViewController: UITableViewController {
                 let profile: [String] = profiles[profileKey!] as [String]!
                 
                 cell!.textLabel!.text = profile.first as String!
-                cell!.detailTextLabel!.text = "user prof"//profile.last as String!
+                cell!.detailTextLabel!.text = profile.last as String!
             }
         }
         
@@ -134,7 +142,7 @@ class ProfileTableTableViewController: UITableViewController {
                 let body: [String] = bodies[profileBodyKey!] as [String]!
                 
                 cell!.textLabel!.text = body.first as String!
-                cell!.detailTextLabel!.text = "user body"//profile.last as String!
+                cell!.detailTextLabel!.text = body.last as String!
             }
         }
         else if(indexPath.section == 2){
@@ -152,7 +160,7 @@ class ProfileTableTableViewController: UITableViewController {
                 break
             }
                 cell!.textLabel!.text = option
-              //  cell!.detailTextLabel!.text = "options"//profile.last as String!
+            cell!.detailTextLabel!.text = "Option"//profile.last as String!
             cell?.textLabel?.textColor = UIColor.blue
             cell?.textLabel?.textAlignment = .center
             }
@@ -164,12 +172,14 @@ class ProfileTableTableViewController: UITableViewController {
         
         if(indexPath.section == 2){
             let index = indexPath.row
-    
             if index == 0 {
-                tableView.deselectRow(at: indexPath, animated: true)
-                print("lol")
-                return
+                print(myManager.authorizeHealthKit())
+               // tableView.deselectRow(at: indexPath, animated: true)
                 }
+            else if index == 1{
+                updateUserAge()
+                updateUserSex()
+            }
         }
     }
 
@@ -217,5 +227,81 @@ class ProfileTableTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    private func updateUserAge() -> Void{
+        var dateOfBirth: Date!
+        let c = Calendar.current
+        let comps: DateComponents?
+        do {
+            
+            comps = try self.HealthKitStore.dateOfBirthComponents()
+            
+        } catch {
+            print("Either an error occured fetching the user's age information or none has been stored yet. In your app, try to handle this gracefully.......")
+            
+            return
+        }
+        if(comps != nil){
+            dateOfBirth = c.date(from: (comps)!)
+        }
+        else{
+            print("date of birth = nil")
+            return
+        }
+        
+        let now = Date()
+        
+        let ageComponents: DateComponents = Calendar.current.dateComponents([.year], from: dateOfBirth, to: now)
+        
+        let userAge: Int = ageComponents.year!
+        
+        let ageValue: String = NumberFormatter.localizedString(from: userAge as NSNumber, number: NumberFormatter.Style.none)
+        
+        if var userProfiles = self.userProfiles {
+            
+            var age: [String] = userProfiles[ProfileKeys.Age] as [String]!
+            age[detail] = ageValue
+            
+            userProfiles[ProfileKeys.Age] = age
+            self.userProfiles = userProfiles
+        }
+        
+        // Reload table view (only age row)
+        let indexPath = IndexPath(row: ProfileViewControllerTableViewIndex.Age.rawValue, section: 0)
+        self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+    }
+    
+    private func updateUserSex(){
+        let biologicalSex:HKBiologicalSex
+        
+        do{
+            biologicalSex = try HealthKitStore.biologicalSex()
+        }catch{
+            print("\(error)")
+            return
+        }
+        let s: String = biologicalSexLiteral(biologicalSex)
+            print("\(s)")
+        
+    }
+    
+    func biologicalSexLiteral(_ biologicalSex:HKBiologicalSex?)->String
+    {
+        var biologicalSexText = kUnknownString;
+        
+        if  biologicalSex != nil {
+            
+            switch( biologicalSex! )
+            {
+            case .female:
+                biologicalSexText = "Female"
+            case .male:
+                biologicalSexText = "Male"
+            default:
+                break;
+            }
+            
+        }
+        return biologicalSexText;
+    }
 }
