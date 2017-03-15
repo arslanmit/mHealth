@@ -17,38 +17,6 @@
             endingLineNumber = "12"
             landmarkName = "lifeStyle"
             landmarkType = "13">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "mHealth.lifeStyle.init (rawValue : Swift.String) -&gt; Swift.Optional&lt;mHealth.lifeStyle&gt;"
-                  moduleName = "mHealth"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/loaner/Documents/xCode_Projects/mHealth/User.swift"
-                  timestampString = "511247540.911482"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "48">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "mHealth.lifeStyle.rawValue.getter : Swift.String"
-                  moduleName = "mHealth"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/loaner/Documents/xCode_Projects/mHealth/User.swift"
-                  timestampString = "511247540.914468"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "80">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

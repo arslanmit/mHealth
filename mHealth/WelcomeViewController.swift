@@ -43,15 +43,18 @@ class WelcomeViewController: UIViewController {
         //Get the firebase reference
     
         // 1
-        let currentUserRef = self.ref.child((self.user?.uid)!)
+        let emailDOT = removePeriod(s: (self.user?.email)!)
+        let currentUserRef = self.ref.child(emailDOT)
         //temp
         
         
         // 2 --- supposed to set uid as email? no?
-        currentUserRef.setValue((self.user?.uid)) // THIS LINE DOES NOT SET THE VALUE AS EMAIL: PLEASE FIX
+        
+        currentUserRef.setValue((self.user?.email!)) // THIS LINE DOES NOT SET THE VALUE AS EMAIL: PLEASE FIX
+      
         
         let favoriteRef = currentUserRef.child("favorites")
-        favoriteRef.setValue(newFavorite.toAnyObject())
+       favoriteRef.setValue(newFavorite.toAnyObject())
         
  
         
@@ -72,6 +75,12 @@ class WelcomeViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    func removePeriod(s: String) -> String{
+        let myString = s
+        let newString = myString.replacingOccurrences(of: ".com", with: "")
+         return newString
     }
     
 

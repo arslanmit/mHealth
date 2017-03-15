@@ -60,7 +60,7 @@ class ProfileTableTableViewController: UITableViewController {
     
     
     var bmi:Double?
-    var height, weight: HKQuantityType?
+    var height, weight:HKQuantitySample?
     
     
     
@@ -405,6 +405,11 @@ class ProfileTableTableViewController: UITableViewController {
                 
                 return
             }
+            ////
+            
+            
+            
+            ////
             
             // Determine the weight in the required unit.
             let weightUnit = HKUnit.pound()
@@ -416,6 +421,7 @@ class ProfileTableTableViewController: UITableViewController {
                 let weightValue: String = NumberFormatter.localizedString(from: usersWeight as NSNumber, number: NumberFormatter.Style.none)
                 
                 setWeightInformationHandle(weightValue)
+                self.updateUserBMI()
             }
         }
         
@@ -484,6 +490,7 @@ class ProfileTableTableViewController: UITableViewController {
                 let heightValue: String = NumberFormatter.localizedString(from: usersHeight as NSNumber, number: NumberFormatter.Style.none)
                 
                 setHeightInformationHandle(heightValue)
+                self.updateUserBMI()
             }
         }
         
@@ -492,24 +499,31 @@ class ProfileTableTableViewController: UITableViewController {
 
     }
     
-    private func updateUserBMI(){
-        /*
-        
+    private func updateUserBMI(){                                                                               //updateWeight33(); updateHeight33();
         if weight != nil && height != nil {
             // 1. Get the weight and height values from the samples read from HealthKit
             let weightInKilograms = weight!.quantity.doubleValue(for: HKUnit.gramUnit(with: .kilo))
             let heightInMeters = height!.quantity.doubleValue(for: HKUnit.meter())
             // 2. Call the method to calculate the BMI
+            
+            ////
+            print(weightInKilograms); print(heightInMeters);
+            
+            ///
             bmi  = calculateBMIWithWeightInKilograms(weightInKilograms, heightInMeters: heightInMeters)
+        }
+        else{
+            print("WEIGHT AND HEIGHT ARE NIL FROM UPDATEUSERBMI ")
         }
         // 3. Show the calculated BMI
         var bmiString = kUnknownString
         if bmi != nil {
-            bmiString =  String(format: "%.02f", bmi!)
+            print(String(format: "%.02f", bmi!))
+            print(bmiString)
         }
-
-        print(bmiString) */
-        
+        else{
+            print("stupid bmi is nil -_-")
+        }
     }
     
     func calculateBMIWithWeightInKilograms(_ weightInKilograms:Double, heightInMeters:Double) -> Double? {
@@ -519,6 +533,78 @@ class ProfileTableTableViewController: UITableViewController {
         return (weightInKilograms/(heightInMeters*heightInMeters));
     }
     
+    func setWeightSample(){
+        // 1. Construct an HKSampleType for weight
+        let sampleType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)
+        
+        // 2. Call the method to read the most recent weight sample
+        self.myManager.readMostRecentSample(sampleType!, completion: { (mostRecentWeight, error) -> Void in
+            
+            if( error != nil )
+            {
+                print("Error reading weight from HealthKit Store: \(error?.localizedDescription)")
+                return;
+            }
+            
+            var weightLocalizedString = self.kUnknownString;
+            // 3. Format the weight to display it on the screen
+            self.weight = mostRecentWeight as? HKQuantitySample;
+            if let kilograms = self.weight?.quantity.doubleValue(for: HKUnit.gramUnit(with: .kilo)) {
+                let weightFormatter = MassFormatter()
+                weightFormatter.isForPersonMassUse = true;
+                weightLocalizedString = weightFormatter.string(fromKilograms: kilograms)
+            }
+            
+            
+            
+            
+            
+            
+            // 4. Update UI in the main thread
+            DispatchQueue.main.async {
+              //  self.weightLabel.text = weightLocalizedString
+             //   self.updateBMI()
+                
+                print(weightLocalizedString)
+                self.updateUserBMI()
+            }
+        });
+    }
+    
+    func updateHeight33()
+    {
+        // 1. Construct an HKSampleType for Height
+        let sampleType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)
+        
+        // 2. Call the method to read the most recent Height sample
+        self.myManager.readMostRecentSample(sampleType!, completion: { (mostRecentHeight, error) -> Void in
+            
+            if( error != nil )
+            {
+                print("Error reading height from HealthKit Store: \(error?.localizedDescription)")
+                return;
+            }
+            
+            var heightLocalizedString = self.kUnknownString;
+            self.height = mostRecentHeight as? HKQuantitySample;
+            // 3. Format the height to display it on the screen
+            if let meters = self.height?.quantity.doubleValue(for: HKUnit.meter()) {
+                let heightFormatter = LengthFormatter()
+                heightFormatter.isForPersonHeightUse = true;
+                heightLocalizedString = heightFormatter.string(fromMeters: meters);
+            }
+            
+            
+            // 4. Update UI. HealthKit use an internal queue. We make sure that we interact with the UI in the main thread
+            DispatchQueue.main.async {
+          //      self.heightLabel.text = heightLocalizedString
+                print(heightLocalizedString)
+                self.updateUserBMI()
+            }
+        })
+        
+    }
+
     
     func bloodTypeLiteral(_ bloodType:HKBloodType?)->String{
         

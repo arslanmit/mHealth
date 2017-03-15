@@ -60,10 +60,39 @@ func authorizeHealthKit() -> Bool{
 
     
 //MARK: Update Functions
-    
-    
-    
-    
+
+    func readMostRecentSample(_ sampleType:HKSampleType , completion: ((HKSample?, NSError?) -> Void)!){
+        // 1. Build the Predicate
+        let past = Date.distantPast
+        let now   = Date()
+        let mostRecentPredicate = HKQuery.predicateForSamples(withStart: past, end:now, options: HKQueryOptions())
+        
+        // 2. Build the sort descriptor to return the samples in descending order
+        let sortDescriptor = NSSortDescriptor(key:HKSampleSortIdentifierStartDate, ascending: false)
+        // 3. we want to limit the number of samples returned by the query to just 1 (the most recent)
+        let limit = 1
+        
+        // 4. Build samples query
+        let sampleQuery = HKSampleQuery(sampleType: sampleType, predicate: mostRecentPredicate, limit: limit, sortDescriptors: [sortDescriptor])
+        { (sampleQuery, results, error ) -> Void in
+            
+            if let queryError = error {
+               // completion(nil,error)
+                print("\(queryError)")
+                return;
+            }
+            
+            // Get the first sample
+            let mostRecentSample = results?.first as? HKQuantitySample
+            
+            // Execute the completion closure
+            if completion != nil {
+                completion(mostRecentSample,nil)
+            }
+        }
+        // 5. Execute the Query
+        self.healthStore.execute(sampleQuery)
+    }
     
     
     
