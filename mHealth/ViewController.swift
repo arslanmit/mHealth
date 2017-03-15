@@ -7,16 +7,12 @@
 //
 
 import UIKit
-import HealthKit
 import Firebase
 
 class ViewController: UIViewController {
     
     //MARK: Store
-    let healthStore = HKHealthStore()
     //MARK: Auth Outlets
-    @IBOutlet weak var requestButton: UIButton!
-    @IBOutlet weak var displayField: UITextView!
     
     //MARK: Login Outlets
     @IBOutlet weak var emailField: UITextField!
@@ -38,12 +34,6 @@ class ViewController: UIViewController {
         self.performSegue(withIdentifier: "createAccountSegue", sender: nil)
     }
     
-    
-    
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,7 +41,6 @@ class ViewController: UIViewController {
         passwordField.text = "myPassword"
         // Do any additional setup after loading the view, typically from a nib.
         self.viewSpace.layer.cornerRadius = 5.0
-        hasKit()
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,6 +52,7 @@ class ViewController: UIViewController {
         self.view.endEditing(true)
         
     }
+
     
     
     func loginFunction(){
@@ -87,56 +77,5 @@ class ViewController: UIViewController {
     }
 
     //
-    @IBAction func requestButtonDidTouch(_ sender: Any) {
-        
-        let writeDataTypes: Set<HKSampleType> = self.dataTypesToWrite()
-        let readDataTypes: Set<HKObjectType> = self.dataTypesToRead()
-        
-        healthStore.requestAuthorization(toShare: writeDataTypes, read: readDataTypes) { (success, error) -> Void in
-            if success {
-                self.displayField.text = "\(self.displayField.text) + \n Sucess!"
-            } else {
-                self.displayField.text = "\(self.displayField.text) + \n Failure!"
-            }
-            
-            if let error = error { self.displayField.text = "\(error)" }
-        }
-    }
-    
-    func hasKit(){
-        if (HKHealthStore.isHealthDataAvailable()){
-            displayField.text = "HKHealthStore is available!"
-            
-        }
-        else{
-            displayField.text = "ERROR: Unavailable"
-        }
-    }
-    
-    private func dataTypesToWrite() -> Set<HKSampleType> {
-        
-        let dietaryCalorieEnergyType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryEnergyConsumed)!
-        let activeEnergyBurnType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned)!
-        let heightType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!
-        let weightType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!
-        
-        let writeDataTypes: Set<HKSampleType> = [dietaryCalorieEnergyType, activeEnergyBurnType, heightType, weightType]
-        
-        return writeDataTypes
-    }
-    
-    private func dataTypesToRead() -> Set<HKObjectType> {
-        
-        let dietaryCalorieEnergyType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryEnergyConsumed)!
-        let activeEnergyBurnType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned)!
-        let heightType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!
-        let weightType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!
-        let birthdayType = HKQuantityType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.dateOfBirth)!
-        let biologicalSexType = HKQuantityType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.biologicalSex)!
-        
-        let readDataTypes: Set<HKObjectType> = [dietaryCalorieEnergyType, activeEnergyBurnType, heightType, weightType, birthdayType, biologicalSexType]
-        
-        return readDataTypes
-    }
 }
 

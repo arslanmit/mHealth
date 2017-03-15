@@ -275,18 +275,32 @@ class ProfileTableTableViewController: UITableViewController {
         let biologicalSex:HKBiologicalSex
         
         do{
-            biologicalSex = try HealthKitStore.biologicalSex()
+            biologicalSex = try HealthKitStore.biologicalSex().biologicalSex
+            
         }catch{
             print("\(error)")
             return
         }
-        let s: String = biologicalSexLiteral(biologicalSex)
-            print("\(s)")
+        let biologicalSexText: String = biologicalSexLiteral(biologicalSex)
+        
+        if var userProfiles = self.userProfiles {
+            
+            var sex: [String] = userProfiles[ProfileKeys.Sex] as [String]!
+            sex[detail] = biologicalSexText
+            
+            userProfiles[ProfileKeys.Sex] = sex
+            self.userProfiles = userProfiles
+        }
+        
+        // Reload table view (only age row)
+        let indexPath = IndexPath(row: ProfileViewControllerTableViewIndex.Sex.rawValue, section: 0)
+        self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
         
     }
     
-    func biologicalSexLiteral(_ biologicalSex:HKBiologicalSex?)->String
-    {
+    
+    
+    func biologicalSexLiteral(_ biologicalSex:HKBiologicalSex?)->String{
         var biologicalSexText = kUnknownString;
         
         if  biologicalSex != nil {
@@ -297,8 +311,10 @@ class ProfileTableTableViewController: UITableViewController {
                 biologicalSexText = "Female"
             case .male:
                 biologicalSexText = "Male"
-            default:
-                break;
+            case .other:
+                biologicalSexText = "Other"
+            case .notSet:
+                biologicalSexText = "Not set"
             }
             
         }
