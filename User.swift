@@ -9,22 +9,10 @@
 import Foundation
 import Firebase
 
-enum lifeStyle: String{
-    case moderatleyFit = "Moderately Fit"
-    case fit = "Average Fit"
-    case veryFit = "Very Fit"
-}
-
 struct User {
     
     let uid: String
     let email: String
-    /*
-    let name: String
-    let currentLifeStyle: lifeStyle
-    let desiredLifeStyle: lifeStyle */
-    
-    
     
     init(authData: FIRUser) {
         uid = authData.uid
