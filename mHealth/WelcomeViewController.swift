@@ -22,26 +22,6 @@ class WelcomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
-        if(user?.displayName == nil){
-            let alert = UIAlertController(title: "Hello!",
-                                          message: "We see you're new...",
-                                          preferredStyle: .alert)
-            alert.addTextField { displayNamer in
-                displayNamer.placeholder = "Enter your permanent display name"
-                let changeRequest = self.user?.profileChangeRequest()
-                changeRequest?.displayName = displayNamer.text
-            }
-            let okAction = UIAlertAction(title: "Okay",
-                                         style: .default)
-            
-            alert.addAction(okAction)
-            self.present(alert, animated: true, completion: nil)
-        } */
-        /* this doesn't work and I'm not sure how to add a display name convientenly to sort data in the firebase table inside of console.... currently it's being stored as 
-         "Opinional("\(uid)") */
-        
-        
         
     }
 

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2E09F7B41E77B77200EE2F0A /* ProfileTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E09F7B31E77B77200EE2F0A /* ProfileTableTableViewController.swift */; };
 		2E2AE2651E6A63CE00C3A9D5 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */; };
-		2E3488901E719B3500A0392C /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E34888F1E719B3500A0392C /* TestViewController.swift */; };
 		2E69EF1C1E65D36A00F1BC9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E69EF1B1E65D36A00F1BC9A /* AppDelegate.swift */; };
 		2E69EF1E1E65D36A00F1BC9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E69EF1D1E65D36A00F1BC9A /* ViewController.swift */; };
 		2E69EF211E65D36A00F1BC9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E69EF1F1E65D36A00F1BC9A /* Main.storyboard */; };
@@ -21,6 +20,8 @@
 		2E764EFC1E65D64F0082CC42 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E764EFB1E65D64F0082CC42 /* GoogleService-Info.plist */; };
 		2E99C58A1E706B5D00439E41 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E99C5891E706B5D00439E41 /* SettingsTableViewController.swift */; };
 		2E99C58E1E70911900439E41 /* HKHealthStoreExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E99C58D1E70911900439E41 /* HKHealthStoreExtension.swift */; };
+		2EB8F5251E78F07B0041BE03 /* cherry.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EB8F5241E78F07B0041BE03 /* cherry.png */; };
+		2EB8F5271E78F1180041BE03 /* nurse.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EB8F5261E78F1180041BE03 /* nurse.png */; };
 		2EE80AFC1E68ACCC000956DE /* healthIcon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2EE80AFB1E68ACCC000956DE /* healthIcon.jpeg */; };
 		2EE80AFF1E68AEF2000956DE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE80AFE1E68AEF2000956DE /* User.swift */; };
 		2EE80B021E6900A3000956DE /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE80B011E6900A3000956DE /* WelcomeViewController.swift */; };
@@ -50,7 +51,6 @@
 		04B205F87A2A279AAC0909A9 /* Pods-mHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mHealth.release.xcconfig"; path = "Pods/Target Support Files/Pods-mHealth/Pods-mHealth.release.xcconfig"; sourceTree = "<group>"; };
 		2E09F7B31E77B77200EE2F0A /* ProfileTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableTableViewController.swift; sourceTree = "<group>"; };
 		2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
-		2E34888F1E719B3500A0392C /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		2E69EF181E65D36A00F1BC9A /* mHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E69EF1B1E65D36A00F1BC9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E69EF1D1E65D36A00F1BC9A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +69,8 @@
 		2E764EFB1E65D64F0082CC42 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2E99C5891E706B5D00439E41 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		2E99C58D1E70911900439E41 /* HKHealthStoreExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKHealthStoreExtension.swift; sourceTree = "<group>"; };
+		2EB8F5241E78F07B0041BE03 /* cherry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cherry.png; path = mHealth/cherry.png; sourceTree = "<group>"; };
+		2EB8F5261E78F1180041BE03 /* nurse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nurse.png; path = mHealth/nurse.png; sourceTree = "<group>"; };
 		2EE80AFB1E68ACCC000956DE /* healthIcon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = healthIcon.jpeg; path = mHealth/healthIcon.jpeg; sourceTree = "<group>"; };
 		2EE80AFE1E68AEF2000956DE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2EE80B011E6900A3000956DE /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				2EE80AFB1E68ACCC000956DE /* healthIcon.jpeg */,
+				2EB8F5241E78F07B0041BE03 /* cherry.png */,
+				2EB8F5261E78F1180041BE03 /* nurse.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -197,7 +201,6 @@
 				2EE80B011E6900A3000956DE /* WelcomeViewController.swift */,
 				2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */,
 				2E99C5891E706B5D00439E41 /* SettingsTableViewController.swift */,
-				2E34888F1E719B3500A0392C /* TestViewController.swift */,
 				2E09F7B31E77B77200EE2F0A /* ProfileTableTableViewController.swift */,
 			);
 			name = ViewControllers;
@@ -330,9 +333,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EB8F5251E78F07B0041BE03 /* cherry.png in Resources */,
 				2E69EF261E65D36A00F1BC9A /* LaunchScreen.storyboard in Resources */,
 				2E764EFC1E65D64F0082CC42 /* GoogleService-Info.plist in Resources */,
 				2E69EF231E65D36A00F1BC9A /* Assets.xcassets in Resources */,
+				2EB8F5271E78F1180041BE03 /* nurse.png in Resources */,
 				2E69EF211E65D36A00F1BC9A /* Main.storyboard in Resources */,
 				2EE80AFC1E68ACCC000956DE /* healthIcon.jpeg in Resources */,
 			);
@@ -407,7 +412,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E3488901E719B3500A0392C /* TestViewController.swift in Sources */,
 				2E2AE2651E6A63CE00C3A9D5 /* CreateAccountViewController.swift in Sources */,
 				2E69EF1E1E65D36A00F1BC9A /* ViewController.swift in Sources */,
 				2EE80B021E6900A3000956DE /* WelcomeViewController.swift in Sources */,

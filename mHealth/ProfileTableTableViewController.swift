@@ -9,6 +9,7 @@
 import UIKit
 import HealthKit
 import HealthKitUI
+import Firebase
 
 enum ProfileViewControllerTableViewIndex: Int {
     case Age = 0
@@ -37,13 +38,13 @@ enum ProfileBodyKeys: String {
 enum OptionsViewControllerTableViewIndex: Int{
     case requestHealthKit = 0
     case logOut
-    case test
+    case refresh
 }
 
 enum OptionKeys: String{
     case requestHealthKit = "healthkit"
     case logOut = "logout"
-    case test = "test"
+    case refresh = "refresh"
 }
 
 
@@ -154,7 +155,7 @@ class ProfileTableTableViewController: UITableViewController {
                 option = "Log out"
                 
             case 2:
-                option = "Test"
+                option = "Refresh"
                 
             default:
                 break
@@ -177,8 +178,28 @@ class ProfileTableTableViewController: UITableViewController {
                // tableView.deselectRow(at: indexPath, animated: true)
                 }
             else if index == 1{
+                logoutFunction()
+            }
+            else if index == 2{
                 updateUserAge()
                 updateUserSex()
+                updateUserBloodType()
+                updateUserWeight()
+                updateUserHeight()
+            }
+        }
+    }
+    
+    
+    func logoutFunction(){
+        if (FIRAuth.auth()?.currentUser != nil) {
+            do {
+                try FIRAuth.auth()?.signOut()
+                self.dismiss(animated: true, completion: nil)
+                //   self.performSegue(withIdentifier: "welcomeToLogin", sender: nil) --- unneeded because dismissal sends back to login! :)
+                
+            } catch let error as NSError {
+                print(error.localizedDescription)
             }
         }
     }
@@ -297,6 +318,204 @@ class ProfileTableTableViewController: UITableViewController {
         self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
         
     }
+    
+    private func updateUserBloodType(){
+        
+        let bloodType:HKBloodType
+        
+        do{
+            bloodType = try HealthKitStore.bloodType().bloodType
+            
+        }catch{
+            print("\(error)")
+            return
+        }
+        let bloodTypeText: String = bloodTypeLiteral(bloodType)
+        print(bloodTypeText)
+        
+        if var userProfiles = self.userProfiles {
+            
+            var type: [String] = userProfiles[ProfileKeys.BloodType] as [String]!
+            type[detail] = bloodTypeText
+            
+            userProfiles[ProfileKeys.BloodType] = type
+            self.userProfiles = userProfiles
+        }
+        
+        // Reload table view (only age row)
+        let indexPath = IndexPath(row: ProfileViewControllerTableViewIndex.BloodType.rawValue, section: 0)
+        self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+        
+    }
+    
+    private func updateUserWeight(){
+        let setWeightInformationHandle: ((String) -> Void) = {
+            //unowned self ---> prevents mem leaks
+            [unowned self] (weightValue) -> Void in
+            
+            // Fetch user's default height unit in inches.
+            let massFormatter = MassFormatter()
+            massFormatter.unitStyle = Formatter.UnitStyle.long
+            
+            let weightFormatterUnit = MassFormatter.Unit.pound
+            let weightUniString: String = massFormatter.unitString(fromValue: 10, unit: weightFormatterUnit)
+            let localizedHeightUnitDescriptionFormat: String = NSLocalizedString("Weight (%@)", comment: "");
+            
+            let weightUnitDescription = String(format: localizedHeightUnitDescriptionFormat, weightUniString);
+            
+            print(weightUnitDescription)
+            
+            if var userBodies = self.userBodies {
+                var weight: [String] = userBodies[ProfileBodyKeys.Weight] as [String]!
+              //  weight[self.unit] = weightUnitDescription
+                weight[self.detail] = weightValue
+                
+                userBodies[ProfileBodyKeys.Weight] = weight
+                self.userBodies = userBodies
+            }
+            
+            // Reload table view (only height row)
+            let indexPath: IndexPath = IndexPath(row: ProfileBodyViewControllerTableViewIndex.Weight.rawValue, section: 1)
+            self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+        }
+        
+        let weightType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!
+        
+        // Query to get the user's latest weight, if it exists.
+        let completion: HKCompletionHandle = {
+            (mostRecentQuantity, error) -> Void in
+            
+            guard let mostRecentQuantity = mostRecentQuantity else {/// MUST FIND OUT HOW IT KNOWS TO SEARCH FOR WEIGHT TRAVIS...
+                
+                print("Either an error occured fetching the user's weight information or none has been stored yet... Must find a way to handle this...")
+                
+                DispatchQueue.main.async {
+                    
+                    let weightValue: String = NSLocalizedString("Not available", comment: "")
+                    
+                    setWeightInformationHandle(weightValue)
+                }
+                
+                return
+            }
+            
+            // Determine the weight in the required unit.
+            let weightUnit = HKUnit.pound()
+            let usersWeight: Double = mostRecentQuantity.doubleValue(for: weightUnit)
+            
+            // Update the user interface.
+            DispatchQueue.main.async {
+                
+                let weightValue: String = NumberFormatter.localizedString(from: usersWeight as NSNumber, number: NumberFormatter.Style.none)
+                
+                setWeightInformationHandle(weightValue)
+            }
+        }
+        
+            HealthKitStore.mostRecentQuantitySample(ofType: weightType, completion: completion) //??? idk if this is good... no clue if it works
+
+    }
+    
+    private func updateUserHeight(){
+        let setHeightInformationHandle: ((String) -> Void) = {
+            
+            [unowned self] (heightValue) -> Void in
+            
+            // Fetch user's default height unit in inches.
+            let lengthFormatter = LengthFormatter()
+            lengthFormatter.unitStyle = Formatter.UnitStyle.long
+            
+            let heightFormatterUnit = LengthFormatter.Unit.inch
+            let heightUniString: String = lengthFormatter.unitString(fromValue: 10, unit: heightFormatterUnit)
+            let localizedHeightUnitDescriptionFormat: String = NSLocalizedString("Height (%@)", comment: "");
+            
+            let heightUnitDescription: String = String(format: localizedHeightUnitDescriptionFormat, heightUniString);
+            
+            if var userBodies = self.userBodies {
+                
+                var height: [String] = userBodies[ProfileBodyKeys.Height] as [String]!
+                height[self.unit] = heightUnitDescription
+                height[self.detail] = heightValue
+                
+                userBodies[ProfileBodyKeys.Height] = height
+                self.userBodies = userBodies
+            }
+            
+            // Reload table view (only height row)
+            let indexPath = IndexPath(row: ProfileBodyViewControllerTableViewIndex.Height.rawValue, section: 1)
+            self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+        }
+        
+        let heightType: HKQuantityType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!
+        
+        // Query to get the user's latest height, if it exists.
+        let completion: HKCompletionHandle = {
+            
+            (mostRecentQuantity, error) -> Void in
+            
+            guard let mostRecentQuantity = mostRecentQuantity else {
+                
+                print("Either an error occured fetching the user's height information or none has been stored yet. In your app, try to handle this gracefully.")
+                
+                DispatchQueue.main.async {
+                    
+                    let heightValue: String = NSLocalizedString("Not available", comment: "")
+                    
+                    setHeightInformationHandle(heightValue)
+                }
+                
+                return
+            }
+            
+            // Determine the height in the required unit.
+            let heightUnit = HKUnit.inch()
+            let usersHeight: Double = mostRecentQuantity.doubleValue(for: heightUnit)
+            
+            // Update the user interface.
+            DispatchQueue.main.async {
+                
+                let heightValue: String = NumberFormatter.localizedString(from: usersHeight as NSNumber, number: NumberFormatter.Style.none)
+                
+                setHeightInformationHandle(heightValue)
+            }
+        }
+        
+        HealthKitStore.mostRecentQuantitySample(ofType: heightType, completion: completion)
+        
+
+    }
+    
+    private func updateUserBMI(){
+        
+    }
+    
+    func bloodTypeLiteral(_ bloodType:HKBloodType?)->String{
+        
+        var bloodTypeText = kUnknownString;
+        
+        switch( bloodType! ) {
+            case .aPositive:
+                bloodTypeText = "A+"
+            case .aNegative:
+                bloodTypeText = "A-"
+            case .bPositive:
+                bloodTypeText = "B+"
+            case .bNegative:
+                bloodTypeText = "B-"
+            case .abPositive:
+                bloodTypeText = "AB+"
+            case .abNegative:
+                bloodTypeText = "AB-"
+            case .oPositive:
+                bloodTypeText = "O+"
+            case .oNegative:
+                bloodTypeText = "O-"
+            default:
+                bloodTypeText = "Unknown"
+        }
+        return bloodTypeText;
+    }
+
     
     
     
