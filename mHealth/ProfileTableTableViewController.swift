@@ -58,6 +58,12 @@ class ProfileTableTableViewController: UITableViewController {
     private let unit = 0
     private let detail = 1
     
+    
+    var bmi:Double?
+    var height, weight: HKQuantityType?
+    
+    
+    
      let kUnknownString   = "Unknown"
 
     override func viewDidLoad() {
@@ -186,6 +192,7 @@ class ProfileTableTableViewController: UITableViewController {
                 updateUserBloodType()
                 updateUserWeight()
                 updateUserHeight()
+                updateUserBMI()
             }
         }
     }
@@ -486,8 +493,32 @@ class ProfileTableTableViewController: UITableViewController {
     }
     
     private func updateUserBMI(){
+        /*
+        
+        if weight != nil && height != nil {
+            // 1. Get the weight and height values from the samples read from HealthKit
+            let weightInKilograms = weight!.quantity.doubleValue(for: HKUnit.gramUnit(with: .kilo))
+            let heightInMeters = height!.quantity.doubleValue(for: HKUnit.meter())
+            // 2. Call the method to calculate the BMI
+            bmi  = calculateBMIWithWeightInKilograms(weightInKilograms, heightInMeters: heightInMeters)
+        }
+        // 3. Show the calculated BMI
+        var bmiString = kUnknownString
+        if bmi != nil {
+            bmiString =  String(format: "%.02f", bmi!)
+        }
+
+        print(bmiString) */
         
     }
+    
+    func calculateBMIWithWeightInKilograms(_ weightInKilograms:Double, heightInMeters:Double) -> Double? {
+        if heightInMeters == 0 {
+            return nil;
+        }
+        return (weightInKilograms/(heightInMeters*heightInMeters));
+    }
+    
     
     func bloodTypeLiteral(_ bloodType:HKBloodType?)->String{
         

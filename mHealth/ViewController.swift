@@ -52,6 +52,15 @@ class ViewController: UIViewController {
         self.view.endEditing(true)
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "createAccountSegue" {
+            if let createVC = segue.destination as? CreateAccountViewController {
+            createVC.emailField.text = emailField.text
+            createVC.passwordField.text = passwordField.text
+            }
+        }
+    }
 
     
     

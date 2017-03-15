@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,9 +23,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztv-DB-h93">
-                                <rect key="frame" x="16" y="486" width="343" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztv-DB-h93">
+                                <rect key="frame" x="14" y="548" width="139" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="kJf-0k-J8l"/>
+                                </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="Hello!">
                                         <attributes>
@@ -35,27 +39,29 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Copyright (c) 2017 TJMaxApp." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkI-5u-JfF">
-                                <rect key="frame" x="10" y="638" width="202" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright (c) 2017 TJMaxApp." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkI-5u-JfF">
+                                <rect key="frame" x="8" y="626" width="202" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Wjd-ij-DHx"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="All rights reserved." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gM-ur-JZ6">
-                                <rect key="frame" x="220" y="638" width="139" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All rights reserved." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gM-ur-JZ6">
+                                <rect key="frame" x="218" y="626" width="139" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="139" id="g7y-Kc-tmR"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="nurse.png" translatesAutoresizingMaskIntoConstraints="NO" id="fP9-sc-obr">
-                                <rect key="frame" x="127" y="230" width="120" height="206"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFa-xg-L5j">
-                                <rect key="frame" x="2" y="87" width="370" height="107"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFa-xg-L5j">
+                                <rect key="frame" x="0.0" y="75" width="370" height="107"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="107" id="WqQ-8D-3f1"/>
+                                </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="JTMax: mHealth">
                                         <attributes>
@@ -106,8 +112,40 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cherry.png" translatesAutoresizingMaskIntoConstraints="NO" id="v0N-cp-9H2">
+                                <rect key="frame" x="251" y="504" width="106" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="HZK-4j-bAV"/>
+                                    <constraint firstAttribute="width" constant="106" id="KBY-E6-dfi"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nurse.png" translatesAutoresizingMaskIntoConstraints="NO" id="z9L-hg-paA">
+                                <rect key="frame" x="126" y="228" width="123" height="210"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="123" id="Egz-6n-SkX"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="MFa-xg-L5j" secondAttribute="trailing" constant="-11" id="0PN-JG-MJK"/>
+                            <constraint firstItem="MFa-xg-L5j" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="55" id="59e-d0-NRI"/>
+                            <constraint firstItem="ztv-DB-h93" firstAttribute="bottom" secondItem="v0N-cp-9H2" secondAttribute="bottom" id="9Ae-R9-Qjy"/>
+                            <constraint firstItem="v0N-cp-9H2" firstAttribute="trailing" secondItem="5gM-ur-JZ6" secondAttribute="trailing" id="DkH-rP-0Og"/>
+                            <constraint firstItem="5gM-ur-JZ6" firstAttribute="leading" secondItem="fkI-5u-JfF" secondAttribute="trailing" constant="8" symbolic="YES" id="FD6-Sm-9j4"/>
+                            <constraint firstItem="fkI-5u-JfF" firstAttribute="top" secondItem="ztv-DB-h93" secondAttribute="bottom" constant="22" id="WNm-2M-pey"/>
+                            <constraint firstItem="ztv-DB-h93" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-2" id="WzQ-oO-w5l"/>
+                            <constraint firstItem="MFa-xg-L5j" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="aL5-Ll-HgW"/>
+                            <constraint firstItem="z9L-hg-paA" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bDl-3g-URj"/>
+                            <constraint firstItem="v0N-cp-9H2" firstAttribute="leading" secondItem="ztv-DB-h93" secondAttribute="trailing" constant="98" id="c67-b7-IEG"/>
+                            <constraint firstItem="z9L-hg-paA" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="gLH-wt-UEn"/>
+                            <constraint firstItem="z9L-hg-paA" firstAttribute="top" secondItem="MFa-xg-L5j" secondAttribute="bottom" constant="46" id="hwu-p2-VJA"/>
+                            <constraint firstItem="fkI-5u-JfF" firstAttribute="firstBaseline" secondItem="5gM-ur-JZ6" secondAttribute="firstBaseline" id="lVi-fc-KrR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="v0N-cp-9H2" secondAttribute="trailing" constant="2" id="oyl-NI-LJc"/>
+                            <constraint firstAttribute="bottom" secondItem="fkI-5u-JfF" secondAttribute="bottom" constant="20" symbolic="YES" id="qOx-yP-tWh"/>
+                            <constraint firstItem="fkI-5u-JfF" firstAttribute="baseline" secondItem="5gM-ur-JZ6" secondAttribute="baseline" id="uyG-qD-D7d"/>
+                            <constraint firstItem="fkI-5u-JfF" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-8" id="yfD-HY-zju"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -116,6 +154,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cherry.png" width="1280" height="1172"/>
         <image name="nurse.png" width="2000" height="3374"/>
     </resources>
 </document>
