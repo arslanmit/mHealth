@@ -37,25 +37,25 @@ class PedometerViewController: UIViewController{
         
         let midnightOfToday = cal.date(from: comps)!
         
-        /*
+        
         if(CMMotionActivityManager.isActivityAvailable()){
-            self.activityManager.startActivityUpdates(to: OperationQueue.main, withHandler: { (data: CMMotionActivity!) -> Void in
+            self.activityManager.startActivityUpdates(to: OperationQueue.main, withHandler: { (data: CMMotionActivity?) -> Void in
                 DispatchQueue.main.async{
-                    if(data.stationary == true){
+                    if(data?.stationary == true){
                         self.activityState.text = "Stationary"
-                    } else if (data.walking == true){
+                    } else if (data?.walking == true){
                         self.activityState.text = "Walking"
-                    } else if (data.running == true){
+                    } else if (data?.running == true){
                         self.activityState.text = "Running"
-                    } else if (data.automotive == true){
+                    } else if (data?.automotive == true){
                         self.activityState.text = "Automotive"
                     }
                 }
                 
-            } as! CMMotionActivityHandler)
+            })
             
         }
-         */
+        
  
         if(CMPedometer.isStepCountingAvailable()){
             
@@ -88,8 +88,10 @@ class PedometerViewController: UIViewController{
     }
     
     func editString(s: String) -> String{
-        let orginal = s
-        let mut = orginal.replacingOccurrences(of: "Optional(", with: "")
+        let o = s
+        let o2 = o.replacingOccurrences(of: "Optional(", with: "")
+        let mut = o2.replacingOccurrences(of: ")", with: "")
+        
         return mut
     }
 }
