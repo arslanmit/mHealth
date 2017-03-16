@@ -11,12 +11,18 @@ import Firebase
 
 class CreateAccountViewController: UIViewController {
     
-    
+    //MARK: Outlets
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var confirmPasswordField: UITextField!
+    @IBOutlet weak var currentLifestylePicker: UISegmentedControl!
+    @IBOutlet weak var desiredLifestylePicker: UISegmentedControl!
+    @IBOutlet weak var button: UIButton!
     
+    //MARK:Firebase
+    var user = (FIRAuth.auth()?.currentUser)
+    let ref = FIRDatabase.database().reference(withPath: "users")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +34,29 @@ class CreateAccountViewController: UIViewController {
        
     }
     
+    @IBAction func buttonDidTouch(_ sender: Any) {
+        if(currentLifestylePicker.selectedSegmentIndex == 0)
+        {
+            print(currentLifestylePicker.titleForSegment(at: currentLifestylePicker.selectedSegmentIndex)!)
+        }
+        else if(currentLifestylePicker.selectedSegmentIndex == 1)
+        {
+           print(currentLifestylePicker.titleForSegment(at: currentLifestylePicker.selectedSegmentIndex)!)
+        }
+        else if(currentLifestylePicker.selectedSegmentIndex == 2)
+        {
+            print(currentLifestylePicker.titleForSegment(at: currentLifestylePicker.selectedSegmentIndex)!)
+        }
+    }
+    
+    @IBAction func currentLifestyleDidPick(_ sender: Any) {
+    }
+    
+    @IBAction func desiredLifestyleDidPick(_ sender: Any) {
+    }
+    
+    
+    
     
     @IBAction func createAccountDidTouch(_ sender: Any) {
         createAccount()
@@ -38,6 +67,7 @@ class CreateAccountViewController: UIViewController {
     
 
     func createAccount(){
+        if(passwordField.text == confirmPasswordField.text){
         FIRAuth.auth()!.createUser(withEmail: emailField.text!,
                                    password: passwordField.text!) { user, error in
                                     if error != nil { //unsucessful
@@ -51,9 +81,19 @@ class CreateAccountViewController: UIViewController {
                                     }
                                     else{
                                         self.loginFunction()
-                                    }
+                                        }
         }
-
+        }else{
+            let alert = UIAlertController(title: "Creation error",
+                                          message: "Please confirm passwords are the same and try again!",
+                                          preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Okay",
+                                         style: .default)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+            passwordField.text = ""
+            confirmPasswordField.text = ""
+        }
     }
     
     func loginFunction(){
@@ -70,14 +110,64 @@ class CreateAccountViewController: UIViewController {
                                     self.present(alert, animated: true, completion: nil)
                                 }
                                 else{
-                                    self.dismiss(animated: true, completion: nil)
+                                    self.addUserFirebase() /// special addition to this version of the method so that the segues work correctly :)
+                                   /// self.dismiss(animated: true, completion: nil)
                                     self.performSegue(withIdentifier: "createAccountToTab", sender: nil)
                                 }
         })
         
+        
+        
     }
     
-    
+    func addUserFirebase(){
+        self.user = FIRAuth.auth()?.currentUser
+        /// adding user to firebase database:
+        let newUser: mHealthUser = mHealthUser(uid: (self.user!.uid),
+                                               email: (self.user?.email)!,
+                                               mcurrentLifestyle: self.currentToString(),
+                                               mdesiredLifestyle: self.desiredToString())
+        // 1
+        let emailDOT = self.removePeriod(s: (self.user?.email)!)
+        let currentUserRef = self.ref.child(emailDOT)
+        // 2
+        let userDataRef = currentUserRef.child("User-Data")
+        userDataRef.setValue(newUser.toAnyObject())
 
+    }
+    
+    func currentToString() -> String {
+        if(currentLifestylePicker.selectedSegmentIndex == 0)
+        {
+            return (currentLifestylePicker.titleForSegment(at: currentLifestylePicker.selectedSegmentIndex)!)
+        }
+        else if(currentLifestylePicker.selectedSegmentIndex == 1)
+        {
+            return (currentLifestylePicker.titleForSegment(at: currentLifestylePicker.selectedSegmentIndex)!)
+        }
+        else if(currentLifestylePicker.selectedSegmentIndex == 2)
+        {
+            return (currentLifestylePicker.titleForSegment(at: currentLifestylePicker.selectedSegmentIndex)!)
+        }
+        return "ERROR"
+    }
+    
+    func desiredToString() -> String {
+        if(desiredLifestylePicker.selectedSegmentIndex == 0)
+        {
+            return (desiredLifestylePicker.titleForSegment(at: currentLifestylePicker.selectedSegmentIndex)!)
+        }
+        else if(desiredLifestylePicker.selectedSegmentIndex == 1)
+        {
+            return (desiredLifestylePicker.titleForSegment(at: currentLifestylePicker.selectedSegmentIndex)!)
+        }
+        return "ERROR"
+    }
+
+    func removePeriod(s: String) -> String{
+        let myString = s
+        let newString = myString.replacingOccurrences(of: ".com", with: "")
+        return newString
+    }
 
 }

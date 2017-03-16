@@ -222,6 +222,9 @@
                                     <segment title="Fit"/>
                                     <segment title="Very Fit"/>
                                 </segments>
+                                <connections>
+                                    <action selector="desiredLifestyleDidPick:" destination="NW1-D1-ZkM" eventType="valueChanged" id="kUW-Dr-cLz"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your desired lifestyle:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8D5-rX-tWn">
                                 <rect key="frame" x="80" y="349" width="216" height="21"/>
@@ -236,7 +239,18 @@
                                     <segment title="Fit"/>
                                     <segment title="Very Fit"/>
                                 </segments>
+                                <connections>
+                                    <action selector="currentLifestyleDidPick:" destination="NW1-D1-ZkM" eventType="valueChanged" id="YIk-eK-itU"/>
+                                </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exf-fm-YZz">
+                                <rect key="frame" x="266" y="511" width="93" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Tester Button"/>
+                                <connections>
+                                    <action selector="buttonDidTouch:" destination="NW1-D1-ZkM" eventType="touchUpInside" id="dTb-Ud-AjR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -270,7 +284,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="button" destination="exf-fm-YZz" id="2U6-vH-Kpa"/>
                         <outlet property="confirmPasswordField" destination="qy3-ud-Zyq" id="AsE-0Q-09H"/>
+                        <outlet property="currentLifestylePicker" destination="wlA-Bl-jJj" id="BBV-5B-AAZ"/>
+                        <outlet property="desiredLifestylePicker" destination="wFj-Re-Boy" id="Hxm-Ks-C0e"/>
                         <outlet property="emailField" destination="qfu-rf-LhA" id="XtQ-I8-wsc"/>
                         <outlet property="nameField" destination="GQP-aT-TM7" id="8aw-dT-OCp"/>
                         <outlet property="passwordField" destination="MPt-3K-QAg" id="UCJ-Yc-62S"/>
