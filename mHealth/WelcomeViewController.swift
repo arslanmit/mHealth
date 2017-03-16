@@ -72,10 +72,15 @@ class WelcomeViewController: UIViewController {
     
     func removePeriod(s: String) -> String{
         let myString = s
-        let newString = myString.replacingOccurrences(of: ".com", with: "")
-         return newString
+        var clean: String
+        clean = myString.replacingOccurrences(of: ".com", with: "")
+        clean = myString.replacingOccurrences(of: ".org", with: "")
+         return clean
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
     /*
     // MARK: - Navigation

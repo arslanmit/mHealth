@@ -399,7 +399,7 @@
                         <viewControllerLayoutGuide type="top" id="xJR-rm-aSp"/>
                         <viewControllerLayoutGuide type="bottom" id="xsz-rO-If5"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="E7H-rw-R6h">
+                    <view key="view" contentMode="scaleToFill" id="E7H-rw-R6h" customClass="GMSMapView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
