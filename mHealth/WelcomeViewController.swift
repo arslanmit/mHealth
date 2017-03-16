@@ -18,7 +18,7 @@ class WelcomeViewController: UIViewController {
     
     //MARK:Firebase
     let user = FIRAuth.auth()?.currentUser
-    let ref = FIRDatabase.database().reference(withPath: "users")
+    let rootRef = FIRDatabase.database().reference()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,18 +43,11 @@ class WelcomeViewController: UIViewController {
         //Get the firebase reference
     
         // 1
-        let emailDOT = removePeriod(s: (self.user?.email)!)
-        let currentUserRef = self.ref.child(emailDOT)
-        //temp
+       ///// let ref = FIRDatabase.database().reference(withPath: removePeriod(s: (user?.email)!))
+            let ref:FIRDatabaseReference = rootRef.child("users").child(removePeriod(s: (user?.email)!))
         
-        
-        // 2 --- supposed to set uid as email? no?
-        
-        currentUserRef.setValue((self.user?.email!)) // THIS LINE DOES NOT SET THE VALUE AS EMAIL: PLEASE FIX
-      
-        
-        let favoriteRef = currentUserRef.child("favorites")
-       favoriteRef.setValue(newFavorite.toAnyObject())
+        let favoriteRef = ref.child("favorites")
+        favoriteRef.setValue(newFavorite.toAnyObject())
         
  
         

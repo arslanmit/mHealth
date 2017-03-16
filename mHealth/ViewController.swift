@@ -37,8 +37,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        emailField.text = "login@login.com"
-        passwordField.text = "myPassword"
+        emailField.text = "developer@JTMax.org"
+        passwordField.text = "password"
         // Do any additional setup after loading the view, typically from a nib.
         self.viewSpace.layer.cornerRadius = 5.0
     }

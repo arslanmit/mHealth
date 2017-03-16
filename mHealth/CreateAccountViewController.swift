@@ -125,6 +125,7 @@ class CreateAccountViewController: UIViewController {
         /// adding user to firebase database:
         let newUser: mHealthUser = mHealthUser(uid: (self.user!.uid),
                                                email: (self.user?.email)!,
+                                               name: nameField.text!,
                                                mcurrentLifestyle: self.currentToString(),
                                                mdesiredLifestyle: self.desiredToString())
         // 1
