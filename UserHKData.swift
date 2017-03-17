@@ -16,6 +16,3 @@ class UserHKData{
     let height: Double = 0
     let bmi: Double = 0
 }
-
-
-let travis: UserHKData = UserHKData

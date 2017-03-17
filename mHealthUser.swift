@@ -34,6 +34,7 @@ struct mHealthUser{
     let uid: String
     let email: String
     let name: String
+    let age: Int?
     let sex: String?
     let bloodType: String?
     let weight: Double?
@@ -48,6 +49,7 @@ struct mHealthUser{
     init(uid: String,
          email: String,
          name: String = " ",
+         age: Int = 0,
          sex: String? = nil,
          bloodType: String? = nil,
          weight: Double? = nil,
@@ -57,6 +59,7 @@ struct mHealthUser{
         self.uid = uid
         self.email = email
         self.name = name
+        self.age = age
         self.sex = sex
         self.bloodType = bloodType
         self.weight = weight
@@ -72,6 +75,7 @@ struct mHealthUser{
             "uid":uid,
             "email":email,
             "name":name,
+            "age":age ?? 0,
             "sex":sex ?? "unknown",
             "blood-type":bloodType ?? "unknown",
             "weight":weight ?? 0,
@@ -87,6 +91,7 @@ struct mHealthUser{
         uid = snapshotValue["uid"] as! String
         email = snapshotValue["email"] as! String
         name = snapshotValue["name"] as! String
+        age = snapshotValue["age"] as? Int
         sex = snapshotValue["sex"] as? String
         bloodType = snapshotValue["blood-type"] as? String
         weight = snapshotValue["weight"] as? Double
