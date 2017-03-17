@@ -50,6 +50,9 @@ enum OptionKeys: String{
 
 class ProfileTableTableViewController: UITableViewController {
     
+    let ref = FIRDatabase.database().reference()
+    let user = FIRAuth.auth()?.currentUser
+    
     private var userProfiles: [ProfileKeys: [String]]?
     private var userBodies: [ProfileBodyKeys: [String]]?
     private var HealthKitStore = HKHealthStore()
@@ -202,6 +205,24 @@ class ProfileTableTableViewController: UITableViewController {
         updateUserHeight()
         updateUserBMI()
         /// got to implement firebase usage here :)
+        updateToFirebase()
+    }
+    
+    private func updateToFirebase(){
+        let id: String = Util.removePeriod(s: (user?.email)!)
+        self.ref.child("users//\(id)/User-Data/age").setValue(userHealthData.age)
+        self.ref.child("users//\(id)/User-Data/sex").setValue(userHealthData.sex)
+        self.ref.child("users//\(id)/User-Data/blood-type").setValue(userHealthData.bloodType)
+        self.ref.child("users//\(id)/User-Data/weight").setValue(userHealthData.weight)
+        self.ref.child("users//\(id)/User-Data/height").setValue(userHealthData.height)
+        self.ref.child("users//\(id)/User-Data/bmi").setValue(userHealthData.bmi)
+        
+        //let ref:FIRDatabaseReference = rootRef.child("users").child(Util.removePeriod(s: (user?.email)!)).child("User-Data") 
+        /// don't user or will delete the entire branch of data LOL
+        
+        if(userHealthData.weight == 0 || userHealthData.bmi == 0 || userHealthData.height == 0){ /// because these stupid variables don't register one 1st click... recursion to the rescue
+            updateUserInfo()
+        }
     }
     
     

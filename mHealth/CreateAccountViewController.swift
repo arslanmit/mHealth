@@ -129,7 +129,7 @@ class CreateAccountViewController: UIViewController {
                                                mcurrentLifestyle: self.currentToString(),
                                                mdesiredLifestyle: self.desiredToString())
         // 1
-        let emailDOT = self.removePeriod(s: (self.user?.email)!)
+        let emailDOT = Util.removePeriod(s: (self.user?.email)!)
         let currentUserRef = self.ref.child(emailDOT)
         // 2
         let userDataRef = currentUserRef.child("User-Data")
@@ -163,14 +163,6 @@ class CreateAccountViewController: UIViewController {
             return (desiredLifestylePicker.titleForSegment(at: currentLifestylePicker.selectedSegmentIndex)!)
         }
         return "ERROR"
-    }
-
-    func removePeriod(s: String) -> String{
-        let myString = s
-        var clean: String
-        clean = myString.replacingOccurrences(of: ".com", with: "")
-        clean = myString.replacingOccurrences(of: ".org", with: "")
-        return clean
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -44,7 +44,7 @@ class WelcomeViewController: UIViewController {
     
         // 1
        ///// let ref = FIRDatabase.database().reference(withPath: removePeriod(s: (user?.email)!))
-            let ref:FIRDatabaseReference = rootRef.child("users").child(removePeriod(s: (user?.email)!))
+            let ref:FIRDatabaseReference = rootRef.child("users").child(Util.removePeriod(s: (user?.email)!))
         
         let favoriteRef = ref.child("favorites")
         favoriteRef.setValue(newFavorite.toAnyObject())
@@ -68,14 +68,6 @@ class WelcomeViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
-    }
-    
-    func removePeriod(s: String) -> String{
-        let myString = s
-        var clean: String
-        clean = myString.replacingOccurrences(of: ".com", with: "")
-        clean = myString.replacingOccurrences(of: ".org", with: "")
-         return clean
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
