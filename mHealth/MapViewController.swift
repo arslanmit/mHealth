@@ -52,8 +52,6 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("this is my google maps view and the current location doesn't work :(")
-        
         // Initialize the location manager.
         locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -72,6 +70,11 @@ class MapViewController: UIViewController {
         mapView.settings.myLocationButton = true
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.isMyLocationEnabled = true
+        
+        mapView.settings.compassButton = true
+        mapView.settings.myLocationButton = true
+        mapView.settings.indoorPicker = true
+        mapView.accessibilityElementsHidden = false
         
         // Add the map to the view, hide it until we&#39;ve got a location update.
         view.addSubview(mapView)

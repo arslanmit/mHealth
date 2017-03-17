@@ -394,7 +394,7 @@
         <!--Map-->
         <scene sceneID="Eol-5o-b0m">
             <objects>
-                <viewController title="Map" id="nAy-CJ-vrB" customClass="GoogleMapsViewController" customModule="mHealth" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Map" id="nAy-CJ-vrB" customClass="MapViewController" customModule="mHealth" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xJR-rm-aSp"/>
                         <viewControllerLayoutGuide type="bottom" id="xsz-rO-If5"/>
@@ -408,7 +408,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cn8-V7-L8k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3577" y="994"/>
+            <point key="canvasLocation" x="3569" y="1071"/>
         </scene>
         <!--Welcome-->
         <scene sceneID="S0M-Pp-lZK">
