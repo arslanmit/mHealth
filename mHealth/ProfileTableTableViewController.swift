@@ -58,6 +58,8 @@ class ProfileTableTableViewController: UITableViewController {
     private let unit = 0
     private let detail = 1
     
+    var userHealthData = UserHKData()
+    
     
     var bmi:Double?
     var height, weight:HKQuantitySample?
@@ -187,14 +189,19 @@ class ProfileTableTableViewController: UITableViewController {
                 logoutFunction()
             }
             else if index == 2{
-                updateUserAge()
-                updateUserSex()
-                updateUserBloodType()
-                updateUserWeight()
-                updateUserHeight()
-                updateUserBMI()
+                updateUserInfo()
             }
         }
+    }
+    
+    private func updateUserInfo(){
+        updateUserAge()
+        updateUserSex()
+        updateUserBloodType()
+        updateUserWeight()
+        updateUserHeight()
+        updateUserBMI()
+        /// got to implement firebase usage here :)
     }
     
     
@@ -265,7 +272,7 @@ class ProfileTableTableViewController: UITableViewController {
             comps = try self.HealthKitStore.dateOfBirthComponents()
             
         } catch {
-            print("Either an error occured fetching the user's age information or none has been stored yet. In your app, try to handle this gracefully.......")
+            print("Either an error occured fetching the user's age information or none has been stored yet..... handle this gracefully.......")
             
             return
         }
@@ -282,6 +289,8 @@ class ProfileTableTableViewController: UITableViewController {
         let ageComponents: DateComponents = Calendar.current.dateComponents([.year], from: dateOfBirth, to: now)
         
         let userAge: Int = ageComponents.year!
+        
+        userHealthData.age = userAge
         
         let ageValue: String = NumberFormatter.localizedString(from: userAge as NSNumber, number: NumberFormatter.Style.none)
         
@@ -310,6 +319,7 @@ class ProfileTableTableViewController: UITableViewController {
             return
         }
         let biologicalSexText: String = biologicalSexLiteral(biologicalSex)
+        userHealthData.sex = biologicalSexText
         
         if var userProfiles = self.userProfiles {
             
@@ -338,7 +348,7 @@ class ProfileTableTableViewController: UITableViewController {
             return
         }
         let bloodTypeText: String = bloodTypeLiteral(bloodType)
-        print(bloodTypeText)
+        userHealthData.bloodType = bloodTypeText
         
         if var userProfiles = self.userProfiles {
             
@@ -430,6 +440,7 @@ class ProfileTableTableViewController: UITableViewController {
             // Determine the weight in the required unit.
             let weightUnit = HKUnit.pound()
             let usersWeight: Double = mostRecentQuantity.doubleValue(for: weightUnit)
+            self.userHealthData.weight = usersWeight
             
             // Update the user interface.
             DispatchQueue.main.async {
@@ -519,6 +530,7 @@ class ProfileTableTableViewController: UITableViewController {
             // Determine the height in the required unit.
             let heightUnit = HKUnit.inch()
             let usersHeight: Double = mostRecentQuantity.doubleValue(for: heightUnit)
+            self.userHealthData.height = usersHeight
             
             // Update the user interface.
             DispatchQueue.main.async {
@@ -581,7 +593,8 @@ class ProfileTableTableViewController: UITableViewController {
             let weightInKilograms = weight!.quantity.doubleValue(for: HKUnit.gramUnit(with: .kilo))
             let heightInMeters = height!.quantity.doubleValue(for: HKUnit.meter())
             // 2. Call the method to calculate the BMI
-            bmi  = calculateBMIWithWeightInKilograms(weightInKilograms, heightInMeters: heightInMeters)
+            bmi = calculateBMIWithWeightInKilograms(weightInKilograms, heightInMeters: heightInMeters)
+            userHealthData.bmi = bmi!
         }
         else{
             print("stupid self.weight/height objects are is nil -_-")
