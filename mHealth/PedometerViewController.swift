@@ -65,7 +65,7 @@ class PedometerViewController: UIViewController{
                 DispatchQueue.main.async{
                     if(error == nil){
                         let n: Int = Int((data?.numberOfSteps)!)
-                        let s: String = self.editString(s: String(describing: data?.numberOfSteps))
+                        let s: String = Util.removeOptional(s: String(describing: data?.numberOfSteps))
                         self.steps.text = "\(s)"
                     }
                 }
@@ -75,7 +75,7 @@ class PedometerViewController: UIViewController{
                 DispatchQueue.main.async{
                     if(error == nil){
                         let n: Int = Int((data?.numberOfSteps)!)
-                        let s: String = self.editString(s: String(describing: data?.numberOfSteps))
+                        let s: String = Util.removeOptional(s: String(describing: data?.numberOfSteps))
                         self.steps.text = "\(s)"
                     }
                 }
@@ -85,14 +85,6 @@ class PedometerViewController: UIViewController{
             super.didReceiveMemoryWarning()
             
         }
-    }
-    
-    func editString(s: String) -> String{
-        let o = s
-        let o2 = o.replacingOccurrences(of: "Optional(", with: "")
-        let mut = o2.replacingOccurrences(of: ")", with: "")
-        
-        return mut
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

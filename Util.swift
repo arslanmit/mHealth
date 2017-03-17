@@ -13,7 +13,15 @@ class Util{
         let myString = s
         var clean: String
         clean = myString.replacingOccurrences(of: ".com", with: "")
-        clean = myString.replacingOccurrences(of: ".org", with: "")
+        clean = clean.replacingOccurrences(of: ".org", with: "")
         return clean
+    }
+    
+    class func removeOptional(s: String) -> String{
+        let o = s
+        let o2 = o.replacingOccurrences(of: "Optional(", with: "")
+        let mut = o2.replacingOccurrences(of: ")", with: "")
+        
+        return mut
     }
 }

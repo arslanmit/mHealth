@@ -198,6 +198,12 @@ class ProfileTableTableViewController: UITableViewController {
     }
     
     private func updateUserInfo(){
+        for _ in 1...2{
+            updateUserInfoMethods()
+        }
+    }
+    
+    private func updateUserInfoMethods(){
         updateUserAge()
         updateUserSex()
         updateUserBloodType()
@@ -219,10 +225,10 @@ class ProfileTableTableViewController: UITableViewController {
         
         //let ref:FIRDatabaseReference = rootRef.child("users").child(Util.removePeriod(s: (user?.email)!)).child("User-Data") 
         /// don't user or will delete the entire branch of data LOL
-        
+        /*
         if(userHealthData.weight == 0 || userHealthData.bmi == 0 || userHealthData.height == 0){ /// because these stupid variables don't register one 1st click... recursion to the rescue
             updateUserInfo()
-        }
+        } */
     }
     
     

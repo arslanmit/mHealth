@@ -18,7 +18,7 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var confirmPasswordField: UITextField!
     @IBOutlet weak var currentLifestylePicker: UISegmentedControl!
     @IBOutlet weak var desiredLifestylePicker: UISegmentedControl!
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
     //MARK:Firebase
     var user = (FIRAuth.auth()?.currentUser)
@@ -34,29 +34,10 @@ class CreateAccountViewController: UIViewController {
        
     }
     
-    @IBAction func buttonDidTouch(_ sender: Any) {
-        if(currentLifestylePicker.selectedSegmentIndex == 0)
-        {
-            print(currentLifestylePicker.titleForSegment(at: currentLifestylePicker.selectedSegmentIndex)!)
-        }
-        else if(currentLifestylePicker.selectedSegmentIndex == 1)
-        {
-           print(currentLifestylePicker.titleForSegment(at: currentLifestylePicker.selectedSegmentIndex)!)
-        }
-        else if(currentLifestylePicker.selectedSegmentIndex == 2)
-        {
-            print(currentLifestylePicker.titleForSegment(at: currentLifestylePicker.selectedSegmentIndex)!)
-        }
+    
+    @IBAction func backButtonDidTouch(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
-    
-    @IBAction func currentLifestyleDidPick(_ sender: Any) {
-    }
-    
-    @IBAction func desiredLifestyleDidPick(_ sender: Any) {
-    }
-    
-    
-    
     
     @IBAction func createAccountDidTouch(_ sender: Any) {
         createAccount()
@@ -119,6 +100,8 @@ class CreateAccountViewController: UIViewController {
         
         
     }
+    
+    
     
     func addUserFirebase(){
         self.user = FIRAuth.auth()?.currentUser

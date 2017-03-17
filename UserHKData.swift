@@ -14,5 +14,5 @@ class UserHKData{
     var bloodType: String = "unknown"
     var weight: Double = 0
     var height: Double = 0
-    var bmi: Double = 0
+    var bmi: Double = -1
 }
