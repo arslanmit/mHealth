@@ -31,6 +31,7 @@ let DetailSegueName = "RunDetails"
 
 class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate {
     var managedObjectContext: NSManagedObjectContext?
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var run: Run!
     var seconds = 0.0
@@ -99,6 +100,7 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         locationManager.activityType = .fitness
         locationManager.distanceFilter = 10.0
         locationManager.requestAlwaysAuthorization()
+        managedObjectContext = appDelegate.managedObjectContext
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -302,7 +304,7 @@ extension NewRunViewController: UIActionSheetDelegate {
         //save
         if buttonIndex == 1 {
             saveRun()
-            performSegue(withIdentifier: DetailSegueName, sender: nil)
+           // performSegue(withIdentifier: DetailSegueName, sender: nil)
         }
             //discard
         else if buttonIndex == 2 {
