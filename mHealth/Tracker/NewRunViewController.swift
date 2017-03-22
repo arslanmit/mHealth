@@ -147,12 +147,12 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         actionSheet.show(in: view)
         locationManager.stopUpdatingLocation()
     }
-    /*
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let detailViewController = segue.destination as? DetailViewController {
             detailViewController.run = run
         }
-    } */
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
