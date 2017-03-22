@@ -802,13 +802,19 @@
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ry3-vg-JUQ">
-                                <rect key="frame" x="36" y="289" width="303" height="88"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ry3-vg-JUQ">
+                                <rect key="frame" x="91" y="160" width="193" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="New Run" backgroundImage="green-btn">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="New Run" backgroundImage="green-btn.png">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="New Run">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="24" name="BookmanOldStyle-Bold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                                 <connections>
                                     <segue destination="oON-Dk-EOh" kind="push" id="Pd6-Hn-fSP"/>
@@ -817,11 +823,11 @@
                         </subviews>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="g8R-9P-IYl"/>
-                    <navigationItem key="navigationItem" title="Welcome to MoonRunner!" id="vWa-Er-qq2"/>
+                    <navigationItem key="navigationItem" title="My Run" id="vWa-Er-qq2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ea7-wu-rUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3382" y="1886"/>
+            <point key="canvasLocation" x="3381.5999999999999" y="1885.9070464767617"/>
         </scene>
         <!--New Run-->
         <scene sceneID="OtT-11-7NX">
@@ -963,12 +969,13 @@
         <!--Master-->
         <scene sceneID="aPm-Qz-EAa">
             <objects>
-                <navigationController title="Master" id="Ikj-Xq-Yik" sceneMemberID="viewController">
+                <navigationController title="Master" hidesBarsOnSwipe="YES" id="Ikj-Xq-Yik" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="My Run" id="krm-dX-v6n"/>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="black" id="FvD-F8-UMM">
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="FvD-F8-UMM">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </navigationBar>
                     <connections>
                         <segue destination="kqY-V1-PND" kind="relationship" relationship="rootViewController" id="0Yy-Z7-xwA"/>
@@ -983,6 +990,7 @@
         <image name="background" width="2120" height="2816"/>
         <image name="blue-btn" width="16" height="16"/>
         <image name="green-btn" width="16" height="16"/>
+        <image name="green-btn.png" width="345" height="182"/>
         <image name="healthIcon.jpeg" width="1042" height="313"/>
         <image name="mainTB.png" width="32" height="31"/>
         <image name="red-btn" width="16" height="16"/>
@@ -990,4 +998,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="BLQ-6n-esO"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
