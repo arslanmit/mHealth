@@ -40,7 +40,7 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
     var vertDescent = 0.0
     var previousAlt = 0.0
     var locationManager: CLLocationManager!
-    var upcomingBadge : Badge?
+ //   var upcomingBadge : Badge?
     
     lazy var locations = [CLLocation]()
     lazy var timer = Timer()
@@ -59,7 +59,7 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
     @IBOutlet weak var climbLabel: UILabel!
     @IBOutlet weak var descentLabel: UILabel!
     
-    @IBOutlet weak var nextBadgeLabel: UILabel!
+    //@IBOutlet weak var nextBadgeLabel: UILabel!
     
     
     /*
@@ -88,7 +88,7 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         descentLabel.isHidden = true
         stopButton.isHidden = true
         mapView2.isHidden = false
-        nextBadgeLabel.isHidden = true
+        //nextBadgeLabel.isHidden = true
        // nextBadgeImageView.isHidden = true
         
         locationManager = CLLocationManager()
@@ -123,7 +123,7 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         descentLabel.isHidden = false
         stopButton.isHidden = false
         mapView2.isHidden = false
-        nextBadgeLabel.isHidden = false
+        //nextBadgeLabel.isHidden = false
     //    nextBadgeImageView.isHidden = false
         
         seconds = 0.0
@@ -174,12 +174,12 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         climbLabel.text = "Total climb: "+String((vertClimb*10).rounded()/10)+" m"
         descentLabel.text = "Total descent: "+String((vertDescent*10).rounded()/10)+" m"
         
-        checkNextBadge()
-        if let upcomingBadge = upcomingBadge {
-            let nextBadgeDistanceQuantity = HKQuantity(unit: HKUnit.meter(), doubleValue: upcomingBadge.distance! - distance)
-            nextBadgeLabel.text = "\(nextBadgeDistanceQuantity.description) until \(upcomingBadge.name!)"
+       // checkNextBadge()
+       // if let upcomingBadge = upcomingBadge {
+            //let nextBadgeDistanceQuantity = HKQuantity(unit: HKUnit.meter(), doubleValue: upcomingBadge.distance! - distance)
+            //nextBadgeLabel.text = "\(nextBadgeDistanceQuantity.description) until \(upcomingBadge.name!)"
         //    nextBadgeImageView.image = UIImage(named: upcomingBadge.imageName!)
-        }
+        //}
     }
     func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
@@ -281,7 +281,7 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         //also vibrate
         AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate));
     }
-    
+  /*
     func checkNextBadge() {
         let nextBadge = BadgeController.sharedController.nextBadgeForDistance(distance: distance)
         
@@ -292,7 +292,7 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         }
         
         upcomingBadge = nextBadge
-    }
+    }*/
 }
 
 // MARK: UIActionSheetDelegate

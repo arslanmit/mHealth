@@ -31,7 +31,7 @@ class BadgeController {
     lazy var badges : [Badge] = {
         var _badges = [Badge]()
         
-        let filePath = Bundle.main.path(forResource: "badges", ofType: "json") as String!
+        let filePath = Bundle.main.path(forResource: "badges", ofType: "json") as String?
         //let jsonData = NSData.dataWithContentsOfMappedFile(filePath!) as! NSData
         let jsonData: NSData?
         do {

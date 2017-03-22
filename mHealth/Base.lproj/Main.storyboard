@@ -836,25 +836,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XpV-O2-AHY">
-                                <rect key="frame" x="16" y="40" width="72" height="21"/>
+                                <rect key="frame" x="16" y="84" width="72" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMd-KO-q6n">
-                                <rect key="frame" x="16" y="68" width="43" height="21"/>
+                                <rect key="frame" x="16" y="112" width="43" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pace:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZi-My-czC">
-                                <rect key="frame" x="16" y="96" width="43" height="21"/>
+                                <rect key="frame" x="16" y="140" width="43" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Climb:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sa2-LA-zOa" userLabel="Climb label">
-                                <rect key="frame" x="16" y="121" width="160" height="21"/>
+                                <rect key="frame" x="16" y="165" width="160" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="c50-GK-HSi"/>
                                 </constraints>
@@ -863,7 +863,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descent:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeO-oO-Z7u" userLabel="Descent label">
-                                <rect key="frame" x="189" y="121" width="160" height="21"/>
+                                <rect key="frame" x="189" y="165" width="160" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -894,7 +894,7 @@
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KpU-dn-W3b">
-                                <rect key="frame" x="0.0" y="147" width="375" height="272"/>
+                                <rect key="frame" x="0.0" y="191" width="375" height="228"/>
                                 <connections>
                                     <outlet property="delegate" destination="NZG-JN-3sG" id="dih-2c-VUH"/>
                                 </connections>
@@ -950,7 +950,6 @@
                         <outlet property="descentLabel" destination="zeO-oO-Z7u" id="sxf-Vd-Hcu"/>
                         <outlet property="distanceLabel" destination="XpV-O2-AHY" id="gXU-WS-lxo"/>
                         <outlet property="mapView2" destination="KpU-dn-W3b" id="aTH-AW-QWL"/>
-                        <outlet property="nextBadgeLabel" destination="qdE-Hn-rK7" id="LRP-8c-fl0"/>
                         <outlet property="paceLabel" destination="rZi-My-czC" id="XJb-hS-6T7"/>
                         <outlet property="startButton" destination="zbr-eb-jQz" id="xgZ-fz-jWw"/>
                         <outlet property="stopButton" destination="BvI-o3-Pin" id="Q8n-5i-x7z"/>
