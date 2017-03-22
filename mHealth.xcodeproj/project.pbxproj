@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E0378361E82A63F00FF1AB3 /* mainTB.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E0378351E82A63F00FF1AB3 /* mainTB.png */; };
 		2E09F7B41E77B77200EE2F0A /* ProfileTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E09F7B31E77B77200EE2F0A /* ProfileTableTableViewController.swift */; };
 		2E2AE2651E6A63CE00C3A9D5 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */; };
 		2E31FD681E796D7F00CE67A2 /* PedometerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31FD671E796D7F00CE67A2 /* PedometerViewController.swift */; };
@@ -64,6 +65,7 @@
 
 /* Begin PBXFileReference section */
 		04B205F87A2A279AAC0909A9 /* Pods-mHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mHealth.release.xcconfig"; path = "Pods/Target Support Files/Pods-mHealth/Pods-mHealth.release.xcconfig"; sourceTree = "<group>"; };
+		2E0378351E82A63F00FF1AB3 /* mainTB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainTB.png; sourceTree = "<group>"; };
 		2E09F7B31E77B77200EE2F0A /* ProfileTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableTableViewController.swift; sourceTree = "<group>"; };
 		2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		2E31FD671E796D7F00CE67A2 /* PedometerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedometerViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				2EE80AFB1E68ACCC000956DE /* healthIcon.jpeg */,
+				2E0378351E82A63F00FF1AB3 /* mainTB.png */,
 				2EB8F5241E78F07B0041BE03 /* cherry.png */,
 				2EB8F5281E78FF680041BE03 /* nurse.png */,
 			);
@@ -385,6 +388,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E0378361E82A63F00FF1AB3 /* mainTB.png in Resources */,
 				2EB8F5251E78F07B0041BE03 /* cherry.png in Resources */,
 				2E69EF261E65D36A00F1BC9A /* LaunchScreen.storyboard in Resources */,
 				2E764EFC1E65D64F0082CC42 /* GoogleService-Info.plist in Resources */,
