@@ -820,15 +820,62 @@
                                     <segue destination="oON-Dk-EOh" kind="push" id="Pd6-Hn-fSP"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gb1-Vv-5Ov">
+                                <rect key="frame" x="278" y="172" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="test"/>
+                                <connections>
+                                    <segue destination="5cm-hh-duN" kind="show" id="TBd-no-DG9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="g8R-9P-IYl"/>
                     <navigationItem key="navigationItem" title="My Run" id="vWa-Er-qq2"/>
+                    <connections>
+                        <segue destination="5cm-hh-duN" kind="show" identifier="FirebaseRunsSegue" id="dqH-4w-zZa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ea7-wu-rUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3381.5999999999999" y="1885.9070464767617"/>
+        </scene>
+        <!--Firebase Runs-->
+        <scene sceneID="dg6-PF-hno">
+            <objects>
+                <viewController title="Firebase Runs" id="5cm-hh-duN" customClass="FirebaseRunsViewController" customModule="mHealth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vxa-mv-Pn8"/>
+                        <viewControllerLayoutGuide type="bottom" id="DMD-tO-JdO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eXx-WB-tcP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFK-WP-bci">
+                                <rect key="frame" x="313" y="565" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="fireDidClick:" destination="5cm-hh-duN" eventType="touchUpInside" id="xjP-3p-kC7"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="JcK-Os-d6J">
+                                <rect key="frame" x="0.0" y="72" width="375" height="485"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="fireButton" destination="RFK-WP-bci" id="cHr-Mw-0yJ"/>
+                        <outlet property="mapView" destination="JcK-Os-d6J" id="Ogw-xT-ekC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nuH-nq-qON" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4197.6000000000004" y="1885.9070464767617"/>
         </scene>
         <!--New Run-->
         <scene sceneID="OtT-11-7NX">
@@ -1049,7 +1096,8 @@
         <image name="red-btn.png" width="194" height="124"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BLQ-6n-esO"/>
+        <segue reference="90T-yF-fDM"/>
+        <segue reference="dqH-4w-zZa"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

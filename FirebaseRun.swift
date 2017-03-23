@@ -18,7 +18,7 @@ class FirebaseRun{
      var distance: Double
      var climb: Double
      var descent: Double
-     var timestamp: NSString
+     var timestamp: String
     var latitudes: [Double]
     var longitudes: [Double]
     let ref: FIRDatabaseReference?
@@ -28,7 +28,7 @@ class FirebaseRun{
         self.distance = Double(distance)
         self.climb = Double(climb)
         self.descent = Double(descent)
-        self.timestamp = timestamp.description as NSString
+        self.timestamp = timestamp.description as String
         self.latitudes = latitudes as! [Double]
         self.longitudes = longitudes as! [Double]
         self.ref = nil
@@ -40,7 +40,7 @@ class FirebaseRun{
         distance = snapshotValue["distance"] as! Double
         climb = snapshotValue["climb"] as! Double
         descent = snapshotValue["descent"] as! Double
-        timestamp = snapshotValue["timestamp"] as! NSString
+        timestamp = snapshotValue["timestamp"] as! String
         latitudes = snapshotValue["latitudes"] as! [Double]
         longitudes = snapshotValue["longitudes"] as! [Double]
         ref = snapshot.ref
@@ -51,7 +51,7 @@ class FirebaseRun{
         distance = Double(run.distance)
         climb = Double(run.climb)
         descent = Double(run.descent)
-        timestamp = run.timestamp.description as NSString
+        timestamp = run.timestamp.description as String
         //lats and longs
         latitudes = Util.getLatArray(locs: savedLocations)
         longitudes = Util.getLatArray(locs: savedLocations) //NSArray(array: Util.getLongArray(locs: savedLocations))

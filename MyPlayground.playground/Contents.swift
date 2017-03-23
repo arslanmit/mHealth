@@ -24,11 +24,23 @@ let test:NSNumber = 10.02
 let t2: Double = Double(test)
 
 
-let tada: [Double] = [2,31.1,42.5]
+var tada: [Double] = [2,31.1,42.5]
 var longitudes: NSArray = (array: tada) as NSArray
 
 
 let new: [Double] = longitudes as! [Double]
+
+print(tada[tada.count-1])
+
+tada.append(3.21)
+
+tada
+
+
+
+
+
+
 
 
 

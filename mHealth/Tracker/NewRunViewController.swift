@@ -235,17 +235,16 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         let id: String = Util.removePeriod(s: (user?.email)!)
         //---- testing old run
          
-         let runRef = FIRDatabase.database().reference(withPath:"users//\(id)/User-Data/Last-Run")
+         let runRef = FIRDatabase.database().reference(withPath:"users//\(id)/User-Data/Last-Run/Run")
          
          // var oldRun: FirebaseRun?
-         runRef.observe(.value, with: { snapshot in
-         
+         runRef.observeSingleEvent(of: .value, with: { (snapshot) in
          for run in snapshot.children{
          let oldRun = FirebaseRun(snapshot: run as! FIRDataSnapshot)
          oldRun.toString()
             
             let myOldRun: Run = self.getRealRun(fRun: oldRun)
-            print(myOldRun.duration)
+            print("\(myOldRun.duration) --- this is the duration")
             }
         })
         /// now we must turn FirebaseRun into type RUN! *wipes tears*
