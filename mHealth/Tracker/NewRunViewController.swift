@@ -100,6 +100,10 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        
+        getRunTest();
+        
         let regionRadius: CLLocationDistance = 1000
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(mapView2.userLocation.coordinate,regionRadius * 2.0, regionRadius * 2.0)
         mapView2.setRegion(coordinateRegion, animated: true)
@@ -225,14 +229,79 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         mapView2.setRegion(coordinateRegion, animated: true)
     }
     
+    
+    func getRunTest(){
+        /// turn run data into Firebase Type of Run....
+        let id: String = Util.removePeriod(s: (user?.email)!)
+        //---- testing old run
+         
+         let runRef = FIRDatabase.database().reference(withPath:"users//\(id)/User-Data/Last-Run")
+         
+         // var oldRun: FirebaseRun?
+         runRef.observe(.value, with: { snapshot in
+         
+         for run in snapshot.children{
+         let oldRun = FirebaseRun(snapshot: run as! FIRDataSnapshot)
+         oldRun.toString()
+            
+            let myOldRun: Run = self.getRealRun(fRun: oldRun)
+            print(myOldRun.duration)
+            }
+        })
+        /// now we must turn FirebaseRun into type RUN! *wipes tears*
+        
+        
+    }
+    
+    func getRealRun(fRun: FirebaseRun) -> Run{
+        
+        let xDate = Date()
+        
+        let oldRun = NSEntityDescription.insertNewObject(forEntityName: "Run", into: managedObjectContext!) as! Run
+        oldRun.distance = NSNumber(value: fRun.distance)
+        oldRun.duration = (NSNumber(value: fRun.duration))
+        oldRun.timestamp = xDate
+        oldRun.climb = NSNumber(value: fRun.climb)
+        oldRun.descent = NSNumber(value: fRun.descent)
+        
+        // 2
+        var points = [Location]()
+        for (index, _) in fRun.latitudes.enumerated(){
+            let savedPoint = NSEntityDescription.insertNewObject(forEntityName: "Location", into: managedObjectContext!) as! Location
+           // savedLocation.timestamp = xDate.timestamp
+            savedPoint.latitude = NSNumber(value: fRun.latitudes[index])
+            savedPoint.longitude = NSNumber(value: fRun.longitudes[index])
+            points.append(savedPoint)
+        }
+        
+        oldRun.locations = NSOrderedSet(array: points)
+        
+        return oldRun
+
+    }
+    
+    
+    
+    
+ 
     func saveRun() {
-        ///---- testing old run
+        let id: String = Util.removePeriod(s: (user?.email)!)
+ 
+        /*//---- testing old run
+        
+        let runRef = FIRDatabase.database().reference(withPath:"users//\(id)/User-Data/Last-Run")
+        
+       // var oldRun: FirebaseRun?
+        runRef.observe(.value, with: { snapshot in
+            
+            for run in snapshot.children{
+                let oldRun = FirebaseRun(snapshot: run as! FIRDataSnapshot)
+                print(oldRun)
+            }
+        })
         
         
-        
-        
-        
-        
+        */
         
         
         
@@ -261,11 +330,8 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         run = savedRun
         
         //test
-        
-        
-        let id: String = Util.removePeriod(s: (user?.email)!)
         let testRun: FirebaseRun = FirebaseRun(run: run, savedLocations: savedLocations)
-        self.rootRef.child("users//\(id)/User-Data/Last-Run").setValue(testRun.toAnyObject())
+        self.rootRef.child("users//\(id)/User-Data/Last-Run/Run").setValue(testRun.toAnyObject())
 
         
         ////////////

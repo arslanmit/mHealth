@@ -6,9 +6,16 @@
 //  Copyright © 2017 JTMax. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import CoreData
+import CoreLocation
+import HealthKit
+import MapKit
+import AudioToolbox
+import Firebase
 
 class Util{
+    
    class func removePeriod(s: String) -> String{
         let myString = s
         var clean: String
@@ -40,5 +47,15 @@ class Util{
         }
         return myLongs
     }
+    
+    
+    /*
+    func firebaseRuntoRun(fireRun: FirebaseRun) -> Run{
+        
+        
+        
+        
+    }*/
+    
     
 }

@@ -18,35 +18,17 @@ class UserHKData{
 }
 
 
-/*
-var test = NSOrderedSet()
 
-test.array
+let test:NSNumber = 10.02
 
-dump(test.array)
-
-var nsAr = NSArray()
-
-nsAr = test.array as NSArray*/
+let t2: Double = Double(test)
 
 
+let tada: [Double] = [2,31.1,42.5]
+var longitudes: NSArray = (array: tada) as NSArray
 
 
-
-
-
-
-var ints = [1,2,5,4,5,6,7,8,9]
-
-var ordered = NSOrderedSet(array: ints)
-
-print(ordered[2])
-
-
-
-
-
-
+let new: [Double] = longitudes as! [Double]
 
 
 
