@@ -250,7 +250,7 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         })
         /// now we must turn FirebaseRun into type RUN! *wipes tears*
         
-        
+        //
     }
     
     func getRealRun(fRun: FirebaseRun) -> Run{
