@@ -102,7 +102,7 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         super.viewDidAppear(animated)
         
         
-        getRunTest();
+       // getRunTest();
         
         let regionRadius: CLLocationDistance = 1000
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(mapView2.userLocation.coordinate,regionRadius * 2.0, regionRadius * 2.0)
@@ -327,6 +327,8 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         
         savedRun.locations = NSOrderedSet(array: savedLocations)
         run = savedRun
+        
+        dump(savedLocations)
         
         //test
         let testRun: FirebaseRun = FirebaseRun(run: run, savedLocations: savedLocations)

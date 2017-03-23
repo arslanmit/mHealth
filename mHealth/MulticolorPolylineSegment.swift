@@ -120,7 +120,7 @@ class MulticolorPolylineSegment: MKPolyline {
         }
         let meanSpeed = totalSpeeds/Double(speeds.count)
         */
-        for i in 1...FirebaseRun.latitudes.count{
+        for i in 1...FirebaseRun.latitudes.count-1{
             let lat1 = FirebaseRun.latitudes[i-1]
             let lat2 = FirebaseRun.latitudes[i]
             let long1 = FirebaseRun.longitudes[i-1]

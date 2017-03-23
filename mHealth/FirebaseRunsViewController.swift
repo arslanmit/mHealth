@@ -33,6 +33,8 @@ class FirebaseRunsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getRunTest()
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,9 +47,7 @@ class FirebaseRunsViewController: UIViewController {
     @IBAction func fireDidClick(_ sender: Any) {
         //configureView()
         
-        getRunTest()
-        
-        myFirebaseRun?.toString()
+        configureView()
     
     }
     

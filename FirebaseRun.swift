@@ -54,7 +54,7 @@ class FirebaseRun{
         timestamp = run.timestamp.description as String
         //lats and longs
         latitudes = Util.getLatArray(locs: savedLocations)
-        longitudes = Util.getLatArray(locs: savedLocations) //NSArray(array: Util.getLongArray(locs: savedLocations))
+        longitudes = Util.getLongArray(locs: savedLocations) //NSArray(array: Util.getLongArray(locs: savedLocations))
         ref = nil
     }
     
