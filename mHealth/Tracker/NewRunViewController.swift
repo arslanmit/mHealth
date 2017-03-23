@@ -26,6 +26,7 @@ import CoreLocation
 import HealthKit
 import MapKit
 import AudioToolbox
+import Firebase
 
 let DetailSegueName = "RunDetails"
 
@@ -60,19 +61,8 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
     @IBOutlet weak var climbLabel: UILabel!
     @IBOutlet weak var descentLabel: UILabel!
     
-    //@IBOutlet weak var nextBadgeLabel: UILabel!
-    
-    
-    /*
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var paceLabel: UILabel!
-    @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var stopButton: UIButton!
-    @IBOutlet weak var climbLabel: UILabel!
-    @IBOutlet weak var descentLabel: UILabel!
-    @IBOutlet weak var nextBadgeImageView: UIImageView!
-    @IBOutlet weak var nextBadgeLabel: UILabel! */
+    let user = FIRAuth.auth()?.currentUser
+    let rootRef = FIRDatabase.database().reference()
     
     
     
@@ -116,7 +106,6 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
     }
     @IBAction func startPressed(_ sender: AnyObject) {
         startButton.isHidden = true
-       // promptLabel.isHidden = true
         
         timeLabel.isHidden = false
         distanceLabel.isHidden = false
@@ -125,8 +114,6 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         descentLabel.isHidden = false
         stopButton.isHidden = false
         mapView2.isHidden = false
-        //nextBadgeLabel.isHidden = false
-    //    nextBadgeImageView.isHidden = false
         
         seconds = 0.0
         distance = 0.0
@@ -149,13 +136,13 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         actionSheet.show(in: view)
         locationManager.stopUpdatingLocation()
     }
-    /*
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let detailViewController = segue.destination as? DetailViewController {
             detailViewController.run = run
         }
     }
- */
+ 
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -170,19 +157,21 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         let hoursQuantity = HKQuantity(unit: HKUnit.hour(), doubleValue: Double(h))
         timeLabel.text = "Time: "+hoursQuantity.description+" "+minutesQuantity.description+" "+secondsQuantity.description
         let distanceQuantity = HKQuantity(unit: HKUnit.meter(), doubleValue: distance)
-        distanceLabel.text = "Distance: " + distanceQuantity.description
         
-        paceLabel.text = "Current speed: "+String((instantPace*3.6*10).rounded()/10)+" km/h"//"Pace: "+String((distance/seconds*3.6*10).rounded()/10)+" km/h"
+        let dist: Double = (Double(distanceQuantity.description.replacingOccurrences(of: " m", with: "")))!*0.00062137
+        let distString: String = String(format: "%.2f", ceil(dist*100)/100)
+        
+        distanceLabel.text = "Distance: \(distString) mi"
+        
+        print("Distance: \((Double(distanceQuantity.description.replacingOccurrences(of: " m", with: "")))!*0.62137)")
+
+        let paceDouble: Double = (((instantPace*3.6*10).rounded()/10)*0.62137)
+        let paceString: String = String(format: "%.2f", ceil(paceDouble*100)/100)
+        
+        paceLabel.text = "Current speed: \(paceString) mi/hr"//"Pace: "+String((distance/seconds*3.6*10).rounded()/10)+" km/h"
         
         climbLabel.text = "Total climb: "+String((vertClimb*10).rounded()/10)+" m"
         descentLabel.text = "Total descent: "+String((vertDescent*10).rounded()/10)+" m"
-        
-       // checkNextBadge()
-       // if let upcomingBadge = upcomingBadge {
-            //let nextBadgeDistanceQuantity = HKQuantity(unit: HKUnit.meter(), doubleValue: upcomingBadge.distance! - distance)
-            //nextBadgeLabel.text = "\(nextBadgeDistanceQuantity.description) until \(upcomingBadge.name!)"
-        //    nextBadgeImageView.image = UIImage(named: upcomingBadge.imageName!)
-        //}
     }
     func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
@@ -237,6 +226,17 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
     }
     
     func saveRun() {
+        ///---- testing old run
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        ///-----
         // 1
         let savedRun = NSEntityDescription.insertNewObject(forEntityName: "Run",
                                                            into: managedObjectContext!) as! Run
@@ -259,6 +259,17 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         
         savedRun.locations = NSOrderedSet(array: savedLocations)
         run = savedRun
+        
+        //test
+        
+        
+        let id: String = Util.removePeriod(s: (user?.email)!)
+        let testRun: FirebaseRun = FirebaseRun(run: run, savedLocations: savedLocations)
+        self.rootRef.child("users//\(id)/User-Data/Last-Run").setValue(testRun.toAnyObject())
+
+        
+        ////////////
+        
 
         do{
             try managedObjectContext!.save()
@@ -284,18 +295,6 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         //also vibrate
         AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate));
     }
-  /*
-    func checkNextBadge() {
-        let nextBadge = BadgeController.sharedController.nextBadgeForDistance(distance: distance)
-        
-        if let upcomingBadge = upcomingBadge {
-            if upcomingBadge.name! != nextBadge.name! {
-                playSuccessSound()
-            }
-        }
-        
-        upcomingBadge = nextBadge
-    }*/
 }
 
 // MARK: UIActionSheetDelegate
@@ -304,7 +303,8 @@ extension NewRunViewController: UIActionSheetDelegate {
         //save
         if buttonIndex == 1 {
             saveRun()
-           // performSegue(withIdentifier: DetailSegueName, sender: nil)
+            //run.locations = 0
+            performSegue(withIdentifier: DetailSegueName, sender: nil)
         }
             //discard
         else if buttonIndex == 2 {

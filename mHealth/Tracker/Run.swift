@@ -31,5 +31,5 @@ class Run: NSManagedObject {
     @NSManaged var descent: NSNumber
     @NSManaged var timestamp: Date
     @NSManaged var locations: NSOrderedSet
-
+    
 }

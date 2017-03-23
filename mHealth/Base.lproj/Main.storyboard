@@ -785,25 +785,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="df3-pE-Tb2">
-                                <rect key="frame" x="36" y="510" width="303" height="88"/>
+                                <rect key="frame" x="36" y="522" width="303" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="Badges" backgroundImage="blue-btn">
+                                <state key="normal" title="Hello Beautiful" backgroundImage="blue-btn.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1yE-9y-E8G">
-                                <rect key="frame" x="36" y="402" width="303" height="88"/>
+                                <rect key="frame" x="36" y="376" width="303" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="Past Runs" backgroundImage="blue-btn">
+                                <state key="normal" title="Past Runs" backgroundImage="blue-btn.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ry3-vg-JUQ">
-                                <rect key="frame" x="91" y="160" width="193" height="86"/>
+                                <rect key="frame" x="91" y="258" width="193" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="New Run" backgroundImage="green-btn.png">
@@ -922,6 +922,7 @@
                         <outlet property="startButton" destination="zbr-eb-jQz" id="xgZ-fz-jWw"/>
                         <outlet property="stopButton" destination="BvI-o3-Pin" id="Q8n-5i-x7z"/>
                         <outlet property="timeLabel" destination="kMd-KO-q6n" id="ZoC-sa-QOc"/>
+                        <segue destination="yIl-gC-OKS" kind="show" identifier="RunDetails" id="6M9-Ju-fY0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bNo-Kp-JgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -947,10 +948,101 @@
             </objects>
             <point key="canvasLocation" x="3382" y="1143"/>
         </scene>
+        <!--Detail-->
+        <scene sceneID="RSb-7u-nLJ">
+            <objects>
+                <viewController title="Detail" id="yIl-gC-OKS" customClass="DetailViewController" customModule="mHealth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xs3-m7-2lD"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ljs-Zw-lXy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hL5-UM-onj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dLh-93-z1G">
+                                <rect key="frame" x="0.0" y="64" width="375" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="Z16-HU-Xud"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="yIl-gC-OKS" id="4iZ-tr-MdY"/>
+                                </connections>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xpb-z3-sNj">
+                                <rect key="frame" x="135" y="324" width="106" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OK8-lN-RlC">
+                                <rect key="frame" x="16" y="415" width="43" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pace:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUm-So-XlB">
+                                <rect key="frame" x="16" y="446" width="43" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Thx-jr-6vb">
+                                <rect key="frame" x="170" y="374" width="36" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Climb:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEx-1Q-LcB" userLabel="Climb Label:">
+                                <rect key="frame" x="16" y="475" width="142" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Descent:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baD-7W-Qai" userLabel="Descent Label:">
+                                <rect key="frame" x="16" y="504" width="142" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ljs-Zw-lXy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="JUm-So-XlB" secondAttribute="bottom" constant="20" id="5yE-Aa-NT5"/>
+                            <constraint firstItem="Xpb-z3-sNj" firstAttribute="top" secondItem="dLh-93-z1G" secondAttribute="bottom" constant="10" id="AXK-AZ-HI5"/>
+                            <constraint firstItem="dLh-93-z1G" firstAttribute="leading" secondItem="hL5-UM-onj" secondAttribute="leading" id="BKT-Mo-AGX"/>
+                            <constraint firstItem="Thx-jr-6vb" firstAttribute="centerX" secondItem="Xpb-z3-sNj" secondAttribute="centerX" id="FBe-gR-tvP"/>
+                            <constraint firstAttribute="centerX" secondItem="Thx-jr-6vb" secondAttribute="centerX" id="S7g-hy-X18"/>
+                            <constraint firstAttribute="trailing" secondItem="dLh-93-z1G" secondAttribute="trailing" id="TGE-dH-Pyy"/>
+                            <constraint firstItem="JUm-So-XlB" firstAttribute="leading" secondItem="hL5-UM-onj" secondAttribute="leadingMargin" id="VXG-WK-kch"/>
+                            <constraint firstItem="OK8-lN-RlC" firstAttribute="top" secondItem="Thx-jr-6vb" secondAttribute="bottom" constant="20" id="g2a-PC-jgx"/>
+                            <constraint firstItem="JUm-So-XlB" firstAttribute="leading" secondItem="OK8-lN-RlC" secondAttribute="leading" id="iOX-Bp-hpI"/>
+                            <constraint firstItem="Thx-jr-6vb" firstAttribute="top" secondItem="Xpb-z3-sNj" secondAttribute="bottom" constant="20" id="ksX-Sb-Ufv"/>
+                            <constraint firstItem="dLh-93-z1G" firstAttribute="top" secondItem="xs3-m7-2lD" secondAttribute="bottom" id="rUJ-fM-iZe"/>
+                            <constraint firstItem="JUm-So-XlB" firstAttribute="top" secondItem="OK8-lN-RlC" secondAttribute="bottom" constant="10" id="wCU-Dp-4qs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Run Details" id="HHk-eg-Dgr"/>
+                    <connections>
+                        <outlet property="climbLabel" destination="TEx-1Q-LcB" id="On2-mo-BUo"/>
+                        <outlet property="dateLabel" destination="Thx-jr-6vb" id="NqD-bd-dRB"/>
+                        <outlet property="descentLabel" destination="baD-7W-Qai" id="rxR-zI-y9P"/>
+                        <outlet property="distanceLabel" destination="Xpb-z3-sNj" id="vaj-sM-ooZ"/>
+                        <outlet property="mapView" destination="dLh-93-z1G" id="vbJ-b5-oKK"/>
+                        <outlet property="paceLabel" destination="JUm-So-XlB" id="7kP-pe-N4y"/>
+                        <outlet property="timeLabel" destination="OK8-lN-RlC" id="T1Y-Yv-4GS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XqV-SU-Oh1" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4303" y="2662"/>
+        </scene>
     </scenes>
     <resources>
         <image name="background" width="2120" height="2816"/>
-        <image name="blue-btn" width="16" height="16"/>
+        <image name="blue-btn.png" width="472" height="152"/>
         <image name="green-btn.png" width="345" height="182"/>
         <image name="healthIcon.jpeg" width="1042" height="313"/>
         <image name="mainTB.png" width="32" height="31"/>

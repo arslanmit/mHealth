@@ -17,11 +17,71 @@ class UserHKData{
     var bmi: Double = 0
 }
 
-var travis = UserHKData()
 
-travis.age = 19
+/*
+var test = NSOrderedSet()
 
-travis.bloodType = "O+"
+test.array
+
+dump(test.array)
+
+var nsAr = NSArray()
+
+nsAr = test.array as NSArray*/
 
 
-print(travis.age)
+
+
+
+
+
+
+var ints = [1,2,5,4,5,6,7,8,9]
+
+var ordered = NSOrderedSet(array: ints)
+
+print(ordered[2])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

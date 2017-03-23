@@ -24,4 +24,21 @@ class Util{
         
         return mut
     }
+    
+    class func getLatArray(locs: [Location]) -> [Double]{
+        var myLats = [Double]()
+        for loc in locs{
+            myLats.append(Double(loc.latitude))
+        }
+        return myLats
+    }
+    
+    class func getLongArray(locs: [Location]) -> [Double]{
+        var myLongs = [Double]()
+        for loc in locs{
+            myLongs.append(Double(loc.longitude))
+        }
+        return myLongs
+    }
+    
 }

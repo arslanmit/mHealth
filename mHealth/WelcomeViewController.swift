@@ -44,10 +44,12 @@ class WelcomeViewController: UIViewController {
     
         // 1
        ///// let ref = FIRDatabase.database().reference(withPath: removePeriod(s: (user?.email)!))
-            let ref:FIRDatabaseReference = rootRef.child("users").child(Util.removePeriod(s: (user?.email)!))
+        let ref:FIRDatabaseReference = rootRef.child("users").child(Util.removePeriod(s: (user?.email)!))
         
         let favoriteRef = ref.child("favorites")
         favoriteRef.setValue(newFavorite.toAnyObject())
+        
+       // let tRef = favoriteRef.child("test")
         
  
         

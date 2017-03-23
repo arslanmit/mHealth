@@ -27,20 +27,18 @@
 		2E9286BB1E79E16B00E75230 /* mHealthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9286BA1E79E16B00E75230 /* mHealthUser.swift */; };
 		2E9286BD1E7B650E00E75230 /* UserHKData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9286BC1E7B650E00E75230 /* UserHKData.swift */; };
 		2E9286C11E7B920100E75230 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9286C01E7B920100E75230 /* Util.swift */; };
-		2E99C58A1E706B5D00439E41 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E99C5891E706B5D00439E41 /* SettingsTableViewController.swift */; };
 		2E99C58E1E70911900439E41 /* HKHealthStoreExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E99C58D1E70911900439E41 /* HKHealthStoreExtension.swift */; };
 		2EA6F7E41E81E708002969A5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F7E31E81E708002969A5 /* HomeViewController.swift */; };
 		2EA6F7E61E81E8EA002969A5 /* NewRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F7E51E81E8EA002969A5 /* NewRunViewController.swift */; };
 		2EA6F7E81E81E998002969A5 /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F7E71E81E998002969A5 /* Run.swift */; };
-		2EA6F7ED1E81E9EE002969A5 /* BadgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F7E91E81E9EE002969A5 /* BadgeCell.swift */; };
-		2EA6F7EE1E81E9EE002969A5 /* BadgeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F7EA1E81E9EE002969A5 /* BadgeDetailsViewController.swift */; };
-		2EA6F7EF1E81E9EE002969A5 /* Badges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F7EB1E81E9EE002969A5 /* Badges.swift */; };
-		2EA6F7F01E81E9EE002969A5 /* BadgesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F7EC1E81E9EE002969A5 /* BadgesTableViewController.swift */; };
 		2EA6F7F21E81EC01002969A5 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F7F11E81EC01002969A5 /* Location.swift */; };
 		2EA6F7F61E822B5F002969A5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA6F7F51E822B5F002969A5 /* MapKit.framework */; };
 		2EA6F7FD1E822F01002969A5 /* mHealth.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F7FB1E822F01002969A5 /* mHealth.xcdatamodeld */; };
 		2EB8F5251E78F07B0041BE03 /* cherry.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EB8F5241E78F07B0041BE03 /* cherry.png */; };
 		2EB8F5291E78FF680041BE03 /* nurse.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EB8F5281E78FF680041BE03 /* nurse.png */; };
+		2EDE97F91E82EDB200996E68 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE97F81E82EDB200996E68 /* DetailViewController.swift */; };
+		2EDE97FB1E82EDF000996E68 /* MulticolorPolylineSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE97FA1E82EDF000996E68 /* MulticolorPolylineSegment.swift */; };
+		2EDE97FD1E83499A00996E68 /* FirebaseRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE97FC1E83499A00996E68 /* FirebaseRun.swift */; };
 		2EE80AFC1E68ACCC000956DE /* healthIcon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2EE80AFB1E68ACCC000956DE /* healthIcon.jpeg */; };
 		2EE80AFF1E68AEF2000956DE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE80AFE1E68AEF2000956DE /* User.swift */; };
 		2EE80B021E6900A3000956DE /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE80B011E6900A3000956DE /* WelcomeViewController.swift */; };
@@ -95,20 +93,18 @@
 		2E9286BA1E79E16B00E75230 /* mHealthUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mHealthUser.swift; sourceTree = "<group>"; };
 		2E9286BC1E7B650E00E75230 /* UserHKData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHKData.swift; sourceTree = "<group>"; };
 		2E9286C01E7B920100E75230 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		2E99C5891E706B5D00439E41 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		2E99C58D1E70911900439E41 /* HKHealthStoreExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HKHealthStoreExtension.swift; sourceTree = "<group>"; };
 		2EA6F7E31E81E708002969A5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Tracker/HomeViewController.swift; sourceTree = "<group>"; };
 		2EA6F7E51E81E8EA002969A5 /* NewRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewRunViewController.swift; path = Tracker/NewRunViewController.swift; sourceTree = "<group>"; };
-		2EA6F7E71E81E998002969A5 /* Run.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Run.swift; path = Tracker/Run.swift; sourceTree = "<group>"; };
-		2EA6F7E91E81E9EE002969A5 /* BadgeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BadgeCell.swift; path = Tracker/BadgeCell.swift; sourceTree = "<group>"; };
-		2EA6F7EA1E81E9EE002969A5 /* BadgeDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BadgeDetailsViewController.swift; path = Tracker/BadgeDetailsViewController.swift; sourceTree = "<group>"; };
-		2EA6F7EB1E81E9EE002969A5 /* Badges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Badges.swift; path = Tracker/Badges.swift; sourceTree = "<group>"; };
-		2EA6F7EC1E81E9EE002969A5 /* BadgesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BadgesTableViewController.swift; path = Tracker/BadgesTableViewController.swift; sourceTree = "<group>"; };
-		2EA6F7F11E81EC01002969A5 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = Tracker/Location.swift; sourceTree = "<group>"; };
+		2EA6F7E71E81E998002969A5 /* Run.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Run.swift; path = mHealth/Tracker/Run.swift; sourceTree = "<group>"; };
+		2EA6F7F11E81EC01002969A5 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = mHealth/Tracker/Location.swift; sourceTree = "<group>"; };
 		2EA6F7F51E822B5F002969A5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2EA6F7FC1E822F01002969A5 /* MoonRunner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoonRunner.xcdatamodel; sourceTree = "<group>"; };
 		2EB8F5241E78F07B0041BE03 /* cherry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cherry.png; path = mHealth/cherry.png; sourceTree = "<group>"; };
 		2EB8F5281E78FF680041BE03 /* nurse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nurse.png; path = mHealth/nurse.png; sourceTree = "<group>"; };
+		2EDE97F81E82EDB200996E68 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		2EDE97FA1E82EDF000996E68 /* MulticolorPolylineSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticolorPolylineSegment.swift; sourceTree = "<group>"; };
+		2EDE97FC1E83499A00996E68 /* FirebaseRun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseRun.swift; sourceTree = "<group>"; };
 		2EE80AFB1E68ACCC000956DE /* healthIcon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = healthIcon.jpeg; path = mHealth/healthIcon.jpeg; sourceTree = "<group>"; };
 		2EE80AFE1E68AEF2000956DE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2EE80B011E6900A3000956DE /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -236,6 +232,9 @@
 				2E9286BA1E79E16B00E75230 /* mHealthUser.swift */,
 				2E9286BC1E7B650E00E75230 /* UserHKData.swift */,
 				2E9286C01E7B920100E75230 /* Util.swift */,
+				2EA6F7F11E81EC01002969A5 /* Location.swift */,
+				2EA6F7E71E81E998002969A5 /* Run.swift */,
+				2EDE97FC1E83499A00996E68 /* FirebaseRun.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -243,18 +242,13 @@
 		2EE80B001E690088000956DE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2EA6F7F11E81EC01002969A5 /* Location.swift */,
-				2EA6F7E91E81E9EE002969A5 /* BadgeCell.swift */,
-				2EA6F7EA1E81E9EE002969A5 /* BadgeDetailsViewController.swift */,
-				2EA6F7EB1E81E9EE002969A5 /* Badges.swift */,
-				2EA6F7EC1E81E9EE002969A5 /* BadgesTableViewController.swift */,
 				2EA6F7E31E81E708002969A5 /* HomeViewController.swift */,
-				2EA6F7E71E81E998002969A5 /* Run.swift */,
 				2EA6F7E51E81E8EA002969A5 /* NewRunViewController.swift */,
+				2EDE97FA1E82EDF000996E68 /* MulticolorPolylineSegment.swift */,
+				2EDE97F81E82EDB200996E68 /* DetailViewController.swift */,
 				2E69EF1D1E65D36A00F1BC9A /* ViewController.swift */,
 				2EE80B011E6900A3000956DE /* WelcomeViewController.swift */,
 				2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */,
-				2E99C5891E706B5D00439E41 /* SettingsTableViewController.swift */,
 				2E09F7B31E77B77200EE2F0A /* ProfileTableTableViewController.swift */,
 				2E31FD671E796D7F00CE67A2 /* PedometerViewController.swift */,
 				2E9286B81E79DF0200E75230 /* MapViewController.swift */,
@@ -487,23 +481,21 @@
 				2E9286B91E79DF0200E75230 /* MapViewController.swift in Sources */,
 				2E9286BD1E7B650E00E75230 /* UserHKData.swift in Sources */,
 				2EE80B021E6900A3000956DE /* WelcomeViewController.swift in Sources */,
+				2EDE97F91E82EDB200996E68 /* DetailViewController.swift in Sources */,
+				2EDE97FD1E83499A00996E68 /* FirebaseRun.swift in Sources */,
 				2EA6F7FD1E822F01002969A5 /* mHealth.xcdatamodeld in Sources */,
 				2E31FD681E796D7F00CE67A2 /* PedometerViewController.swift in Sources */,
 				2E99C58E1E70911900439E41 /* HKHealthStoreExtension.swift in Sources */,
-				2EA6F7EF1E81E9EE002969A5 /* Badges.swift in Sources */,
 				2E9286C11E7B920100E75230 /* Util.swift in Sources */,
 				2E69EF1C1E65D36A00F1BC9A /* AppDelegate.swift in Sources */,
 				2EE80AFF1E68AEF2000956DE /* User.swift in Sources */,
 				2EE80B041E690478000956DE /* favorite.swift in Sources */,
 				2EA6F7F21E81EC01002969A5 /* Location.swift in Sources */,
+				2EDE97FB1E82EDF000996E68 /* MulticolorPolylineSegment.swift in Sources */,
 				2EA6F7E41E81E708002969A5 /* HomeViewController.swift in Sources */,
-				2EA6F7EE1E81E9EE002969A5 /* BadgeDetailsViewController.swift in Sources */,
-				2E99C58A1E706B5D00439E41 /* SettingsTableViewController.swift in Sources */,
 				2E9286BB1E79E16B00E75230 /* mHealthUser.swift in Sources */,
 				2EFC7C251E7778560033173E /* HealthManager.swift in Sources */,
 				2E09F7B41E77B77200EE2F0A /* ProfileTableTableViewController.swift in Sources */,
-				2EA6F7ED1E81E9EE002969A5 /* BadgeCell.swift in Sources */,
-				2EA6F7F01E81E9EE002969A5 /* BadgesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
