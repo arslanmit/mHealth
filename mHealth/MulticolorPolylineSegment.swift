@@ -66,11 +66,6 @@ class MulticolorPolylineSegment: MKPolyline {
                 
                 minSpeed = min(minSpeed, speed)
                 maxSpeed = max(maxSpeed, speed)
-                
-                print(minSpeed)
-                print(maxSpeed)
-                print(speed)
-                
                 speeds.append(speed)
             }
             return (speeds, minSpeed, maxSpeed)
@@ -191,7 +186,6 @@ class MulticolorPolylineSegment: MKPolyline {
             segment.color = color
             colorSegments.append(segment)
         }
-        dump(colorSegments)
         return colorSegments
     }
 }

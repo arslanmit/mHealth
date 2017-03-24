@@ -251,8 +251,6 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         savedRun.locations = NSOrderedSet(array: savedLocations)
         run = savedRun
         
-        dump(savedLocations)
-        
             //test
             let id: String = Util.removePeriod(s: (user?.email)!)
             let testRun: FirebaseRun = FirebaseRun(run: run, savedLocations: savedLocations)

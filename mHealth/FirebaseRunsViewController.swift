@@ -73,10 +73,10 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate, CLLocatio
         // Drop a pin at user's start and end points
         let startRoute: MKPointAnnotation = MKPointAnnotation()
         startRoute.coordinate = CLLocationCoordinate2DMake(myFirebaseRun.latitudes.first!, myFirebaseRun.longitudes.first!);
-        startRoute.title = "Start"
+        startRoute.title = "Started: \(Util.dateToPinString(date: Util.stringToDate(date: myFirebaseRun.timestamps.first!)))"
         let endRoute: MKPointAnnotation = MKPointAnnotation()
         endRoute.coordinate = CLLocationCoordinate2DMake(myFirebaseRun.latitudes.last!, myFirebaseRun.longitudes.last!);
-        endRoute.title = "End"
+        endRoute.title = "Ended: \(Util.dateToPinString(date: Util.stringToDate(date: myFirebaseRun.timestamps.last!)))"
         mapView.addAnnotation(startRoute)
         mapView.addAnnotation(endRoute)
     }
@@ -145,7 +145,7 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate, CLLocatio
             let renderer = MKPolylineRenderer(polyline: polyline)
             renderer.strokeColor = polyline.color
             renderer.lineWidth = 3
-            print("mapView = MPSeg ------ I NEED THIS... IF THIS PRINTS... SUCCESSSSSSSSSS")
+            print("mapView = MPSeg")
             return renderer
         }
         print("mapview function did not hit an if-statement ")
@@ -160,9 +160,6 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate, CLLocatio
             coords.append(CLLocationCoordinate2D(latitude: myFirebaseRun.latitudes[i],
                                                  longitude: myFirebaseRun.longitudes[i]))
         }
-        print("dumping coords for polyline...")
-        dump(coords)
-        
         return MKPolyline(coordinates: &coords, count: myFirebaseRun.latitudes.count)
     }
     
@@ -188,7 +185,6 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate, CLLocatio
                         delegate:nil,
                         cancelButtonTitle: "OK").show()
         }
-        print("end of load map func")
     }
     
     /*
