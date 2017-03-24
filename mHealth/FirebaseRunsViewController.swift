@@ -179,11 +179,11 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate, CLLocatio
             // No locations were found!
             print("no locations found")
             mapView.isHidden = true
-            
-            UIAlertView(title: "Error",
-                        message: "Sorry, this run has no locations saved",
-                        delegate:nil,
-                        cancelButtonTitle: "OK").show()
+    ////
+            let alertController = UIAlertController(title: "Error", message: "This run has no locations saved", preferredStyle: .actionSheet)
+            let okAction = UIAlertAction(title: "Okay", style: .default)
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
         }
     }
     

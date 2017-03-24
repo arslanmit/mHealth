@@ -659,6 +659,7 @@
 				PROVISIONING_PROFILE = "62f56fd9-b7a6-48cf-a507-7bdbfae75c8a";
 				PROVISIONING_PROFILE_SPECIFIER = cus1194;
 				SWIFT_VERSION = 3.0;
+				USE_HEADERMAP = YES;
 			};
 			name = Debug;
 		};
@@ -676,6 +677,7 @@
 				PROVISIONING_PROFILE = "62f56fd9-b7a6-48cf-a507-7bdbfae75c8a";
 				PROVISIONING_PROFILE_SPECIFIER = cus1194;
 				SWIFT_VERSION = 3.0;
+				USE_HEADERMAP = YES;
 			};
 			name = Release;
 		};

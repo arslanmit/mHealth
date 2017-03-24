@@ -130,7 +130,6 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
     
     @IBAction func stopPressed(_ sender: AnyObject) {
         presentRunOptions(title: "Walk Ended!")
-        locationManager.stopUpdatingLocation()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -289,19 +288,26 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
 // MARK: UIActionSheetDelegate
 extension NewRunViewController: UIAlertViewDelegate {
     func presentRunOptions(title: String){
-        let alertController = UIAlertController(title: title, message: "", preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: title, message: "You have clicked stop.", preferredStyle: .actionSheet)
         let saveAction = UIAlertAction(title: "Save Run?", style: .default){
             (action: UIAlertAction) in
             self.saveRun()
             print("saved run")
+            self.locationManager.stopUpdatingLocation()
             self.performSegue(withIdentifier: DetailSegueName, sender: nil)
         }
-        let cancelAction = UIAlertAction(title:"Cancel Save?",  style: .cancel){
+        let deleteAction = UIAlertAction(title:"Discard Run?",  style: .default){
             (action:UIAlertAction) in
-            print("canceled save")
+            print("disgarded run")
+            self.locationManager.stopUpdatingLocation()
           _ = self.navigationController?.popViewController(animated: true)
         }
+        let cancelAction = UIAlertAction(title:"Cancel",  style: .cancel){
+            (action:UIAlertAction) in
+            print("canceled run option clicked")
+        }
         alertController.addAction(saveAction)
+        alertController.addAction(deleteAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
     }
