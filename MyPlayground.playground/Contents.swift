@@ -53,7 +53,12 @@ var dateString = dateFormatter.string(from:date)
 
 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
  var ate = dateFormatter.date(from:timestamp)!
-dateFormatter.dateFormat = "MM/dd/yyyy @HH:mm"
+
+
+
+
+
+dateFormatter.dateFormat = "EEE| MMM d, yyyy @HH:MMa"
  dateString = dateFormatter.string(from:date)
 
 

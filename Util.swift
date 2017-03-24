@@ -62,9 +62,9 @@ class Util{
         return dateFormatter.string(from: date)
     }
     
-    class func dateFirebaseTitle(date: date) -> String{
+    class func dateFirebaseTitle(date: Date) -> String{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        dateFormatter.dateFormat = "EEE| MMM d, yyyy @HH:MMa"
         return dateFormatter.string(from: date)
     }
     
