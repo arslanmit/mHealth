@@ -71,7 +71,6 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         super.viewWillAppear(animated)
         
         startButton.isHidden = false
-    //    promptLabel.isHidden = false
         
         timeLabel.isHidden = true
         distanceLabel.isHidden = true
@@ -80,14 +79,11 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         descentLabel.isHidden = true
         stopButton.isHidden = true
         mapView2.isHidden = false
-        //nextBadgeLabel.isHidden = true
-       // nextBadgeImageView.isHidden = true
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.allowsBackgroundLocationUpdates = true
-        //locationManager.pausesLocationUpdatesAutomatically = false
         locationManager.activityType = .fitness
         locationManager.distanceFilter = 10.0
         locationManager.requestAlwaysAuthorization()
@@ -293,7 +289,6 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
 // MARK: UIActionSheetDelegate
 extension NewRunViewController: UIAlertViewDelegate {
     func presentRunOptions(title: String){
-        
         let alertController = UIAlertController(title: title, message: "", preferredStyle: .actionSheet)
         let saveAction = UIAlertAction(title: "Save Run?", style: .default){
             (action: UIAlertAction) in
@@ -304,21 +299,10 @@ extension NewRunViewController: UIAlertViewDelegate {
         let cancelAction = UIAlertAction(title:"Cancel Save?",  style: .cancel){
             (action:UIAlertAction) in
             print("canceled save")
-          //  self.performSegue(withIdentifier: HomepageSegueName, sender: nil) ----- find way to go back thru code ..
+          _ = self.navigationController?.popViewController(animated: true)
         }
         alertController.addAction(saveAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
-        /*
-        //save
-        if buttonIndex == 1 {
-            saveRun()
-            //run.locations = 0
-            performSegue(withIdentifier: DetailSegueName, sender: nil)
-        }
-            //discard
-        else if buttonIndex == 2 {
-            navigationController?.popToRootViewController(animated: true)
-        } */
     }
 }
