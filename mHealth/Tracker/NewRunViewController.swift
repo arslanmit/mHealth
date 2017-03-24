@@ -257,12 +257,13 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
             //test
             let id: String = Util.removePeriod(s: (user?.email)!)
             let testRun: FirebaseRun = FirebaseRun(run: run, savedLocations: savedLocations)
-            self.rootRef.child("users//\(id)/User-Data/Last-Run/Run").setValue(testRun.toAnyObject())
+            self.rootRef.child("users//\(id)/Runs/Last-Run").setValue(testRun.toAnyObject())
                                     /*
                  let dateString = Util.myDateFormat(date: savedRun.timestamp)
                  let id: String = Util.removePeriod(s: (user?.email)!)
                  let testRun: FirebaseRun = FirebaseRun(run: run, savedLocations: savedLocations)
-                 // self.rootRef.child("users//\(id)/User-Data/Last-Run/\(dateString)").setValue(testRun.toAnyObject())*/
+         ("users//\(id)/User-Data/Run/Last-Run")
+                 // self.rootRef.child("users//\(id)/User-Data/Run/\(dateString)").setValue(testRun.toAnyObject())*/
             ////////////
  
         do{

@@ -58,7 +58,7 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate {
     func getRunTest(){
         /// turn run data into Firebase Type of Run....
         let id: String = Util.removePeriod(s: (user?.email)!)
-        let runRef = FIRDatabase.database().reference(withPath:"users//\(id)/User-Data/Last-Run/")
+        let runRef = FIRDatabase.database().reference(withPath:"users//\(id)/Runs/")
         
         // var oldRun: FirebaseRun?
         runRef.observeSingleEvent(of: .value, with: { (snapshot) in
