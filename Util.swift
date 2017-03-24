@@ -48,14 +48,20 @@ class Util{
         return myLongs
     }
     
+    class func getTimestampArray(locs: [Location]) -> [String]{
+        var myTimes = [String]()
+        for locs in locs{
+            myTimes.append(Util.myDateFormat(date: locs.timestamp))
+        }
+        return myTimes
+    }
     
-    /*
-    func firebaseRuntoRun(fireRun: FirebaseRun) -> Run{
-        
-        
-        
-        
-    }*/
+    class func myDateFormat(date: Date) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy @HH:mm"
+        return dateFormatter.string(from: date)
+    }
+
     
     
 }

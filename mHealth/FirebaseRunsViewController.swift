@@ -33,8 +33,6 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        getRunTest()
         mapView.delegate = self
     }
     
@@ -139,7 +137,7 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate {
             let renderer = MKPolylineRenderer(polyline: polyline)
             renderer.strokeColor = polyline.color
             renderer.lineWidth = 3
-            print("mapView = MPSeg ------ I NEED THIS")
+            print("mapView = MPSeg ------ I NEED THIS... IF THIS PRINTS... SUCCESSSSSSSSSS")
             return renderer
         }
         print("mapview function did not hit an if-statement ")
@@ -164,12 +162,6 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate {
     func loadMap() {
         if myFirebaseRun.latitudes.count > 0 {
             mapView.isHidden = false
-            let template = "https://api.mapbox.com/styles/v1/spitfire4466/citl7jqwe00002hmwrvffpbzt/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3BpdGZpcmU0NDY2IiwiYSI6Im9jX0JHQUUifQ.2QarbK_LccnrvDg7FobGjA"
-            
-            mapOverlay = MKTileOverlay(urlTemplate: template)
-            mapOverlay.canReplaceMapContent = true
-            
-            mapView.add(mapOverlay,level: .aboveLabels)
             
             // Set the map bounds
             mapView.region = mapRegion()

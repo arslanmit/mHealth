@@ -30,21 +30,31 @@ var longitudes: NSArray = (array: tada) as NSArray
 
 let new: [Double] = longitudes as! [Double]
 
-print(tada[tada.count-1])
-
 tada.append(3.21)
 
 tada
+///////
+
+
+
+let timestamp = "2017-03-23 22:39:22"
+
+let myDate = "2016-06-20T13:01:46.457+02:00"
+
+let dateFormatter = DateFormatter()
+
+dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+var date = dateFormatter.date(from:myDate)!
+dateFormatter.dateFormat = "dd/MM/yyyy"
+var dateString = dateFormatter.string(from:date)
 
 
 
 
-
-
-
-
-
-
+dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+ date = dateFormatter.date(from:timestamp)!
+dateFormatter.dateFormat = "MM/dd/yyyy @HH:mm"
+ dateString = dateFormatter.string(from:date)
 
 
 

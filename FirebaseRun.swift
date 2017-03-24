@@ -21,16 +21,19 @@ class FirebaseRun{
      var timestamp: String
     var latitudes: [Double]
     var longitudes: [Double]
+    var timestamps: [String]
+    
     let ref: FIRDatabaseReference?
     
-    init(duration: NSNumber, distance: NSNumber, climb: NSNumber, descent: NSNumber, timestamp: Date, latitudes: NSArray, longitudes: NSArray) {
+    init(duration: NSNumber, distance: NSNumber, climb: NSNumber, descent: NSNumber, timestamp: String, latitudes: NSArray, longitudes: NSArray, timestamps: [String]) {
         self.duration = Double(duration)
         self.distance = Double(distance)
         self.climb = Double(climb)
         self.descent = Double(descent)
-        self.timestamp = timestamp.description as String
+        self.timestamp = timestamp
         self.latitudes = latitudes as! [Double]
         self.longitudes = longitudes as! [Double]
+        self.timestamps = timestamps
         self.ref = nil
     }
     
@@ -43,6 +46,7 @@ class FirebaseRun{
         timestamp = snapshotValue["timestamp"] as! String
         latitudes = snapshotValue["latitudes"] as! [Double]
         longitudes = snapshotValue["longitudes"] as! [Double]
+        timestamps = snapshotValue["timestamps"] as! [String]
         ref = snapshot.ref
     }
     
@@ -51,10 +55,11 @@ class FirebaseRun{
         distance = Double(run.distance)
         climb = Double(run.climb)
         descent = Double(run.descent)
-        timestamp = run.timestamp.description as String
+        timestamp = Util.myDateFormat(date: run.timestamp) as String
         //lats and longs
         latitudes = Util.getLatArray(locs: savedLocations)
         longitudes = Util.getLongArray(locs: savedLocations) //NSArray(array: Util.getLongArray(locs: savedLocations))
+        timestamps = Util.getTimestampArray(locs: savedLocations)
         ref = nil
     }
     
@@ -66,7 +71,8 @@ class FirebaseRun{
             "descent":descent,
             "timestamp":timestamp,
             "latitudes":latitudes,
-            "longitudes":longitudes
+            "longitudes":longitudes,
+            "timestamps":timestamps
         ]
     }
     
@@ -78,5 +84,6 @@ class FirebaseRun{
         print(timestamp)
         dump(latitudes)
         dump(longitudes)
+        dump(timestamps)
     }
 }
