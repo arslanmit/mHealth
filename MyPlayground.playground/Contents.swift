@@ -28,6 +28,10 @@ var tada: [Double] = [2,31.1,42.5]
 var longitudes: NSArray = (array: tada) as NSArray
 
 
+tada.first
+tada.last
+
+
 let new: [Double] = longitudes as! [Double]
 
 tada.append(3.21)

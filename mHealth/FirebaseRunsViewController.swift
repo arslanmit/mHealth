@@ -14,7 +14,7 @@ import MapKit
 import AudioToolbox
 import Firebase
 
-class FirebaseRunsViewController: UIViewController, MKMapViewDelegate {
+class FirebaseRunsViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
     //MARK: VARIABLES
     var mapOverlay: MKTileOverlay!
     var myFirebaseRun: FirebaseRun!
@@ -52,7 +52,6 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate {
         //configureView()
         
         configureView()
-    
     }
     
     func getRunTest(){
@@ -69,6 +68,19 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate {
         })
         
     }
+    
+    func setRunPins(){
+        // Drop a pin at user's start and end points
+        let startRoute: MKPointAnnotation = MKPointAnnotation()
+        startRoute.coordinate = CLLocationCoordinate2DMake(myFirebaseRun.latitudes.first!, myFirebaseRun.longitudes.first!);
+        startRoute.title = "Start"
+        let endRoute: MKPointAnnotation = MKPointAnnotation()
+        endRoute.coordinate = CLLocationCoordinate2DMake(myFirebaseRun.latitudes.last!, myFirebaseRun.longitudes.last!);
+        endRoute.title = "End"
+        mapView.addAnnotation(startRoute)
+        mapView.addAnnotation(endRoute)
+    }
+    
 
     func configureView() {
         /*
@@ -93,6 +105,7 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate {
         descentLabel.text = "Total descent: "+String((run.descent.doubleValue).rounded())+" m"
         */
         loadMap()
+        setRunPins()
     }
     func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
@@ -138,7 +151,7 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate {
         print("mapview function did not hit an if-statement ")
         return MKOverlayRenderer()
     }
-    
+
     func polyline() -> MKPolyline {
         var coords = [CLLocationCoordinate2D]()
         
@@ -189,3 +202,4 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate {
     */
 
 }
+

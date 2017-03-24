@@ -29,6 +29,7 @@ import AudioToolbox
 import Firebase
 
 let DetailSegueName = "RunDetails"
+let HomepageSegueName = "RunToHomepageSegue"
 
 class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate {
     var managedObjectContext: NSManagedObjectContext?
@@ -132,9 +133,7 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
     }
     
     @IBAction func stopPressed(_ sender: AnyObject) {
-        let actionSheet = UIActionSheet(title: "Walk Stopped", delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: "Save", "Discard")
-        actionSheet.actionSheetStyle = .default
-        actionSheet.show(in: view)
+        presentRunOptions(title: "Walk Ended!")
         locationManager.stopUpdatingLocation()
     }
     
@@ -290,11 +289,29 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         //also vibrate
         AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate));
     }
+    
 }
 
 // MARK: UIActionSheetDelegate
-extension NewRunViewController: UIActionSheetDelegate {
-    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
+extension NewRunViewController: UIAlertViewDelegate {
+    func presentRunOptions(title: String){
+        
+        let alertController = UIAlertController(title: title, message: "", preferredStyle: .actionSheet)
+        let saveAction = UIAlertAction(title: "Save Run?", style: .default){
+            (action: UIAlertAction) in
+            self.saveRun()
+            print("saved run")
+            self.performSegue(withIdentifier: DetailSegueName, sender: nil)
+        }
+        let cancelAction = UIAlertAction(title:"Cancel Save?",  style: .cancel){
+            (action:UIAlertAction) in
+            print("canceled save")
+          //  self.performSegue(withIdentifier: HomepageSegueName, sender: nil) ----- find way to go back thru code ..
+        }
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+        /*
         //save
         if buttonIndex == 1 {
             saveRun()
@@ -304,6 +321,6 @@ extension NewRunViewController: UIActionSheetDelegate {
             //discard
         else if buttonIndex == 2 {
             navigationController?.popToRootViewController(animated: true)
-        }
+        } */
     }
 }
