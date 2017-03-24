@@ -153,10 +153,10 @@ class MulticolorPolylineSegment: MKPolyline {
                     color = UIColor(red: r, green: g, blue: b, alpha: 1)*/
  
             let segment = MulticolorPolylineSegment(coordinates: &coords, count: coords.count)
-            segment.color = UIColor.black //color
+            segment.color = UIColor.red //color
             colorSegments.append(segment)
         }
-        
+        //dump(colorSegments)
         return colorSegments
     }
     /*

@@ -14,7 +14,7 @@ import MapKit
 import AudioToolbox
 import Firebase
 
-class FirebaseRunsViewController: UIViewController {
+class FirebaseRunsViewController: UIViewController, MKMapViewDelegate {
     //MARK: VARIABLES
     var mapOverlay: MKTileOverlay!
     var myFirebaseRun: FirebaseRun!
@@ -34,6 +34,12 @@ class FirebaseRunsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getRunTest()
+        mapView.delegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         getRunTest()
     }
 
@@ -119,12 +125,13 @@ class FirebaseRunsViewController: UIViewController {
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        //print("hello")
+        print("hello")
         if overlay is MKTileOverlay{
             guard let tileOverlay = overlay as? MKTileOverlay else {
+                print("titleOverlay != overlay")
                 return MKOverlayRenderer()
             }
-            
+            print("titleOverlay == overlay")
             return MKTileOverlayRenderer(tileOverlay: tileOverlay)
         }
         if overlay is MulticolorPolylineSegment {
@@ -132,8 +139,10 @@ class FirebaseRunsViewController: UIViewController {
             let renderer = MKPolylineRenderer(polyline: polyline)
             renderer.strokeColor = polyline.color
             renderer.lineWidth = 3
+            print("mapView = MPSeg ------ I NEED THIS")
             return renderer
         }
+        print("mapview function did not hit an if-statement ")
         return MKOverlayRenderer()
     }
     
@@ -145,9 +154,13 @@ class FirebaseRunsViewController: UIViewController {
             coords.append(CLLocationCoordinate2D(latitude: myFirebaseRun.latitudes[i],
                                                  longitude: myFirebaseRun.longitudes[i]))
         }
+        print("dumping coords for polyline...")
+        dump(coords)
         
         return MKPolyline(coordinates: &coords, count: myFirebaseRun.latitudes.count)
     }
+    
+    
     func loadMap() {
         if myFirebaseRun.latitudes.count > 0 {
             mapView.isHidden = false
@@ -164,8 +177,10 @@ class FirebaseRunsViewController: UIViewController {
             // Make the line(s!) on the map
             let colorSegments = MulticolorPolylineSegment.colorSegments(forLocations: myFirebaseRun)
             mapView.addOverlays(colorSegments)
+            print("added color segment to mapView overlay")
         } else {
             // No locations were found!
+            print("no locations found")
             mapView.isHidden = true
             
             UIAlertView(title: "Error",
@@ -173,9 +188,8 @@ class FirebaseRunsViewController: UIViewController {
                         delegate:nil,
                         cancelButtonTitle: "OK").show()
         }
+        print("end of load map func")
     }
-    
-    
     
     /*
     // MARK: - Navigation
