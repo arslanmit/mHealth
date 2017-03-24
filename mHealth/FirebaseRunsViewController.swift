@@ -92,21 +92,17 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate {
         climbLabel.text = "Total climb: "+String((run.climb.doubleValue).rounded())+" m"
         descentLabel.text = "Total descent: "+String((run.descent.doubleValue).rounded())+" m"
         */
-        
         loadMap()
     }
     func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
     func mapRegion() -> MKCoordinateRegion {
-        //let initialLoc = run.locations.firstObject as! Location
         
         var minLat = myFirebaseRun.latitudes[0]
         var minLng = myFirebaseRun.longitudes[0]
         var maxLat = minLat
         var maxLng = minLng
-        
-       // let locations = run.locations.array as! [Location]
         
         for i in 0...myFirebaseRun.latitudes.count-1 {
             minLat = min(minLat, myFirebaseRun.latitudes[i])
@@ -123,7 +119,6 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        print("hello")
         if overlay is MKTileOverlay{
             guard let tileOverlay = overlay as? MKTileOverlay else {
                 print("titleOverlay != overlay")

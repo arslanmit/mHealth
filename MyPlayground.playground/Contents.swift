@@ -52,11 +52,15 @@ var dateString = dateFormatter.string(from:date)
 
 
 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
- date = dateFormatter.date(from:timestamp)!
+ var ate = dateFormatter.date(from:timestamp)!
 dateFormatter.dateFormat = "MM/dd/yyyy @HH:mm"
  dateString = dateFormatter.string(from:date)
 
 
+
+let this: Double = ate.timeIntervalSince(date)
+
+ate.timeIntervalSince(date)
 
 
 

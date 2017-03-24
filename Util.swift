@@ -58,10 +58,26 @@ class Util{
     
     class func myDateFormat(date: Date) -> String{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy @HH:mm"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         return dateFormatter.string(from: date)
     }
+    
+    class func dateFirebaseTitle(date: date) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        return dateFormatter.string(from: date)
+    }
+    
+    class func stringToDate(date: String) -> Date{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let date = dateFormatter.date(from: date)!
+        return date
+    }
 
+    class func timeInterval(from date1: String, to date2: String) ->Double{
+        return self.stringToDate(date: date2).timeIntervalSince(Util.stringToDate(date: date1));
+    }
     
     
 }
