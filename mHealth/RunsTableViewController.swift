@@ -43,7 +43,7 @@ class RunsTableViewController : UITableViewController{
             fatalError("The dequeued cell is not an instance of RunsTableViewCell.")
         }
         
-        // Fetches the appropriate meal for the data source layout.
+        // Fetches the appropriate run for the data source layout.
         let run = runs[indexPath.row]
         
         
