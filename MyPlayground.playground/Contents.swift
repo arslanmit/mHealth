@@ -50,7 +50,7 @@ let dateFormatter = DateFormatter()
 //dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 var date = dateFormatter.date(from:timestamp)!
-dateFormatter.dateFormat = "hh:mma|MM/d (EEE)"
+dateFormatter.dateFormat = "hh:mm|MM/d (EEE)"
 var dateString = dateFormatter.string(from:date)
 
 
@@ -63,7 +63,7 @@ dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 
 
 
-dateFormatter.dateFormat = "EEE| MMM d, yyyy @HH:MMa"
+dateFormatter.dateFormat = "EEE| MMM d, yyyy @HH:mma"
  dateString = dateFormatter.string(from:date)
 
 
