@@ -7,16 +7,21 @@
 //
 
 import UIKit
+import Firebase
 
 class RunsTableViewController : UITableViewController{
+
+    //MARK: FIREBASE
+    let user = FIRAuth.auth()?.currentUser
+    let rootRef = FIRDatabase.database().reference()
     
-    var runs = [Runs]()
+    //MARK: Array of Runs
+    var runs = [FirebaseRun]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Load the sample data.
-        loadSampleRun()
+        load()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -47,22 +52,49 @@ class RunsTableViewController : UITableViewController{
         let run = runs[indexPath.row]
         
         
-        cell.dateLabel.text = run.date
-        cell.timeLabel.text = run.time
+        cell.dateLabel.text = Util.dateFirebaseTitle(date: Util.stringToDate(date: run.timestamp))
+        cell.timeLabel.text = Util.dateToPinString(date: Util.stringToDate(date: run.timestamps[0]))
         
         return cell
     }
     
-    private func loadSampleRun() {
-        
-        guard let run1 = Runs(date: "3/23/4", time: "3.4hrs") else {
-            fatalError("Unable to instantiate run1")
-        }
-        
-        
-        runs += [run1]
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegue(withIdentifier: "cellToMap", sender: indexPath);
     }
+    
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "cellToMap" {
+            let nextView = segue.destination as! FirebaseRunsViewController
+            if let indexPath = self.tableView.indexPathForSelectedRow{
+                let displayRun = runs[indexPath.row]
+                nextView.myFirebaseRun = displayRun
+            }
+        }
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let run = runs[indexPath.row]
+            run.ref?.removeValue()
+            self.tableView.reloadData()
+        }
+    }
+    
+    private func load(){
+        let id: String = Util.removePeriod(s: (user?.email)!)
+        let runRef = FIRDatabase.database().reference(withPath: "users//\(id)/Runs/")
+        // var oldRun: FirebaseRun?
+        runRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            for run in snapshot.children{
+                let oldRun = FirebaseRun(snapshot: run as! FIRDataSnapshot)
+                self.runs.append(oldRun)
+            }
+            self.tableView.reloadData()
+        })
+    }
 
     
 }

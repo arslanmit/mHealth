@@ -58,13 +58,13 @@ class Util{
     
     class func myDateFormat(date: Date) -> String{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss SSSZ"
         return dateFormatter.string(from: date)
     }
     
     class func dateFirebaseTitle(date: Date) -> String{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEE| MMM/d/yy @HH:MMa"
+        dateFormatter.dateFormat = "EEE| MMM-d-yy @hh:MMa"
         return dateFormatter.string(from: date)
     }
     
@@ -76,7 +76,7 @@ class Util{
     
     class func stringToDate(date: String) -> Date{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss SSSZ"
         let date = dateFormatter.date(from: date)!
         return date
     }

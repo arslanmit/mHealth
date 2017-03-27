@@ -21,52 +21,18 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate, CLLocatio
     
     
     //MARK: OUTLETS
-    @IBOutlet weak var fireButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
-    
-    //MARK: FIREBASE
-    let user = FIRAuth.auth()?.currentUser
-    let rootRef = FIRDatabase.database().reference()
-    
-    
-    
+       
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        getRunTest()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    
-    @IBAction func fireDidClick(_ sender: Any) {
-        //configureView()
-        
         configureView()
     }
     
-    func getRunTest(){
-        /// turn run data into Firebase Type of Run....
-        let id: String = Util.removePeriod(s: (user?.email)!)
-        let runRef = FIRDatabase.database().reference(withPath:"users//\(id)/Runs/")
-        
-        // var oldRun: FirebaseRun?
-        runRef.observeSingleEvent(of: .value, with: { (snapshot) in
-            for run in snapshot.children{
-                let oldRun = FirebaseRun(snapshot: run as! FIRDataSnapshot)
-                self.myFirebaseRun = oldRun;
-            }
-        })
-        
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     func setRunPins(){

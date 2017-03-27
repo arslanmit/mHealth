@@ -251,7 +251,6 @@
 			isa = PBXGroup;
 			children = (
 				2EA6F7E31E81E708002969A5 /* HomeViewController.swift */,
-				2EA6F7E51E81E8EA002969A5 /* NewRunViewController.swift */,
 				2EDE97FA1E82EDF000996E68 /* MulticolorPolylineSegment.swift */,
 				2EDE97F81E82EDB200996E68 /* DetailViewController.swift */,
 				2E69EF1D1E65D36A00F1BC9A /* ViewController.swift */,
@@ -261,6 +260,7 @@
 				2E31FD671E796D7F00CE67A2 /* PedometerViewController.swift */,
 				2E9286B81E79DF0200E75230 /* MapViewController.swift */,
 				2EA6F7FB1E822F01002969A5 /* mHealth.xcdatamodeld */,
+				2EA6F7E51E81E8EA002969A5 /* NewRunViewController.swift */,
 				2EF730BA1E8442C9006A2734 /* FirebaseRunsViewController.swift */,
 				2E3CCA301E85E8AF00F9FE2E /* RunsTableViewController.swift */,
 				2E3CCA321E85E96800F9FE2E /* Runs.swift */,

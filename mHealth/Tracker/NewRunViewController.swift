@@ -88,6 +88,7 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         locationManager.distanceFilter = 10.0
         locationManager.requestAlwaysAuthorization()
         managedObjectContext = appDelegate.managedObjectContext
+        startLocationUpdates()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -246,17 +247,10 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         savedRun.locations = NSOrderedSet(array: savedLocations)
         run = savedRun
         
-            //test
-            let id: String = Util.removePeriod(s: (user?.email)!)
-            let testRun: FirebaseRun = FirebaseRun(run: run, savedLocations: savedLocations)
-            self.rootRef.child("users//\(id)/Runs/Last-Run").setValue(testRun.toAnyObject())
-                                    /*
-                 let dateString = Util.myDateFormat(date: savedRun.timestamp)
+                 let dateString = Util.dateFirebaseTitle(date: savedRun.timestamp)
                  let id: String = Util.removePeriod(s: (user?.email)!)
-                 let testRun: FirebaseRun = FirebaseRun(run: run, savedLocations: savedLocations)
-         ("users//\(id)/User-Data/Run/Last-Run")
-                 // self.rootRef.child("users//\(id)/User-Data/Run/\(dateString)").setValue(testRun.toAnyObject())*/
-            ////////////
+                 let thisRun: FirebaseRun = FirebaseRun(run: run, savedLocations: savedLocations)
+                 self.rootRef.child("users//\(id)/Runs/\(dateString)").setValue(thisRun.toAnyObject())
  
         do{
             try managedObjectContext!.save()

@@ -14,6 +14,7 @@
  */
 
 import UIKit
+import Firebase
 import GoogleMaps
 import GooglePlaces
 
@@ -24,6 +25,13 @@ class MapViewController: UIViewController {
     var mapView: GMSMapView!
     var placesClient: GMSPlacesClient!
     var zoomLevel: Float = 15.0
+    
+    //Run
+    var myFirebaseRun: FirebaseRun?
+    //MARK: FIREBASE
+    let user = FIRAuth.auth()?.currentUser
+    let rootRef = FIRDatabase.database().reference()
+    
     
     // An array to hold the list of likely places.
     var likelyPlaces: [GMSPlace] = []
@@ -52,6 +60,7 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         // Initialize the location manager.
         locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -83,7 +92,8 @@ class MapViewController: UIViewController {
         //listLikelyPlaces()
         self.locationManager.delegate = self
         self.locationManager.startUpdatingLocation()
-    }
+        
+        }
     
     /*/ Populate the array with the list of likely places.
     func listLikelyPlaces() {
@@ -151,5 +161,20 @@ extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         locationManager.stopUpdatingLocation()
         print("Error: \(error)")
+    }
+    
+    func getRunTest(){
+        /// turn run data into Firebase Type of Run....
+        let id: String = Util.removePeriod(s: (user?.email)!)
+        let runRef = FIRDatabase.database().reference(withPath:"users//\(id)/Runs/")
+        
+        // var oldRun: FirebaseRun?
+        runRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            for run in snapshot.children{
+                let oldRun = FirebaseRun(snapshot: run as! FIRDataSnapshot)
+                self.myFirebaseRun = oldRun;
+            }
+        })
+        
     }
 }
