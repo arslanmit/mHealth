@@ -64,13 +64,13 @@ class Util{
     
     class func dateFirebaseTitle(date: Date) -> String{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEE| MMM-d-yy @hh:MMa"
+        dateFormatter.dateFormat = "EEE| MMM-d-yy @hh:mma"
         return dateFormatter.string(from: date)
     }
     
     class func dateToPinString(date: Date) -> String{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "hh:MMa|MM/d (EEE)"
+        dateFormatter.dateFormat = "hh:mma|MM/d (EEE)"
         return dateFormatter.string(from: date)
     }
     

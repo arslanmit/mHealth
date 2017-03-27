@@ -43,15 +43,12 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
     var vertDescent = 0.0
     var previousAlt = 0.0
     var locationManager: CLLocationManager!
- //   var upcomingBadge : Badge?
     
     lazy var locations = [CLLocation]()
     lazy var timer = Timer()
     var mapOverlay: MKTileOverlay!
     
-   // @IBOutlet weak var mapView2: MKMapView!
     @IBOutlet weak var mapView2: MKMapView!
-   // @IBOutlet weak var promptLabel: UILabel!
     
     
     @IBOutlet weak var timeLabel: UILabel!
@@ -247,8 +244,8 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         savedRun.locations = NSOrderedSet(array: savedLocations)
         run = savedRun
         
-               //  let dateString = Util.dateFirebaseTitle(date: (savedLocations.last?.timestamp)!)--- idk why it only 
-                 let dateString = Util.myDateFormat(date: (savedLocations.last?.timestamp)!)
+                 let dateString = Util.dateFirebaseTitle(date: (savedLocations.last?.timestamp)!) //--- idk why it only
+           ///      let dateString = Util.myDateFormat(date: (savedLocations.last?.timestamp)!)
                  let id: String = Util.removePeriod(s: (user?.email)!)
                  let thisRun: FirebaseRun = FirebaseRun(run: run, savedLocations: savedLocations)
                  self.rootRef.child("users//\(id)/Runs/\(dateString)").setValue(thisRun.toAnyObject())

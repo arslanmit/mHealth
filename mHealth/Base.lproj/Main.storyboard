@@ -54,6 +54,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="createAccountDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1OR-w4-czb"/>
+                                            <segue destination="NW1-D1-ZkM" kind="show" identifier="createAccountSegue" id="wTo-5W-8zt"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JTMax Health App:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m53-bf-cem">
@@ -139,7 +140,6 @@
                         <outlet property="loginButton" destination="zp5-A0-PpO" id="hvZ-OI-9L7"/>
                         <outlet property="passwordField" destination="fMh-kv-EU4" id="C7w-OA-PBf"/>
                         <outlet property="viewSpace" destination="TzD-7s-1st" id="dUj-fC-e2i"/>
-                        <segue destination="NW1-D1-ZkM" kind="show" identifier="createAccountSegue" id="s3h-97-5Ky"/>
                         <segue destination="uGM-XX-lOD" kind="show" identifier="loginToTab" id="90T-yF-fDM"/>
                     </connections>
                 </viewController>
@@ -1245,7 +1245,7 @@
         <image name="red-btn.png" width="194" height="124"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BLQ-6n-esO"/>
+        <segue reference="90T-yF-fDM"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

@@ -15,7 +15,6 @@
 		2E3CCA351E85EBB300F9FE2E /* RunsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CCA341E85EBB300F9FE2E /* RunsTableViewCell.swift */; };
 		2E69EF1C1E65D36A00F1BC9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E69EF1B1E65D36A00F1BC9A /* AppDelegate.swift */; };
 		2E69EF1E1E65D36A00F1BC9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E69EF1D1E65D36A00F1BC9A /* ViewController.swift */; };
-		2E69EF211E65D36A00F1BC9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E69EF1F1E65D36A00F1BC9A /* Main.storyboard */; };
 		2E69EF231E65D36A00F1BC9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E69EF221E65D36A00F1BC9A /* Assets.xcassets */; };
 		2E69EF261E65D36A00F1BC9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E69EF241E65D36A00F1BC9A /* LaunchScreen.storyboard */; };
 		2E69EF311E65D36A00F1BC9A /* mHealthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E69EF301E65D36A00F1BC9A /* mHealthTests.swift */; };
@@ -36,6 +35,7 @@
 		2EA6F7F21E81EC01002969A5 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F7F11E81EC01002969A5 /* Location.swift */; };
 		2EA6F7F61E822B5F002969A5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA6F7F51E822B5F002969A5 /* MapKit.framework */; };
 		2EA6F7FD1E822F01002969A5 /* mHealth.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6F7FB1E822F01002969A5 /* mHealth.xcdatamodeld */; };
+		2EA80D0F1E88C59D00E3A3F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EA80D0D1E88C59D00E3A3F1 /* Main.storyboard */; };
 		2EB8F5251E78F07B0041BE03 /* cherry.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EB8F5241E78F07B0041BE03 /* cherry.png */; };
 		2EB8F5291E78FF680041BE03 /* nurse.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EB8F5281E78FF680041BE03 /* nurse.png */; };
 		2EDE97F91E82EDB200996E68 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE97F81E82EDB200996E68 /* DetailViewController.swift */; };
@@ -78,7 +78,6 @@
 		2E69EF181E65D36A00F1BC9A /* mHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E69EF1B1E65D36A00F1BC9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E69EF1D1E65D36A00F1BC9A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2E69EF201E65D36A00F1BC9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2E69EF221E65D36A00F1BC9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E69EF251E65D36A00F1BC9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E69EF271E65D36A00F1BC9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,6 +104,7 @@
 		2EA6F7F11E81EC01002969A5 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = mHealth/Tracker/Location.swift; sourceTree = "<group>"; };
 		2EA6F7F51E822B5F002969A5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2EA6F7FC1E822F01002969A5 /* MoonRunner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MoonRunner.xcdatamodel; sourceTree = "<group>"; };
+		2EA80D0E1E88C59D00E3A3F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2EB8F5241E78F07B0041BE03 /* cherry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cherry.png; path = mHealth/cherry.png; sourceTree = "<group>"; };
 		2EB8F5281E78FF680041BE03 /* nurse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nurse.png; path = mHealth/nurse.png; sourceTree = "<group>"; };
 		2EDE97F81E82EDB200996E68 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -187,8 +187,8 @@
 				2EE80B001E690088000956DE /* ViewControllers */,
 				2E69EF711E6600BD00F1BC9A /* mHealth.entitlements */,
 				2E69EF1B1E65D36A00F1BC9A /* AppDelegate.swift */,
-				2E69EF1F1E65D36A00F1BC9A /* Main.storyboard */,
 				2E69EF221E65D36A00F1BC9A /* Assets.xcassets */,
+				2EA80D0D1E88C59D00E3A3F1 /* Main.storyboard */,
 				2E69EF241E65D36A00F1BC9A /* LaunchScreen.storyboard */,
 				2E69EF271E65D36A00F1BC9A /* Info.plist */,
 				2E764EFB1E65D64F0082CC42 /* GoogleService-Info.plist */,
@@ -405,10 +405,10 @@
 				2E69EF261E65D36A00F1BC9A /* LaunchScreen.storyboard in Resources */,
 				2E764EFC1E65D64F0082CC42 /* GoogleService-Info.plist in Resources */,
 				2E69EF231E65D36A00F1BC9A /* Assets.xcassets in Resources */,
+				2EA80D0F1E88C59D00E3A3F1 /* Main.storyboard in Resources */,
 				2EB8F5291E78FF680041BE03 /* nurse.png in Resources */,
 				2E7C81FA1E82ACAE00BCECA4 /* red-btn.png in Resources */,
 				2E7C81F71E82ACA600BCECA4 /* blue-btn.png in Resources */,
-				2E69EF211E65D36A00F1BC9A /* Main.storyboard in Resources */,
 				2E7C81F81E82ACA600BCECA4 /* green-btn.png in Resources */,
 				2EE80AFC1E68ACCC000956DE /* healthIcon.jpeg in Resources */,
 			);
@@ -543,20 +543,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2E69EF1F1E65D36A00F1BC9A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2E69EF201E65D36A00F1BC9A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2E69EF241E65D36A00F1BC9A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				2E69EF251E65D36A00F1BC9A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2EA80D0D1E88C59D00E3A3F1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2EA80D0E1E88C59D00E3A3F1 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
