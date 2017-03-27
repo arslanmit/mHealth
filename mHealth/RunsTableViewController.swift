@@ -21,7 +21,13 @@ class RunsTableViewController : UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        load()
+        let id: String = Util.removePeriod(s: (user?.email)!)
+        let runRef = FIRDatabase.database().reference(withPath: "users//\(id)/")
+        
+        runRef.observe(.value, with: { snapshot in
+            self.load()
+            self.tableView.reloadData()
+        })
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -53,7 +59,7 @@ class RunsTableViewController : UITableViewController{
         
         
         cell.dateLabel.text = Util.dateFirebaseTitle(date: Util.stringToDate(date: run.timestamp))
-        cell.timeLabel.text = Util.dateToPinString(date: Util.stringToDate(date: run.timestamps[0]))
+        cell.timeLabel.text = Util.dateToPinString(date: Util.stringToDate(date: run.timestamps.last!))
         
         return cell
     }
@@ -87,11 +93,23 @@ class RunsTableViewController : UITableViewController{
         let id: String = Util.removePeriod(s: (user?.email)!)
         let runRef = FIRDatabase.database().reference(withPath: "users//\(id)/Runs/")
         // var oldRun: FirebaseRun?
+/*
         runRef.observeSingleEvent(of: .value, with: { (snapshot) in
             for run in snapshot.children{
                 let oldRun = FirebaseRun(snapshot: run as! FIRDataSnapshot)
                 self.runs.append(oldRun)
             }
+            self.tableView.reloadData()
+        }) */
+        
+        
+        runRef.observe(.value, with: { snapshot in
+            var currentRuns = [FirebaseRun]()
+            for run in snapshot.children{
+                let oldRun = FirebaseRun(snapshot: run as! FIRDataSnapshot)
+                currentRuns.append(oldRun)
+            }
+            self.runs = currentRuns;
             self.tableView.reloadData()
         })
     }

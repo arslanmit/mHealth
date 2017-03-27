@@ -55,7 +55,7 @@ class FirebaseRun{
         distance = Double(run.distance)
         climb = Double(run.climb)
         descent = Double(run.descent)
-        timestamp = Util.myDateFormat(date: run.timestamp) as String
+        timestamp = Util.myDateFormat(date: (savedLocations.last?.timestamp)!) as String
         //lats and longs
         latitudes = Util.getLatArray(locs: savedLocations)
         longitudes = Util.getLongArray(locs: savedLocations) //NSArray(array: Util.getLongArray(locs: savedLocations))

@@ -12,7 +12,6 @@
 		2E2AE2651E6A63CE00C3A9D5 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */; };
 		2E31FD681E796D7F00CE67A2 /* PedometerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31FD671E796D7F00CE67A2 /* PedometerViewController.swift */; };
 		2E3CCA311E85E8AF00F9FE2E /* RunsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CCA301E85E8AF00F9FE2E /* RunsTableViewController.swift */; };
-		2E3CCA331E85E96800F9FE2E /* Runs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CCA321E85E96800F9FE2E /* Runs.swift */; };
 		2E3CCA351E85EBB300F9FE2E /* RunsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CCA341E85EBB300F9FE2E /* RunsTableViewCell.swift */; };
 		2E69EF1C1E65D36A00F1BC9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E69EF1B1E65D36A00F1BC9A /* AppDelegate.swift */; };
 		2E69EF1E1E65D36A00F1BC9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E69EF1D1E65D36A00F1BC9A /* ViewController.swift */; };
@@ -75,7 +74,6 @@
 		2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		2E31FD671E796D7F00CE67A2 /* PedometerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedometerViewController.swift; sourceTree = "<group>"; };
 		2E3CCA301E85E8AF00F9FE2E /* RunsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunsTableViewController.swift; sourceTree = "<group>"; };
-		2E3CCA321E85E96800F9FE2E /* Runs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Runs.swift; sourceTree = "<group>"; };
 		2E3CCA341E85EBB300F9FE2E /* RunsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunsTableViewCell.swift; sourceTree = "<group>"; };
 		2E69EF181E65D36A00F1BC9A /* mHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E69EF1B1E65D36A00F1BC9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -263,7 +261,6 @@
 				2EA6F7E51E81E8EA002969A5 /* NewRunViewController.swift */,
 				2EF730BA1E8442C9006A2734 /* FirebaseRunsViewController.swift */,
 				2E3CCA301E85E8AF00F9FE2E /* RunsTableViewController.swift */,
-				2E3CCA321E85E96800F9FE2E /* Runs.swift */,
 				2E3CCA341E85EBB300F9FE2E /* RunsTableViewCell.swift */,
 			);
 			name = ViewControllers;
@@ -492,7 +489,6 @@
 				2E69EF1E1E65D36A00F1BC9A /* ViewController.swift in Sources */,
 				2E9286B91E79DF0200E75230 /* MapViewController.swift in Sources */,
 				2E9286BD1E7B650E00E75230 /* UserHKData.swift in Sources */,
-				2E3CCA331E85E96800F9FE2E /* Runs.swift in Sources */,
 				2EE80B021E6900A3000956DE /* WelcomeViewController.swift in Sources */,
 				2EDE97F91E82EDB200996E68 /* DetailViewController.swift in Sources */,
 				2EDE97FD1E83499A00996E68 /* FirebaseRun.swift in Sources */,
