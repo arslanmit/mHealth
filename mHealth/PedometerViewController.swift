@@ -83,7 +83,6 @@ class PedometerViewController: UIViewController{
         }
         func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
-            
         }
     }
     

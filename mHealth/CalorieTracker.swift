@@ -9,16 +9,20 @@
 import UIKit
 import Firebase
 
-class WelcomeViewController: UIViewController {
+class CalorieTracker: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var s1: UITextField!
     @IBOutlet weak var s2: UITextField!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
     
     //MARK:Firebase
     let user = FIRAuth.auth()?.currentUser
     let rootRef = FIRDatabase.database().reference()
+    
+    //
+    let animals = ["dog","cat"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +78,17 @@ class WelcomeViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+//MARK: TABLE VIEW FUNCTIONS
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CalorieTableViewCell", for: indexPath) as? CalorieTableViewCell
+        cell?.foodLabel?.text = animals[indexPath.row]
+        return cell!
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return animals.count
     }
 
     /*
