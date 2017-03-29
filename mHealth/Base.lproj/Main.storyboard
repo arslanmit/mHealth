@@ -1186,7 +1186,7 @@
         <!--Master-->
         <scene sceneID="aPm-Qz-EAa">
             <objects>
-                <navigationController title="Master" hidesBarsOnSwipe="YES" id="Ikj-Xq-Yik" sceneMemberID="viewController">
+                <navigationController title="Master" id="Ikj-Xq-Yik" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="My Run" id="krm-dX-v6n"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="667"/>
