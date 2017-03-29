@@ -22,7 +22,7 @@ class CalorieTracker: UIViewController, UITableViewDataSource, UITableViewDelega
     let rootRef = FIRDatabase.database().reference()
     
     //
-    let animals = ["dog","cat"]
+    let animals = ["apple","carrot"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
