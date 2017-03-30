@@ -244,11 +244,16 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         savedRun.locations = NSOrderedSet(array: savedLocations)
         run = savedRun
         
-                 let dateString = Util.dateFirebaseTitle(date: (savedLocations.last?.timestamp)!) //--- idk why it only
-           ///      let dateString = Util.myDateFormat(date: (savedLocations.last?.timestamp)!)
-                 let id: String = Util.removePeriod(s: (user?.email)!)
-                 let thisRun: FirebaseRun = FirebaseRun(run: run, savedLocations: savedLocations)
-                 self.rootRef.child("users//\(id)/Runs/\(dateString)").setValue(thisRun.toAnyObject())
+        if(savedLocations.last?.timestamp == nil){
+            print("no data to be saved to Firebase... avoiding errors by skipping Firebase save")
+            print("note: error had been already handled in the next view controller...")
+        }else{
+            let dateString = Util.dateFirebaseTitle(date: (savedLocations.last?.timestamp)!) //--- idk why it only
+            let id: String = Util.removePeriod(s: (user?.email)!)
+            let thisRun: FirebaseRun = FirebaseRun(run: run, savedLocations: savedLocations)
+            self.rootRef.child("users//\(id)/Runs/\(dateString)").setValue(thisRun.toAnyObject())
+        }
+        
  
         do{
             try managedObjectContext!.save()
