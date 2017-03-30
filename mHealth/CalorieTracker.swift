@@ -31,8 +31,6 @@ class CalorieTracker: UIViewController, UITableViewDataSource, UITableViewDelega
             self.load()
             self.tableView.reloadData()
         })
-
-        
     }
 
     override func didReceiveMemoryWarning() {
