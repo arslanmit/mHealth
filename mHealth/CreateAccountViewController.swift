@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FBSDKLoginKit
 
 class CreateAccountViewController: UIViewController{
     
@@ -26,6 +27,8 @@ class CreateAccountViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        returnUserData()
+        
 
     }
 
@@ -77,6 +80,22 @@ class CreateAccountViewController: UIViewController{
         }
     }
     
+    func returnUserData() {
+        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start(completionHandler: { (connection,  result, error) -> Void in
+            if (error == nil){
+                guard let data = result as? [String:Any] else { return }
+                
+                //let fbid = data["id"]
+                let name = data["name"]
+                let email = data["email"]
+                
+                //sets the name and email from FB 
+                self.nameField.text! = name as! String
+                self.emailField.text! = email as! String
+            }
+        })
+    }
+
     func loginFunction(){
         FIRAuth.auth()!.signIn(withEmail: emailField.text!,
                                password: passwordField.text!, completion: { user, error in

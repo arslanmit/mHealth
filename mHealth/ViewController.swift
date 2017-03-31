@@ -43,11 +43,12 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         self.viewSpace.layer.cornerRadius = 5.0
         //This is facebook login :)
-        let fbLoginButoon = FBSDKLoginButton()
-        view.addSubview(fbLoginButoon)
-        fbLoginButoon.frame = CGRect(x: 25, y: 525, width: view.frame.width-50, height: 40)
+        let fbLoginButton = FBSDKLoginButton()
+        view.addSubview(fbLoginButton)
+        fbLoginButton.frame = CGRect(x: 25, y: 525, width: view.frame.width-50, height: 40)
         
-        fbLoginButoon.delegate = self
+        fbLoginButton.delegate = self
+        fbLoginButton.readPermissions = ["email", "public_profile"]
     }
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("Did log out of facebook")
@@ -59,6 +60,18 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
         else{
             print("successfully logged in with Facebookx")
+             //For test purposes only
+            /*
+            FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, err) in
+                if err != nil{
+                    print("Failed to start graph request", err)
+                    return
+                }
+                print(result)
+                self.performSegue(withIdentifier: "createAccountSegue", sender: nil)
+                
+            }
+        */
         }
     }
 
