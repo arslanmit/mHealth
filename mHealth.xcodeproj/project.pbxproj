@@ -186,7 +186,7 @@
 		2E69EF1A1E65D36A00F1BC9A /* mHealth */ = {
 			isa = PBXGroup;
 			children = (
-				2EE80B001E690088000956DE /* ViewControllers */,
+				2EE80B001E690088000956DE /* mHealth Swift Files */,
 				2E69EF711E6600BD00F1BC9A /* mHealth.entitlements */,
 				2E69EF1B1E65D36A00F1BC9A /* AppDelegate.swift */,
 				2E69EF221E65D36A00F1BC9A /* Assets.xcassets */,
@@ -297,7 +297,7 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		2EE80B001E690088000956DE /* ViewControllers */ = {
+		2EE80B001E690088000956DE /* mHealth Swift Files */ = {
 			isa = PBXGroup;
 			children = (
 				2EBFA4C91E8DF2F40069E9A0 /* Basic Views */,
@@ -306,7 +306,7 @@
 				2EBFA4C81E8DF2CA0069E9A0 /* Run Views */,
 				2EBFA4CB1E8DF3650069E9A0 /* Test Views */,
 			);
-			name = ViewControllers;
+			name = "mHealth Swift Files";
 			sourceTree = "<group>";
 		};
 		CE767B442FDD135AE8D57B61 /* Frameworks */ = {
