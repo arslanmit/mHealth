@@ -60,6 +60,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
         else{
             print("successfully logged in with Facebookx")
+            self.performSegue(withIdentifier: "createAccountSegue", sender: nil)
              //For test purposes only
             /*
             FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, err) in
