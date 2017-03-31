@@ -85,5 +85,17 @@ class Util{
         return self.stringToDate(date: date2).timeIntervalSince(Util.stringToDate(date: date1));
     }
     
+    class func metersToMilesString(distanceQuantity: HKQuantity) -> String{
+        let dist: Double = (Double(distanceQuantity.description.replacingOccurrences(of: " m", with: "")))!*0.00062137
+        let distString: String = String(format: "%.2f", ceil(dist*100)/100)
+        return distString;
+    }
+    
+    class func kmphToMphString(kmph: Double) -> String{
+        let paceDouble: Double = (((kmph*3.6*10).rounded()/10)*0.62137)
+        let paceString: String = String(format: "%.2f", ceil(paceDouble*100)/100)
+        return paceString
+    }
+    
     
 }

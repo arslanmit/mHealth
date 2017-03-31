@@ -22,6 +22,12 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate, CLLocatio
     
     //MARK: OUTLETS
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var paceLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var descentLabel: UILabel!
+    
+    @IBOutlet weak var climbLabel: UILabel!
        
     
     override func viewDidLoad() {
@@ -49,27 +55,28 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate, CLLocatio
     
 
     func configureView() {
-        /*
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
-        dateLabel.text = dateFormatter.string(from: run.timestamp)
+       // dateLabel.text = dateFormatter.string(from: Util.stringToDate(date: myFirebaseRun.timestamps.first!))
+        self.title = dateFormatter.string(from: Util.stringToDate(date: myFirebaseRun.timestamps.first!))
         
-        let (h,m,s) = secondsToHoursMinutesSeconds(seconds: Int(run.duration.doubleValue))
+        let (h,m,s) = secondsToHoursMinutesSeconds(seconds: Int(myFirebaseRun.duration))
         let secondsQuantity = HKQuantity(unit: HKUnit.second(), doubleValue: Double(s))
         let minutesQuantity = HKQuantity(unit: HKUnit.minute(), doubleValue: Double(m))
         let hoursQuantity = HKQuantity(unit: HKUnit.hour(), doubleValue: Double(h))
         timeLabel.text = "Time: "+hoursQuantity.description+" "+minutesQuantity.description+" "+secondsQuantity.description
         
-        let distanceQuantity = HKQuantity(unit: HKUnit.meter(), doubleValue: run.distance.doubleValue)
-        distanceLabel.text = "Distance: " + distanceQuantity.description
+        let distanceQuantity = HKQuantity(unit: HKUnit.meter(), doubleValue: myFirebaseRun.distance)
+        distanceLabel.text = "Total Distance: \(Util.metersToMilesString(distanceQuantity: distanceQuantity)) miles"
         
         //let paceUnit = HKUnit.meter().unitDivided(by: HKUnit.second())//HKUnit.second().unitDivided(by: HKUnit.meter())
         //let paceQuantity = HKQuantity(unit: paceUnit, doubleValue: distance / seconds)
-        paceLabel.text = "Mean speed: "+String((run.distance.doubleValue/run.duration.doubleValue*3.6*10).rounded()/10)+" km/h"
+      //  paceLabel.text = "Mean speed: "+String((myFirebaseRun.distance/myFirebaseRun.duration*3.6*10).rounded()/10)+" km/h"
+        paceLabel.text = "Mean speed: \(Util.kmphToMphString(kmph: (myFirebaseRun.distance/myFirebaseRun.duration))) MPH"
+        climbLabel.text = "Total climb: "+String((myFirebaseRun.climb).rounded())+" m"
+        descentLabel.text = "Total descent: "+String((myFirebaseRun.descent).rounded())+" m"
         
-        climbLabel.text = "Total climb: "+String((run.climb.doubleValue).rounded())+" m"
-        descentLabel.text = "Total descent: "+String((run.descent.doubleValue).rounded())+" m"
-        */
         loadMap()
         setRunPins()
     }
@@ -121,7 +128,6 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate, CLLocatio
     func polyline() -> MKPolyline {
         var coords = [CLLocationCoordinate2D]()
         
-     //   let locations = run.locations.array as! [Location]
         for i in 0...myFirebaseRun.latitudes.count-1 { //for location in locations {
             coords.append(CLLocationCoordinate2D(latitude: myFirebaseRun.latitudes[i],
                                                  longitude: myFirebaseRun.longitudes[i]))
