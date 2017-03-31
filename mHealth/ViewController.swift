@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
+import FBSDKLoginKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     //MARK: Store
     //MARK: Auth Outlets
@@ -41,6 +42,24 @@ class ViewController: UIViewController {
         passwordField.text = "myPassword"
         // Do any additional setup after loading the view, typically from a nib.
         self.viewSpace.layer.cornerRadius = 5.0
+        //This is facebook login :)
+        let fbLoginButoon = FBSDKLoginButton()
+        view.addSubview(fbLoginButoon)
+        fbLoginButoon.frame = CGRect(x: 25, y: 525, width: view.frame.width-50, height: 40)
+        
+        fbLoginButoon.delegate = self
+    }
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("Did log out of facebook")
+    }
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if (error != nil) {
+            print(error)
+            return
+        }
+        else{
+            print("successfully logged in with Facebookx")
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class CreateAccountViewController: UIViewController {
+class CreateAccountViewController: UIViewController{
     
     //MARK: Outlets
     @IBOutlet weak var nameField: UITextField!

@@ -9,6 +9,9 @@ target 'mHealth' do
 	pod ‘Firebase/Core’
 	pod ‘Firebase/Database’
 	pod ‘Firebase/Auth’
+	pod 'FBSDKCoreKit'
+	pod 'FBSDKShareKit'
+	pod 'FBSDKLoginKit'
 
 source 'https://github.com/CocoaPods/Specs.git'
   pod 'GoogleMaps'
