@@ -39,18 +39,6 @@ class HomeViewController: UIViewController {
       if let newRunViewController = segue.destination as? NewRunViewController {
         newRunViewController.managedObjectContext = managedObjectContext
       }
-    }/*else if segue.destination.isKind(of: BadgesTableViewController.self) {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Run")
-        
-        let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        do{
-            let runs = try? managedObjectContext!.fetch(fetchRequest) as! [Run]
-            let badgesTableViewController = segue.destination as! BadgesTableViewController
-            badgesTableViewController.badgeEarnStatusesArray = BadgeController.sharedController.badgeEarnStatusesForRuns(runs: runs!)
-        }
-        
-    }*/
+    }
   }
 }

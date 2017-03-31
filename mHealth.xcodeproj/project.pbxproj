@@ -110,7 +110,7 @@
 		2EB8F5241E78F07B0041BE03 /* cherry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cherry.png; path = mHealth/cherry.png; sourceTree = "<group>"; };
 		2EB8F5281E78FF680041BE03 /* nurse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nurse.png; path = mHealth/nurse.png; sourceTree = "<group>"; };
 		2EDE97F81E82EDB200996E68 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		2EDE97FA1E82EDF000996E68 /* MulticolorPolylineSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticolorPolylineSegment.swift; sourceTree = "<group>"; };
+		2EDE97FA1E82EDF000996E68 /* MulticolorPolylineSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MulticolorPolylineSegment.swift; path = mHealth/MulticolorPolylineSegment.swift; sourceTree = "<group>"; };
 		2EDE97FC1E83499A00996E68 /* FirebaseRun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseRun.swift; sourceTree = "<group>"; };
 		2EE80AFB1E68ACCC000956DE /* healthIcon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = healthIcon.jpeg; path = mHealth/healthIcon.jpeg; sourceTree = "<group>"; };
 		2EE80AFE1E68AEF2000956DE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -216,6 +216,54 @@
 			path = mHealthUITests;
 			sourceTree = "<group>";
 		};
+		2EBFA4C81E8DF2CA0069E9A0 /* Run Views */ = {
+			isa = PBXGroup;
+			children = (
+				2EA6F7E51E81E8EA002969A5 /* NewRunViewController.swift */,
+				2EF730BA1E8442C9006A2734 /* FirebaseRunsViewController.swift */,
+				2E3CCA301E85E8AF00F9FE2E /* RunsTableViewController.swift */,
+				2E3CCA341E85EBB300F9FE2E /* RunsTableViewCell.swift */,
+				2EDE97F81E82EDB200996E68 /* DetailViewController.swift */,
+				2EA6F7E31E81E708002969A5 /* HomeViewController.swift */,
+			);
+			name = "Run Views";
+			sourceTree = "<group>";
+		};
+		2EBFA4C91E8DF2F40069E9A0 /* Basic Views */ = {
+			isa = PBXGroup;
+			children = (
+				2E69EF1D1E65D36A00F1BC9A /* ViewController.swift */,
+				2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */,
+			);
+			name = "Basic Views";
+			sourceTree = "<group>";
+		};
+		2EBFA4CA1E8DF34D0069E9A0 /* HealthKit View */ = {
+			isa = PBXGroup;
+			children = (
+				2E09F7B31E77B77200EE2F0A /* ProfileTableTableViewController.swift */,
+			);
+			name = "HealthKit View";
+			sourceTree = "<group>";
+		};
+		2EBFA4CB1E8DF3650069E9A0 /* Test Views */ = {
+			isa = PBXGroup;
+			children = (
+				2E31FD671E796D7F00CE67A2 /* PedometerViewController.swift */,
+				2E9286B81E79DF0200E75230 /* MapViewController.swift */,
+			);
+			name = "Test Views";
+			sourceTree = "<group>";
+		};
+		2EBFA4CC1E8DF3760069E9A0 /* Calorie Views */ = {
+			isa = PBXGroup;
+			children = (
+				2EA80D101E8A02B900E3A3F1 /* CalorieTableViewCell.swift */,
+				2EE80B011E6900A3000956DE /* CalorieTracker.swift */,
+			);
+			name = "Calorie Views";
+			sourceTree = "<group>";
+		};
 		2EE80AF81E68ABF7000956DE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,7 +281,7 @@
 		2EE80AFD1E68AED8000956DE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2EA6F7FB1E822F01002969A5 /* mHealth.xcdatamodeld */,
+				2EDE97FA1E82EDF000996E68 /* MulticolorPolylineSegment.swift */,
 				2EE80AFE1E68AEF2000956DE /* User.swift */,
 				2EE80B031E690478000956DE /* FoodItem.swift */,
 				2EFC7C241E7778560033173E /* HealthManager.swift */,
@@ -244,6 +292,7 @@
 				2EA6F7F11E81EC01002969A5 /* Location.swift */,
 				2EA6F7E71E81E998002969A5 /* Run.swift */,
 				2EDE97FC1E83499A00996E68 /* FirebaseRun.swift */,
+				2EA6F7FB1E822F01002969A5 /* mHealth.xcdatamodeld */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -251,20 +300,11 @@
 		2EE80B001E690088000956DE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2EA6F7E31E81E708002969A5 /* HomeViewController.swift */,
-				2EDE97FA1E82EDF000996E68 /* MulticolorPolylineSegment.swift */,
-				2EDE97F81E82EDB200996E68 /* DetailViewController.swift */,
-				2E69EF1D1E65D36A00F1BC9A /* ViewController.swift */,
-				2EE80B011E6900A3000956DE /* CalorieTracker.swift */,
-				2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */,
-				2E09F7B31E77B77200EE2F0A /* ProfileTableTableViewController.swift */,
-				2E31FD671E796D7F00CE67A2 /* PedometerViewController.swift */,
-				2E9286B81E79DF0200E75230 /* MapViewController.swift */,
-				2EA6F7E51E81E8EA002969A5 /* NewRunViewController.swift */,
-				2EF730BA1E8442C9006A2734 /* FirebaseRunsViewController.swift */,
-				2E3CCA301E85E8AF00F9FE2E /* RunsTableViewController.swift */,
-				2E3CCA341E85EBB300F9FE2E /* RunsTableViewCell.swift */,
-				2EA80D101E8A02B900E3A3F1 /* CalorieTableViewCell.swift */,
+				2EBFA4C91E8DF2F40069E9A0 /* Basic Views */,
+				2EBFA4CC1E8DF3760069E9A0 /* Calorie Views */,
+				2EBFA4CA1E8DF34D0069E9A0 /* HealthKit View */,
+				2EBFA4C81E8DF2CA0069E9A0 /* Run Views */,
+				2EBFA4CB1E8DF3650069E9A0 /* Test Views */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
