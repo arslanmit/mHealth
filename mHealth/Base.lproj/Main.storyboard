@@ -318,8 +318,8 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lb2-lh-L6J">
                                 <rect key="frame" x="16" y="28" width="106" height="63"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="63" id="T9q-QC-IfA"/>
-                                    <constraint firstAttribute="width" constant="106" id="hNz-nl-d1M"/>
+                                    <constraint firstAttribute="width" constant="106" id="N4y-1i-cyx"/>
+                                    <constraint firstAttribute="height" constant="63" id="eT8-J9-HHC"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="Today">
@@ -333,13 +333,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zF-y6-zLh">
-                                <rect key="frame" x="222" y="232" width="137" height="63"/>
+                                <rect key="frame" x="222" y="259" width="137" height="63"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="137" id="1L4-lS-QzL"/>
-                                    <constraint firstAttribute="height" constant="63" id="tSa-JN-p1A"/>
+                                    <constraint firstAttribute="width" constant="137" id="Yga-RD-bJx"/>
+                                    <constraint firstAttribute="height" constant="63" id="cU4-ZO-MbQ"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="acts">
+                                    <fragment content="...loading">
                                         <attributes>
                                             <color key="NSColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="17"/>
@@ -352,7 +352,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k27-Q7-bis">
                                 <rect key="frame" x="16" y="349" width="220" height="42"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="Gnt-gy-BU8"/>
+                                    <constraint firstAttribute="height" constant="42" id="0rq-90-1dv"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="Your steps for today:">
@@ -367,7 +367,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCD-Uu-gSL">
                                 <rect key="frame" x="16" y="194" width="198" height="42"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="K9Q-5L-CFn"/>
+                                    <constraint firstAttribute="height" constant="42" id="lLl-Um-y9L"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="What you're doing:">
@@ -380,9 +380,9 @@
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5W-Hd-yys">
-                                <rect key="frame" x="222" y="394" width="137" height="63"/>
+                                <rect key="frame" x="222" y="432" width="137" height="63"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="pls">
+                                    <fragment content="...loading">
                                         <attributes>
                                             <color key="NSColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="17"/>
@@ -395,18 +395,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NCD-Uu-gSL" firstAttribute="leading" secondItem="k27-Q7-bis" secondAttribute="leading" id="7HT-g5-5xg"/>
-                            <constraint firstItem="1zF-y6-zLh" firstAttribute="leading" secondItem="NCD-Uu-gSL" secondAttribute="trailing" constant="8" symbolic="YES" id="DLA-BX-vpV"/>
-                            <constraint firstItem="1zF-y6-zLh" firstAttribute="top" secondItem="sFe-oD-up2" secondAttribute="bottom" constant="212" id="EQP-6p-mHt"/>
-                            <constraint firstItem="1zF-y6-zLh" firstAttribute="leading" secondItem="W5W-Hd-yys" secondAttribute="leading" id="L63-7B-VQ6"/>
-                            <constraint firstItem="k27-Q7-bis" firstAttribute="top" secondItem="1zF-y6-zLh" secondAttribute="bottom" constant="54" id="U1c-VT-91n"/>
-                            <constraint firstItem="Lb2-lh-L6J" firstAttribute="top" secondItem="sFe-oD-up2" secondAttribute="bottom" constant="8" symbolic="YES" id="VFO-No-yVN"/>
-                            <constraint firstItem="W5W-Hd-yys" firstAttribute="top" secondItem="k27-Q7-bis" secondAttribute="bottom" constant="3" id="b4q-tC-pJ8"/>
-                            <constraint firstItem="Nbf-ti-AI0" firstAttribute="top" secondItem="W5W-Hd-yys" secondAttribute="bottom" constant="161" id="gST-5H-d6t"/>
-                            <constraint firstItem="Lb2-lh-L6J" firstAttribute="leading" secondItem="jUm-NJ-YTT" secondAttribute="leadingMargin" id="hHF-PM-byi"/>
-                            <constraint firstItem="1zF-y6-zLh" firstAttribute="trailing" secondItem="W5W-Hd-yys" secondAttribute="trailing" id="wG7-AH-glv"/>
-                            <constraint firstItem="NCD-Uu-gSL" firstAttribute="top" secondItem="jUm-NJ-YTT" secondAttribute="top" constant="194" id="ynC-AV-hbB"/>
-                            <constraint firstItem="Lb2-lh-L6J" firstAttribute="leading" secondItem="NCD-Uu-gSL" secondAttribute="leading" id="zyT-3c-Ads"/>
+                            <constraint firstItem="1zF-y6-zLh" firstAttribute="trailing" secondItem="jUm-NJ-YTT" secondAttribute="trailingMargin" id="1Zk-Z1-TRw"/>
+                            <constraint firstItem="Lb2-lh-L6J" firstAttribute="leading" secondItem="jUm-NJ-YTT" secondAttribute="leadingMargin" id="2lV-VL-cE8"/>
+                            <constraint firstItem="1zF-y6-zLh" firstAttribute="leading" secondItem="W5W-Hd-yys" secondAttribute="leading" id="AHJ-Cb-Olf"/>
+                            <constraint firstItem="k27-Q7-bis" firstAttribute="top" secondItem="1zF-y6-zLh" secondAttribute="bottom" constant="27" id="E2L-S5-Zhe"/>
+                            <constraint firstItem="Nbf-ti-AI0" firstAttribute="top" secondItem="W5W-Hd-yys" secondAttribute="bottom" constant="123" id="Ebj-pK-w7k"/>
+                            <constraint firstItem="W5W-Hd-yys" firstAttribute="top" secondItem="k27-Q7-bis" secondAttribute="bottom" constant="41" id="QeZ-Th-X3z"/>
+                            <constraint firstItem="NCD-Uu-gSL" firstAttribute="top" secondItem="jUm-NJ-YTT" secondAttribute="top" constant="194" id="SD5-cp-3Nd"/>
+                            <constraint firstItem="Lb2-lh-L6J" firstAttribute="leading" secondItem="NCD-Uu-gSL" secondAttribute="leading" id="dPM-2y-lKE"/>
+                            <constraint firstItem="1zF-y6-zLh" firstAttribute="top" secondItem="sFe-oD-up2" secondAttribute="bottom" constant="239" id="dyx-Lb-T2c"/>
+                            <constraint firstItem="NCD-Uu-gSL" firstAttribute="leading" secondItem="k27-Q7-bis" secondAttribute="leading" id="jex-bc-wt3"/>
+                            <constraint firstItem="Lb2-lh-L6J" firstAttribute="top" secondItem="sFe-oD-up2" secondAttribute="bottom" constant="8" symbolic="YES" id="rGa-Ln-WeW"/>
+                            <constraint firstItem="1zF-y6-zLh" firstAttribute="trailing" secondItem="W5W-Hd-yys" secondAttribute="trailing" id="xOE-pp-b29"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Pedometer" id="CEC-CA-FCt"/>

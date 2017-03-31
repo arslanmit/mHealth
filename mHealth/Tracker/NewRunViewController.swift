@@ -21,6 +21,7 @@
  */
 
 import UIKit
+import CoreMotion
 import CoreData
 import CoreLocation
 import HealthKit
@@ -43,6 +44,7 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
     var vertDescent = 0.0
     var previousAlt = 0.0
     var locationManager: CLLocationManager!
+    let activityManager = CMMotionActivityManager()
     
     lazy var locations = [CLLocation]()
     lazy var timer = Timer()
@@ -92,6 +94,25 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         mapView2.delegate = self;
         
         mapView2.showsUserLocation = true
+        //pedometer status to title! :)
+        if(CMMotionActivityManager.isActivityAvailable()){
+            self.activityManager.startActivityUpdates(to: OperationQueue.main, withHandler: { (data: CMMotionActivity?) -> Void in
+                DispatchQueue.main.async{
+                    if(data?.stationary == true){
+                        self.title = "Stationary"
+                    } else if (data?.walking == true){
+                        self.title = "Walking"
+                    } else if (data?.running == true){
+                        self.title = "Running"
+                    } else if (data?.automotive == true){
+                        self.title = "Automotive"
+                    }
+                }
+                
+            })
+            
+        }
+        //
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -244,8 +265,8 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         savedRun.locations = NSOrderedSet(array: savedLocations)
         run = savedRun
         
-        if(savedLocations.last?.timestamp == nil){
-            print("no data to be saved to Firebase... avoiding errors by skipping Firebase save")
+        if(savedLocations.last?.timestamp == nil || savedLocations.first == nil || savedRun.distance == 0){
+            print("NO DATA SAVED TO Firebase... avoiding errors by skipping Firebase save")
             print("note: error had been already handled in the next view controller...")
         }else{
             let dateString = Util.dateFirebaseTitle(date: (savedLocations.last?.timestamp)!) //--- idk why it only
@@ -289,13 +310,13 @@ extension NewRunViewController: UIAlertViewDelegate {
         let saveAction = UIAlertAction(title: "Save Run?", style: .default){
             (action: UIAlertAction) in
             self.saveRun()
-            print("saved run")
+            print("saved run clicked")
             self.locationManager.stopUpdatingLocation()
             self.performSegue(withIdentifier: DetailSegueName, sender: nil)
         }
         let deleteAction = UIAlertAction(title:"Discard Run?",  style: .default){
             (action:UIAlertAction) in
-            print("disgarded run")
+            print("disgarded run clicked")
             self.locationManager.stopUpdatingLocation()
           _ = self.navigationController?.popViewController(animated: true)
         }
