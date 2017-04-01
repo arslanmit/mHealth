@@ -89,6 +89,13 @@ class CalorieTracker: UIViewController, UITableViewDataSource, UITableViewDelega
                 print(error.localizedDescription)
             }
         }
+        if (FIRAuth.auth()?.currentUser != nil) {
+            do {
+                try FIRAuth.auth()?.signOut()
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
