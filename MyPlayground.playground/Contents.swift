@@ -8,6 +8,13 @@
 
 import Foundation
 
-print("mHealth")
+var myString = "hello.com/.org|||.mx"
 
-   
+
+let remove: [String] = [".com",".org",".mx"]
+
+for removable in remove{
+    myString = myString.replacingOccurrences(of: removable, with: "")
+}
+
+print(myString)

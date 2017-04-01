@@ -17,12 +17,14 @@ import Firebase
 class Util{
     
    class func removePeriod(s: String) -> String{
-        let myString = s
-        var clean: String
-        clean = myString.replacingOccurrences(of: ".com", with: "")
-        clean = clean.replacingOccurrences(of: ".org", with: "")
-        clean = clean.replacingOccurrences(of: ".mx", with: "")
-        return clean
+    var myString = s
+    
+    let remove: [String] = [".com",".org",".mx"]
+    
+    for removable in remove{
+        myString = myString.replacingOccurrences(of: removable, with: "")
+    }
+        return myString
     }
     
     class func removeOptional(s: String) -> String{
