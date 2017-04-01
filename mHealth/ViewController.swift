@@ -8,9 +8,8 @@
 
 import UIKit
 import Firebase
-import FBSDKLoginKit
 
-class ViewController: UIViewController, FBSDKLoginButtonDelegate {
+class ViewController: UIViewController{
     
     //MARK: Store
     //MARK: Auth Outlets
@@ -42,40 +41,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         passwordField.text = "myPassword"
         // Do any additional setup after loading the view, typically from a nib.
         self.viewSpace.layer.cornerRadius = 5.0
-        //This is facebook login :)
-        let fbLoginButton = FBSDKLoginButton()
-        view.addSubview(fbLoginButton)
-        fbLoginButton.frame = CGRect(x: 25, y: 525, width: view.frame.width-50, height: 40)
-        
-        fbLoginButton.delegate = self
-        fbLoginButton.readPermissions = ["email", "public_profile"]
     }
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print("Did log out of facebook")
-    }
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        if (error != nil) {
-            print(error)
-            return
-        }
-        else{
-            print("successfully logged in with Facebookx")
-            self.performSegue(withIdentifier: "createAccountSegue", sender: nil)
-             //For test purposes only
-            /*
-            FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, err) in
-                if err != nil{
-                    print("Failed to start graph request", err)
-                    return
-                }
-                print(result)
-                self.performSegue(withIdentifier: "createAccountSegue", sender: nil)
-                
-            }
-        */
-        }
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

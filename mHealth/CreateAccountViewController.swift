@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FBSDKLoginKit
 
-class CreateAccountViewController: UIViewController{
+class CreateAccountViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     //MARK: Outlets
     @IBOutlet weak var nameField: UITextField!
@@ -27,9 +27,41 @@ class CreateAccountViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        returnUserData()
+        let fbLoginButton = FBSDKLoginButton()
+        view.addSubview(fbLoginButton)
+        fbLoginButton.frame = CGRect(x: 25, y: 525, width: view.frame.width-50, height: 40)
+        
+        fbLoginButton.delegate = self
+        fbLoginButton.readPermissions = ["email", "public_profile"]
         
 
+    }
+    //to logout later on
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("Did log out of facebook")
+    }
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if (error != nil) {
+            print(error)
+            return
+        }
+        else{
+            print("successfully logged in with Facebookx")
+            FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start(completionHandler: { (connection,  result, error) -> Void in
+                if (error == nil){
+                    guard let data = result as? [String:Any] else { return }
+                    
+                    //let fbid = data["id"]
+                    let name = data["name"]
+                    let email = data["email"]
+                    //let id = data["id"]
+                    
+                    //sets the name and email from FB
+                    self.nameField.text = name as? String
+                    self.emailField.text = email as? String
+                }
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,22 +111,6 @@ class CreateAccountViewController: UIViewController{
             confirmPasswordField.text = ""
         }
     }
-    
-    func returnUserData() {
-        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start(completionHandler: { (connection,  result, error) -> Void in
-            if (error == nil){
-                guard let data = result as? [String:Any] else { return }
-                
-                //let fbid = data["id"]
-                let name = data["name"]
-                let email = data["email"]
-                
-                //sets the name and email from FB 
-                self.nameField.text! = name as! String
-                self.emailField.text! = email as! String
-            }
-        })
-    }
 
     func loginFunction(){
         FIRAuth.auth()!.signIn(withEmail: emailField.text!,
@@ -112,7 +128,7 @@ class CreateAccountViewController: UIViewController{
                                 else{
                                     self.addUserFirebase() /// special addition to this version of the method so that the segues work correctly :)
                                    /// self.dismiss(animated: true, completion: nil)
-                                    self.performSegue(withIdentifier: "createAccountToTab", sender: nil)
+                                    //self.performSegue(withIdentifier: "createAccountToTab", sender: nil)
                                 }
         })
         
