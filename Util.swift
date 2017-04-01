@@ -21,6 +21,7 @@ class Util{
         var clean: String
         clean = myString.replacingOccurrences(of: ".com", with: "")
         clean = clean.replacingOccurrences(of: ".org", with: "")
+        clean = clean.replacingOccurrences(of: ".mx", with: "")
         return clean
     }
     

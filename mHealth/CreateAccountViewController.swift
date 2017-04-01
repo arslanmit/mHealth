@@ -29,7 +29,7 @@ class CreateAccountViewController: UIViewController, FBSDKLoginButtonDelegate {
         super.viewDidLoad()
         let fbLoginButton = FBSDKLoginButton()
         view.addSubview(fbLoginButton)
-        fbLoginButton.frame = CGRect(x: 25, y: 525, width: view.frame.width-50, height: 40)
+        fbLoginButton.frame = CGRect(x: 25, y: 100, width: view.frame.width-50, height: 40)
         
         fbLoginButton.delegate = self
         fbLoginButton.readPermissions = ["email", "public_profile"]
@@ -128,7 +128,7 @@ class CreateAccountViewController: UIViewController, FBSDKLoginButtonDelegate {
                                 else{
                                     self.addUserFirebase() /// special addition to this version of the method so that the segues work correctly :)
                                    /// self.dismiss(animated: true, completion: nil)
-                                    //self.performSegue(withIdentifier: "createAccountToTab", sender: nil)
+                                self.performSegue(withIdentifier: "createAccountToTab", sender: nil)
                                 }
         })
         
