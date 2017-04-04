@@ -53,6 +53,7 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.8)
+  - JBChartView (3.0.13)
 
 DEPENDENCIES:
   - FBSDKCoreKit
@@ -64,6 +65,7 @@ DEPENDENCIES:
   - Firebase/Database
   - GoogleMaps
   - GooglePlaces
+  - JBChartView
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
@@ -80,7 +82,8 @@ SPEC CHECKSUMS:
   GooglePlaces: bca867d5e9da15384c794b945e4226848bc6e9d9
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
+  JBChartView: ea240dca7b83a92f47d4ae766beb3714753988a1
 
-PODFILE CHECKSUM: 3f3cfd47484b84e8e6ea26beeca1c2cddaa7e784
+PODFILE CHECKSUM: 82c1875a38cc936c14ac5fab6dcc528440ff5377
 
 COCOAPODS: 1.2.0

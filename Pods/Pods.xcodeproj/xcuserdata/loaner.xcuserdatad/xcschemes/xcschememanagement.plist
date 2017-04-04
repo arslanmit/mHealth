@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JBChartView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-mHealth.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,6 +57,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>7A4752E1A78EE7604F2EEFBC36866BB3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9681F7E28367B16A062B8B7A65EDB4D3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>BC5000D645EEAF961C85907CDC796FE1</key>
 		<dict>
 			<key>primary</key>
@@ -63,11 +78,6 @@
 			<true/>
 		</dict>
 		<key>C052BEBFBD0AB5218CC64BA3450F6547</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D9F73A00686F9FC14C0080ECA48C5EFB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

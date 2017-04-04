@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>JBCh.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
+		<key>JBChart.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>mHealth.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -23,6 +33,26 @@
 			<true/>
 		</dict>
 		<key>2E69EF361E65D36A00F1BC9A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2EB3FDD31E930A650069781F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2EB3FDDB1E930A650069781F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2EB3FE571E9313D30069781F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2EB3FE5F1E9313D30069781F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

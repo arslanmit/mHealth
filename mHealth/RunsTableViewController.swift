@@ -88,7 +88,6 @@ class RunsTableViewController : UITableViewController{
             self.tableView.reloadData()
         }
     }
-    
     private func load(){
         let id: String = Util.removePeriod(s: (user?.email)!)
         let runRef = FIRDatabase.database().reference(withPath: "users//\(id)/Runs/")

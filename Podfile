@@ -12,6 +12,7 @@ target 'mHealth' do
 	pod 'FBSDKCoreKit'
 	pod 'FBSDKShareKit'
 	pod 'FBSDKLoginKit'
+	pod ‘JBChartView’
 
 source 'https://github.com/CocoaPods/Specs.git'
   pod 'GoogleMaps'

@@ -37,9 +37,6 @@ class CreateAccountViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     }
     //to logout later on
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print("Did log out of facebook")
-    }
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if (error != nil) {
             print(error)
@@ -62,6 +59,9 @@ class CreateAccountViewController: UIViewController, FBSDKLoginButtonDelegate {
                 }
             })
         }
+    }
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("logged out of facebook")
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,6 +96,7 @@ class CreateAccountViewController: UIViewController, FBSDKLoginButtonDelegate {
                                         self.present(alert, animated: true, completion: nil)
                                     }
                                     else{
+                                        self.dismiss(animated: true, completion: nil)
                                         self.loginFunction()
                                         }
         }
@@ -129,6 +130,7 @@ class CreateAccountViewController: UIViewController, FBSDKLoginButtonDelegate {
                                     self.addUserFirebase() /// special addition to this version of the method so that the segues work correctly :)
                                    /// self.dismiss(animated: true, completion: nil)
                                 self.performSegue(withIdentifier: "createAccountToTab", sender: nil)
+                                self.dismiss(animated: true, completion: nil)
                                 }
         })
         
@@ -185,6 +187,9 @@ class CreateAccountViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    @IBAction func BackBtnClicked(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 
 }
