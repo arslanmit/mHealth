@@ -18,6 +18,7 @@ class LineGraphViewController: UIViewController, JBLineChartViewDelegate, JBLine
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var lineChart: JBLineChartView!
     @IBOutlet weak var informationLabel: UILabel!
+    @IBOutlet weak var loadButton: UIButton!
     
     let user = FIRAuth.auth()?.currentUser
     let rootRef = FIRDatabase.database().reference()
@@ -26,8 +27,6 @@ class LineGraphViewController: UIViewController, JBLineChartViewDelegate, JBLine
     var runs = [FirebaseRun]()
     
     //RANDOM NUMBERS TO DISPLAY GRAPH
-    var chartLegend = ["03-14", "03-15", "03-16", "03-17", "03-18", "03-19", "03-20"]
-    var chartData = [700, 800, 760, 880, 900, 690, 740]
     //var lastYearChartData = [75, 88, 79, 95, 72, 55, 90]
     
     override func viewDidLoad() {
@@ -43,20 +42,20 @@ class LineGraphViewController: UIViewController, JBLineChartViewDelegate, JBLine
         lineChart.minimumValue = 55
         lineChart.maximumValue = 100
         
-        lineChart.reloadData()
-        
         lineChart.setState(.collapsed, animated: false)
         
-        //MARK: FIREBASE start up
+        /*/MARK: FIREBASE start up
         let id: String = Util.removePeriod(s: (user?.email)!)
         let runRef = FIRDatabase.database().reference(withPath: "users//\(id)/")
         
+        
         runRef.observe(.value, with: { snapshot in
             self.load()
-            self.lineChart.reloadData()
-        })
-        print(distanceArray())
+        }) */
+      //  print(distanceArray())
+        print("VIEW DID LOAD")
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -67,11 +66,13 @@ class LineGraphViewController: UIViewController, JBLineChartViewDelegate, JBLine
         
         let footer1 = UILabel(frame: CGRect(x: 0, y: 0, width: lineChart.frame.width/2 - 8, height: 16))
         footer1.textColor = UIColor.white
-        footer1.text = "\(chartLegend[0])"
+        footer1.text = "First Run"
+       // footer1.text = "\(chartLegend[0])"
         
         let footer2 = UILabel(frame: CGRect(x: lineChart.frame.width/2 - 8, y: 0, width: lineChart.frame.width/2 - 8, height: 16))
         footer2.textColor = UIColor.white
-        footer2.text = "\(chartLegend[chartLegend.count - 1])"
+       // footer2.text = "\(chartLegend[chartLegend.count - 1])"
+        footer2.text = "Last Run"
         footer2.textAlignment = NSTextAlignment.right
         
         footerView.addSubview(footer1)
@@ -85,14 +86,17 @@ class LineGraphViewController: UIViewController, JBLineChartViewDelegate, JBLine
         
         lineChart.footerView = footerView
         lineChart.headerView = header
+        
+        //MARK: FIREBASE start up
+        let id: String = Util.removePeriod(s: (user?.email)!)
+        let runRef = FIRDatabase.database().reference(withPath: "users//\(id)/")
+         runRef.observe(.value, with: { snapshot in
+         self.load()
+         })
     }
-    
+ 
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        // RELOAD DATA PLS ;)
-        lineChart.reloadData()
-        
+        super.viewDidAppear(animated)        
         _ = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(LineGraphViewController.showChart), userInfo: nil, repeats: false)
     }
     
@@ -116,11 +120,12 @@ class LineGraphViewController: UIViewController, JBLineChartViewDelegate, JBLine
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, numberOfVerticalValuesAtLineIndex lineIndex: UInt) -> UInt {
-            return UInt(chartData.count)
+            return UInt(runs.count)
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, verticalValueForHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
-            return CGFloat(chartData[Int(horizontalIndex)])
+            let distance = runs[Int(horizontalIndex)].distance
+            return CGFloat(distance)
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, colorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
@@ -140,9 +145,11 @@ class LineGraphViewController: UIViewController, JBLineChartViewDelegate, JBLine
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, didSelectLineAt lineIndex: UInt, horizontalIndex: UInt) {
-            let data = chartData[Int(horizontalIndex)]
-            let key = chartLegend[Int(horizontalIndex)]
-            informationLabel.text = "Run on \(key): \(data)"
+            let distance = runs[Int(horizontalIndex)].distance
+            let date = Util.dateToPinString(date: Util.stringToDate(date: runs[Int(horizontalIndex)].timestamp))
+            let data = distance
+            let key = date
+        informationLabel.text = "Run on \(key): \(data)"
     }
     
     func didDeselectLine(in lineChartView: JBLineChartView!) {
@@ -157,22 +164,17 @@ class LineGraphViewController: UIViewController, JBLineChartViewDelegate, JBLine
     private func load(){
         let id: String = Util.removePeriod(s: (user?.email)!)
         let runRef = FIRDatabase.database().reference(withPath: "users//\(id)/Runs/")
-        
-        
         runRef.observe(.value, with: { snapshot in
             var currentRuns = [FirebaseRun]()
-            //var distanceRuns = [String]()
             for run in snapshot.children{
                 let oldRun = FirebaseRun(snapshot: run as! FIRDataSnapshot)
                 currentRuns.append(oldRun)
-                //distanceRuns.append(String((oldRun.distnce)),
             }
             self.runs = currentRuns;
+            print("LOAD")
             self.lineChart.reloadData()
         })
-        
-        //cell.dateLabel.text = Util.dateFirebaseTitle(date: Util.stringToDate(date: run.timestamp))
-        //cell.timeLabel.text = Util.dateToPinString(date: Util.stringToDate(date: run.timestamps.last!))
+        print("POST REF LOAD")
     }
     
     func distanceArray() -> Array<String>{
@@ -183,6 +185,10 @@ class LineGraphViewController: UIViewController, JBLineChartViewDelegate, JBLine
         return distanceRuns
     }
 
+    
+    @IBAction func loadDidTouch(_ sender: Any) {
+        dump(runs)
+    }
     
     @IBAction func goBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

@@ -91,17 +91,6 @@ class RunsTableViewController : UITableViewController{
     private func load(){
         let id: String = Util.removePeriod(s: (user?.email)!)
         let runRef = FIRDatabase.database().reference(withPath: "users//\(id)/Runs/")
-        // var oldRun: FirebaseRun?
-/*
-        runRef.observeSingleEvent(of: .value, with: { (snapshot) in
-            for run in snapshot.children{
-                let oldRun = FirebaseRun(snapshot: run as! FIRDataSnapshot)
-                self.runs.append(oldRun)
-            }
-            self.tableView.reloadData()
-        }) */
-        
-        
         runRef.observe(.value, with: { snapshot in
             var currentRuns = [FirebaseRun]()
             for run in snapshot.children{
