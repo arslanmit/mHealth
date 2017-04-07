@@ -45,10 +45,10 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate, CLLocatio
         // Drop a pin at user's start and end points
         let startRoute: MKPointAnnotation = MKPointAnnotation()
         startRoute.coordinate = CLLocationCoordinate2DMake(myFirebaseRun.latitudes.first!, myFirebaseRun.longitudes.first!);
-        startRoute.title = "Started: \(Util.dateToPinString(date: Util.stringToDate(date: myFirebaseRun.timestamps.first!)))"
+        startRoute.title = "Started: \(Util.PinFormat(from: myFirebaseRun.timestamps.first!))"
         let endRoute: MKPointAnnotation = MKPointAnnotation()
         endRoute.coordinate = CLLocationCoordinate2DMake(myFirebaseRun.latitudes.last!, myFirebaseRun.longitudes.last!);
-        endRoute.title = "Ended: \(Util.dateToPinString(date: Util.stringToDate(date: myFirebaseRun.timestamps.last!)))"
+        endRoute.title = "Ended: \(Util.PinFormat(from: myFirebaseRun.timestamps.last!)))"
         mapView.addAnnotation(startRoute)
         mapView.addAnnotation(endRoute)
     }
@@ -59,7 +59,7 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate, CLLocatio
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
        // dateLabel.text = dateFormatter.string(from: Util.stringToDate(date: myFirebaseRun.timestamps.first!))
-        self.title = dateFormatter.string(from: Util.stringToDate(date: myFirebaseRun.timestamps.first!))
+        self.title = dateFormatter.string(from: Util.Date(from: myFirebaseRun.timestamps.first!))
         
         let (h,m,s) = secondsToHoursMinutesSeconds(seconds: Int(myFirebaseRun.duration))
         let secondsQuantity = HKQuantity(unit: HKUnit.second(), doubleValue: Double(s))

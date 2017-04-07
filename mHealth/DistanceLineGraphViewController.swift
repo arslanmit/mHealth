@@ -13,7 +13,7 @@ import UIKit
 import JBChartView
 import Firebase
 
-class LineGraphViewController: UIViewController, JBLineChartViewDelegate, JBLineChartViewDataSource {
+class DistanceLineGraphViewController: UIViewController, JBLineChartViewDelegate, JBLineChartViewDataSource {
     
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var lineChart: JBLineChartView!
@@ -81,7 +81,7 @@ class LineGraphViewController: UIViewController, JBLineChartViewDelegate, JBLine
         let header = UILabel(frame: CGRect(x: 0, y: 0, width: lineChart.frame.width, height: 50))
         header.textColor = UIColor.white
         header.font = UIFont.systemFont(ofSize: 24)
-        header.text = "Stats for my runs"
+        header.text = "Run: Distance Line Graph"
         header.textAlignment = NSTextAlignment.center
         
         lineChart.footerView = footerView
@@ -97,7 +97,7 @@ class LineGraphViewController: UIViewController, JBLineChartViewDelegate, JBLine
  
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)        
-        _ = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(LineGraphViewController.showChart), userInfo: nil, repeats: false)
+        _ = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(DistanceLineGraphViewController.showChart), userInfo: nil, repeats: false)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -145,11 +145,12 @@ class LineGraphViewController: UIViewController, JBLineChartViewDelegate, JBLine
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, didSelectLineAt lineIndex: UInt, horizontalIndex: UInt) {
-            let distance = runs[Int(horizontalIndex)].distance
-            let date = Util.dateToPinString(date: Util.stringToDate(date: runs[Int(horizontalIndex)].timestamp))
-            let data = distance
+        //let duration = String(format: "%.01f", 3.32323242)
+            let distance = Double(String(format: "%.02f", runs[Int(horizontalIndex)].distance))
+            let date = Util.LineGraphDate(from: runs[Int(horizontalIndex)].timestamp)
+            let data = Util.getMiles(from: distance!)
             let key = date
-        informationLabel.text = "Run on \(key): \(data)"
+        informationLabel.text = "Run on \(key): \(data) miles"
     }
     
     func didDeselectLine(in lineChartView: JBLineChartView!) {

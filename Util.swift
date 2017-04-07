@@ -31,7 +31,6 @@ class Util{
         let o = s
         let o2 = o.replacingOccurrences(of: "Optional(", with: "")
         let mut = o2.replacingOccurrences(of: ")", with: "")
-        
         return mut
     }
     
@@ -54,44 +53,80 @@ class Util{
     class func getTimestampArray(locs: [Location]) -> [String]{
         var myTimes = [String]()
         for locs in locs{
-            myTimes.append(Util.myDateFormat(date: locs.timestamp))
+            myTimes.append(Util.DateString(from: locs.timestamp))
         }
         return myTimes
     }
     
-    class func myDateFormat(date: Date) -> String{
+    class func DateString(from date: Date) -> String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss SSSZ"
         return dateFormatter.string(from: date)
     }
-    
-    class func dateFirebaseTitle(date: Date) -> String{
+
+//MARK: FIREBASE TITLE
+    class func FirebaseTitle(from date: Date) -> String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEE| MMM-d-yy @hh:mma"
         return dateFormatter.string(from: date)
     }
     
-    class func dateToPinString(date: Date) -> String{
+    class func FirebaseTitle(from date: String) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss SSSZ"
+        let thisDate = dateFormatter.date(from: date)!
+        
+        dateFormatter.dateFormat = "EEE| MMM-d-yy @hh:mma"
+        return dateFormatter.string(from: thisDate)
+    }
+
+//MARK: DATE
+    class func LineGraphDate(from date: String) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss SSSZ"
+        let thisDate = dateFormatter.date(from: date)!
+        
+        dateFormatter.dateFormat = "MM/d @h:mma"
+        return dateFormatter.string(from: thisDate)
+    }
+    
+//MARK: PIN FORMATS
+    class func PinFormat(from date: Date) -> String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hh:mma|MM/d (EEE)"
         return dateFormatter.string(from: date)
     }
     
-    class func stringToDate(date: String) -> Date{
+    class func PinFormat(from date: String) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss SSSZ"
+        let date = dateFormatter.date(from: date)!
+        
+        dateFormatter.dateFormat = "hh:mma|MM/d (EEE)"
+        return dateFormatter.string(from: date)
+    }
+//MARK: CREATE DATE FROM STRING
+    class func Date(from date: String) -> Date{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss SSSZ"
         let date = dateFormatter.date(from: date)!
         return date
     }
-
+//MARK: INTERVALS
     class func timeInterval(from date1: String, to date2: String) ->Double{
-        return self.stringToDate(date: date2).timeIntervalSince(Util.stringToDate(date: date1));
+        return self.Date(from: date2).timeIntervalSince(Util.Date(from: date1));
     }
-    
+//MARK: UNIT CONVERSIONS
     class func metersToMilesString(distanceQuantity: HKQuantity) -> String{
         let dist: Double = (Double(distanceQuantity.description.replacingOccurrences(of: " m", with: "")))!*0.00062137
         let distString: String = String(format: "%.2f", ceil(dist*100)/100)
         return distString;
+    }
+    
+    class func getMiles(from meters: Double) -> Double{
+        let dist: Double = meters*0.00062137
+        let distString: String = String(format: "%.2f", ceil(dist*100)/100)
+        return Double(distString)!
     }
     
     class func kmphToMphString(kmph: Double) -> String{

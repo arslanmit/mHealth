@@ -8,13 +8,11 @@
 
 import Foundation
 
-var myString = "hello.com/.org|||.mx"
+let dateFormatter = DateFormatter()
+let date = Date()
+
+dateFormatter.dateFormat = "MM/d @h:mma"
+dateFormatter.string(from: date)
 
 
-let remove: [String] = [".com",".org",".mx"]
-
-for removable in remove{
-    myString = myString.replacingOccurrences(of: removable, with: "")
-}
-
-print(myString)
+let duration = String(format: "%.02f", 3.32323242)

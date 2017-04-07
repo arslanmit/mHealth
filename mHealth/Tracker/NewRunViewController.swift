@@ -269,7 +269,7 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
             print("NO DATA SAVED TO Firebase... avoiding errors by skipping Firebase save")
             print("note: error had been already handled in the next view controller...")
         }else{
-            let dateString = Util.dateFirebaseTitle(date: (savedLocations.last?.timestamp)!) //--- idk why it only
+            let dateString = Util.FirebaseTitle(from: (savedLocations.last?.timestamp)!) 
             let id: String = Util.removePeriod(s: (user?.email)!)
             let thisRun: FirebaseRun = FirebaseRun(run: run, savedLocations: savedLocations)
             self.rootRef.child("users//\(id)/Runs/\(dateString)").setValue(thisRun.toAnyObject())

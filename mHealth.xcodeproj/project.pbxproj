@@ -37,7 +37,7 @@
 		2EA80D0F1E88C59D00E3A3F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EA80D0D1E88C59D00E3A3F1 /* Main.storyboard */; };
 		2EA80D111E8A02B900E3A3F1 /* CalorieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA80D101E8A02B900E3A3F1 /* CalorieTableViewCell.swift */; };
 		2EB3FDCC1E920B110069781F /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB3FDCB1E920B110069781F /* MainScreenViewController.swift */; };
-		2EB3FDCE1E9305010069781F /* LineGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB3FDCD1E9305010069781F /* LineGraphViewController.swift */; };
+		2EB3FDCE1E9305010069781F /* DistanceLineGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB3FDCD1E9305010069781F /* DistanceLineGraphViewController.swift */; };
 		2EB8F5251E78F07B0041BE03 /* cherry.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EB8F5241E78F07B0041BE03 /* cherry.png */; };
 		2EB8F5291E78FF680041BE03 /* nurse.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EB8F5281E78FF680041BE03 /* nurse.png */; };
 		2EBFA4D21E8DF6510069E9A0 /* MotionActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBFA4D11E8DF6510069E9A0 /* MotionActivity.swift */; };
@@ -122,7 +122,7 @@
 		2EA80D0E1E88C59D00E3A3F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2EA80D101E8A02B900E3A3F1 /* CalorieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalorieTableViewCell.swift; sourceTree = "<group>"; };
 		2EB3FDCB1E920B110069781F /* MainScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
-		2EB3FDCD1E9305010069781F /* LineGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineGraphViewController.swift; sourceTree = "<group>"; };
+		2EB3FDCD1E9305010069781F /* DistanceLineGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceLineGraphViewController.swift; sourceTree = "<group>"; };
 		2EB3FE781E9316150069781F /* JBChartView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JBChartView-Bridging-Header.h"; sourceTree = "<group>"; };
 		2EB8F5241E78F07B0041BE03 /* cherry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cherry.png; path = mHealth/cherry.png; sourceTree = "<group>"; };
 		2EB8F5281E78FF680041BE03 /* nurse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nurse.png; path = mHealth/nurse.png; sourceTree = "<group>"; };
@@ -270,7 +270,7 @@
 			children = (
 				2E31FD671E796D7F00CE67A2 /* PedometerViewController.swift */,
 				2EB3FDCB1E920B110069781F /* MainScreenViewController.swift */,
-				2EB3FDCD1E9305010069781F /* LineGraphViewController.swift */,
+				2EB3FDCD1E9305010069781F /* DistanceLineGraphViewController.swift */,
 			);
 			name = "Test Views";
 			sourceTree = "<group>";
@@ -592,7 +592,7 @@
 				2EDE97F91E82EDB200996E68 /* DetailViewController.swift in Sources */,
 				2EDE97FD1E83499A00996E68 /* FirebaseRun.swift in Sources */,
 				2EA6F7FD1E822F01002969A5 /* mHealth.xcdatamodeld in Sources */,
-				2EB3FDCE1E9305010069781F /* LineGraphViewController.swift in Sources */,
+				2EB3FDCE1E9305010069781F /* DistanceLineGraphViewController.swift in Sources */,
 				2E3CCA351E85EBB300F9FE2E /* RunsTableViewCell.swift in Sources */,
 				2E31FD681E796D7F00CE67A2 /* PedometerViewController.swift in Sources */,
 				2E99C58E1E70911900439E41 /* HKHealthStoreExtension.swift in Sources */,

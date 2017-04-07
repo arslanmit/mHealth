@@ -58,8 +58,8 @@ class RunsTableViewController : UITableViewController{
         let run = runs[indexPath.row]
         
         
-        cell.dateLabel.text = Util.dateFirebaseTitle(date: Util.stringToDate(date: run.timestamp))
-        cell.timeLabel.text = Util.dateToPinString(date: Util.stringToDate(date: run.timestamps.last!))
+        cell.dateLabel.text = Util.FirebaseTitle(from: run.timestamp)
+        cell.timeLabel.text = Util.PinFormat(from: run.timestamps.last!)
         
         return cell
     }

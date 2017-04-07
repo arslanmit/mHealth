@@ -14,7 +14,6 @@ class CalorieTracker: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var s1: UITextField!
     @IBOutlet weak var s2: UITextField!
     @IBOutlet weak var button: UIButton!
-    @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     //MARK:Firebase
@@ -42,7 +41,7 @@ class CalorieTracker: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBAction func buttonDidTouch(_ sender: Any) {
         
-        let timestamp: String = Util.myDateFormat(date: Date())
+        let timestamp: String = Util.DateString(from: Date())
         
         let foodName = s1.text!
         guard let  calories = Double((s2.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))!) else{
@@ -72,30 +71,6 @@ class CalorieTracker: UIViewController, UITableViewDataSource, UITableViewDelega
         
  
         
-    }
-    
-    @IBAction func logoutDidTouch(_ sender: Any) {
-        logoutFunction()
-    }
-    
-    func logoutFunction(){
-        if (FIRAuth.auth()?.currentUser != nil) {
-            do {
-                try FIRAuth.auth()?.signOut()
-                self.dismiss(animated: true, completion: nil)
-             //   self.performSegue(withIdentifier: "welcomeToLogin", sender: nil) --- unneeded because dismissal sends back to login! :)
-                
-            } catch let error as NSError {
-                print(error.localizedDescription)
-            }
-        }
-        if (FIRAuth.auth()?.currentUser != nil) {
-            do {
-                try FIRAuth.auth()?.signOut()
-            } catch let signOutError as NSError {
-                print ("Error signing out: %@", signOutError)
-            }
-        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
