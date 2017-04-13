@@ -50,18 +50,7 @@ class ViewController: UIViewController{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "createAccountSegue" {
-            if let createVC = segue.destination as? CreateAccountViewController {
-            createVC.emailField.text = emailField.text
-            createVC.passwordField.text = passwordField.text
-            }
-        }
-    } */ // this is broken...
 
-    
-    
     func loginFunction(){
         FIRAuth.auth()!.signIn(withEmail: emailField.text!,
                                password: passwordField.text!, completion: { user, error in
@@ -82,7 +71,5 @@ class ViewController: UIViewController{
         })
 
     }
-
-    //
 }
 

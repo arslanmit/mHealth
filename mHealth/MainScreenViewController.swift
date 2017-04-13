@@ -31,6 +31,7 @@ class MainScreenViewController : UIViewController{
         userRef.observeSingleEvent(of: .value, with: { snapshot in
             let value = snapshot.value as? NSDictionary
             let mName = value?["name"] as! String
+            self.title = mName
             self.welcomeLabel.text = "Welcome, \(mName)!"
         })
     }
