@@ -1,5 +1,5 @@
 //
-//  WelcomeViewController.swift
+//  CalorieTracker.swift
 //  mHealth
 //
 //  Created by Loaner on 3/2/17.

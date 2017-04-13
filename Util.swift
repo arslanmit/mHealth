@@ -90,6 +90,25 @@ class Util{
         return dateFormatter.string(from: thisDate)
     }
     
+    class func PastRunsDate(from date: String) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss SSSZ"
+        let date = dateFormatter.date(from: date)!
+        
+        dateFormatter.dateFormat = "MMMM dd, yyyy"
+        return dateFormatter.string(from: date)
+    }
+    
+//MARK: TIME
+    class func PastRunsTime(from date: String) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss SSSZ"
+        let date = dateFormatter.date(from: date)!
+        
+        dateFormatter.dateFormat = "hh:mma"
+        return dateFormatter.string(from: date)
+    }
+    
 //MARK: PIN FORMATS
     class func PinFormat(from date: Date) -> String{
         let dateFormatter = DateFormatter()
@@ -133,6 +152,10 @@ class Util{
         let paceDouble: Double = (((kmph*3.6*10).rounded()/10)*0.62137)
         let paceString: String = String(format: "%.2f", ceil(paceDouble*100)/100)
         return paceString
+    }
+    
+    class func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+        return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
     
     

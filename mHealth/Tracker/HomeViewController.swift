@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var managedContext: NSManagedObjectContext? = nil// = appDelegate.managedObjectContext!
-  var managedObjectContext: NSManagedObjectContext?
+    var managedObjectContext: NSManagedObjectContext?
     
     override func viewDidAppear(_ animated: Bool) {
         managedContext = appDelegate.managedObjectContext!

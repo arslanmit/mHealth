@@ -22,10 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        /*/ im gonna break stuff - travis
-       // let navigationController = window!.rootViewController as! UINavigationController
-        let controller = navigationController.topViewController as! HomeViewController
-        controller.managedObjectContext = managedObjectContext */
         // Override point for customization after application launch.
         GMSServices.provideAPIKey("AIzaSyCRTOvuqLxcgIRuH1P02uvGG4HwCEDLEIU")
         GMSPlacesClient.provideAPIKey("AIzaSyCRTOvuqLxcgIRuH1P02uvGG4HwCEDLEIU")

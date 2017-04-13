@@ -11,8 +11,8 @@ import Foundation
 let dateFormatter = DateFormatter()
 let date = Date()
 
-dateFormatter.dateFormat = "MM/d @h:mma"
+dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss SSSZ"
 dateFormatter.string(from: date)
 
-
-let duration = String(format: "%.02f", 3.32323242)
+dateFormatter.dateFormat = "MMMM dd, yyyy"
+print(dateFormatter.string(from: date))

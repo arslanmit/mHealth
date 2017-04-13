@@ -79,6 +79,7 @@ class ProfileTableTableViewController: UITableViewController {
         self.userBodies   = [ProfileBodyKeys.Weight: [NSLocalizedString("Weight (lbs)", comment: ""), NSLocalizedString("Not available", comment: "")],
                              ProfileBodyKeys.Height: [NSLocalizedString("Height (ft.)", comment: ""), NSLocalizedString("Not available", comment: "")],
                              ProfileBodyKeys.BMI:    [NSLocalizedString("Body Mass Index (BMI)", comment: ""), NSLocalizedString("Not available", comment: "")]]
+        updateUserInfo()
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,6 +95,9 @@ class ProfileTableTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(section == 2){
+            return 2
+        }
         return 3
     }
 
@@ -132,6 +136,7 @@ class ProfileTableTableViewController: UITableViewController {
                 
                 cell!.textLabel!.text = profile.first as String!
                 cell!.detailTextLabel!.text = profile.last as String!
+                cell?.textLabel!.textColor = UIColor.blue
             }
         }
         
@@ -155,9 +160,11 @@ class ProfileTableTableViewController: UITableViewController {
                 
                 cell!.textLabel!.text = body.first as String!
                 cell!.detailTextLabel!.text = body.last as String!
+                cell?.textLabel!.textColor = UIColor.blue
             }
         }
         else if(indexPath.section == 2){
+            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: CellIdentifier)
             switch indexPath.row {
             case 0:
                 option = "Access HealthKit Data"
@@ -165,17 +172,14 @@ class ProfileTableTableViewController: UITableViewController {
             case 1:
                 option = "Log out"
                 
-            case 2:
-                option = "Refresh"
-                
             default:
                 break
             }
-                cell!.textLabel!.text = option
-            cell!.detailTextLabel!.text = "Option"//profile.last as String!
-            cell?.textLabel?.textColor = UIColor.blue
-            cell?.textLabel?.textAlignment = .center
+            cell!.textLabel!.text = option
+            cell?.textLabel!.textAlignment = .center
+            cell?.textLabel!.textColor = UIColor.red
             }
+        
         return cell!
    }
     
@@ -186,7 +190,6 @@ class ProfileTableTableViewController: UITableViewController {
             let index = indexPath.row
             if index == 0 {
                 print(myManager.authorizeHealthKit())
-               // tableView.deselectRow(at: indexPath, animated: true)
                 }
             else if index == 1{
                 logoutFunction()
@@ -195,6 +198,7 @@ class ProfileTableTableViewController: UITableViewController {
                 updateUserInfo()
             }
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     private func updateUserInfo(){
@@ -245,50 +249,6 @@ class ProfileTableTableViewController: UITableViewController {
         }
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     private func updateUserAge() -> Void{
         var dateOfBirth: Date!
@@ -575,45 +535,6 @@ class ProfileTableTableViewController: UITableViewController {
     }
     
     private func updateUserBMI(){
-/*
-        let setBMIInformationHandle: ((String) -> Void) = {
-            
-            [unowned self] (BMIValue) -> Void in
-            
-            // Fetch user's default height unit in inches.
-            if self.weight != nil && self.height != nil {
-                // 1. Get the weight and height values from the samples read from HealthKit
-                let weightInKilograms = self.weight!.quantity.doubleValue(for: HKUnit.gramUnit(with: .kilo))
-                let heightInMeters = self.height!.quantity.doubleValue(for: HKUnit.meter())
-                // 2. Call the method to calculate the BMI
-                print("weight kilo: \(weightInKilograms)"); print("height m: \(heightInMeters)")
-                
-                self.bmi  = self.calculateBMIWithWeightInKilograms(weightInKilograms, heightInMeters: heightInMeters)
-            }
-            else{
-                print("WEIGHT AND HEIGHT ARE NIL FROM UPDATEUSERBMI ")
-            }
-            // 3. Show the calculated BMI
-            // var bmiString = kUnknownString ---> not used ...
-            var BMI: String = self.kUnknownString
-            if self.bmi != nil {
-                BMI = (String(format: "%.02f", self.bmi!))
-                print(BMI)
-            }
-            else{
-                print("stupid bmi is nil -_-")
-            }
-            /////table update:...
-            if var userBodies = self.userBodies {
-                
-                var bmi: [String] = userBodies[ProfileBodyKeys.BMI] as [String]!
-                bmi[self.unit] = "Body Mass Index (BMI)"
-                bmi[self.detail] = BMI
-                
-                userBodies[ProfileBodyKeys.BMI] = bmi
-                self.userBodies = userBodies
-            }
-        }*/
         
         if weight != nil && height != nil {
             // 1. Get the weight and height values from the samples read from HealthKit

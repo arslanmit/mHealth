@@ -1,24 +1,23 @@
 //
-//  LineGraphViewController.swift
+//  ClimbLineGraphViewController.swift
 //  mHealth
 //
-//  Created by Loaner on 4/3/17.
+//  Created by Loaner on 4/13/17.
 //  Copyright © 2017 JTMax. All rights reserved.
 //
-//RAW DESCRIPTION
 
 import Foundation
 import UIKit
 import JBChartView
 import Firebase
+import HealthKit
 
-class DistanceLineGraphViewController: UIViewController, JBLineChartViewDelegate, JBLineChartViewDataSource {
-    
-    @IBOutlet weak var backButton: UIButton!
+class ClimbLineGraphViewController: UIViewController, JBLineChartViewDelegate, JBLineChartViewDataSource {
+
     @IBOutlet weak var lineChart: JBLineChartView!
     @IBOutlet weak var informationLabel: UILabel!
-    @IBOutlet weak var loadButton: UIButton!
     
+    //MARK: Firebase
     let user = FIRAuth.auth()?.currentUser
     let rootRef = FIRDatabase.database().reference()
     
@@ -27,8 +26,6 @@ class DistanceLineGraphViewController: UIViewController, JBLineChartViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
         view.backgroundColor = UIColor.darkGray
         
         // line chart setup
@@ -39,9 +36,7 @@ class DistanceLineGraphViewController: UIViewController, JBLineChartViewDelegate
         lineChart.maximumValue = 100
         
         lineChart.setState(.collapsed, animated: false)
-        
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -65,7 +60,7 @@ class DistanceLineGraphViewController: UIViewController, JBLineChartViewDelegate
         let header = UILabel(frame: CGRect(x: 0, y: 0, width: lineChart.frame.width, height: 50))
         header.textColor = UIColor.white
         header.font = UIFont.systemFont(ofSize: 24)
-        header.text = "Run: Distance Line Graph"
+        header.text = "Run: Climb Line Graph"
         header.textAlignment = NSTextAlignment.center
         
         lineChart.footerView = footerView
@@ -74,13 +69,13 @@ class DistanceLineGraphViewController: UIViewController, JBLineChartViewDelegate
         //MARK: FIREBASE start up
         let id: String = Util.removePeriod(s: (user?.email)!)
         let runRef = FIRDatabase.database().reference(withPath: "users//\(id)/")
-         runRef.observe(.value, with: { snapshot in
-         self.load()
-         })
+        runRef.observe(.value, with: { snapshot in
+            self.load()
+        })
     }
- 
+    
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)        
+        super.viewDidAppear(animated)
         _ = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(DistanceLineGraphViewController.showChart), userInfo: nil, repeats: false)
     }
     
@@ -104,12 +99,12 @@ class DistanceLineGraphViewController: UIViewController, JBLineChartViewDelegate
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, numberOfVerticalValuesAtLineIndex lineIndex: UInt) -> UInt {
-            return UInt(runs.count)
+        return UInt(runs.count)
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, verticalValueForHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
-            let distance = runs[Int(horizontalIndex)].distance
-            return CGFloat(distance)
+        let climb = runs[Int(horizontalIndex)].climb
+        return CGFloat(climb)
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, colorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
@@ -129,11 +124,11 @@ class DistanceLineGraphViewController: UIViewController, JBLineChartViewDelegate
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, didSelectLineAt lineIndex: UInt, horizontalIndex: UInt) {
-            let distance = Double(String(format: "%.02f", runs[Int(horizontalIndex)].distance))
-            let date = Util.LineGraphDate(from: runs[Int(horizontalIndex)].timestamp)
-            let data = Util.getMiles(from: distance!)
-            let key = date
-        informationLabel.text = "Run on \(key): \(data) miles"
+        // let distance = Double(String(format: "%.02f", runs[Int(horizontalIndex)].distance))
+        let data = String((runs[Int(horizontalIndex)].climb).rounded())
+        let date = Util.LineGraphDate(from: runs[Int(horizontalIndex)].timestamp)
+        let key = date
+        informationLabel.text = "Run on \(key): \(data) m climbed"
     }
     
     func didDeselectLine(in lineChartView: JBLineChartView!) {
@@ -160,21 +155,5 @@ class DistanceLineGraphViewController: UIViewController, JBLineChartViewDelegate
         })
         print("POST REF LOAD")
     }
-    
-    func distanceArray() -> Array<String>{
-        var distanceRuns = [String]()
-        for dist in runs{
-            distanceRuns.append(String(dist.distance))
-        }
-        return distanceRuns
-    }
 
-    
-    @IBAction func loadDidTouch(_ sender: Any) {
-        dump(runs)
-    }
-    
-    @IBAction func goBack(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }
