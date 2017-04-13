@@ -17,6 +17,8 @@
 		2E4B50BA1E9FD3A000B6B45B /* apple-2086023_640.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E4B50B91E9FD3A000B6B45B /* apple-2086023_640.png */; };
 		2E4B50BC1E9FDDAA00B6B45B /* TimeLineGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B50BB1E9FDDAA00B6B45B /* TimeLineGraphViewController.swift */; };
 		2E4B50BE1E9FE2A100B6B45B /* ClimbLineGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B50BD1E9FE2A100B6B45B /* ClimbLineGraphViewController.swift */; };
+		2E4B50C01EA0077000B6B45B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B50BF1EA0077000B6B45B /* SettingsViewController.swift */; };
+		2E4B50C21EA0105D00B6B45B /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B50C11EA0105D00B6B45B /* UserTableViewCell.swift */; };
 		2E69EF1C1E65D36A00F1BC9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E69EF1B1E65D36A00F1BC9A /* AppDelegate.swift */; };
 		2E69EF1E1E65D36A00F1BC9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E69EF1D1E65D36A00F1BC9A /* ViewController.swift */; };
 		2E69EF231E65D36A00F1BC9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E69EF221E65D36A00F1BC9A /* Assets.xcassets */; };
@@ -99,6 +101,8 @@
 		2E4B50B91E9FD3A000B6B45B /* apple-2086023_640.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apple-2086023_640.png"; sourceTree = "<group>"; };
 		2E4B50BB1E9FDDAA00B6B45B /* TimeLineGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineGraphViewController.swift; sourceTree = "<group>"; };
 		2E4B50BD1E9FE2A100B6B45B /* ClimbLineGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimbLineGraphViewController.swift; sourceTree = "<group>"; };
+		2E4B50BF1EA0077000B6B45B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2E4B50C11EA0105D00B6B45B /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		2E69EF181E65D36A00F1BC9A /* mHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E69EF1B1E65D36A00F1BC9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E69EF1D1E65D36A00F1BC9A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -265,14 +269,16 @@
 			name = "Run Views";
 			sourceTree = "<group>";
 		};
-		2EBFA4C91E8DF2F40069E9A0 /* Basic Views */ = {
+		2EBFA4C91E8DF2F40069E9A0 /* mHealth Views */ = {
 			isa = PBXGroup;
 			children = (
 				2EB3FDCB1E920B110069781F /* MainScreenViewController.swift */,
 				2E69EF1D1E65D36A00F1BC9A /* ViewController.swift */,
 				2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */,
+				2E4B50BF1EA0077000B6B45B /* SettingsViewController.swift */,
+				2E4B50C11EA0105D00B6B45B /* UserTableViewCell.swift */,
 			);
-			name = "Basic Views";
+			name = "mHealth Views";
 			sourceTree = "<group>";
 		};
 		2EBFA4CA1E8DF34D0069E9A0 /* HealthKit View */ = {
@@ -373,7 +379,7 @@
 		2EE80B001E690088000956DE /* mHealth Swift Files */ = {
 			isa = PBXGroup;
 			children = (
-				2EBFA4C91E8DF2F40069E9A0 /* Basic Views */,
+				2EBFA4C91E8DF2F40069E9A0 /* mHealth Views */,
 				2EBFA4CC1E8DF3760069E9A0 /* Calorie Views */,
 				2EBFA4CA1E8DF34D0069E9A0 /* HealthKit View */,
 				2EBFA4C81E8DF2CA0069E9A0 /* Run Views */,
@@ -625,6 +631,8 @@
 				2EF730BB1E8442C9006A2734 /* FirebaseRunsViewController.swift in Sources */,
 				2EBFA4D21E8DF6510069E9A0 /* MotionActivity.swift in Sources */,
 				2EE80AFF1E68AEF2000956DE /* User.swift in Sources */,
+				2E4B50C21EA0105D00B6B45B /* UserTableViewCell.swift in Sources */,
+				2E4B50C01EA0077000B6B45B /* SettingsViewController.swift in Sources */,
 				2EB3FDCC1E920B110069781F /* MainScreenViewController.swift in Sources */,
 				2EE80B041E690478000956DE /* FoodItem.swift in Sources */,
 				2EA6F7F21E81EC01002969A5 /* Location.swift in Sources */,

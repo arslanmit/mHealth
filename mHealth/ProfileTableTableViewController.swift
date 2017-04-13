@@ -35,18 +35,6 @@ enum ProfileBodyKeys: String {
     case BMI = "bmi"
 }
 
-enum OptionsViewControllerTableViewIndex: Int{
-    case requestHealthKit = 0
-    case logOut
-    case refresh
-}
-
-enum OptionKeys: String{
-    case requestHealthKit = "healthkit"
-    case logOut = "logout"
-    case refresh = "refresh"
-}
-
 
 class ProfileTableTableViewController: UITableViewController {
     
@@ -91,7 +79,7 @@ class ProfileTableTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -114,7 +102,6 @@ class ProfileTableTableViewController: UITableViewController {
         
         var profileKey: ProfileKeys?
         var profileBodyKey: ProfileBodyKeys?
-        var option: String?
         
         if(indexPath.section == 0){
             switch indexPath.row {
@@ -163,41 +150,11 @@ class ProfileTableTableViewController: UITableViewController {
                 cell?.textLabel!.textColor = UIColor.blue
             }
         }
-        else if(indexPath.section == 2){
-            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: CellIdentifier)
-            switch indexPath.row {
-            case 0:
-                option = "Access HealthKit Data"
-                
-            case 1:
-                option = "Log out"
-                
-            default:
-                break
-            }
-            cell!.textLabel!.text = option
-            cell?.textLabel!.textAlignment = .center
-            cell?.textLabel!.textColor = UIColor.red
-            }
-        
         return cell!
    }
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        
-        if(indexPath.section == 2){
-            let index = indexPath.row
-            if index == 0 {
-                print(myManager.authorizeHealthKit())
-                }
-            else if index == 1{
-                logoutFunction()
-            }
-            else if index == 2{
-                updateUserInfo()
-            }
-        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -226,13 +183,6 @@ class ProfileTableTableViewController: UITableViewController {
         self.ref.child("users//\(id)/User-Data/weight").setValue(userHealthData.weight)
         self.ref.child("users//\(id)/User-Data/height").setValue(userHealthData.height)
         self.ref.child("users//\(id)/User-Data/bmi").setValue(userHealthData.bmi)
-        
-        //let ref:FIRDatabaseReference = rootRef.child("users").child(Util.removePeriod(s: (user?.email)!)).child("User-Data") 
-        /// don't user or will delete the entire branch of data LOL
-        /*
-        if(userHealthData.weight == 0 || userHealthData.bmi == 0 || userHealthData.height == 0){ /// because these stupid variables don't register one 1st click... recursion to the rescue
-            updateUserInfo()
-        } */
     }
     
     
@@ -241,8 +191,6 @@ class ProfileTableTableViewController: UITableViewController {
             do {
                 try FIRAuth.auth()?.signOut()
                 self.dismiss(animated: true, completion: nil)
-                //   self.performSegue(withIdentifier: "welcomeToLogin", sender: nil) --- unneeded because dismissal sends back to login! :)
-                
             } catch let error as NSError {
                 print(error.localizedDescription)
             }
@@ -259,7 +207,7 @@ class ProfileTableTableViewController: UITableViewController {
             comps = try self.HealthKitStore.dateOfBirthComponents()
             
         } catch {
-            print("Either an error occured fetching the user's age information or none has been stored yet..... handle this gracefully.......")
+            print("No age stored")
             
             return
         }
@@ -418,12 +366,6 @@ class ProfileTableTableViewController: UITableViewController {
                 
                 return
             }
-            ////
-            
-            
-            
-            ////
-            
             // Determine the weight in the required unit.
             let weightUnit = HKUnit.pound()
             let usersWeight: Double = mostRecentQuantity.doubleValue(for: weightUnit)
@@ -489,9 +431,6 @@ class ProfileTableTableViewController: UITableViewController {
            // var heightLocalizedString = self.kUnknownString; ---> not used :)
             self.height = mostRecentHeight as? HKQuantitySample;
         })
-        
-        
-        /////
         
         let heightType: HKQuantityType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!
         
@@ -621,7 +560,7 @@ class ProfileTableTableViewController: UITableViewController {
             case .other:
                 biologicalSexText = "Other"
             case .notSet:
-                biologicalSexText = "Not set"
+                biologicalSexText = "Not available"
             }
             
         }

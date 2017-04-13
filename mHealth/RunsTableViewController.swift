@@ -97,6 +97,7 @@ class RunsTableViewController : UITableViewController{
                 let oldRun = FirebaseRun(snapshot: run as! FIRDataSnapshot)
                 currentRuns.append(oldRun)
             }
+            currentRuns.sort(by: { Util.Date(from: $0.timestamp).compare(Util.Date(from: $1.timestamp)) == ComparisonResult.orderedAscending})
             self.runs = currentRuns;
             self.tableView.reloadData()
         })
