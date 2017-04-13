@@ -44,16 +44,6 @@ class DistanceLineGraphViewController: UIViewController, JBLineChartViewDelegate
         
         lineChart.setState(.collapsed, animated: false)
         
-        /*/MARK: FIREBASE start up
-        let id: String = Util.removePeriod(s: (user?.email)!)
-        let runRef = FIRDatabase.database().reference(withPath: "users//\(id)/")
-        
-        
-        runRef.observe(.value, with: { snapshot in
-            self.load()
-        }) */
-      //  print(distanceArray())
-        print("VIEW DID LOAD")
     }
     
     
@@ -67,11 +57,9 @@ class DistanceLineGraphViewController: UIViewController, JBLineChartViewDelegate
         let footer1 = UILabel(frame: CGRect(x: 0, y: 0, width: lineChart.frame.width/2 - 8, height: 16))
         footer1.textColor = UIColor.white
         footer1.text = "First Run"
-       // footer1.text = "\(chartLegend[0])"
         
         let footer2 = UILabel(frame: CGRect(x: lineChart.frame.width/2 - 8, y: 0, width: lineChart.frame.width/2 - 8, height: 16))
         footer2.textColor = UIColor.white
-       // footer2.text = "\(chartLegend[chartLegend.count - 1])"
         footer2.text = "Last Run"
         footer2.textAlignment = NSTextAlignment.right
         
@@ -161,7 +149,7 @@ class DistanceLineGraphViewController: UIViewController, JBLineChartViewDelegate
         
         return UIColor.clear
     }
-        //HAVING TROUBLE LOADING THE DATA PLS HELP
+    
     private func load(){
         let id: String = Util.removePeriod(s: (user?.email)!)
         let runRef = FIRDatabase.database().reference(withPath: "users//\(id)/Runs/")
