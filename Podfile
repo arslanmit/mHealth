@@ -7,12 +7,15 @@ target 'mHealth' do
 
   	pod ‘Firebase’
 	pod ‘Firebase/Core’
+	pod ‘Firebase/Messaging’
 	pod ‘Firebase/Database’
 	pod ‘Firebase/Auth’
+	pod ‘Firebase/Storage’
 	pod 'FBSDKCoreKit'
 	pod 'FBSDKShareKit'
-	pod 'FBSDKLoginKit'
+	pod 'FBSDKLoginKit’
 	pod ‘JBChartView’
+	pod ‘JSQMessagesViewController’
 
 source 'https://github.com/CocoaPods/Specs.git'
   pod 'GoogleMaps'

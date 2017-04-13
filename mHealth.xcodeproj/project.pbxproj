@@ -47,6 +47,11 @@
 		2EB8F5251E78F07B0041BE03 /* cherry.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EB8F5241E78F07B0041BE03 /* cherry.png */; };
 		2EB8F5291E78FF680041BE03 /* nurse.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EB8F5281E78FF680041BE03 /* nurse.png */; };
 		2EBFA4D21E8DF6510069E9A0 /* MotionActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBFA4D11E8DF6510069E9A0 /* MotionActivity.swift */; };
+		2EC1E4F61EA0232E009C8113 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1E4F51EA0232E009C8113 /* ChatViewController.swift */; };
+		2EC1E4F91EA02362009C8113 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1E4F81EA02362009C8113 /* Channel.swift */; };
+		2EC1E4FB1EA024CA009C8113 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1E4FA1EA024CA009C8113 /* UIImage+Gif.swift */; };
+		2EC1E4FD1EA025CA009C8113 /* ChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1E4FC1EA025CA009C8113 /* ChannelListViewController.swift */; };
+		2EC1E4FF1EA026C5009C8113 /* CreateChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1E4FE1EA026C5009C8113 /* CreateChannelCell.swift */; };
 		2EDE97F91E82EDB200996E68 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE97F81E82EDB200996E68 /* DetailViewController.swift */; };
 		2EDE97FB1E82EDF000996E68 /* MulticolorPolylineSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE97FA1E82EDF000996E68 /* MulticolorPolylineSegment.swift */; };
 		2EDE97FD1E83499A00996E68 /* FirebaseRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE97FC1E83499A00996E68 /* FirebaseRun.swift */; };
@@ -139,6 +144,11 @@
 		2EB8F5241E78F07B0041BE03 /* cherry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cherry.png; path = mHealth/cherry.png; sourceTree = "<group>"; };
 		2EB8F5281E78FF680041BE03 /* nurse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nurse.png; path = mHealth/nurse.png; sourceTree = "<group>"; };
 		2EBFA4D11E8DF6510069E9A0 /* MotionActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionActivity.swift; sourceTree = "<group>"; };
+		2EC1E4F51EA0232E009C8113 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		2EC1E4F81EA02362009C8113 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		2EC1E4FA1EA024CA009C8113 /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
+		2EC1E4FC1EA025CA009C8113 /* ChannelListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListViewController.swift; sourceTree = "<group>"; };
+		2EC1E4FE1EA026C5009C8113 /* CreateChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChannelCell.swift; sourceTree = "<group>"; };
 		2EDE97F81E82EDB200996E68 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2EDE97FA1E82EDF000996E68 /* MulticolorPolylineSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MulticolorPolylineSegment.swift; path = mHealth/MulticolorPolylineSegment.swift; sourceTree = "<group>"; };
 		2EDE97FC1E83499A00996E68 /* FirebaseRun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseRun.swift; sourceTree = "<group>"; };
@@ -227,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				2EE80B001E690088000956DE /* mHealth Swift Files */,
+				2EC1E4F41EA0231B009C8113 /* Chat View */,
 				2E4B50B61E9FC1B200B6B45B /* Removed//Reference Views */,
 				2E69EF711E6600BD00F1BC9A /* mHealth.entitlements */,
 				2E69EF1B1E65D36A00F1BC9A /* AppDelegate.swift */,
@@ -348,6 +359,25 @@
 			name = Pedometer;
 			sourceTree = "<group>";
 		};
+		2EC1E4F41EA0231B009C8113 /* Chat View */ = {
+			isa = PBXGroup;
+			children = (
+				2EC1E4FC1EA025CA009C8113 /* ChannelListViewController.swift */,
+				2EC1E4F51EA0232E009C8113 /* ChatViewController.swift */,
+				2EC1E4FE1EA026C5009C8113 /* CreateChannelCell.swift */,
+				2EC1E4FA1EA024CA009C8113 /* UIImage+Gif.swift */,
+			);
+			name = "Chat View";
+			sourceTree = "<group>";
+		};
+		2EC1E4F71EA0235A009C8113 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				2EC1E4F81EA02362009C8113 /* Channel.swift */,
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
 		2EE80AF81E68ABF7000956DE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,6 +397,7 @@
 		2EE80AFD1E68AED8000956DE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2EC1E4F71EA0235A009C8113 /* Chat */,
 				2EBFA4D01E8DF6420069E9A0 /* Pedometer */,
 				2EBFA4CF1E8DF6240069E9A0 /* Maps */,
 				2EBFA4CE1E8DF6010069E9A0 /* HealthKit */,
@@ -617,6 +648,7 @@
 				2E4B50BE1E9FE2A100B6B45B /* ClimbLineGraphViewController.swift in Sources */,
 				2E69EF1E1E65D36A00F1BC9A /* ViewController.swift in Sources */,
 				2E9286BD1E7B650E00E75230 /* UserHKData.swift in Sources */,
+				2EC1E4FD1EA025CA009C8113 /* ChannelListViewController.swift in Sources */,
 				2EE80B021E6900A3000956DE /* CalorieTracker.swift in Sources */,
 				2EDE97F91E82EDB200996E68 /* DetailViewController.swift in Sources */,
 				2EDE97FD1E83499A00996E68 /* FirebaseRun.swift in Sources */,
@@ -624,6 +656,7 @@
 				2EB3FDCE1E9305010069781F /* DistanceLineGraphViewController.swift in Sources */,
 				2E3CCA351E85EBB300F9FE2E /* RunsTableViewCell.swift in Sources */,
 				2E4B50BC1E9FDDAA00B6B45B /* TimeLineGraphViewController.swift in Sources */,
+				2EC1E4F61EA0232E009C8113 /* ChatViewController.swift in Sources */,
 				2E31FD681E796D7F00CE67A2 /* PedometerViewController.swift in Sources */,
 				2E99C58E1E70911900439E41 /* HKHealthStoreExtension.swift in Sources */,
 				2E9286C11E7B920100E75230 /* Util.swift in Sources */,
@@ -631,7 +664,9 @@
 				2EF730BB1E8442C9006A2734 /* FirebaseRunsViewController.swift in Sources */,
 				2EBFA4D21E8DF6510069E9A0 /* MotionActivity.swift in Sources */,
 				2EE80AFF1E68AEF2000956DE /* User.swift in Sources */,
+				2EC1E4F91EA02362009C8113 /* Channel.swift in Sources */,
 				2E4B50C21EA0105D00B6B45B /* UserTableViewCell.swift in Sources */,
+				2EC1E4FB1EA024CA009C8113 /* UIImage+Gif.swift in Sources */,
 				2E4B50C01EA0077000B6B45B /* SettingsViewController.swift in Sources */,
 				2EB3FDCC1E920B110069781F /* MainScreenViewController.swift in Sources */,
 				2EE80B041E690478000956DE /* FoodItem.swift in Sources */,
@@ -640,6 +675,7 @@
 				2EDE97FB1E82EDF000996E68 /* MulticolorPolylineSegment.swift in Sources */,
 				2EA6F7E41E81E708002969A5 /* HomeViewController.swift in Sources */,
 				2E9286BB1E79E16B00E75230 /* mHealthUser.swift in Sources */,
+				2EC1E4FF1EA026C5009C8113 /* CreateChannelCell.swift in Sources */,
 				2EFC7C251E7778560033173E /* HealthManager.swift in Sources */,
 				2E09F7B41E77B77200EE2F0A /* ProfileTableTableViewController.swift in Sources */,
 				2E3CCA311E85E8AF00F9FE2E /* RunsTableViewController.swift in Sources */,
