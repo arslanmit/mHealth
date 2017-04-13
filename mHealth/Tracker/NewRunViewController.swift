@@ -33,8 +33,10 @@ let DetailSegueName = "RunDetails"
 let HomepageSegueName = "RunToHomepageSegue"
 
 class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate {
-    var managedObjectContext: NSManagedObjectContext?
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var managedContext: NSManagedObjectContext? = nil// = appDelegate.managedObjectContext!
+    var managedObjectContext: NSManagedObjectContext?
     
     var run: Run!
     var seconds = 0.0
@@ -68,6 +70,7 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        managedContext = appDelegate.managedObjectContext!
         
         startButton.isHidden = false
         

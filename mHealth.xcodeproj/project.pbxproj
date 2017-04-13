@@ -188,6 +188,7 @@
 		2E4B50B61E9FC1B200B6B45B /* Removed//Reference Views */ = {
 			isa = PBXGroup;
 			children = (
+				2EA6F7E31E81E708002969A5 /* HomeViewController.swift */,
 				2E31FD671E796D7F00CE67A2 /* PedometerViewController.swift */,
 			);
 			name = "Removed//Reference Views";
@@ -255,7 +256,6 @@
 		2EBFA4C81E8DF2CA0069E9A0 /* Run Views */ = {
 			isa = PBXGroup;
 			children = (
-				2EA6F7E31E81E708002969A5 /* HomeViewController.swift */,
 				2EA6F7E51E81E8EA002969A5 /* NewRunViewController.swift */,
 				2EF730BA1E8442C9006A2734 /* FirebaseRunsViewController.swift */,
 				2E3CCA301E85E8AF00F9FE2E /* RunsTableViewController.swift */,
@@ -268,6 +268,7 @@
 		2EBFA4C91E8DF2F40069E9A0 /* Basic Views */ = {
 			isa = PBXGroup;
 			children = (
+				2EB3FDCB1E920B110069781F /* MainScreenViewController.swift */,
 				2E69EF1D1E65D36A00F1BC9A /* ViewController.swift */,
 				2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */,
 			);
@@ -285,7 +286,6 @@
 		2EBFA4CB1E8DF3650069E9A0 /* Graph Views */ = {
 			isa = PBXGroup;
 			children = (
-				2EB3FDCB1E920B110069781F /* MainScreenViewController.swift */,
 				2EB3FDCD1E9305010069781F /* DistanceLineGraphViewController.swift */,
 				2E4B50BB1E9FDDAA00B6B45B /* TimeLineGraphViewController.swift */,
 				2E4B50BD1E9FE2A100B6B45B /* ClimbLineGraphViewController.swift */,
