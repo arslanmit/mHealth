@@ -114,7 +114,12 @@ class ChannelListViewController: UITableViewController {
     if let currentSection: Section = Section(rawValue: section) {
       switch currentSection {
           case .createNewChannelSection:
-            return 1
+            if (user?.uid == "oMW4YvXNjNNf7hIn0VXsIVdNQqC3") {
+              return 1
+            }
+            else{
+                return 0
+            }
           case .currentChannelsSection:
             return channels.count
           }
@@ -122,12 +127,12 @@ class ChannelListViewController: UITableViewController {
       return 0
     }
   }
-  
+  // (user?.uid == "oMW4YvXNjNNf7hIn0VXsIVdNQqC3")
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let reuseIdentifier = (indexPath as NSIndexPath).section == Section.createNewChannelSection.rawValue ? "NewChannel" : "ExistingChannel"
     let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
 
-    if (indexPath as NSIndexPath).section == Section.createNewChannelSection.rawValue && user?.uid == "oMW4YvXNjNNf7hIn0VXsIVdNQqC3" {
+    if (indexPath as NSIndexPath).section == Section.createNewChannelSection.rawValue {
       if let createNewChannelCell = cell as? CreateChannelCell {
         newChannelTextField = createNewChannelCell.newChannelNameField
       }

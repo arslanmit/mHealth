@@ -211,7 +211,6 @@
 		2E69EF0F1E65D36A00F1BC9A = {
 			isa = PBXGroup;
 			children = (
-				2EB3FE781E9316150069781F /* JBChartView-Bridging-Header.h */,
 				2E69EF1A1E65D36A00F1BC9A /* mHealth */,
 				2EE80AFD1E68AED8000956DE /* Models */,
 				2EE80AF81E68ABF7000956DE /* Resources */,
@@ -422,6 +421,7 @@
 		CE767B442FDD135AE8D57B61 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2EB3FE781E9316150069781F /* JBChartView-Bridging-Header.h */,
 				2EA6F7F51E822B5F002969A5 /* MapKit.framework */,
 				2E69EF721E6600BD00F1BC9A /* HealthKit.framework */,
 				F24E72EE1D1F73AA5F76F95B /* Pods_mHealth.framework */,
