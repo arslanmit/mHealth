@@ -22,7 +22,7 @@ class MainScreenViewController : UIViewController{
     override func viewDidLoad(){
         self.mainView.layer.cornerRadius = 5.0
         setWelcome()
-        
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     func setWelcome(){
