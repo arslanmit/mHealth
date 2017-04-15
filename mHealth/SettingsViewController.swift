@@ -64,13 +64,66 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             var data = [String]()
             data.append(value?["name"] as! String)
             data.append(value?["email"] as! String)
-            let displayname = self.user?.displayName ?? "Not set"
+            let displayname = FIRAuth.auth()?.currentUser?.displayName ?? "Not set"
             data.append(displayname)
             data.append(value?["current-lifestyle"] as! String)
             data.append(value?["desired-lifestyle"] as! String)
             self.data = data
             self.tableView.reloadData()
         })
+    }
+    
+    func changeUserDataAlert(title: String, message: String, dataKey: String){
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: .alert)
+        
+        let saveAction = UIAlertAction(title: "Save",
+                                       style: .default) { action in
+                                        let textField = alert.textFields![0]
+                                        let id: String = Util.removePeriod(s: (self.user?.email)!)
+                                        self.rootRef.child("users//\(id)/User-Data/\(dataKey)").setValue(textField.text!)
+                                        self.load()
+                                        self.tableView.reloadData()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .default)
+        
+        alert.addTextField()
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func changeDisplayName(title: String, message: String){
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: .alert)
+        
+        let saveAction = UIAlertAction(title: "Save",
+                                       style: .default) { action in
+                                        let textField = alert.textFields![0]
+                                        let changeRequest = FIRAuth.auth()?.currentUser?.profileChangeRequest()
+                                        changeRequest?.displayName = textField.text
+                                        changeRequest?.commitChanges() { (error) in
+                                            print("error is: \(error)")
+                                            self.load()
+                                        }
+                                        self.tableView.reloadData()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .default)
+        
+        alert.addTextField()
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     //MARK: TABLE VIEW FUNCTIONS
@@ -83,6 +136,13 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        
+        if(indexPath.row == 0){
+            changeUserDataAlert(title:"Change name", message: "Enter new name", dataKey: "name")
+        }
+        else if(indexPath.row == 2){
+            changeDisplayName(title: "Change Display Name", message: "Enter new name")
+        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
