@@ -155,6 +155,85 @@ class ProfileTableTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+       //
+        var title: String?
+        var valueChangedHandler: ((Double) -> Void)?
+
+        var change: Bool = false
+
+        if indexPath.section == 1 && indexPath.row == 1 {
+            change = true
+            title = NSLocalizedString("New Height", comment: "")
+            
+            valueChangedHandler = {
+                value -> Void in
+                self.saveHeightIntoHealthStore(value)
+            }
+        }
+        if indexPath.section == 1 && indexPath.row == 0 {
+            change = true
+            title = NSLocalizedString("New Weight", comment: "")
+            
+            valueChangedHandler = {
+                value -> Void in
+                
+                self.saveWeightIntoHealthStore(value)
+            }
+        }
+        if(change){
+            // Create an alert controller to present.
+            let alertController: UIAlertController = UIAlertController(title: title, message: nil, preferredStyle: UIAlertControllerStyle.alert)
+            
+            // Add the text field to let the user enter a numeric value.
+            alertController.addTextField {
+                
+                (textField) -> Void in
+                // Only allow the user to enter a valid number.
+                textField.keyboardType = UIKeyboardType.decimalPad
+            }
+            
+            // Create the "OK" button.
+            let okAction: UIAlertAction = {
+                
+                let okTitle: String = NSLocalizedString("OK", comment: "")
+                let handler: (UIAlertAction) -> Void = {
+                    
+                    _ in
+                    
+                    let textField: UITextField = alertController.textFields!.first!
+                    
+                    if let text: String = textField.text, let value: Double = Double(text) {
+                        
+                        valueChangedHandler!(value)
+                        
+                        tableView.deselectRow(at: indexPath, animated: true)
+                    }
+                }
+                
+                return UIAlertAction(title: okTitle, style: UIAlertActionStyle.default, handler: handler)
+            }()
+            
+            alertController.addAction(okAction)
+            
+            // Create the "Cancel" button.
+            let cancelAction: UIAlertAction = {
+                
+                let cancelTitle: String = NSLocalizedString("Cancel", comment: "")
+                let handler: (UIAlertAction) -> Void = {
+                    
+                    _ in
+                    
+                    tableView.deselectRow(at: indexPath, animated: true)
+                }
+                
+                return UIAlertAction(title: cancelTitle, style: UIAlertActionStyle.cancel, handler: handler)
+            }()
+            
+            alertController.addAction(cancelAction)
+            
+            // Present the alert controller.
+            self.present(alertController, animated: true, completion: nil)
+        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -567,6 +646,57 @@ class ProfileTableTableViewController: UITableViewController {
         return biologicalSexText;
     }
     
+    private func saveHeightIntoHealthStore(_ height: Double) -> Void
+    {
+        // Save the user's height into HealthKit.
+        let inchUnit = HKUnit.inch()
+        let heightQuantity = HKQuantity(unit: inchUnit, doubleValue: height)
+        
+        let heightType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!
+        let nowDate = Date()
+        
+        let heightSample = HKQuantitySample(type: heightType, quantity: heightQuantity, start: nowDate, end: nowDate)
+        
+        let completion: ((Bool, Error?) -> Void) = {
+            [unowned self] (success, error) -> Void in
+            
+            if !success {
+                print("An error occured saving the height sample \(heightSample). In your app, try to handle this gracefully. The error was: \(error).")
+                
+                abort()
+            }
+            
+            self.updateUserHeight()
+        }
+        
+        self.HealthKitStore.save(heightSample, withCompletion: completion)
+    }
+    
+    private func saveWeightIntoHealthStore(_ weight: Double) -> Void
+    {
+        // Save the user's weight into HealthKit.
+        let poundUnit = HKUnit.pound()
+        let weightQuantity = HKQuantity(unit: poundUnit, doubleValue: weight)
+        
+        let weightType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!
+        let nowDate = Date()
+        
+        let weightSample: HKQuantitySample = HKQuantitySample(type: weightType, quantity: weightQuantity, start: nowDate, end: nowDate)
+        
+        let completion: ((Bool, Error?) -> Void) = {
+            [unowned self] (success, error) -> Void in
+            
+            if !success {
+                print("An error occured saving the weight sample \(weightSample). In your app, try to handle this gracefully. The error was: \(error).")
+                
+                abort()
+            }
+            
+            self.updateUserWeight()
+        }
+        self.HealthKitStore.save(weightSample, withCompletion: completion)
+    }
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }

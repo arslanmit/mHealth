@@ -146,9 +146,11 @@ class ChannelListViewController: UITableViewController {
   // MARK: UITableViewDelegate
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if (indexPath as NSIndexPath).section == Section.currentChannelsSection.rawValue {
-      let channel = channels[(indexPath as NSIndexPath).row]
-      self.performSegue(withIdentifier: "ShowChannel", sender: channel)
+    if ((indexPath as NSIndexPath).section == Section.currentChannelsSection.rawValue){
+        let channel = channels[(indexPath as NSIndexPath).row]
+        if(!(channel.name == "" || channel.name == " ")){
+            self.performSegue(withIdentifier: "ShowChannel", sender: channel)
+        }
     }
   }
   

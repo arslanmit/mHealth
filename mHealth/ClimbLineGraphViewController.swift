@@ -149,11 +149,10 @@ class ClimbLineGraphViewController: UIViewController, JBLineChartViewDelegate, J
                 let oldRun = FirebaseRun(snapshot: run as! FIRDataSnapshot)
                 currentRuns.append(oldRun)
             }
-            self.runs = currentRuns;
-            print("LOAD")
+            currentRuns.sort(by: { Util.Date(from: $0.timestamp).compare(Util.Date(from: $1.timestamp)) == ComparisonResult.orderedAscending})
+            self.runs = currentRuns
             self.lineChart.reloadData()
         })
-        print("POST REF LOAD")
     }
 
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2E0378361E82A63F00FF1AB3 /* mainTB.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E0378351E82A63F00FF1AB3 /* mainTB.png */; };
 		2E09F7B41E77B77200EE2F0A /* ProfileTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E09F7B31E77B77200EE2F0A /* ProfileTableTableViewController.swift */; };
+		2E11A12C1EA1AE24004D48B9 /* s_tweet_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E11A12B1EA1AE24004D48B9 /* s_tweet_button.png */; };
 		2E2AE2651E6A63CE00C3A9D5 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */; };
 		2E31FD681E796D7F00CE67A2 /* PedometerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31FD671E796D7F00CE67A2 /* PedometerViewController.swift */; };
 		2E3CCA311E85E8AF00F9FE2E /* RunsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CCA301E85E8AF00F9FE2E /* RunsTableViewController.swift */; };
@@ -98,6 +99,7 @@
 		04B205F87A2A279AAC0909A9 /* Pods-mHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mHealth.release.xcconfig"; path = "Pods/Target Support Files/Pods-mHealth/Pods-mHealth.release.xcconfig"; sourceTree = "<group>"; };
 		2E0378351E82A63F00FF1AB3 /* mainTB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainTB.png; sourceTree = "<group>"; };
 		2E09F7B31E77B77200EE2F0A /* ProfileTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableTableViewController.swift; sourceTree = "<group>"; };
+		2E11A12B1EA1AE24004D48B9 /* s_tweet_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = s_tweet_button.png; sourceTree = "<group>"; };
 		2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		2E31FD671E796D7F00CE67A2 /* PedometerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedometerViewController.swift; sourceTree = "<group>"; };
 		2E3CCA301E85E8AF00F9FE2E /* RunsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunsTableViewController.swift; sourceTree = "<group>"; };
@@ -236,7 +238,6 @@
 			isa = PBXGroup;
 			children = (
 				2EE80B001E690088000956DE /* mHealth Swift Files */,
-				2EC1E4F41EA0231B009C8113 /* Chat View */,
 				2E4B50B61E9FC1B200B6B45B /* Removed//Reference Views */,
 				2E69EF711E6600BD00F1BC9A /* mHealth.entitlements */,
 				2E69EF1B1E65D36A00F1BC9A /* AppDelegate.swift */,
@@ -380,6 +381,7 @@
 		2EE80AF81E68ABF7000956DE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2E11A12B1EA1AE24004D48B9 /* s_tweet_button.png */,
 				2E4B50B91E9FD3A000B6B45B /* apple-2086023_640.png */,
 				2E4B50B71E9FD1FE00B6B45B /* run_homer_run_by_linggarlitoz-d4gfs6h.png */,
 				2EE80AFB1E68ACCC000956DE /* healthIcon.jpeg */,
@@ -414,6 +416,7 @@
 				2EBFA4CA1E8DF34D0069E9A0 /* HealthKit View */,
 				2EBFA4C81E8DF2CA0069E9A0 /* Run Views */,
 				2EBFA4CB1E8DF3650069E9A0 /* Graph Views */,
+				2EC1E4F41EA0231B009C8113 /* Chat View */,
 			);
 			name = "mHealth Swift Files";
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				2EB8F5251E78F07B0041BE03 /* cherry.png in Resources */,
 				2E69EF261E65D36A00F1BC9A /* LaunchScreen.storyboard in Resources */,
 				2E764EFC1E65D64F0082CC42 /* GoogleService-Info.plist in Resources */,
+				2E11A12C1EA1AE24004D48B9 /* s_tweet_button.png in Resources */,
 				2E69EF231E65D36A00F1BC9A /* Assets.xcassets in Resources */,
 				2E4B50B81E9FD1FE00B6B45B /* run_homer_run_by_linggarlitoz-d4gfs6h.png in Resources */,
 				2EA80D0F1E88C59D00E3A3F1 /* Main.storyboard in Resources */,

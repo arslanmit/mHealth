@@ -43,8 +43,6 @@ class TimeLineGraphViewController: UIViewController, JBLineChartViewDelegate, JB
         
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: lineChart.frame.width, height: 16))
         
-        //printviewDidLoad;:  (lineChart.frame.width)")
-        
         let footer1 = UILabel(frame: CGRect(x: 0, y: 0, width: lineChart.frame.width/2 - 8, height: 16))
         footer1.textColor = UIColor.white
         footer1.text = "First Run"
@@ -124,14 +122,8 @@ class TimeLineGraphViewController: UIViewController, JBLineChartViewDelegate, JB
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, didSelectLineAt lineIndex: UInt, horizontalIndex: UInt) {
-       // let distance = Double(String(format: "%.02f", runs[Int(horizontalIndex)].distance))
-    //    let data = Util.getMiles(from: distance!)
         let (h,m,s) = Util.secondsToHoursMinutesSeconds(seconds: Int(runs[Int(horizontalIndex)].duration))
-       /* let secondsQuantity = HKQuantity(unit: HKUnit.second(), doubleValue: Double(s))
-        let minutesQuantity = HKQuantity(unit: HKUnit.minute(), doubleValue: Double(m))
-        let hoursQuantity = HKQuantity(unit: HKUnit.hour(), doubleValue: Double(h)) */
-        let data: String = "Time: \(h):\(m):\(s)"
-        
+        let data: String = "Time: \(h) hours, \(m) minutes, \(s) seconds"
         let date = Util.LineGraphDate(from: runs[Int(horizontalIndex)].timestamp)
         let key = date
         informationLabel.text = "Run on \(key): \(data)"
@@ -155,11 +147,10 @@ class TimeLineGraphViewController: UIViewController, JBLineChartViewDelegate, JB
                 let oldRun = FirebaseRun(snapshot: run as! FIRDataSnapshot)
                 currentRuns.append(oldRun)
             }
+            currentRuns.sort(by: { Util.Date(from: $0.timestamp).compare(Util.Date(from: $1.timestamp)) == ComparisonResult.orderedAscending})
             self.runs = currentRuns;
-            print("LOAD")
             self.lineChart.reloadData()
         })
-        print("POST REF LOAD")
     }
     
 

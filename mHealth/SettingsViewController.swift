@@ -22,14 +22,18 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     //MARK: FIREBASE
     let user = FIRAuth.auth()?.currentUser
     let rootRef = FIRDatabase.database().reference()
+    //MARK: DATA LABELS
+    let settings = ["Name:", "Email:", "Display Name:", "Current Lifestyle:", "Desired LifeStyle:"]
+    var data = [String]()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        load()
+    }
     @IBAction func requestButtonDidTouch(_ sender: Any) {
         print(myManager.authorizeHealthKit())
     }
@@ -51,16 +55,39 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    func load(){
+        
+        let id: String = Util.removePeriod(s: (user?.email)!)
+        let userRef = FIRDatabase.database().reference(withPath: "users//\(id)/User-Data")
+        userRef.observeSingleEvent(of: .value, with: { snapshot in
+            let value = snapshot.value as? NSDictionary
+            var data = [String]()
+            data.append(value?["name"] as! String)
+            data.append(value?["email"] as! String)
+            let displayname = self.user?.displayName ?? "Not set"
+            data.append(displayname)
+            data.append(value?["current-lifestyle"] as! String)
+            data.append(value?["desired-lifestyle"] as! String)
+            self.data = data
+            self.tableView.reloadData()
+        })
+    }
+    
     //MARK: TABLE VIEW FUNCTIONS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserDataCell", for: indexPath) as? UserTableViewCell
-        cell?.data.text = "data"
-        cell?.value.text = "value"
+        cell?.data.text = settings[indexPath.row]
+        cell?.value.text = data[indexPath.row]
         return cell!
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return data.count
     }
 
     

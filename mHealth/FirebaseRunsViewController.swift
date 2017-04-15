@@ -13,6 +13,7 @@ import HealthKit
 import MapKit
 import AudioToolbox
 import Firebase
+import Social
 
 class FirebaseRunsViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
     //MARK: VARIABLES
@@ -26,14 +27,22 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate, CLLocatio
     @IBOutlet weak var paceLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var descentLabel: UILabel!
-    
     @IBOutlet weak var climbLabel: UILabel!
+
+    @IBOutlet weak var twitterButton: UIButton!
        
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
         configureView()
+    }
+    
+    @IBAction func twitterDidClick(_ sender: Any) {
+        let vc = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+        vc?.setInitialText("I ran \(Util.getMiles(from: myFirebaseRun.distance)) miles using mHealth!")
+        vc?.add(URL(string: "google.com"))
+        present(vc!, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

@@ -321,7 +321,13 @@ extension NewRunViewController: UIAlertViewDelegate {
             (action:UIAlertAction) in
             print("disgarded run clicked")
             self.locationManager.stopUpdatingLocation()
-          _ = self.navigationController?.popViewController(animated: true)
+            // refreshing view
+            self.mapView2.removeOverlays(self.mapView2.overlays)
+            self.viewWillDisappear(true)
+            self.viewWillAppear(true)
+            self.viewDidAppear(true)
+            self.viewDidLoad()
+         // _ = self.navigationController?.popViewController(animated: true) --- not working because it's a tab now
         }
         let cancelAction = UIAlertAction(title:"Cancel",  style: .cancel){
             (action:UIAlertAction) in

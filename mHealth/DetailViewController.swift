@@ -23,6 +23,7 @@
 import UIKit
 import MapKit
 import HealthKit
+import Social
 
 class DetailViewController: UIViewController,MKMapViewDelegate {
     var run: Run!
@@ -36,9 +37,17 @@ class DetailViewController: UIViewController,MKMapViewDelegate {
     @IBOutlet weak var climbLabel: UILabel!
     @IBOutlet weak var descentLabel: UILabel!
     
+    @IBOutlet weak var tweetButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+    }
+    @IBAction func tweetDidClick(_ sender: Any) {
+        let vc = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+        vc?.setInitialText("I just finised a run with mHealth! I ran \(Util.getMiles(from: run.distance.doubleValue)) miles!");
+        present(vc!, animated: true, completion: nil)
     }
     
     func configureView() {
@@ -54,12 +63,13 @@ class DetailViewController: UIViewController,MKMapViewDelegate {
         let hoursQuantity = HKQuantity(unit: HKUnit.hour(), doubleValue: Double(h))
         timeLabel.text = "Time: "+hoursQuantity.description+" "+minutesQuantity.description+" "+secondsQuantity.description
         
-        let distanceQuantity = HKQuantity(unit: HKUnit.meter(), doubleValue: run.distance.doubleValue)
-        distanceLabel.text = "Distance: " + distanceQuantity.description
+     //   let distanceQuantity = HKQuantity(unit: HKUnit.meter(), doubleValue: run.distance.doubleValue)
+        distanceLabel.text = "Distance: \(Util.getMiles(from: run.distance.doubleValue))"
         
         //let paceUnit = HKUnit.meter().unitDivided(by: HKUnit.second())//HKUnit.second().unitDivided(by: HKUnit.meter())
         //let paceQuantity = HKQuantity(unit: paceUnit, doubleValue: distance / seconds)
-        paceLabel.text = "Mean speed: "+String((run.distance.doubleValue/run.duration.doubleValue*3.6*10).rounded()/10)+" km/h"
+        
+        paceLabel.text = "Mean speed: \(Util.kmphToMphString(kmph: (run.distance.doubleValue/run.duration.doubleValue))) mph"
         
         climbLabel.text = "Total climb: "+String((run.climb.doubleValue).rounded())+" m"
         descentLabel.text = "Total descent: "+String((run.descent.doubleValue).rounded())+" m"
