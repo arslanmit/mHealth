@@ -67,16 +67,14 @@ class ProfileTableTableViewController: UITableViewController {
         self.userBodies   = [ProfileBodyKeys.Weight: [NSLocalizedString("Weight (lbs)", comment: ""), NSLocalizedString("Not available", comment: "")],
                              ProfileBodyKeys.Height: [NSLocalizedString("Height (ft.)", comment: ""), NSLocalizedString("Not available", comment: "")],
                              ProfileBodyKeys.BMI:    [NSLocalizedString("Body Mass Index (BMI)", comment: ""), NSLocalizedString("Not available", comment: "")]]
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         updateUserInfo()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 2
@@ -205,7 +203,7 @@ class ProfileTableTableViewController: UITableViewController {
                     if let text: String = textField.text, let value: Double = Double(text) {
                         
                         valueChangedHandler!(value)
-                        
+                        self.updateUserInfo()
                         tableView.deselectRow(at: indexPath, animated: true)
                     }
                 }
@@ -244,11 +242,11 @@ class ProfileTableTableViewController: UITableViewController {
     }
     
     private func updateUserInfoMethods(){
+        updateUserWeight()
+        updateUserHeight()
         updateUserAge()
         updateUserSex()
         updateUserBloodType()
-        updateUserWeight()
-        updateUserHeight()
         updateUserBMI()
         /// got to implement firebase usage here :)
         updateToFirebase()
@@ -261,7 +259,7 @@ class ProfileTableTableViewController: UITableViewController {
         self.ref.child("users//\(id)/User-Data/blood-type").setValue(userHealthData.bloodType)
         self.ref.child("users//\(id)/User-Data/weight").setValue(userHealthData.weight)
         self.ref.child("users//\(id)/User-Data/height").setValue(userHealthData.height)
-        self.ref.child("users//\(id)/User-Data/bmi").setValue(userHealthData.bmi)
+        if(userHealthData.bmi != -1){self.ref.child("users//\(id)/User-Data/bmi").setValue(userHealthData.bmi)}
     }
     
     
@@ -563,13 +561,12 @@ class ProfileTableTableViewController: UITableViewController {
             userHealthData.bmi = bmi!
         }
         else{
-            print("stupid self.weight/height objects are is nil -_-")
+            print("weight = nil || height = nil")
         }
         // 3. Show the calculated BMI
         var bmiString = kUnknownString
         if bmi != nil {
             bmiString =  String(format: "%.02f", bmi!)
-            print(bmiString)
         }
         if var userBodies = self.userBodies {
             
