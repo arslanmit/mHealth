@@ -18,6 +18,7 @@ class GraphsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = true 
         self.distanceContainer.alpha = 1
         self.timeContainer.alpha = 0
         self.climbContainer.alpha = 0

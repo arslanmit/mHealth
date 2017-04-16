@@ -46,23 +46,6 @@ class TimeLineGraphViewController: UIViewController, JBLineChartViewDelegate, JB
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: lineChart.frame.width, height: 16))
-        
-        //printviewDidLoad;:  (lineChart.frame.width)")
-        
-        let footer1 = UILabel(frame: CGRect(x: 0, y: 0, width: lineChart.frame.width/2 - 8, height: 16))
-        footer1.textColor = UIColor.white
-        footer1.text = "First Run"
-        
-        let footer2 = UILabel(frame: CGRect(x: lineChart.frame.width/2 - 8, y: 0, width: lineChart.frame.width/2 - 8, height: 16))
-        footer2.textColor = UIColor.white
-        footer2.text = "Last Run"
-        footer2.textAlignment = NSTextAlignment.right
-        
-        footerView.addSubview(footer1)
-        footerView.addSubview(footer2)
-        
-        lineChart.footerView = footerView
         lineChart.headerView = header
         
         //MARK: FIREBASE start up
