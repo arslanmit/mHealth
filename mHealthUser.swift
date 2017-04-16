@@ -10,7 +10,8 @@ import Foundation
 import Firebase
 
 enum currentLifestyle : String {
-    case ModeratelyFit = "Moderately Fit"
+    case NotFit = "Not Fit"
+    case LittleFit = "Little Fit"
     case Fit = "Fit"
     case VeryFit = "Very Fit"
     
@@ -20,6 +21,7 @@ enum currentLifestyle : String {
 }
 
 enum desiredLifestyle : String {
+    case LittleFit = "Little Fit"
     case Fit = "Fit"
     case VeryFit = "Very Fit"
     

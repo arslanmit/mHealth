@@ -43,7 +43,7 @@ class CreateAccountViewController: UIViewController, FBSDKLoginButtonDelegate {
             return
         }
         else{
-            print("successfully logged in with Facebookx")
+            print("successfully logged in with Facebook")
             FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start(completionHandler: { (connection,  result, error) -> Void in
                 if (error == nil){
                     guard let data = result as? [String:Any] else { return }
@@ -158,31 +158,11 @@ class CreateAccountViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func currentToString() -> String {
-        if(currentLifestylePicker.selectedSegmentIndex == 0)
-        {
-            return (currentLifestylePicker.titleForSegment(at: currentLifestylePicker.selectedSegmentIndex)!)
-        }
-        else if(currentLifestylePicker.selectedSegmentIndex == 1)
-        {
-            return (currentLifestylePicker.titleForSegment(at: currentLifestylePicker.selectedSegmentIndex)!)
-        }
-        else if(currentLifestylePicker.selectedSegmentIndex == 2)
-        {
-            return (currentLifestylePicker.titleForSegment(at: currentLifestylePicker.selectedSegmentIndex)!)
-        }
-        return "ERROR"
+        return (currentLifestylePicker.titleForSegment(at: currentLifestylePicker.selectedSegmentIndex)!)
     }
     
     func desiredToString() -> String {
-        if(desiredLifestylePicker.selectedSegmentIndex == 0)
-        {
-            return (desiredLifestylePicker.titleForSegment(at: currentLifestylePicker.selectedSegmentIndex)!)
-        }
-        else if(desiredLifestylePicker.selectedSegmentIndex == 1)
-        {
-            return (desiredLifestylePicker.titleForSegment(at: currentLifestylePicker.selectedSegmentIndex)!)
-        }
-        return "ERROR"
+         return (desiredLifestylePicker.titleForSegment(at: currentLifestylePicker.selectedSegmentIndex)!)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
