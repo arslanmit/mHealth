@@ -28,11 +28,6 @@ class GraphsViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.tabBarController?.tabBar.isHidden = false
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
