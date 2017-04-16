@@ -57,7 +57,7 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate, CLLocatio
         startRoute.title = "Started: \(Util.PinFormat(from: myFirebaseRun.timestamps.first!))"
         let endRoute: MKPointAnnotation = MKPointAnnotation()
         endRoute.coordinate = CLLocationCoordinate2DMake(myFirebaseRun.latitudes.last!, myFirebaseRun.longitudes.last!);
-        endRoute.title = "Ended: \(Util.PinFormat(from: myFirebaseRun.timestamps.last!)))"
+        endRoute.title = "Ended: \(Util.PinFormat(from: myFirebaseRun.timestamps.last!))"
         mapView.addAnnotation(startRoute)
         mapView.addAnnotation(endRoute)
     }

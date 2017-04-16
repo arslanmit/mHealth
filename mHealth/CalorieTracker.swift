@@ -89,6 +89,7 @@ class CalorieTracker: UIViewController, UITableViewDataSource, UITableViewDelega
                 let food = FoodItem(snapshot: run as! FIRDataSnapshot)
                 currentFoods.append(food)
             }
+            currentFoods.sort(by: { Util.Date(from: $0.timestamp).compare(Util.Date(from: $1.timestamp)) == ComparisonResult.orderedAscending})
             self.foods = currentFoods;
             self.tableView.reloadData()
         })

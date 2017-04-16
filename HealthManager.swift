@@ -46,15 +46,6 @@ func authorizeHealthKit() -> Bool{
         print("HealthKit is unavailable on this device!")
         isAuth = false
     }
-    
-        //checks access
-           //
-       // DispatchQueue.main.async{
-            
-            /*/ Update the user interface based on the current user's health information.
-            self.updateUserAge()
-            self.updateUsersHeight()
-            self.updateUsersWeight() */
     return isAuth
 }
 

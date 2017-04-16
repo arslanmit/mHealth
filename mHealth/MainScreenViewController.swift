@@ -22,6 +22,12 @@ class MainScreenViewController : UIViewController{
     override func viewDidLoad(){
         self.mainView.layer.cornerRadius = 5.0
         setWelcome()
+        
+        let id: String = Util.removePeriod(s: (user?.email)!)
+        let nameRef = FIRDatabase.database().reference(withPath: "users//\(id)/")
+        nameRef.observe(.value, with: { snapshot in
+            self.setWelcome()
+        })
     }
     
     func setWelcome(){

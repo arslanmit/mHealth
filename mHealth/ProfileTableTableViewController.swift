@@ -67,7 +67,27 @@ class ProfileTableTableViewController: UITableViewController {
         self.userBodies   = [ProfileBodyKeys.Weight: [NSLocalizedString("Weight (lbs)", comment: ""), NSLocalizedString("Not available", comment: "")],
                              ProfileBodyKeys.Height: [NSLocalizedString("Height (ft.)", comment: ""), NSLocalizedString("Not available", comment: "")],
                              ProfileBodyKeys.BMI:    [NSLocalizedString("Body Mass Index (BMI)", comment: ""), NSLocalizedString("Not available", comment: "")]]
+        //check auth
+        print("checking..? \(healthKitCheck())")
     }
+    
+    func healthKitCheck() -> Bool{
+        if !(HKHealthStore().authorizationStatus(for: HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!) == .sharingAuthorized){
+            print("denied")
+            let alert = UIAlertController(title: "Error",
+                                          message: "Authorize HealthKit in Settings!",
+                                          preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Okay",
+                                         style: .default){ action in
+                                            
+            }
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+            return false
+        }
+        return true
+    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -154,6 +174,7 @@ class ProfileTableTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
        //
+        if(healthKitCheck()){
         var title: String?
         var valueChangedHandler: ((Double) -> Void)?
 
@@ -231,6 +252,7 @@ class ProfileTableTableViewController: UITableViewController {
             
             // Present the alert controller.
             self.present(alertController, animated: true, completion: nil)
+        }
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }

@@ -1161,7 +1161,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.70778959990000001" green="0.88472461700000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XpV-O2-AHY" firstAttribute="leading" secondItem="kMd-KO-q6n" secondAttribute="leading" id="4CL-yD-4Oj"/>
                             <constraint firstItem="zbr-eb-jQz" firstAttribute="leading" secondItem="NZG-JN-3sG" secondAttribute="leadingMargin" id="FF0-Xb-KxS"/>
@@ -1475,10 +1475,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User's Settings..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOE-Pl-hlu">
-                                <rect key="frame" x="10" y="72" width="333" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOE-Pl-hlu">
+                                <rect key="frame" x="10" y="72" width="349" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1515,7 +1515,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="34g-Y5-qqP">
-                                <rect key="frame" x="10" y="101" width="349" height="432"/>
+                                <rect key="frame" x="10" y="72" width="349" height="442"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.80500475888324874" green="0.17146342840235002" blue="0.54495093103851444" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1559,7 +1559,7 @@
                         <color key="backgroundColor" red="0.70778959990000001" green="0.88472461700000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="myFit" image="mainTB.png" id="Zzt-Px-5l9"/>
-                    <navigationItem key="navigationItem" title="Information" id="9zA-5w-aCr">
+                    <navigationItem key="navigationItem" title="mHealth Settings" id="9zA-5w-aCr">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="Settings"/>
                         </userDefinedRuntimeAttributes>
@@ -1574,11 +1574,11 @@
             </objects>
             <point key="canvasLocation" x="3868" y="2650.5247376311845"/>
         </scene>
-        <!--Item-->
+        <!--mHealth Channels-->
         <scene sceneID="cNq-3H-yYb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zDu-g0-nBw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="VdH-Ij-TBl"/>
+                    <tabBarItem key="tabBarItem" title="mHealth Channels" id="VdH-Ij-TBl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ABi-qd-EfB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
