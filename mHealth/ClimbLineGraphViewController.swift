@@ -13,11 +13,12 @@ import Firebase
 import HealthKit
 
 class ClimbLineGraphViewController: UIViewController, JBLineChartViewDelegate, JBLineChartViewDataSource {
-
+    
+    
     @IBOutlet weak var lineChart: JBLineChartView!
     @IBOutlet weak var informationLabel: UILabel!
+    @IBOutlet weak var header: UILabel!
     
-    //MARK: Firebase
     let user = FIRAuth.auth()?.currentUser
     let rootRef = FIRDatabase.database().reference()
     
@@ -26,17 +27,21 @@ class ClimbLineGraphViewController: UIViewController, JBLineChartViewDelegate, J
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.darkGray
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        view.backgroundColor = UIColor.clear
         
         // line chart setup
-        lineChart.backgroundColor = UIColor.darkGray
+        lineChart.backgroundColor = UIColor.clear
         lineChart.delegate = self
         lineChart.dataSource = self
         lineChart.minimumValue = 55
         lineChart.maximumValue = 100
         
         lineChart.setState(.collapsed, animated: false)
+        
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -56,12 +61,6 @@ class ClimbLineGraphViewController: UIViewController, JBLineChartViewDelegate, J
         
         footerView.addSubview(footer1)
         footerView.addSubview(footer2)
-        
-        let header = UILabel(frame: CGRect(x: 0, y: 0, width: lineChart.frame.width, height: 50))
-        header.textColor = UIColor.white
-        header.font = UIFont.systemFont(ofSize: 24)
-        header.text = "Run: Climb Line Graph"
-        header.textAlignment = NSTextAlignment.center
         
         lineChart.footerView = footerView
         lineChart.headerView = header
@@ -124,20 +123,19 @@ class ClimbLineGraphViewController: UIViewController, JBLineChartViewDelegate, J
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, didSelectLineAt lineIndex: UInt, horizontalIndex: UInt) {
-        // let distance = Double(String(format: "%.02f", runs[Int(horizontalIndex)].distance))
+        header.text = "On \(Util.LineGraphDateHeader(from: runs[Int(horizontalIndex)].timestamp)), "
         let data = String((runs[Int(horizontalIndex)].climb).rounded())
-        let date = Util.LineGraphDate(from: runs[Int(horizontalIndex)].timestamp)
-        let key = date
-        informationLabel.text = "Run on \(key): \(data) m climbed"
+        informationLabel.text = "You climbed \(data) m!"
+
     }
     
     func didDeselectLine(in lineChartView: JBLineChartView!) {
-        informationLabel.text = ""
+        header.text = "Your Runs"
+        informationLabel.text = "S"
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, fillColorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
-        
-        return UIColor.clear
+        return UIColor.darkGray
     }
     
     private func load(){
@@ -150,9 +148,25 @@ class ClimbLineGraphViewController: UIViewController, JBLineChartViewDelegate, J
                 currentRuns.append(oldRun)
             }
             currentRuns.sort(by: { Util.Date(from: $0.timestamp).compare(Util.Date(from: $1.timestamp)) == ComparisonResult.orderedAscending})
-            self.runs = currentRuns
+            self.runs = currentRuns;
             self.lineChart.reloadData()
         })
     }
-
+    
+    func distanceArray() -> Array<String>{
+        var distanceRuns = [String]()
+        for dist in runs{
+            distanceRuns.append(String(dist.distance))
+        }
+        return distanceRuns
+    }
+    
+    
+    @IBAction func loadDidTouch(_ sender: Any) {
+        dump(runs)
+    }
+    
+    @IBAction func goBack(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

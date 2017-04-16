@@ -13,11 +13,12 @@ import Firebase
 import HealthKit
 
 class TimeLineGraphViewController: UIViewController, JBLineChartViewDelegate, JBLineChartViewDataSource {
-
+    
+    
     @IBOutlet weak var lineChart: JBLineChartView!
     @IBOutlet weak var informationLabel: UILabel!
+    @IBOutlet weak var header: UILabel!
     
-    //MARK: Firebase
     let user = FIRAuth.auth()?.currentUser
     let rootRef = FIRDatabase.database().reference()
     
@@ -26,22 +27,28 @@ class TimeLineGraphViewController: UIViewController, JBLineChartViewDelegate, JB
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.darkGray
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        view.backgroundColor = UIColor.clear
         
         // line chart setup
-        lineChart.backgroundColor = UIColor.darkGray
+        lineChart.backgroundColor = UIColor.clear
         lineChart.delegate = self
         lineChart.dataSource = self
         lineChart.minimumValue = 55
         lineChart.maximumValue = 100
         
         lineChart.setState(.collapsed, animated: false)
+        
     }
-
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: lineChart.frame.width, height: 16))
+        
+        //printviewDidLoad;:  (lineChart.frame.width)")
         
         let footer1 = UILabel(frame: CGRect(x: 0, y: 0, width: lineChart.frame.width/2 - 8, height: 16))
         footer1.textColor = UIColor.white
@@ -54,12 +61,6 @@ class TimeLineGraphViewController: UIViewController, JBLineChartViewDelegate, JB
         
         footerView.addSubview(footer1)
         footerView.addSubview(footer2)
-        
-        let header = UILabel(frame: CGRect(x: 0, y: 0, width: lineChart.frame.width, height: 50))
-        header.textColor = UIColor.white
-        header.font = UIFont.systemFont(ofSize: 24)
-        header.text = "Run: Time Line Graph"
-        header.textAlignment = NSTextAlignment.center
         
         lineChart.footerView = footerView
         lineChart.headerView = header
@@ -123,19 +124,17 @@ class TimeLineGraphViewController: UIViewController, JBLineChartViewDelegate, JB
     
     func lineChartView(_ lineChartView: JBLineChartView!, didSelectLineAt lineIndex: UInt, horizontalIndex: UInt) {
         let (h,m,s) = Util.secondsToHoursMinutesSeconds(seconds: Int(runs[Int(horizontalIndex)].duration))
-        let data: String = "Time: \(h) hours, \(m) minutes, \(s) seconds"
-        let date = Util.LineGraphDate(from: runs[Int(horizontalIndex)].timestamp)
-        let key = date
-        informationLabel.text = "Run on \(key): \(data)"
+        header.text = "On \(Util.LineGraphDateHeader(from: runs[Int(horizontalIndex)].timestamp)), "
+        informationLabel.text = "You ran \(h) hours and \(m) minutes!"
     }
     
     func didDeselectLine(in lineChartView: JBLineChartView!) {
+        header.text = "Your Runs"
         informationLabel.text = ""
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, fillColorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
-        
-        return UIColor.clear
+        return UIColor.darkGray
     }
     
     private func load(){
@@ -153,5 +152,20 @@ class TimeLineGraphViewController: UIViewController, JBLineChartViewDelegate, JB
         })
     }
     
-
+    func distanceArray() -> Array<String>{
+        var distanceRuns = [String]()
+        for dist in runs{
+            distanceRuns.append(String(dist.distance))
+        }
+        return distanceRuns
+    }
+    
+    
+    @IBAction func loadDidTouch(_ sender: Any) {
+        dump(runs)
+    }
+    
+    @IBAction func goBack(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

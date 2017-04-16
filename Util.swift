@@ -99,6 +99,15 @@ class Util{
         return dateFormatter.string(from: date)
     }
     
+    class func LineGraphDateHeader(from date: String) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss SSSZ"
+        let date = dateFormatter.date(from: date)!
+        
+        dateFormatter.dateFormat = "MMMM dd, yyyy"
+        return dateFormatter.string(from: date)
+    }
+    
 //MARK: TIME
     class func PastRunsTime(from date: String) -> String{
         let dateFormatter = DateFormatter()

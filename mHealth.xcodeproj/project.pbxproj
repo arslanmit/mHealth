@@ -10,6 +10,8 @@
 		2E0378361E82A63F00FF1AB3 /* mainTB.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E0378351E82A63F00FF1AB3 /* mainTB.png */; };
 		2E09F7B41E77B77200EE2F0A /* ProfileTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E09F7B31E77B77200EE2F0A /* ProfileTableTableViewController.swift */; };
 		2E11A12C1EA1AE24004D48B9 /* s_tweet_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E11A12B1EA1AE24004D48B9 /* s_tweet_button.png */; };
+		2E11A12E1EA3F69B004D48B9 /* button-1905961_640.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E11A12D1EA3F69B004D48B9 /* button-1905961_640.png */; };
+		2E11A1341EA4114F004D48B9 /* GraphsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E11A1331EA4114F004D48B9 /* GraphsViewController.swift */; };
 		2E2AE2651E6A63CE00C3A9D5 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */; };
 		2E31FD681E796D7F00CE67A2 /* PedometerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31FD671E796D7F00CE67A2 /* PedometerViewController.swift */; };
 		2E3CCA311E85E8AF00F9FE2E /* RunsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CCA301E85E8AF00F9FE2E /* RunsTableViewController.swift */; };
@@ -100,6 +102,8 @@
 		2E0378351E82A63F00FF1AB3 /* mainTB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainTB.png; sourceTree = "<group>"; };
 		2E09F7B31E77B77200EE2F0A /* ProfileTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableTableViewController.swift; sourceTree = "<group>"; };
 		2E11A12B1EA1AE24004D48B9 /* s_tweet_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = s_tweet_button.png; sourceTree = "<group>"; };
+		2E11A12D1EA3F69B004D48B9 /* button-1905961_640.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-1905961_640.png"; sourceTree = "<group>"; };
+		2E11A1331EA4114F004D48B9 /* GraphsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphsViewController.swift; sourceTree = "<group>"; };
 		2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		2E31FD671E796D7F00CE67A2 /* PedometerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedometerViewController.swift; sourceTree = "<group>"; };
 		2E3CCA301E85E8AF00F9FE2E /* RunsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunsTableViewController.swift; sourceTree = "<group>"; };
@@ -306,6 +310,7 @@
 				2EB3FDCD1E9305010069781F /* DistanceLineGraphViewController.swift */,
 				2E4B50BB1E9FDDAA00B6B45B /* TimeLineGraphViewController.swift */,
 				2E4B50BD1E9FE2A100B6B45B /* ClimbLineGraphViewController.swift */,
+				2E11A1331EA4114F004D48B9 /* GraphsViewController.swift */,
 			);
 			name = "Graph Views";
 			sourceTree = "<group>";
@@ -381,6 +386,7 @@
 		2EE80AF81E68ABF7000956DE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2E11A12D1EA3F69B004D48B9 /* button-1905961_640.png */,
 				2E11A12B1EA1AE24004D48B9 /* s_tweet_button.png */,
 				2E4B50B91E9FD3A000B6B45B /* apple-2086023_640.png */,
 				2E4B50B71E9FD1FE00B6B45B /* run_homer_run_by_linggarlitoz-d4gfs6h.png */,
@@ -568,6 +574,7 @@
 				2E11A12C1EA1AE24004D48B9 /* s_tweet_button.png in Resources */,
 				2E69EF231E65D36A00F1BC9A /* Assets.xcassets in Resources */,
 				2E4B50B81E9FD1FE00B6B45B /* run_homer_run_by_linggarlitoz-d4gfs6h.png in Resources */,
+				2E11A12E1EA3F69B004D48B9 /* button-1905961_640.png in Resources */,
 				2EA80D0F1E88C59D00E3A3F1 /* Main.storyboard in Resources */,
 				2EB8F5291E78FF680041BE03 /* nurse.png in Resources */,
 				2E7C81FA1E82ACAE00BCECA4 /* red-btn.png in Resources */,
@@ -671,6 +678,7 @@
 				2EC1E4F91EA02362009C8113 /* Channel.swift in Sources */,
 				2E4B50C21EA0105D00B6B45B /* UserTableViewCell.swift in Sources */,
 				2EC1E4FB1EA024CA009C8113 /* UIImage+Gif.swift in Sources */,
+				2E11A1341EA4114F004D48B9 /* GraphsViewController.swift in Sources */,
 				2E4B50C01EA0077000B6B45B /* SettingsViewController.swift in Sources */,
 				2EB3FDCC1E920B110069781F /* MainScreenViewController.swift in Sources */,
 				2EE80B041E690478000956DE /* FoodItem.swift in Sources */,
