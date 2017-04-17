@@ -92,7 +92,7 @@ class DistanceLineGraphViewController: UIViewController, JBLineChartViewDelegate
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, colorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
-        return UIColor.lightGray
+        return UIColor(displayP3Red: 0.71, green: 0.89, blue: 1.0, alpha: 1.0)
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, showsDotsForLineAtLineIndex lineIndex: UInt) -> Bool {
@@ -100,7 +100,7 @@ class DistanceLineGraphViewController: UIViewController, JBLineChartViewDelegate
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, colorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
-        return UIColor.lightGray
+        return UIColor(displayP3Red: 0.71, green: 0.89, blue: 1.0, alpha: 1.0)
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, smoothLineAtLineIndex lineIndex: UInt) -> Bool {
@@ -120,7 +120,7 @@ class DistanceLineGraphViewController: UIViewController, JBLineChartViewDelegate
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, fillColorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
-        return UIColor.darkGray
+        return UIColor(displayP3Red: 0.86, green: 0.95, blue: 1.00, alpha: 1.00)
     }
     
     private func load(){

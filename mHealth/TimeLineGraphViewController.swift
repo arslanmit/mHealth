@@ -90,7 +90,7 @@ class TimeLineGraphViewController: UIViewController, JBLineChartViewDelegate, JB
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, colorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
-        return UIColor.lightGray
+        return UIColor(displayP3Red: 0.71, green: 0.89, blue: 1.0, alpha: 1.0)
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, showsDotsForLineAtLineIndex lineIndex: UInt) -> Bool {
@@ -98,7 +98,7 @@ class TimeLineGraphViewController: UIViewController, JBLineChartViewDelegate, JB
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, colorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
-        return UIColor.lightGray
+        return UIColor(displayP3Red: 0.71, green: 0.89, blue: 1.0, alpha: 1.0)
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, smoothLineAtLineIndex lineIndex: UInt) -> Bool {
@@ -106,7 +106,7 @@ class TimeLineGraphViewController: UIViewController, JBLineChartViewDelegate, JB
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, didSelectLineAt lineIndex: UInt, horizontalIndex: UInt) {
-        let (h,m,s) = Util.secondsToHoursMinutesSeconds(seconds: Int(runs[Int(horizontalIndex)].duration))
+        let (h,m,_) = Util.secondsToHoursMinutesSeconds(seconds: Int(runs[Int(horizontalIndex)].duration))
         header.text = "On \(Util.LineGraphDateHeader(from: runs[Int(horizontalIndex)].timestamp)), "
         informationLabel.text = "You ran \(h) hours and \(m) minutes!"
     }
@@ -117,7 +117,7 @@ class TimeLineGraphViewController: UIViewController, JBLineChartViewDelegate, JB
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, fillColorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
-        return UIColor.darkGray
+        return UIColor(displayP3Red: 0.86, green: 0.95, blue: 1.00, alpha: 1.00)
     }
     
     private func load(){
