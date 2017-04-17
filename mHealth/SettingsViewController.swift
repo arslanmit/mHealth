@@ -29,6 +29,15 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let id: String = Util.removePeriod(s: (user?.email)!)
+        let dataRef = FIRDatabase.database().reference(withPath: "users//\(id)/User-Data")
+        
+        dataRef.observe(.value, with: { snapshot in
+            self.load()
+            self.tableView.reloadData()
+        })
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -127,37 +136,11 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func changeDesiredLifestyle(){
-        
-        let alert = UIAlertController(title: "Change current lifestyle",
-                                      message: "Enter new lifestyle",
-                                      preferredStyle: .alert)
-        
-        let saveAction = UIAlertAction(title: "Save",
-                                       style: .default) { action in
-                                        let textField = alert.textFields![0]
-                                        let id: String = Util.removePeriod(s: (self.user?.email)!)
-                                        self.rootRef.child("users//\(id)/User-Data/desired-lifestyle").setValue(textField.text!)
-                                        self.load()
-                                        self.tableView.reloadData()
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel",
-                                         style: .default)
-        
-        alert.addTextField(configurationHandler: {(textField: UITextField!) in
-            let pick = DesiredLifestylePicker()
-            pick.textField = textField
-            pick.awakeFromNib()
-            textField.inputView = pick
-            textField.textAlignment = .center
-        })
-        
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true, completion: nil)
-        
+        let picker = DesiredLifestylePicker()
+        picker.userFirebaseActionSheet(self)
     }
+    
+    
     
     //MARK: TABLE VIEW FUNCTIONS
     
@@ -177,7 +160,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             changeDisplayName(title: "Change Display Name", message: "Enter new name")
         }
         else if(indexPath.row == 4){
-            changeDesiredLifestyle()
+           changeDesiredLifestyle()
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
