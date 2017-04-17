@@ -13,6 +13,8 @@
 		2E11A12E1EA3F69B004D48B9 /* button-1905961_640.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E11A12D1EA3F69B004D48B9 /* button-1905961_640.png */; };
 		2E11A1341EA4114F004D48B9 /* GraphsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E11A1331EA4114F004D48B9 /* GraphsViewController.swift */; };
 		2E11A1361EA42064004D48B9 /* settings_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E11A1351EA42064004D48B9 /* settings_icon.png */; };
+		2E248F641EA48E6D001E2C07 /* CustomUIPickers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E248F631EA48E6D001E2C07 /* CustomUIPickers.swift */; };
+		2E248F661EA497A6001E2C07 /* transRedStandingApple.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E248F651EA497A6001E2C07 /* transRedStandingApple.png */; };
 		2E2AE2651E6A63CE00C3A9D5 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */; };
 		2E31FD681E796D7F00CE67A2 /* PedometerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31FD671E796D7F00CE67A2 /* PedometerViewController.swift */; };
 		2E3CCA311E85E8AF00F9FE2E /* RunsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CCA301E85E8AF00F9FE2E /* RunsTableViewController.swift */; };
@@ -110,6 +112,8 @@
 		2E11A12D1EA3F69B004D48B9 /* button-1905961_640.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-1905961_640.png"; sourceTree = "<group>"; };
 		2E11A1331EA4114F004D48B9 /* GraphsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphsViewController.swift; sourceTree = "<group>"; };
 		2E11A1351EA42064004D48B9 /* settings_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_icon.png; sourceTree = "<group>"; };
+		2E248F631EA48E6D001E2C07 /* CustomUIPickers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUIPickers.swift; sourceTree = "<group>"; };
+		2E248F651EA497A6001E2C07 /* transRedStandingApple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transRedStandingApple.png; sourceTree = "<group>"; };
 		2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		2E31FD671E796D7F00CE67A2 /* PedometerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedometerViewController.swift; sourceTree = "<group>"; };
 		2E3CCA301E85E8AF00F9FE2E /* RunsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunsTableViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +222,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		2E248F611EA48E35001E2C07 /* TEST VIEWS */ = {
+			isa = PBXGroup;
+			children = (
+				2EEAA8AE1EA46B0C00B0813A /* animationPrototype.swift */,
+			);
+			name = "TEST VIEWS";
+			sourceTree = "<group>";
+		};
+		2E248F621EA48E4B001E2C07 /* Subclasses/Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2E248F631EA48E6D001E2C07 /* CustomUIPickers.swift */,
+			);
+			name = Subclasses/Extensions;
+			sourceTree = "<group>";
+		};
 		2E4B50B61E9FC1B200B6B45B /* Removed//Reference Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,7 +325,6 @@
 				2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */,
 				2E4B50BF1EA0077000B6B45B /* SettingsViewController.swift */,
 				2E4B50C11EA0105D00B6B45B /* UserTableViewCell.swift */,
-				2EEAA8AE1EA46B0C00B0813A /* animationPrototype.swift */,
 			);
 			name = "mHealth Views";
 			sourceTree = "<group>";
@@ -400,6 +419,7 @@
 		2EE80AF81E68ABF7000956DE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2E248F651EA497A6001E2C07 /* transRedStandingApple.png */,
 				2E11A1351EA42064004D48B9 /* settings_icon.png */,
 				2E11A12D1EA3F69B004D48B9 /* button-1905961_640.png */,
 				2E11A12B1EA1AE24004D48B9 /* s_tweet_button.png */,
@@ -419,6 +439,7 @@
 		2EE80AFD1E68AED8000956DE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2E248F621EA48E4B001E2C07 /* Subclasses/Extensions */,
 				2EC1E4F71EA0235A009C8113 /* Chat */,
 				2EBFA4D01E8DF6420069E9A0 /* Pedometer */,
 				2EBFA4CF1E8DF6240069E9A0 /* Maps */,
@@ -432,6 +453,7 @@
 		2EE80B001E690088000956DE /* mHealth Swift Files */ = {
 			isa = PBXGroup;
 			children = (
+				2E248F611EA48E35001E2C07 /* TEST VIEWS */,
 				2EBFA4C91E8DF2F40069E9A0 /* mHealth Views */,
 				2EBFA4CC1E8DF3760069E9A0 /* Calorie Views */,
 				2EBFA4CA1E8DF34D0069E9A0 /* HealthKit View */,
@@ -589,6 +611,7 @@
 				2EB8F5251E78F07B0041BE03 /* cherry.png in Resources */,
 				2E69EF261E65D36A00F1BC9A /* LaunchScreen.storyboard in Resources */,
 				2E764EFC1E65D64F0082CC42 /* GoogleService-Info.plist in Resources */,
+				2E248F661EA497A6001E2C07 /* transRedStandingApple.png in Resources */,
 				2E11A12C1EA1AE24004D48B9 /* s_tweet_button.png in Resources */,
 				2E69EF231E65D36A00F1BC9A /* Assets.xcassets in Resources */,
 				2E4B50B81E9FD1FE00B6B45B /* run_homer_run_by_linggarlitoz-d4gfs6h.png in Resources */,
@@ -690,6 +713,7 @@
 				2E31FD681E796D7F00CE67A2 /* PedometerViewController.swift in Sources */,
 				2E99C58E1E70911900439E41 /* HKHealthStoreExtension.swift in Sources */,
 				2E9286C11E7B920100E75230 /* Util.swift in Sources */,
+				2E248F641EA48E6D001E2C07 /* CustomUIPickers.swift in Sources */,
 				2E69EF1C1E65D36A00F1BC9A /* AppDelegate.swift in Sources */,
 				2EF730BB1E8442C9006A2734 /* FirebaseRunsViewController.swift in Sources */,
 				2EBFA4D21E8DF6510069E9A0 /* MotionActivity.swift in Sources */,

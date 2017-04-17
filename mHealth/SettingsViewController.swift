@@ -126,6 +126,39 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         present(alert, animated: true, completion: nil)
     }
     
+    func changeDesiredLifestyle(){
+        
+        let alert = UIAlertController(title: "Change current lifestyle",
+                                      message: "Enter new lifestyle",
+                                      preferredStyle: .alert)
+        
+        let saveAction = UIAlertAction(title: "Save",
+                                       style: .default) { action in
+                                        let textField = alert.textFields![0]
+                                        let id: String = Util.removePeriod(s: (self.user?.email)!)
+                                        self.rootRef.child("users//\(id)/User-Data/desired-lifestyle").setValue(textField.text!)
+                                        self.load()
+                                        self.tableView.reloadData()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .default)
+        
+        alert.addTextField(configurationHandler: {(textField: UITextField!) in
+            let pick = DesiredLifestylePicker()
+            pick.textField = textField
+            pick.awakeFromNib()
+            textField.inputView = pick
+            textField.textAlignment = .center
+        })
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
     //MARK: TABLE VIEW FUNCTIONS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -143,6 +176,9 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         else if(indexPath.row == 2){
             changeDisplayName(title: "Change Display Name", message: "Enter new name")
         }
+        else if(indexPath.row == 4){
+            changeDesiredLifestyle()
+        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -152,3 +188,5 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
 
     
 }
+
+
