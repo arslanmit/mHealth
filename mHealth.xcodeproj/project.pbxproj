@@ -63,6 +63,10 @@
 		2EE80AFF1E68AEF2000956DE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE80AFE1E68AEF2000956DE /* User.swift */; };
 		2EE80B021E6900A3000956DE /* CalorieTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE80B011E6900A3000956DE /* CalorieTracker.swift */; };
 		2EE80B041E690478000956DE /* FoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE80B031E690478000956DE /* FoodItem.swift */; };
+		2EEAA8AF1EA46B0C00B0813A /* animationPrototype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEAA8AE1EA46B0C00B0813A /* animationPrototype.swift */; };
+		2EEAA8B11EA46C7F00B0813A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EEAA8B01EA46C7F00B0813A /* CoreGraphics.framework */; };
+		2EEAA8B31EA46C9900B0813A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EEAA8B21EA46C9900B0813A /* UIKit.framework */; };
+		2EEAA8B51EA46CB400B0813A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EEAA8B41EA46CB400B0813A /* Foundation.framework */; };
 		2EF730BB1E8442C9006A2734 /* FirebaseRunsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF730BA1E8442C9006A2734 /* FirebaseRunsViewController.swift */; };
 		2EFC7C251E7778560033173E /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC7C241E7778560033173E /* HealthManager.swift */; };
 		D3E99D63B6D79540EB6F6DA6 /* Pods_mHealth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24E72EE1D1F73AA5F76F95B /* Pods_mHealth.framework */; };
@@ -164,6 +168,10 @@
 		2EE80AFE1E68AEF2000956DE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2EE80B011E6900A3000956DE /* CalorieTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalorieTracker.swift; sourceTree = "<group>"; };
 		2EE80B031E690478000956DE /* FoodItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodItem.swift; sourceTree = "<group>"; };
+		2EEAA8AE1EA46B0C00B0813A /* animationPrototype.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = animationPrototype.swift; sourceTree = "<group>"; };
+		2EEAA8B01EA46C7F00B0813A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2EEAA8B21EA46C9900B0813A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2EEAA8B41EA46CB400B0813A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2EF730BA1E8442C9006A2734 /* FirebaseRunsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseRunsViewController.swift; sourceTree = "<group>"; };
 		2EFC7C241E7778560033173E /* HealthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
 		AC661691064ACA7ABEC578C4 /* Pods-mHealth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mHealth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mHealth/Pods-mHealth.debug.xcconfig"; sourceTree = "<group>"; };
@@ -175,6 +183,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EEAA8B51EA46CB400B0813A /* Foundation.framework in Frameworks */,
+				2EEAA8B31EA46C9900B0813A /* UIKit.framework in Frameworks */,
+				2EEAA8B11EA46C7F00B0813A /* CoreGraphics.framework in Frameworks */,
 				D3E99D63B6D79540EB6F6DA6 /* Pods_mHealth.framework in Frameworks */,
 				2EA6F7F61E822B5F002969A5 /* MapKit.framework in Frameworks */,
 				2E69EF731E6600BD00F1BC9A /* HealthKit.framework in Frameworks */,
@@ -294,6 +305,7 @@
 				2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */,
 				2E4B50BF1EA0077000B6B45B /* SettingsViewController.swift */,
 				2E4B50C11EA0105D00B6B45B /* UserTableViewCell.swift */,
+				2EEAA8AE1EA46B0C00B0813A /* animationPrototype.swift */,
 			);
 			name = "mHealth Views";
 			sourceTree = "<group>";
@@ -433,6 +445,9 @@
 		CE767B442FDD135AE8D57B61 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2EEAA8B41EA46CB400B0813A /* Foundation.framework */,
+				2EEAA8B21EA46C9900B0813A /* UIKit.framework */,
+				2EEAA8B01EA46C7F00B0813A /* CoreGraphics.framework */,
 				2EB3FE781E9316150069781F /* JBChartView-Bridging-Header.h */,
 				2EA6F7F51E822B5F002969A5 /* MapKit.framework */,
 				2E69EF721E6600BD00F1BC9A /* HealthKit.framework */,
@@ -684,6 +699,7 @@
 				2EC1E4FB1EA024CA009C8113 /* UIImage+Gif.swift in Sources */,
 				2E11A1341EA4114F004D48B9 /* GraphsViewController.swift in Sources */,
 				2E4B50C01EA0077000B6B45B /* SettingsViewController.swift in Sources */,
+				2EEAA8AF1EA46B0C00B0813A /* animationPrototype.swift in Sources */,
 				2EB3FDCC1E920B110069781F /* MainScreenViewController.swift in Sources */,
 				2EE80B041E690478000956DE /* FoodItem.swift in Sources */,
 				2EA6F7F21E81EC01002969A5 /* Location.swift in Sources */,

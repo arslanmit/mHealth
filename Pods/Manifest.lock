@@ -1,4 +1,5 @@
 PODS:
+  - BAFluidView (0.2.3)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -76,6 +77,7 @@ PODS:
   - Protobuf (3.2.0)
 
 DEPENDENCIES:
+  - BAFluidView
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
@@ -91,6 +93,7 @@ DEPENDENCIES:
   - JSQMessagesViewController
 
 SPEC CHECKSUMS:
+  BAFluidView: 5d84ef109831b97740f75b6d785e51f13fa08398
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   FBSDKCoreKit: 894b2b6eda6a4c8c4204e92e59cc355709ef045c
   FBSDKLoginKit: 83ca4d8f12a2022570af9fd6aacf27f6b425b99f
@@ -112,6 +115,6 @@ SPEC CHECKSUMS:
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   Protobuf: 745f59e122e5de98d4d7ef291e264a0eef80f58e
 
-PODFILE CHECKSUM: 7de528c5eaffcb465a5139674da0af45775ab989
+PODFILE CHECKSUM: 8d178a3561306e553f177c002814d34e328eff5b
 
 COCOAPODS: 1.2.0

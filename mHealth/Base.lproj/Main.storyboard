@@ -257,6 +257,49 @@
             </objects>
             <point key="canvasLocation" x="2768.8000000000002" y="-484.40779610194909"/>
         </scene>
+        <!--Animation Prototype View Controller-->
+        <scene sceneID="VE9-RT-T1O">
+            <objects>
+                <viewController id="vwx-yY-C4h" customClass="animationPrototypeViewController" customModule="mHealth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nXt-cd-CD1"/>
+                        <viewControllerLayoutGuide type="bottom" id="lgq-Sr-vOD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Mm2-5n-IUT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wm5-l6-IRZ" userLabel="backgroundView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FBn-tn-wK1">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBy-FK-e5u">
+                                        <rect key="frame" x="8" y="255" width="359" height="43"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="Wm5-l6-IRZ" id="OQL-7M-JLh"/>
+                        <outlet property="exampleContainerView" destination="FBn-tn-wK1" id="zor-XA-rxD"/>
+                        <outlet property="titleLabels" destination="yBy-FK-e5u" id="mec-Xu-3Q0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EYJ-F1-BUW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1480.8" y="1899.400299850075"/>
+        </scene>
         <!--Data Display-->
         <scene sceneID="Eol-5o-b0m">
             <objects>
@@ -351,6 +394,14 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="ZOJ-78-C2d" kind="show" id="Nwk-sF-XHj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R3Y-dj-RP8">
+                                        <rect key="frame" x="8" y="37" width="77" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="animation"/>
+                                        <connections>
+                                            <segue destination="vwx-yY-C4h" kind="show" id="oAm-dr-HCy"/>
                                         </connections>
                                     </button>
                                 </subviews>

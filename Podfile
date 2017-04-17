@@ -16,6 +16,7 @@ target 'mHealth' do
 	pod 'FBSDKLoginKit’
 	pod ‘JBChartView’
 	pod ‘JSQMessagesViewController’
+	pod ‘BAFluidView’
 
 source 'https://github.com/CocoaPods/Specs.git'
   pod 'GoogleMaps'
