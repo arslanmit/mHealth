@@ -13,9 +13,12 @@
 		2E11A12E1EA3F69B004D48B9 /* button-1905961_640.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E11A12D1EA3F69B004D48B9 /* button-1905961_640.png */; };
 		2E11A1341EA4114F004D48B9 /* GraphsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E11A1331EA4114F004D48B9 /* GraphsViewController.swift */; };
 		2E11A1361EA42064004D48B9 /* settings_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E11A1351EA42064004D48B9 /* settings_icon.png */; };
-		2E248F641EA48E6D001E2C07 /* CustomUIPickers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E248F631EA48E6D001E2C07 /* CustomUIPickers.swift */; };
+		2E248F641EA48E6D001E2C07 /* Instructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E248F631EA48E6D001E2C07 /* Instructions.swift */; };
 		2E248F661EA497A6001E2C07 /* transRedStandingApple.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E248F651EA497A6001E2C07 /* transRedStandingApple.png */; };
 		2E248F681EA59BD6001E2C07 /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E248F671EA59BD6001E2C07 /* StringExtention.swift */; };
+		2E248F6A1EA5AF15001E2C07 /* CurrentLifestylePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E248F691EA5AF15001E2C07 /* CurrentLifestylePicker.swift */; };
+		2E248F6C1EA5AF45001E2C07 /* DesiredLifestylePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E248F6B1EA5AF45001E2C07 /* DesiredLifestylePicker.swift */; };
+		2E248F6E1EA5AF81001E2C07 /* DistanceGoalPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E248F6D1EA5AF81001E2C07 /* DistanceGoalPicker.swift */; };
 		2E2AE2651E6A63CE00C3A9D5 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */; };
 		2E31FD681E796D7F00CE67A2 /* PedometerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31FD671E796D7F00CE67A2 /* PedometerViewController.swift */; };
 		2E3CCA311E85E8AF00F9FE2E /* RunsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CCA301E85E8AF00F9FE2E /* RunsTableViewController.swift */; };
@@ -113,9 +116,12 @@
 		2E11A12D1EA3F69B004D48B9 /* button-1905961_640.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-1905961_640.png"; sourceTree = "<group>"; };
 		2E11A1331EA4114F004D48B9 /* GraphsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphsViewController.swift; sourceTree = "<group>"; };
 		2E11A1351EA42064004D48B9 /* settings_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_icon.png; sourceTree = "<group>"; };
-		2E248F631EA48E6D001E2C07 /* CustomUIPickers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUIPickers.swift; sourceTree = "<group>"; };
+		2E248F631EA48E6D001E2C07 /* Instructions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instructions.swift; sourceTree = "<group>"; };
 		2E248F651EA497A6001E2C07 /* transRedStandingApple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transRedStandingApple.png; sourceTree = "<group>"; };
 		2E248F671EA59BD6001E2C07 /* StringExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtention.swift; sourceTree = "<group>"; };
+		2E248F691EA5AF15001E2C07 /* CurrentLifestylePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLifestylePicker.swift; sourceTree = "<group>"; };
+		2E248F6B1EA5AF45001E2C07 /* DesiredLifestylePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesiredLifestylePicker.swift; sourceTree = "<group>"; };
+		2E248F6D1EA5AF81001E2C07 /* DistanceGoalPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceGoalPicker.swift; sourceTree = "<group>"; };
 		2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		2E31FD671E796D7F00CE67A2 /* PedometerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedometerViewController.swift; sourceTree = "<group>"; };
 		2E3CCA301E85E8AF00F9FE2E /* RunsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunsTableViewController.swift; sourceTree = "<group>"; };
@@ -235,8 +241,11 @@
 		2E248F621EA48E4B001E2C07 /* Subclasses/Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				2E248F631EA48E6D001E2C07 /* CustomUIPickers.swift */,
+				2E248F631EA48E6D001E2C07 /* Instructions.swift */,
 				2E248F671EA59BD6001E2C07 /* StringExtention.swift */,
+				2E248F691EA5AF15001E2C07 /* CurrentLifestylePicker.swift */,
+				2E248F6B1EA5AF45001E2C07 /* DesiredLifestylePicker.swift */,
+				2E248F6D1EA5AF81001E2C07 /* DistanceGoalPicker.swift */,
 			);
 			name = Subclasses/Extensions;
 			sourceTree = "<group>";
@@ -713,11 +722,12 @@
 				2E248F681EA59BD6001E2C07 /* StringExtention.swift in Sources */,
 				2E3CCA351E85EBB300F9FE2E /* RunsTableViewCell.swift in Sources */,
 				2E4B50BC1E9FDDAA00B6B45B /* TimeLineGraphViewController.swift in Sources */,
+				2E248F6E1EA5AF81001E2C07 /* DistanceGoalPicker.swift in Sources */,
 				2EC1E4F61EA0232E009C8113 /* ChatViewController.swift in Sources */,
 				2E31FD681E796D7F00CE67A2 /* PedometerViewController.swift in Sources */,
 				2E99C58E1E70911900439E41 /* HKHealthStoreExtension.swift in Sources */,
 				2E9286C11E7B920100E75230 /* Util.swift in Sources */,
-				2E248F641EA48E6D001E2C07 /* CustomUIPickers.swift in Sources */,
+				2E248F641EA48E6D001E2C07 /* Instructions.swift in Sources */,
 				2E69EF1C1E65D36A00F1BC9A /* AppDelegate.swift in Sources */,
 				2EF730BB1E8442C9006A2734 /* FirebaseRunsViewController.swift in Sources */,
 				2EBFA4D21E8DF6510069E9A0 /* MotionActivity.swift in Sources */,
@@ -737,6 +747,8 @@
 				2E9286BB1E79E16B00E75230 /* mHealthUser.swift in Sources */,
 				2EC1E4FF1EA026C5009C8113 /* CreateChannelCell.swift in Sources */,
 				2EFC7C251E7778560033173E /* HealthManager.swift in Sources */,
+				2E248F6A1EA5AF15001E2C07 /* CurrentLifestylePicker.swift in Sources */,
+				2E248F6C1EA5AF45001E2C07 /* DesiredLifestylePicker.swift in Sources */,
 				2E09F7B41E77B77200EE2F0A /* ProfileTableTableViewController.swift in Sources */,
 				2E3CCA311E85E8AF00F9FE2E /* RunsTableViewController.swift in Sources */,
 			);

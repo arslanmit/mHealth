@@ -159,7 +159,7 @@
                                 <rect key="frame" x="79" y="402" width="214" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.23842404038339157" green="0.74867147842639592" blue="0.41586715221897119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.29955575890000002" green="0.5" blue="0.34049620019999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -175,12 +175,13 @@
                                     <segment title="Fit"/>
                                     <segment title="Very Fit"/>
                                 </segments>
+                                <color key="tintColor" red="0.80084073600000005" green="0.1022935562" blue="0.22806432660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select your desired lifestyle:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8D5-rX-tWn">
                                 <rect key="frame" x="80" y="498" width="216" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.23842404038339157" green="0.74867147842639592" blue="0.41586715221897119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.29955575890000002" green="0.5" blue="0.34049620019999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wlA-Bl-jJj">
@@ -192,6 +193,7 @@
                                     <segment title="Fit"/>
                                     <segment title="Very Fit"/>
                                 </segments>
+                                <color key="tintColor" red="0.80084073600000005" green="0.1022935562" blue="0.22806432660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </segmentedControl>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qfu-rf-LhA">
                                 <rect key="frame" x="11" y="241" width="351" height="30"/>
@@ -238,7 +240,7 @@
                                     <action selector="BackBtnClicked:" destination="NW1-D1-ZkM" eventType="touchUpInside" id="kvb-VA-vAo"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How much would you like to run? (Miles)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="593-cc-XYO">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How much would you like to run? (Miles)" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="593-cc-XYO">
                                 <rect key="frame" x="8" y="356" width="351" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
@@ -1598,6 +1600,7 @@
                                     <segment title="Time"/>
                                     <segment title="Climb"/>
                                 </segments>
+                                <color key="tintColor" red="0.80084073600000005" green="0.1022935562" blue="0.22806432660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="segmentChanged:" destination="qOD-za-gNL" eventType="valueChanged" id="6fP-Dv-rNB"/>
                                 </connections>
