@@ -96,7 +96,7 @@ class DistanceGoalPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSo
      alert.view.addSubview(picker);
      
      
-    let saveAction = UIAlertAction(title: "Save Style?", style: .default){
+    let saveAction = UIAlertAction(title: "Save new goal?", style: .default){
         (action: UIAlertAction) in
         
         let id: String = Util.removePeriod(s: (sender.user?.email)!)
