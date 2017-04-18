@@ -81,8 +81,8 @@ class DistanceGoalPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSo
         textField.text = selectedOption
     }
     
-    /*/ MARK: action
-     func pickerAlertView(_ sender: CreateAccountViewController){
+    // MARK: action
+     func pickerAlertView(_ sender: SettingsViewController){
      let title = "Distance Goal"
      let message = " \n\n\n\n\n";
      let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.actionSheet);
@@ -96,16 +96,17 @@ class DistanceGoalPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSo
      alert.view.addSubview(picker);
      
      
-     let saveAction = UIAlertAction(title: "Save Style?", style: .default){
-     (action: UIAlertAction) in
-     sender.distanceGoalTextField.text = picker.selectedOption
-     }
-     let cancelAction = UIAlertAction(title:"Cancel",  style: .cancel){
-     (action:UIAlertAction) in
-     return
-     }
+    let saveAction = UIAlertAction(title: "Save Style?", style: .default){
+        (action: UIAlertAction) in
+        
+        let id: String = Util.removePeriod(s: (sender.user?.email)!)
+        sender.rootRef.child("users//\(id)/User-Data/distance-goal").setValue(picker.selectedOption)
+        
+    }
+     let cancelAction = UIAlertAction(title:"Cancel",  style: .cancel)
      alert.addAction(saveAction)
      alert.addAction(cancelAction)
      sender.present(alert, animated: true, completion: nil);
-     }*>>>> can't use this action thing because i'm just putting it to the text field vs saving it to firebase like the first two pickers... simply added to the didSelect configured with the referenced textfield..... sry 4 spagghettio */
+     }
+    /*>>>> can't use this action thing because i'm just putting it to the text field vs saving it to firebase like the first two pickers... simply added to the didSelect configured with the referenced textfield..... sry 4 spagghettio *///... never mind... im gonna fix heh...
 }

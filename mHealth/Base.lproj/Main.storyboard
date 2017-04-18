@@ -421,19 +421,23 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your progress:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gr3-wJ-HDt">
-                                        <rect key="frame" x="8" y="71" width="183" height="21"/>
+                                        <rect key="frame" x="8" y="71" width="327" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQr-Ac-Ce4">
-                                        <rect key="frame" x="8" y="100" width="183" height="21"/>
+                                        <rect key="frame" x="8" y="46" width="183" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Kgb-sb-yYY">
+                                        <rect key="frame" x="8" y="100" width="327" height="2"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </progressView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                             </view>
@@ -455,6 +459,7 @@
                     <connections>
                         <outlet property="mainView" destination="rXb-QY-bin" id="tlB-y2-JxV"/>
                         <outlet property="progressLabel" destination="gr3-wJ-HDt" id="E3f-zB-bT6"/>
+                        <outlet property="progressView" destination="Kgb-sb-yYY" id="LLS-8S-ndi"/>
                         <outlet property="ratingLabel" destination="gQr-Ac-Ce4" id="egf-ge-h9g"/>
                         <outlet property="welcomeLabel" destination="a0M-NN-sYX" id="JaN-rF-xQc"/>
                     </connections>

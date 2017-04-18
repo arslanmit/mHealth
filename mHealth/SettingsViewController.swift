@@ -23,7 +23,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     let user = FIRAuth.auth()?.currentUser
     let rootRef = FIRDatabase.database().reference()
     //MARK: DATA LABELS
-    let settings = ["Name:", "Email:", "Display Name:", "Current Lifestyle:", "Desired LifeStyle:"]
+    let settings = ["Name:", "Email:", "Display Name:", "Current Lifestyle:", "Desired LifeStyle:", "Distance Goal (Miles):"]
     var data = [String]()
     
 
@@ -77,6 +77,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             data.append(displayname)
             data.append(value?["current-lifestyle"] as! String)
             data.append(value?["desired-lifestyle"] as! String)
+            data.append(value?["distance-goal"] as! String)
             self.data = data
             self.tableView.reloadData()
         })
@@ -140,6 +141,11 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         picker.userFirebaseActionSheet(self)
     }
     
+    func changeDistanceGoal(){
+        let picker = DistanceGoalPicker()
+        picker.pickerAlertView(self)
+    }
+    
     
     
     //MARK: TABLE VIEW FUNCTIONS
@@ -161,6 +167,9 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         else if(indexPath.row == 4){
            changeDesiredLifestyle()
+        }
+        else if(indexPath.row == 5){
+            changeDistanceGoal()
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }

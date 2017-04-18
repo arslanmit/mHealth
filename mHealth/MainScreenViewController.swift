@@ -14,7 +14,7 @@ class MainScreenViewController : UIViewController{
  //MARK: OUTLETS
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var mainView: UIView!
-    
+    @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     
@@ -29,7 +29,7 @@ class MainScreenViewController : UIViewController{
 
     override func viewDidLoad(){
         self.mainView.layer.cornerRadius = 5.0
-        setWelcome()
+       // setWelcomeAndRating()
         
         let id: String = Util.removePeriod(s: (user?.email)!)
         let ref = FIRDatabase.database().reference(withPath: "users//\(id)/")
@@ -39,7 +39,7 @@ class MainScreenViewController : UIViewController{
     }
     
     private func load(){
-        self.setWelcome()
+        self.setWelcomeAndRating()
         self.setDistanceGoal()
         self.loadRuns()
     }
@@ -49,18 +49,23 @@ class MainScreenViewController : UIViewController{
         for run in runs{
             distance = distance + run.distance
         }
+        let miles: String = String(Util.getMiles(from: distance))
         let goal: String = String(self.distanceGoal)
-        progressLabel.text = "\(String(Util.getMiles(from: distance))) miles ran! \(goal) mile goal."
+        progressLabel.text = "\(miles) miles ran! \(goal) mile goal."
+        let progress: Double = Double(miles)!/Double(goal)!
+        progressView.setProgress(Float(progress), animated: true)
     }
     
-    func setWelcome(){
+    func setWelcomeAndRating(){
         let id: String = Util.removePeriod(s: (user?.email)!)
         let userRef = FIRDatabase.database().reference(withPath: "users//\(id)/User-Data")
         userRef.observeSingleEvent(of: .value, with: { snapshot in
             let value = snapshot.value as? NSDictionary
             let mName = value?["name"] as! String
+            let currentLifestyle = value?["current-lifestyle"] as! String
             self.title = mName
             self.welcomeLabel.text = "Welcome, \(mName)!"
+            self.ratingLabel.text = "Currently Rated: \(currentLifestyle)"
         })
     }
     
@@ -69,8 +74,8 @@ class MainScreenViewController : UIViewController{
         let userRef = FIRDatabase.database().reference(withPath: "users//\(id)/User-Data")
         userRef.observeSingleEvent(of: .value, with: { snapshot in
             let value = snapshot.value as? NSDictionary
-            let distanceGoal = value?["distance-goal"] as! Double
-            self.distanceGoal = distanceGoal
+            let distanceGoal = value?["distance-goal"] as! String
+            self.distanceGoal = distanceGoal.doubleValue!
         })
     }
     
