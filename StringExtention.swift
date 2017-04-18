@@ -1,13 +1,12 @@
 //
-//  UserHKData.swift
+//  StringExtention.swift
 //  mHealth
 //
-//  Created by Loaner on 3/16/17.
+//  Created by Loaner on 4/17/17.
 //  Copyright © 2017 JTMax. All rights reserved.
 //
 
 import Foundation
-import UIKit
 
 extension String {
     var doubleValue:Double? {
@@ -18,11 +17,3 @@ extension String {
     }
 }
 
-
-
-let s = "hello"
-
-let sn = "1.23"
-
-sn.doubleValue
-s.doubleValue

@@ -44,6 +44,7 @@ struct mHealthUser{
     let bmi: Double?
     let mcurrentLifestyle: currentLifestyle
     let mdesiredLifestyle: desiredLifestyle
+    let distanceGoal: Double?
     
     
     let ref: FIRDatabaseReference?
@@ -57,7 +58,8 @@ struct mHealthUser{
          weight: Double? = nil,
          height: Double? = nil,
          bmi: Double? = nil,
-         mcurrentLifestyle: String,mdesiredLifestyle: String) {
+         mcurrentLifestyle: String, mdesiredLifestyle: String,
+         distanceGoal: Double? = nil) {
         self.uid = uid
         self.email = email
         self.name = name
@@ -69,6 +71,7 @@ struct mHealthUser{
         self.bmi = bmi
         self.mcurrentLifestyle = currentLifestyle(rawValue: mcurrentLifestyle)!
         self.mdesiredLifestyle = desiredLifestyle(rawValue: mdesiredLifestyle)!
+        self.distanceGoal = distanceGoal
         self.ref = nil
     }
     
@@ -84,7 +87,8 @@ struct mHealthUser{
             "height":height ?? 0,
             "bmi":bmi ?? 0,
             "current-lifestyle":mcurrentLifestyle.description,
-            "desired-lifestyle":mdesiredLifestyle.description
+            "desired-lifestyle":mdesiredLifestyle.description,
+            "distance-goal":distanceGoal ?? 0
         ]
     }
     
@@ -101,6 +105,7 @@ struct mHealthUser{
         bmi = snapshotValue["bmi"] as? Double
         mcurrentLifestyle = currentLifestyle(rawValue: snapshotValue["current-lifestyle"] as! String)!
         mdesiredLifestyle = desiredLifestyle(rawValue: snapshotValue["desired-lifestyle"] as! String)!
+        distanceGoal = snapshotValue["distance-goal"] as? Double
         ref = snapshot.ref;
     }
     

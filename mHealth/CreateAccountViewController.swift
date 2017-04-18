@@ -21,6 +21,7 @@ class CreateAccountViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var desiredLifestylePicker: UISegmentedControl!
     @IBOutlet weak var backButton: UIButton!
     
+    @IBOutlet weak var distanceGoalTextField: UITextField!
     //MARK:Firebase
     var user = (FIRAuth.auth()?.currentUser)
     let ref = FIRDatabase.database().reference(withPath: "users")
@@ -34,8 +35,16 @@ class CreateAccountViewController: UIViewController, FBSDKLoginButtonDelegate {
         fbLoginButton.delegate = self
         fbLoginButton.readPermissions = ["email", "public_profile"]
         
+        
+        
+        let pick = DistanceGoalPicker()
+        pick.textField = distanceGoalTextField
+        pick.awakeFromNib()
+      //  distanceGoalTextField.inputView = pick
+        
 
     }
+   
     //to logout later on
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if (error != nil) {
@@ -83,7 +92,7 @@ class CreateAccountViewController: UIViewController, FBSDKLoginButtonDelegate {
     
 
     func createAccount(){
-        if(passwordField.text == confirmPasswordField.text){
+        if((passwordField.text! == confirmPasswordField.text!) && (distanceGoalTextField.text!.doubleValue != nil)){
         FIRAuth.auth()!.createUser(withEmail: emailField.text!,
                                    password: passwordField.text!) { user, error in
                                     if error != nil { //unsucessful
@@ -102,7 +111,7 @@ class CreateAccountViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
         }else{
             let alert = UIAlertController(title: "Creation error",
-                                          message: "Please confirm passwords are the same and try again!",
+                                          message: "Please confirm the passwords are the same and the miles are only numbers!",
                                           preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Okay",
                                          style: .default)
@@ -147,7 +156,8 @@ class CreateAccountViewController: UIViewController, FBSDKLoginButtonDelegate {
                                                email: (self.user?.email)!,
                                                name: nameField.text!,
                                                mcurrentLifestyle: self.currentToString(),
-                                               mdesiredLifestyle: self.desiredToString())
+                                               mdesiredLifestyle: self.desiredToString(),
+                                               distanceGoal: Double(distanceGoalTextField.text!))
         // 1
         let emailDOT = Util.removePeriod(s: (self.user?.email)!)
         let currentUserRef = self.ref.child(emailDOT)

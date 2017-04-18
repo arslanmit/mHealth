@@ -27,10 +27,10 @@ class animationPrototypeViewController: UIViewController{
     
     func setUpBackground() {
         
-        if ((self.gradient) != nil) {
+     //   if ((self.gradient) != nil) {
             self.gradient.removeFromSuperlayer()
             //self.gradient = nil
-        }
+    //    }
         
         let tempLayer: CAGradientLayer = CAGradientLayer()
         tempLayer.frame = self.view.bounds

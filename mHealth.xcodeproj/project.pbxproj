@@ -15,6 +15,7 @@
 		2E11A1361EA42064004D48B9 /* settings_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E11A1351EA42064004D48B9 /* settings_icon.png */; };
 		2E248F641EA48E6D001E2C07 /* CustomUIPickers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E248F631EA48E6D001E2C07 /* CustomUIPickers.swift */; };
 		2E248F661EA497A6001E2C07 /* transRedStandingApple.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E248F651EA497A6001E2C07 /* transRedStandingApple.png */; };
+		2E248F681EA59BD6001E2C07 /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E248F671EA59BD6001E2C07 /* StringExtention.swift */; };
 		2E2AE2651E6A63CE00C3A9D5 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */; };
 		2E31FD681E796D7F00CE67A2 /* PedometerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E31FD671E796D7F00CE67A2 /* PedometerViewController.swift */; };
 		2E3CCA311E85E8AF00F9FE2E /* RunsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3CCA301E85E8AF00F9FE2E /* RunsTableViewController.swift */; };
@@ -114,6 +115,7 @@
 		2E11A1351EA42064004D48B9 /* settings_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_icon.png; sourceTree = "<group>"; };
 		2E248F631EA48E6D001E2C07 /* CustomUIPickers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUIPickers.swift; sourceTree = "<group>"; };
 		2E248F651EA497A6001E2C07 /* transRedStandingApple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transRedStandingApple.png; sourceTree = "<group>"; };
+		2E248F671EA59BD6001E2C07 /* StringExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtention.swift; sourceTree = "<group>"; };
 		2E2AE2641E6A63CE00C3A9D5 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		2E31FD671E796D7F00CE67A2 /* PedometerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedometerViewController.swift; sourceTree = "<group>"; };
 		2E3CCA301E85E8AF00F9FE2E /* RunsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunsTableViewController.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				2E248F631EA48E6D001E2C07 /* CustomUIPickers.swift */,
+				2E248F671EA59BD6001E2C07 /* StringExtention.swift */,
 			);
 			name = Subclasses/Extensions;
 			sourceTree = "<group>";
@@ -707,6 +710,7 @@
 				2EDE97FD1E83499A00996E68 /* FirebaseRun.swift in Sources */,
 				2EA6F7FD1E822F01002969A5 /* mHealth.xcdatamodeld in Sources */,
 				2EB3FDCE1E9305010069781F /* DistanceLineGraphViewController.swift in Sources */,
+				2E248F681EA59BD6001E2C07 /* StringExtention.swift in Sources */,
 				2E3CCA351E85EBB300F9FE2E /* RunsTableViewCell.swift in Sources */,
 				2E4B50BC1E9FDDAA00B6B45B /* TimeLineGraphViewController.swift in Sources */,
 				2EC1E4F61EA0232E009C8113 /* ChatViewController.swift in Sources */,
