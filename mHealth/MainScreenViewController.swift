@@ -24,6 +24,8 @@ class MainScreenViewController : UIViewController{
     let user = FIRAuth.auth()?.currentUser
  //MARK: Array of Runs
     var runs = [FirebaseRun]()
+    
+    var distanceGoal: Double = 0
 
     override func viewDidLoad(){
         self.mainView.layer.cornerRadius = 5.0
@@ -38,6 +40,7 @@ class MainScreenViewController : UIViewController{
     
     private func load(){
         self.setWelcome()
+        self.setDistanceGoal()
         self.loadRuns()
     }
     
@@ -46,7 +49,8 @@ class MainScreenViewController : UIViewController{
         for run in runs{
             distance = distance + run.distance
         }
-        progressLabel.text = "\(String(Util.getMiles(from: distance))) miles ran! "
+        let goal: String = String(self.distanceGoal)
+        progressLabel.text = "\(String(Util.getMiles(from: distance))) miles ran! \(goal) mile goal."
     }
     
     func setWelcome(){
@@ -57,6 +61,16 @@ class MainScreenViewController : UIViewController{
             let mName = value?["name"] as! String
             self.title = mName
             self.welcomeLabel.text = "Welcome, \(mName)!"
+        })
+    }
+    
+    func setDistanceGoal(){
+        let id: String = Util.removePeriod(s: (user?.email)!)
+        let userRef = FIRDatabase.database().reference(withPath: "users//\(id)/User-Data")
+        userRef.observeSingleEvent(of: .value, with: { snapshot in
+            let value = snapshot.value as? NSDictionary
+            let distanceGoal = value?["distance-goal"] as! Double
+            self.distanceGoal = distanceGoal
         })
     }
     
