@@ -193,14 +193,14 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         let paceDouble: Double = (((instantPace*3.6*10).rounded()/10)*0.62137)
         let paceString: String = String(format: "%.2f", ceil(paceDouble*100)/100)
         
-        paceLabel.text = "Current speed: \(paceString) mi/hr"//"Pace: "+String((distance/seconds*3.6*10).rounded()/10)+" km/h"
+        paceLabel.text = "Current speed: \(paceString) mph"//"Pace: "+String((distance/seconds*3.6*10).rounded()/10)+" km/h"
         
         climbLabel.text = "Climb: "+String((vertClimb*10).rounded()/10)+" m"
         descentLabel.text = "Descent: "+String((vertDescent*10).rounded()/10)+" m"
  ///
         
         //print(weightInPounds)
-        caloriesLabel.text = "Calories: "+String(Double(weight!*0.75*dist))
+        caloriesLabel.text = "Calories: "+String(Double(weight!*0.75*dist).rounded()/100)
         calories = Double(weight!*0.75*dist)
         
 ///
