@@ -9,20 +9,14 @@
 import Foundation
 import UIKit
 
-extension String {
-    var doubleValue:Double? {
-        return Double(self)
-    }
-    var integerValue:Int? {
-        return Int(self)
-    }
-}
+print("mHealth")
 
 
+let fit: Bool = true
 
-let s = "hello"
 
-let sn = "1.23"
+print("Fitness Level = Fit... \(fit)")
 
-sn.doubleValue
-s.doubleValue
+
+print("good job!")
+

@@ -14,25 +14,25 @@ import CoreLocation
 
 class FirebaseRun{
     
-     var duration: Double
-     var distance: Double
-     var climb: Double
-     var descent: Double
-     var timestamp: String
+    var duration: Double
+    var distance: Double
+    var climb: Double
+    var descent: Double
+    var timestamp: String
     var latitudes: [Double]
     var longitudes: [Double]
     var timestamps: [String]
     
-    let caloriesBurnt: Double
+    var caloriesBurnt: Double
     
     let ref: FIRDatabaseReference?
     
-    init(duration: NSNumber, distance: NSNumber, climb: NSNumber, descent: NSNumber, caloriesBurnt: NSNumber, timestamp: String, latitudes: NSArray, longitudes: NSArray, timestamps: [String]) {
+    init(duration: NSNumber, distance: NSNumber, climb: NSNumber, descent: NSNumber, caloriesBurnt: Double, timestamp: String, latitudes: NSArray, longitudes: NSArray, timestamps: [String]) {
         self.duration = Double(duration)
         self.distance = Double(distance)
         self.climb = Double(climb)
         self.descent = Double(descent)
-        self.caloriesBurnt = Double(caloriesBurnt)
+        self.caloriesBurnt = caloriesBurnt
         self.timestamp = timestamp
         self.latitudes = latitudes as! [Double]
         self.longitudes = longitudes as! [Double]
@@ -54,12 +54,12 @@ class FirebaseRun{
         ref = snapshot.ref
     }
     
-    init(run: Run, savedLocations: [Location]) {
+    init(run: Run, savedLocations: [Location], caloriesBurnt: Double) {
         duration = Double(run.duration)
         distance = Double(run.distance)
         climb = Double(run.climb)
         descent = Double(run.descent)
-        caloriesBurnt = Double(run.caloriesBurnt)
+        self.caloriesBurnt = caloriesBurnt
         timestamp = Util.DateString(from: (savedLocations.last?.timestamp)!) as String
         //lats and longs
         latitudes = Util.getLatArray(locs: savedLocations)
