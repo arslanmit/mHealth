@@ -29,6 +29,7 @@ class Run: NSManagedObject {
     @NSManaged var distance: NSNumber
     @NSManaged var climb: NSNumber
     @NSManaged var descent: NSNumber
+    @NSManaged var caloriesBurnt: NSNumber
     @NSManaged var timestamp: Date
     @NSManaged var locations: NSOrderedSet
     

@@ -37,6 +37,7 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var managedContext: NSManagedObjectContext? = nil// = appDelegate.managedObjectContext!
     var managedObjectContext: NSManagedObjectContext?
+    var myUserData: UserHKData!
     
     var run: Run!
     var seconds = 0.0
@@ -45,6 +46,8 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
     var vertClimb = 0.0
     var vertDescent = 0.0
     var previousAlt = 0.0
+    var calories = 0.0
+    var weight = 0.0
     var locationManager: CLLocationManager!
     let activityManager = CMMotionActivityManager()
     
@@ -63,6 +66,7 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
     @IBOutlet weak var climbLabel: UILabel!
     @IBOutlet weak var descentLabel: UILabel!
     
+    @IBOutlet weak var caloriesLabel: UILabel!
     let user = FIRAuth.auth()?.currentUser
     let rootRef = FIRDatabase.database().reference()
     
@@ -79,6 +83,7 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         paceLabel.isHidden = true
         climbLabel.isHidden = true
         descentLabel.isHidden = true
+        caloriesLabel.isHidden = true
         stopButton.isHidden = true
         mapView2.isHidden = false
         
@@ -132,6 +137,7 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         paceLabel.isHidden = false
         climbLabel.isHidden = false
         descentLabel.isHidden = false
+        caloriesLabel.isHidden = false
         stopButton.isHidden = false
         mapView2.isHidden = false
         
@@ -140,6 +146,8 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         vertClimb = 0.0
         vertDescent = 0.0
         instantPace = 0.0
+        calories = 0.0
+        weight = 0.0
         previousAlt = -1000
         locations.removeAll(keepingCapacity: false)
         timer = Timer.scheduledTimer(timeInterval: 1,
@@ -187,8 +195,19 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         
         paceLabel.text = "Current speed: \(paceString) mi/hr"//"Pace: "+String((distance/seconds*3.6*10).rounded()/10)+" km/h"
         
-        climbLabel.text = "Total climb: "+String((vertClimb*10).rounded()/10)+" m"
-        descentLabel.text = "Total descent: "+String((vertDescent*10).rounded()/10)+" m"
+        climbLabel.text = "Climb: "+String((vertClimb*10).rounded()/10)+" m"
+        descentLabel.text = "Descent: "+String((vertDescent*10).rounded()/10)+" m"
+        
+        let id: String = Util.removePeriod(s: (user?.email)!)
+        let userRef = FIRDatabase.database().reference(withPath: "users//\(id)/User-Data")
+        userRef.observeSingleEvent(of: .value, with: { snapshot in
+            let value = snapshot.value as? NSDictionary
+            self.weight = value?["weight"] as! Double
+        })
+        let weightInPounds = weight*2.2
+        //print(weightInPounds)
+        caloriesLabel.text = "Calories: "+String(Double(weightInPounds*0.75*dist))
+        calories = Double(weightInPounds*0.75*dist)
     }
     func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
@@ -253,6 +272,7 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         savedRun.timestamp = NSDate() as Date
         savedRun.climb = NSNumber(value: vertClimb)
         savedRun.descent = NSNumber(value: vertDescent)
+        savedRun.caloriesBurnt = NSNumber(value: calories)
         
         // 2
         var savedLocations = [Location]()

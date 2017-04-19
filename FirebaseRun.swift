@@ -23,13 +23,16 @@ class FirebaseRun{
     var longitudes: [Double]
     var timestamps: [String]
     
+    let caloriesBurnt: Double
+    
     let ref: FIRDatabaseReference?
     
-    init(duration: NSNumber, distance: NSNumber, climb: NSNumber, descent: NSNumber, timestamp: String, latitudes: NSArray, longitudes: NSArray, timestamps: [String]) {
+    init(duration: NSNumber, distance: NSNumber, climb: NSNumber, descent: NSNumber, caloriesBurnt: NSNumber, timestamp: String, latitudes: NSArray, longitudes: NSArray, timestamps: [String]) {
         self.duration = Double(duration)
         self.distance = Double(distance)
         self.climb = Double(climb)
         self.descent = Double(descent)
+        self.caloriesBurnt = Double(caloriesBurnt)
         self.timestamp = timestamp
         self.latitudes = latitudes as! [Double]
         self.longitudes = longitudes as! [Double]
@@ -43,6 +46,7 @@ class FirebaseRun{
         distance = snapshotValue["distance"] as! Double
         climb = snapshotValue["climb"] as! Double
         descent = snapshotValue["descent"] as! Double
+        caloriesBurnt = snapshotValue["calories-burnt"] as! Double
         timestamp = snapshotValue["timestamp"] as! String
         latitudes = snapshotValue["latitudes"] as! [Double]
         longitudes = snapshotValue["longitudes"] as! [Double]
@@ -55,6 +59,7 @@ class FirebaseRun{
         distance = Double(run.distance)
         climb = Double(run.climb)
         descent = Double(run.descent)
+        caloriesBurnt = Double(run.caloriesBurnt)
         timestamp = Util.DateString(from: (savedLocations.last?.timestamp)!) as String
         //lats and longs
         latitudes = Util.getLatArray(locs: savedLocations)
@@ -69,6 +74,7 @@ class FirebaseRun{
             "distance":distance,
             "climb":climb,
             "descent":descent,
+            "calories-burnt":caloriesBurnt,
             "timestamp":timestamp,
             "latitudes":latitudes,
             "longitudes":longitudes,
@@ -82,6 +88,7 @@ class FirebaseRun{
         print(climb)
         print(descent)
         print(timestamp)
+        print(caloriesBurnt)
         dump(latitudes)
         dump(longitudes)
         dump(timestamps)
