@@ -39,12 +39,12 @@ class DesiredLifestylePicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDa
     func userFirebaseActionSheet(_ sender: SettingsViewController){
         let title = "Desired LifeStyle"
         let message = " \n\n\n\n\n";
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.actionSheet);
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert);
         alert.isModalInPopover = true;
         
         
         //Create a frame (placeholder/wrapper) for the picker and then create the picker
-        let pickerFrame: CGRect = CGRect(x: 12, y: 15, width: 330, height: 160); // CGRectMake(left), top, width, height) - left and top are like margins
+        let pickerFrame: CGRect = CGRect(x: 30, y: 15, width: 200, height: 160); // CGRectMake(left), top, width, height) - left and top are like margins
         let picker: DesiredLifestylePicker = DesiredLifestylePicker(frame: pickerFrame);
         picker.awakeFromNib()
         alert.view.addSubview(picker);

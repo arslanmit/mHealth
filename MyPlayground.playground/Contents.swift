@@ -26,3 +26,9 @@ let sn = "1.23"
 
 sn.doubleValue
 s.doubleValue
+
+let a = Array(0...100)
+
+a.map{
+    Double($0)/10
+}

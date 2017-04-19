@@ -137,8 +137,6 @@ class CreateAccountViewController: UIViewController, FBSDKLoginButtonDelegate {
                                 }
                                 else{
                                     self.addUserFirebase() /// special addition to this version of the method so that the segues work correctly :)
-                                   /// self.dismiss(animated: true, completion: nil)
-                                self.performSegue(withIdentifier: "createAccountToTab", sender: nil)
                                 self.dismiss(animated: true, completion: nil)
                                 }
         })
