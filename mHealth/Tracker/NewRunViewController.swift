@@ -165,6 +165,7 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let detailViewController = segue.destination as? DetailViewController {
             detailViewController.run = run
+            detailViewController.caloriesBurnt = calories
         }
     }
  
@@ -201,7 +202,7 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         
         //print(weightInPounds)
         caloriesLabel.text = "Calories: "+String(Double(weight!*0.75*dist).rounded()/100)
-        calories = Double(weight!*0.75*dist)
+        calories = Double(weight!*0.75*dist/100)
         
 ///
     }

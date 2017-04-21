@@ -62,6 +62,7 @@
 		2EC1E4FB1EA024CA009C8113 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1E4FA1EA024CA009C8113 /* UIImage+Gif.swift */; };
 		2EC1E4FD1EA025CA009C8113 /* ChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1E4FC1EA025CA009C8113 /* ChannelListViewController.swift */; };
 		2EC1E4FF1EA026C5009C8113 /* CreateChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1E4FE1EA026C5009C8113 /* CreateChannelCell.swift */; };
+		2EDCC5291EA9A8570092BD61 /* BinaryFloatingPointExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCC5281EA9A8570092BD61 /* BinaryFloatingPointExtention.swift */; };
 		2EDE97F91E82EDB200996E68 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE97F81E82EDB200996E68 /* DetailViewController.swift */; };
 		2EDE97FB1E82EDF000996E68 /* MulticolorPolylineSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE97FA1E82EDF000996E68 /* MulticolorPolylineSegment.swift */; };
 		2EDE97FD1E83499A00996E68 /* FirebaseRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE97FC1E83499A00996E68 /* FirebaseRun.swift */; };
@@ -173,6 +174,7 @@
 		2EC1E4FA1EA024CA009C8113 /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		2EC1E4FC1EA025CA009C8113 /* ChannelListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListViewController.swift; sourceTree = "<group>"; };
 		2EC1E4FE1EA026C5009C8113 /* CreateChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChannelCell.swift; sourceTree = "<group>"; };
+		2EDCC5281EA9A8570092BD61 /* BinaryFloatingPointExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryFloatingPointExtention.swift; sourceTree = "<group>"; };
 		2EDE97F81E82EDB200996E68 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2EDE97FA1E82EDF000996E68 /* MulticolorPolylineSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MulticolorPolylineSegment.swift; path = mHealth/MulticolorPolylineSegment.swift; sourceTree = "<group>"; };
 		2EDE97FC1E83499A00996E68 /* FirebaseRun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseRun.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				2E248F691EA5AF15001E2C07 /* CurrentLifestylePicker.swift */,
 				2E248F6B1EA5AF45001E2C07 /* DesiredLifestylePicker.swift */,
 				2E248F6D1EA5AF81001E2C07 /* DistanceGoalPicker.swift */,
+				2EDCC5281EA9A8570092BD61 /* BinaryFloatingPointExtention.swift */,
 			);
 			name = Subclasses/Extensions;
 			sourceTree = "<group>";
@@ -719,6 +722,7 @@
 				2EDE97FD1E83499A00996E68 /* FirebaseRun.swift in Sources */,
 				2EA6F7FD1E822F01002969A5 /* mHealth.xcdatamodeld in Sources */,
 				2EB3FDCE1E9305010069781F /* DistanceLineGraphViewController.swift in Sources */,
+				2EDCC5291EA9A8570092BD61 /* BinaryFloatingPointExtention.swift in Sources */,
 				2E248F681EA59BD6001E2C07 /* StringExtention.swift in Sources */,
 				2E3CCA351E85EBB300F9FE2E /* RunsTableViewCell.swift in Sources */,
 				2E4B50BC1E9FDDAA00B6B45B /* TimeLineGraphViewController.swift in Sources */,

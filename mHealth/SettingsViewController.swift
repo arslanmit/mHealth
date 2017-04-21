@@ -77,7 +77,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             data.append(displayname)
             data.append(value?["current-lifestyle"] as! String)
             data.append(value?["desired-lifestyle"] as! String)
-            data.append(value?["distance-goal"] as! String)
+            data.append(String(value?["distance-goal"] as! Double))
             self.data = data
             self.tableView.reloadData()
         })

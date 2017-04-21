@@ -23,7 +23,7 @@ class FirebaseRun{
     var longitudes: [Double]
     var timestamps: [String]
     
-    var caloriesBurnt: Double?
+    var caloriesBurnt: Double
     
     let ref: FIRDatabaseReference?
     
@@ -46,7 +46,7 @@ class FirebaseRun{
         distance = snapshotValue["distance"] as! Double
         climb = snapshotValue["climb"] as! Double
         descent = snapshotValue["descent"] as! Double
-        caloriesBurnt = snapshotValue["calories-burnt"] as? Double
+        caloriesBurnt = snapshotValue["calories-burnt"] as! Double
         timestamp = snapshotValue["timestamp"] as! String
         latitudes = snapshotValue["latitudes"] as! [Double]
         longitudes = snapshotValue["longitudes"] as! [Double]

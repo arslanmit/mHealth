@@ -13,7 +13,6 @@ import Firebase
 class MainScreenViewController : UIViewController{
  //MARK: OUTLETS
     @IBOutlet weak var welcomeLabel: UILabel!
-    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
@@ -26,9 +25,11 @@ class MainScreenViewController : UIViewController{
     var runs = [FirebaseRun]()
     
     var distanceGoal: Double = 0
+    var milesRan: Double = 0
+    var percent: Double = 0
 
     override func viewDidLoad(){
-        self.mainView.layer.cornerRadius = 5.0
+
        // setWelcomeAndRating()
         
         let id: String = Util.removePeriod(s: (user?.email)!)
@@ -50,8 +51,9 @@ class MainScreenViewController : UIViewController{
             distance = distance + run.distance
         }
         let miles: String = String(Util.getMiles(from: distance))
+        milesRan = miles.doubleValue!
         let goal: String = String(self.distanceGoal)
-        progressLabel.text = "\(miles) miles ran! \(goal) mile goal."
+        progressLabel.text = "\(miles) miles ran! \(goal) mile goal. \(percent)%"
         let progress: Double = Double(miles)!/Double(goal)!
         progressView.setProgress(Float(progress), animated: true)
     }
@@ -74,8 +76,8 @@ class MainScreenViewController : UIViewController{
         let userRef = FIRDatabase.database().reference(withPath: "users//\(id)/User-Data")
         userRef.observeSingleEvent(of: .value, with: { snapshot in
             let value = snapshot.value as? NSDictionary
-            let distanceGoal = value?["distance-goal"] as! String
-            self.distanceGoal = distanceGoal.doubleValue!
+            let distanceGoal = value?["distance-goal"] as! Double
+            self.distanceGoal = distanceGoal
         })
     }
     
@@ -91,7 +93,36 @@ class MainScreenViewController : UIViewController{
             currentRuns.sort(by: { Util.Date(from: $0.timestamp).compare(Util.Date(from: $1.timestamp)) == ComparisonResult.orderedAscending})
             self.runs = currentRuns;
             self.setProgress()
+            self.setDistanceGoal()
+            self.updateLifestyle()
         })
+    }
+    
+    private func setLife(d: Double, dg: Double) -> (Double, currentLifestyle){
+        let percent: Double = (d/dg)*100
+        var life: currentLifestyle = .NotFit
+        
+        switch(percent){
+        case _ where (percent >= 125):
+            life = .VeryFit
+        case _ where (percent >= 100):
+            life = .Fit
+        case _ where (percent >= 50):
+            life = .LittleFit
+        case _ where (percent < 50):
+            life = .NotFit
+        default:
+            break
+        }
+        print("You've reached \(percent)% of your goal")
+        return (percent.rounded(toPlaces: 3), life)
+    }
+    
+    private func updateLifestyle(){
+        let id: String = Util.removePeriod(s: (user?.email)!)
+        let (percent, current) = setLife(d: milesRan, dg: distanceGoal)
+        self.percent = percent
+        self.ref.child("users//\(id)/User-Data/current-lifestyle").setValue(current.description)
     }
 
 }

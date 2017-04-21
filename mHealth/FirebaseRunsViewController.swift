@@ -28,6 +28,7 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate, CLLocatio
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var descentLabel: UILabel!
     @IBOutlet weak var climbLabel: UILabel!
+    @IBOutlet weak var caloriesBurntLabel: UILabel!
 
     @IBOutlet weak var twitterButton: UIButton!
        
@@ -85,6 +86,8 @@ class FirebaseRunsViewController: UIViewController, MKMapViewDelegate, CLLocatio
         paceLabel.text = "Mean speed: \(Util.kmphToMphString(kmph: (myFirebaseRun.distance/myFirebaseRun.duration))) MPH"
         climbLabel.text = "Total climb: "+String((myFirebaseRun.climb).rounded())+" m"
         descentLabel.text = "Total descent: "+String((myFirebaseRun.descent).rounded())+" m"
+        print(myFirebaseRun.caloriesBurnt)
+        caloriesBurntLabel.text =  "Total Calories Burned: \((myFirebaseRun.caloriesBurnt).rounded())"
         
         loadMap()
         setRunPins()

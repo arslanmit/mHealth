@@ -27,6 +27,8 @@ import Social
 
 class DetailViewController: UIViewController,MKMapViewDelegate {
     var run: Run!
+    var caloriesBurnt: Double!
+    
     var mapOverlay: MKTileOverlay!
     
     @IBOutlet weak var mapView: MKMapView!
@@ -36,6 +38,7 @@ class DetailViewController: UIViewController,MKMapViewDelegate {
     @IBOutlet weak var paceLabel: UILabel!
     @IBOutlet weak var climbLabel: UILabel!
     @IBOutlet weak var descentLabel: UILabel!
+    @IBOutlet weak var caloriesLabel: UILabel!
     
     @IBOutlet weak var tweetButton: UIButton!
     
@@ -73,8 +76,7 @@ class DetailViewController: UIViewController,MKMapViewDelegate {
         
         climbLabel.text = "Total climb: "+String((run.climb.doubleValue).rounded())+" m"
         descentLabel.text = "Total descent: "+String((run.descent.doubleValue).rounded())+" m"
-        
-        
+        caloriesLabel.text = "Calories Burned: \(caloriesBurnt.rounded()/100)"
         loadMap()
     }
     func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {

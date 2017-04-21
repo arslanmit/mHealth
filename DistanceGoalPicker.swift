@@ -11,9 +11,10 @@ import UIKit
 
 class DistanceGoalPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource{
     
-    let segments = (whole: (Array(0...1000).map{String($0)}), decimal: (Array(0...99).map{String($0)}), ["miles"])
+    let segments = (whole: (Array(0...1000).map{Int($0)}),
+                    decimal: (Array(0...99).map{Double($0)/100.0}), ["miles"])
     
-    var selectedOption: String = ""
+    var selectedOption: Double = 0
     
     var textField = UITextField()
     
@@ -44,8 +45,7 @@ class DistanceGoalPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSo
     
     
     func setSelected(wholeIndex: Int, decimalIndex: Int){
-      //  let segments = (whole: (Array(0...100).map{String($0)}), decimal: (Array(0...99).map{String($0)}))
-        selectedOption = "\(segments.whole[wholeIndex]).\(segments.whole[decimalIndex])"
+        selectedOption = Double(segments.whole[wholeIndex]) + segments.decimal[decimalIndex]
     }
     
     //MARK: PICKER FUNCTIONS
@@ -66,9 +66,9 @@ class DistanceGoalPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if component == 0 {
-            return segments.0[row]
+            return String(segments.0[row])
         }else if component == 1 {
-            return ".\(segments.1[row])"
+            return "\(segments.1[row].zerolessStringValue)"
         }else{
             return segments.2[row]
         }
@@ -78,7 +78,7 @@ class DistanceGoalPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSo
         let whole = pickerView.selectedRow(inComponent: 0)
         let decimal = pickerView.selectedRow(inComponent: 1)
         setSelected(wholeIndex: whole, decimalIndex: decimal)
-        textField.text = selectedOption
+        textField.text = String(selectedOption)
     }
     
     // MARK: action
