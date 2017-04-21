@@ -68,7 +68,7 @@ class DistanceGoalPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSo
         if component == 0 {
             return String(segments.0[row])
         }else if component == 1 {
-            return "\(segments.1[row].zerolessStringValue)"
+            return "\(segments.1[row].droppedFirst)"
         }else{
             return segments.2[row]
         }

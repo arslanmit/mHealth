@@ -21,26 +21,7 @@ print("Fitness Level = Fit... \(fit)")
 print("good job!")
 
 
-
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 extension BinaryFloatingPoint {
     var zerolessStringValue: String{
         return String(describing: self).replacingOccurrences(of: "0", with: "")
@@ -53,40 +34,20 @@ extension BinaryFloatingPoint {
     
 }
 
+extension String{
+    
+    public func dropFirst(){
+        
+    }
+    
+}
+
 let pi: Double = Double.pi - 3
 
+let h: String = "hello"
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+String(h.characters.dropFirst())
 
 
 

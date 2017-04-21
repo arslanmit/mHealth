@@ -10,8 +10,8 @@ import Foundation
 
 extension BinaryFloatingPoint {
     
-    var zerolessStringValue: String{
-        return String(describing: self).replacingOccurrences(of: "0", with: "")
+    var droppedFirst: String{
+        return String(String(describing: self).characters.dropFirst())
     }
     
     public func rounded(toPlaces places: Int) -> Self {

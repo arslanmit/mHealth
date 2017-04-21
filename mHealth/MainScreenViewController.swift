@@ -114,7 +114,7 @@ class MainScreenViewController : UIViewController{
         default:
             break
         }
-        print("You've reached \(percent)% of your goal")
+        print("You've reached \(percent)% of your goal------")
         return (percent.rounded(toPlaces: 3), life)
     }
     
