@@ -34,7 +34,7 @@ class animationPrototypeViewController: UIViewController{
         
         let tempLayer: CAGradientLayer = CAGradientLayer()
         tempLayer.frame = self.view.bounds
-        tempLayer.colors = [UIColor(netHex: 0x53cf84).cgColor, UIColor(netHex: 0x53cf84).cgColor, UIColor(netHex: 0x2aa581).cgColor, UIColor(netHex: 0x1b9680).cgColor]
+        tempLayer.colors = [UIColor(netHex: 0xB6E2FE).cgColor, UIColor(netHex: 0xB6E2FE).cgColor, UIColor(netHex: 0xDAECF7).cgColor, UIColor(netHex: 0xF3F8FB).cgColor]
         tempLayer.locations = [NSNumber(value: 0.0), NSNumber(value: 0.5), NSNumber(value: 0.8), NSNumber(value: 1.0)]
         tempLayer.startPoint = CGPoint(x: 0, y: 0)
         tempLayer.endPoint = CGPoint(x: 1, y: 1)
@@ -44,9 +44,10 @@ class animationPrototypeViewController: UIViewController{
         self.exampleContainerView.isHidden = true
     }
     @IBAction func startAnimation(_ sender: Any) {
-        let myView:BAFluidView = BAFluidView(frame: self.view.frame, startElevation: 0.5)
+        let myView:BAFluidView = BAFluidView(frame: self.view.frame, startElevation: 0.1)
         
         myView.strokeColor = UIColor.white
+        // 0x2e353d
         myView.fillColor = UIColor(netHex: 0x2e353d)
         myView.keepStationary()
         myView.startAnimation()
@@ -66,6 +67,7 @@ class animationPrototypeViewController: UIViewController{
         })
     }
 }
+/*
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")
@@ -78,4 +80,4 @@ extension UIColor {
     convenience init(netHex:Int) {
         self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
     }
-}
+}*/
