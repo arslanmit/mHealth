@@ -17,6 +17,7 @@ class MainScreenViewController : UIViewController{
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     
+    @IBOutlet weak var backgroundView: UIView!
     
  //MARK: FIREBASE
     let ref = FIRDatabase.database().reference()
@@ -37,6 +38,7 @@ class MainScreenViewController : UIViewController{
         ref.observe(.value, with: { snapshot in
             self.load()
         })
+        backgroundView.layer.cornerRadius=5.0;
     }
     
     private func load(){
