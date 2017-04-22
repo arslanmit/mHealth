@@ -60,7 +60,7 @@ class FirebaseRun{
         climb = Double(run.climb)
         descent = Double(run.descent)
         self.caloriesBurnt = caloriesBurnt
-        timestamp = Util.DateString(from: (savedLocations.last?.timestamp)!) as String
+        timestamp = Util.DateString(from: (savedLocations.last?.timestamp)!)
         //lats and longs
         latitudes = Util.getLatArray(locs: savedLocations)
         longitudes = Util.getLongArray(locs: savedLocations) //NSArray(array: Util.getLongArray(locs: savedLocations))

@@ -39,6 +39,7 @@ enum currentLifestyle : String {
                 return "😎"
             case .VeryFit:
                 return "😈"
+            //not needed
             default:
                 break
         }
