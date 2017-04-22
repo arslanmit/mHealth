@@ -22,33 +22,38 @@ print("good job!")
 
 
 */
-extension BinaryFloatingPoint {
-    var zerolessStringValue: String{
-        return String(describing: self).replacingOccurrences(of: "0", with: "")
-    }
-    public func rounded(toPlaces places: Int) -> Self {
-        guard places >= 0 else { return self }
-        let divisor = Self((0..<places).reduce(1.0) { $0.0 * 10.0 })
-        return (self * divisor).rounded() / divisor
+enum currentLifestyle : String {
+    case NotFit = "Not Fit"
+    case LittleFit = "Little Fit"
+    case Fit = "Fit"
+    case VeryFit = "Very Fit"
+    
+    init(rawValue: String) {
+        switch rawValue {
+        case "Not Fit": self = .NotFit
+        case "Little Fit": self = .LittleFit
+        case "Fit": self = .Fit
+        case "Very Fit": self = .VeryFit
+        default: self = .NotFit
+        }
     }
     
+    var emoji: String{
+        switch(self){
+        case .NotFit:
+            return "💩"
+        case .LittleFit:
+            return "🤕"
+        case .Fit:
+            return "😎"
+        case .VeryFit:
+            return "😈"
+        default:
+            break
+        }
+    }
 }
 
-extension String{
-    
-    public func dropFirst(){
-        
-    }
-    
-}
-
-let pi: Double = Double.pi - 3
-
-let h: String = "hello"
-
-
-String(h.characters.dropFirst())
-
-
+let x: currentLifestyle = currentLifestyle(rawValue: "hello")
 
 

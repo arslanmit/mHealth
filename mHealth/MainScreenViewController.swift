@@ -26,7 +26,7 @@ class MainScreenViewController : UIViewController{
     
     var distanceGoal: Double = 0
     var milesRan: Double = 0
-    var percent: Double = 0
+    var progressPercent: Double = 0
 
     override func viewDidLoad(){
 
@@ -53,8 +53,9 @@ class MainScreenViewController : UIViewController{
         let miles: String = String(Util.getMiles(from: distance))
         milesRan = miles.doubleValue!
         let goal: String = String(self.distanceGoal)
-        progressLabel.text = "\(miles) miles ran! \(goal) mile goal. \(percent)%"
         let progress: Double = Double(miles)!/Double(goal)!
+        self.progressPercent = progress
+        progressLabel.text = "\(miles) miles ran! \(goal) mile goal. \((progress*100).rounded(toPlaces: 3))%"
         progressView.setProgress(Float(progress), animated: true)
     }
     
@@ -64,10 +65,11 @@ class MainScreenViewController : UIViewController{
         userRef.observeSingleEvent(of: .value, with: { snapshot in
             let value = snapshot.value as? NSDictionary
             let mName = value?["name"] as! String
-            let currentLifestyle = value?["current-lifestyle"] as! String
+            let currentLifestyleString = value?["current-lifestyle"] as! String
             self.title = mName
-            self.welcomeLabel.text = "Welcome, \(mName)!"
-            self.ratingLabel.text = "Currently Rated: \(currentLifestyle)"
+            self.welcomeLabel.text = "Welcome \(mName)"
+            let cLenum: currentLifestyle = currentLifestyle(rawValue: currentLifestyleString)
+            self.ratingLabel.text = "Your mHealth: \(currentLifestyleString)... \(cLenum.emoji)"
         })
     }
     
@@ -120,8 +122,7 @@ class MainScreenViewController : UIViewController{
     
     private func updateLifestyle(){
         let id: String = Util.removePeriod(s: (user?.email)!)
-        let (percent, current) = setLife(d: milesRan, dg: distanceGoal)
-        self.percent = percent
+        let (_, current) = setLife(d: milesRan, dg: distanceGoal)
         self.ref.child("users//\(id)/User-Data/current-lifestyle").setValue(current.description)
     }
 

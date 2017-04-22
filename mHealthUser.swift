@@ -15,8 +15,33 @@ enum currentLifestyle : String {
     case Fit = "Fit"
     case VeryFit = "Very Fit"
     
+    init(rawValue: String) {
+        switch rawValue {
+        case "Not Fit": self = .NotFit
+        case "Little Fit": self = .LittleFit
+        case "Fit": self = .Fit
+        case "Very Fit": self = .VeryFit
+        default: self = .NotFit
+        }
+    }
+    
     var description: String {
         return self.rawValue
+    }
+    
+    var emoji: String{
+        switch(self){
+            case .NotFit:
+                return "💩"
+            case .LittleFit:
+                return "🤕"
+            case .Fit:
+                return "😎"
+            case .VeryFit:
+                return "😈"
+            default:
+                break
+        }
     }
 }
 
@@ -69,7 +94,7 @@ struct mHealthUser{
         self.weight = weight
         self.height = height
         self.bmi = bmi
-        self.mcurrentLifestyle = currentLifestyle(rawValue: mcurrentLifestyle)!
+        self.mcurrentLifestyle = currentLifestyle(rawValue: mcurrentLifestyle)
         self.mdesiredLifestyle = desiredLifestyle(rawValue: mdesiredLifestyle)!
         self.distanceGoal = distanceGoal
         self.ref = nil
@@ -103,7 +128,7 @@ struct mHealthUser{
         weight = snapshotValue["weight"] as? Double
         height = snapshotValue["height"] as? Double
         bmi = snapshotValue["bmi"] as? Double
-        mcurrentLifestyle = currentLifestyle(rawValue: snapshotValue["current-lifestyle"] as! String)!
+        mcurrentLifestyle = currentLifestyle(rawValue: snapshotValue["current-lifestyle"] as! String)
         mdesiredLifestyle = desiredLifestyle(rawValue: snapshotValue["desired-lifestyle"] as! String)!
         distanceGoal = snapshotValue["distance-goal"] as? Double
         ref = snapshot.ref;
