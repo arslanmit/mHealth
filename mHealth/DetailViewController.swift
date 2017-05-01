@@ -76,7 +76,7 @@ class DetailViewController: UIViewController,MKMapViewDelegate {
         
         climbLabel.text = "Total climb: "+String((run.climb.doubleValue).rounded())+" m"
         descentLabel.text = "Total descent: "+String((run.descent.doubleValue).rounded())+" m"
-        caloriesLabel.text = "Calories Burned: \(caloriesBurnt.rounded()/100)"
+        caloriesLabel.text = "Calories Burned: \(caloriesBurnt.rounded())"
         loadMap()
     }
     func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {

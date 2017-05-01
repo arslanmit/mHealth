@@ -201,8 +201,9 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
  ///
         
         //print(weightInPounds)
-        caloriesLabel.text = "Calories: "+String(Double(weight!*0.75*dist).rounded()/100)
-        calories = Double(weight!*0.75*dist/100)
+        calories = Double(weight!*0.75*dist)
+        let calorieString: String = String(format: "%.1f", ceil(calories*100)/100)
+        caloriesLabel.text = "Calories: "+calorieString
         
 ///
     }
@@ -212,7 +213,7 @@ class NewRunViewController: UIViewController,MKMapViewDelegate,CLLocationManager
         let userRef = FIRDatabase.database().reference(withPath: "users//\(id)/User-Data")
         userRef.observeSingleEvent(of: .value, with: { snapshot in
             let value = snapshot.value as? NSDictionary
-            self.weight = (value?["weight"] as! Double)*2.2
+            self.weight = (value?["weight"] as! Double)
         })
     }
     
