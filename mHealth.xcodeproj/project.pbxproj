@@ -63,6 +63,9 @@
 		2EC1E4FB1EA024CA009C8113 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1E4FA1EA024CA009C8113 /* UIImage+Gif.swift */; };
 		2EC1E4FD1EA025CA009C8113 /* ChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1E4FC1EA025CA009C8113 /* ChannelListViewController.swift */; };
 		2EC1E4FF1EA026C5009C8113 /* CreateChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1E4FE1EA026C5009C8113 /* CreateChannelCell.swift */; };
+		2ED64EA31EB7FAA300DAAAD0 /* runner.png in Resources */ = {isa = PBXBuildFile; fileRef = 2ED64EA21EB7FAA300DAAAD0 /* runner.png */; };
+		2ED64EA51EB7FBE300DAAAD0 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 2ED64EA41EB7FBE300DAAAD0 /* settings.png */; };
+		2ED64EA71EB7FF4400DAAAD0 /* connection.png in Resources */ = {isa = PBXBuildFile; fileRef = 2ED64EA61EB7FF4400DAAAD0 /* connection.png */; };
 		2EDCC5291EA9A8570092BD61 /* BinaryFloatingPointExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDCC5281EA9A8570092BD61 /* BinaryFloatingPointExtention.swift */; };
 		2EDE97F91E82EDB200996E68 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE97F81E82EDB200996E68 /* DetailViewController.swift */; };
 		2EDE97FB1E82EDF000996E68 /* MulticolorPolylineSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDE97FA1E82EDF000996E68 /* MulticolorPolylineSegment.swift */; };
@@ -176,6 +179,9 @@
 		2EC1E4FA1EA024CA009C8113 /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		2EC1E4FC1EA025CA009C8113 /* ChannelListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListViewController.swift; sourceTree = "<group>"; };
 		2EC1E4FE1EA026C5009C8113 /* CreateChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChannelCell.swift; sourceTree = "<group>"; };
+		2ED64EA21EB7FAA300DAAAD0 /* runner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runner.png; sourceTree = "<group>"; };
+		2ED64EA41EB7FBE300DAAAD0 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		2ED64EA61EB7FF4400DAAAD0 /* connection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connection.png; sourceTree = "<group>"; };
 		2EDCC5281EA9A8570092BD61 /* BinaryFloatingPointExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryFloatingPointExtention.swift; sourceTree = "<group>"; };
 		2EDE97F81E82EDB200996E68 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2EDE97FA1E82EDF000996E68 /* MulticolorPolylineSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MulticolorPolylineSegment.swift; path = mHealth/MulticolorPolylineSegment.swift; sourceTree = "<group>"; };
@@ -436,6 +442,9 @@
 		2EE80AF81E68ABF7000956DE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2ED64EA61EB7FF4400DAAAD0 /* connection.png */,
+				2ED64EA41EB7FBE300DAAAD0 /* settings.png */,
+				2ED64EA21EB7FAA300DAAAD0 /* runner.png */,
 				2E248F651EA497A6001E2C07 /* transRedStandingApple.png */,
 				2E11A1351EA42064004D48B9 /* settings_icon.png */,
 				2E9106871EABC885004138C6 /* apple-no edges.png */,
@@ -626,6 +635,7 @@
 			files = (
 				2E4B50BA1E9FD3A000B6B45B /* apple-2086023_640.png in Resources */,
 				2E0378361E82A63F00FF1AB3 /* mainTB.png in Resources */,
+				2ED64EA71EB7FF4400DAAAD0 /* connection.png in Resources */,
 				2EB8F5251E78F07B0041BE03 /* cherry.png in Resources */,
 				2E9106881EABC885004138C6 /* apple-no edges.png in Resources */,
 				2E69EF261E65D36A00F1BC9A /* LaunchScreen.storyboard in Resources */,
@@ -640,8 +650,10 @@
 				2E7C81FA1E82ACAE00BCECA4 /* red-btn.png in Resources */,
 				2E7C81F71E82ACA600BCECA4 /* blue-btn.png in Resources */,
 				2E11A1361EA42064004D48B9 /* settings_icon.png in Resources */,
+				2ED64EA51EB7FBE300DAAAD0 /* settings.png in Resources */,
 				2E7C81F81E82ACA600BCECA4 /* green-btn.png in Resources */,
 				2EE80AFC1E68ACCC000956DE /* healthIcon.jpeg in Resources */,
+				2ED64EA31EB7FAA300DAAAD0 /* runner.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

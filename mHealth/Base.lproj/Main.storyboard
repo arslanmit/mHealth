@@ -419,7 +419,7 @@
             <objects>
                 <navigationController id="EFZ-AH-Mg8" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="myFit" image="mainTB.png" id="NZE-Jg-pls"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7tR-Tl-kwX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="7tR-Tl-kwX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1165,8 +1165,8 @@
         <scene sceneID="aPm-Qz-EAa">
             <objects>
                 <navigationController title="Master" id="Ikj-Xq-Yik" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Run" id="krm-dX-v6n"/>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="FvD-F8-UMM">
+                    <tabBarItem key="tabBarItem" title="My Run" image="runner.png" id="krm-dX-v6n"/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="FvD-F8-UMM">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1408,7 +1408,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.70778959990000001" green="0.88472461700000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="Zzt-Px-5l9"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings.png" id="Zzt-Px-5l9"/>
                     <navigationItem key="navigationItem" title="mHealth Settings" id="9zA-5w-aCr">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="Settings"/>
@@ -1424,13 +1424,13 @@
             </objects>
             <point key="canvasLocation" x="1109.5999999999999" y="888.30584707646187"/>
         </scene>
-        <!--mHealth Channels-->
+        <!--Channels-->
         <scene sceneID="cNq-3H-yYb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zDu-g0-nBw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="mHealth Channels" id="VdH-Ij-TBl"/>
+                    <tabBarItem key="tabBarItem" title="Channels" image="connection.png" id="VdH-Ij-TBl"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ABi-qd-EfB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ABi-qd-EfB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1795,10 +1795,13 @@
         <image name="apple-no edges.png" width="360" height="412"/>
         <image name="background" width="2120" height="2816"/>
         <image name="button-1905961_640.png" width="640" height="640"/>
+        <image name="connection.png" width="27" height="26"/>
         <image name="green-btn.png" width="345" height="182"/>
         <image name="mainTB.png" width="32" height="31"/>
         <image name="red-btn.png" width="194" height="124"/>
+        <image name="runner.png" width="23" height="25"/>
         <image name="s_tweet_button.png" width="500" height="198"/>
+        <image name="settings.png" width="25" height="25"/>
         <image name="transRedStandingApple.png" width="640" height="640"/>
         <image name="typing.png" width="34" height="8"/>
     </resources>

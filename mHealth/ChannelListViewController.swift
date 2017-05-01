@@ -51,7 +51,7 @@ class ChannelListViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    title = "mHealth Channels"
+    title = "Channels"
     observeChannels()
   }
   
