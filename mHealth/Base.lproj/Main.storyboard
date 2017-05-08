@@ -40,7 +40,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zp5-A0-PpO">
-                                        <rect key="frame" x="8" y="290" width="326" height="36"/>
+                                        <rect key="frame" x="8" y="300" width="326" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.85435556989999994" green="0.22407131969999999" blue="0.30243829799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
@@ -73,7 +73,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0O-ds-dyl">
-                                        <rect key="frame" x="8" y="362" width="326" height="35"/>
+                                        <rect key="frame" x="8" y="352" width="326" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.3763079248953331" green="0.73089378240000002" blue="0.37322663465603045" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
@@ -419,7 +419,7 @@
             <objects>
                 <navigationController id="EFZ-AH-Mg8" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="myFit" image="mainTB.png" id="NZE-Jg-pls"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="7tR-Tl-kwX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7tR-Tl-kwX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1166,7 +1166,7 @@
             <objects>
                 <navigationController title="Master" id="Ikj-Xq-Yik" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="My Run" image="runner.png" id="krm-dX-v6n"/>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="FvD-F8-UMM">
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="FvD-F8-UMM">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1430,7 +1430,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zDu-g0-nBw" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Channels" image="connection.png" id="VdH-Ij-TBl"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ABi-qd-EfB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ABi-qd-EfB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1806,7 +1806,7 @@
         <image name="typing.png" width="34" height="8"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BLQ-6n-esO"/>
+        <segue reference="90T-yF-fDM"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
