@@ -157,7 +157,7 @@ class MainScreenViewController : UIViewController{
         
         myView.strokeColor = UIColor.white
         // 0x2e353d
-        myView.fillColor = UIColor(netHex: 0x2e353d)
+        myView.fillColor = UIColor(netHex: 0x004262)
         myView.keepStationary()
         myView.startAnimation()
         self.exampleContainerView.isHidden = false
